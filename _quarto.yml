@@ -1,0 +1,19 @@
+project:
+  title: "Business Intelligence & Data Science, SoSe 2024"
+format: 
+  revealjs:
+    theme: [default, clean.scss]
+    menu:
+      side: left
+    slide-number: true
+    date-format: long
+lang: de
+footer: "Business Intelligence & Data Science, SoSe 2024"
+institute: Manager Data Science
+author:
+  - name: Dr. Sebastian Schrön
+    email: sebastian.schroen.doz@leibniz-fh.de
+    affiliations: Bahlsen GmbH & Co. KG
+
+toc: true
+number-sections: false
