@@ -1,5 +1,6 @@
 project:
   title: "Business Intelligence & Data Science, SoSe 2024"
+  type: website
 format: 
   revealjs:
     theme: [default, clean.scss]
