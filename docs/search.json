@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "02_VL.html#additional-theme-classes",
+    "href": "02_VL.html#additional-theme-classes",
+    "title": "Business Intelligence & Data Science",
+    "section": "Additional theme classes",
+    "text": "Additional theme classes\nSome extra things you can do with the clean theme\nSpecial classes for emphasis\n\n.alert class for default emphasis, e.g. important note.\n.fg class for custom colour, e.g. important note.\n.bg class for custom background, e.g. important note.\n\nCross-references\n\n.button class provides a Beamer-like button, e.g. Summary\nWant more?\nSee our longer demo slides\n\n\n\n\n\n\nTip with Title\n\n\nThis is an example of a callout with a title.\n\n\n\n\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+  },
+  {
     "objectID": "01_VL.html#example-slide",
     "href": "01_VL.html#example-slide",
     "title": "Business Intelligence & Data Science",
