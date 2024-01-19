@@ -20,7 +20,7 @@ library(dplyr)
 ### Zeitplan
 
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
-read_csv("https://raw.githubusercontent.com/SebSchroen/bi_and_ds-lecture_notes/main/data/ablauf.csv?token=GHSAT0AAAAAACM257XVVEYBBDRA7AUOJWCEZNKWVYQ") %>% 
+read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
   select(-Slides) %>% 
   kable( escape = FALSE)  %>% 
   kable_styling(font_size = 24)

@@ -10,6 +10,8 @@ format:
       side: left
     slide-number: true
     date-format: long
+    chalkboard: true
+    multiplex: true
 lang: de
 footer: "Business Intelligence & Data Science, SoSe 2024"
 institute: Manager Data Science

@@ -7,25 +7,18 @@
     "text": "Example slide\nThis is a sub-title\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
   },
   {
-    "objectID": "01_VL.html#example-slide",
-    "href": "01_VL.html#example-slide",
+    "objectID": "01_VL.html#kursaufbau",
+    "href": "01_VL.html#kursaufbau",
     "title": "Business Intelligence & Data Science",
-    "section": "Example slide",
-    "text": "Example slide\nThis is a sub-title\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+    "section": "Kursaufbau",
+    "text": "Kursaufbau\nZeitplan\n\n\n\n\n\nBlock\nDatum\nUhrzeit\nThema\n\n\n\n\n1\n13.03.2024\n13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024\n14:45 – 16:15\nDatenerfassungsschicht, Data Warehousing\n\n\n3\n22.03.2024\n09:00 – 10:30\nTransformationsschicht und Bereitstellungsschicht\n\n\n4\n22.03.2024\n10:45 – 12:15\nBig Data, Data Lake, Informationsgenerierung\n\n\n5\n29.03.2024\n09:00 – 10:30\nAdvanced und Predictive Analytics: Grundlagen\n\n\n6\n29.03.2024\n10:45 – 12:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n7\n16.04.2024\n13:00 – 14:30\nAdvanced und Predictive Analytics: Assoziationsanalyse\n\n\n8\n16.04.2024\n14:45 – 16:15\nInformationsbereitstellung: Visualisierung und Distribution\n\n\n9\n30.04.2024\n13:00 – 14:30\nData Science Use Case\n\n\n10\n30.04.2024\n14:45 – 16:15\nData Science Use Case\n\n\n-\n13.05.2024\n13:00 – 14:30\nKlausur"
   },
   {
-    "objectID": "01_VL.html#organisation",
-    "href": "01_VL.html#organisation",
+    "objectID": "01_VL.html#lernziele",
+    "href": "01_VL.html#lernziele",
     "title": "Business Intelligence & Data Science",
-    "section": "Organisation",
-    "text": "Organisation\nKursmaterialien\nInhalt"
-  },
-  {
-    "objectID": "01_VL.html#organisation-1",
-    "href": "01_VL.html#organisation-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Organisation",
-    "text": "Organisation\nKursaufbau\n\n\n\n\n\nBlock\nDatum\nUhrzeit\nThema\nSlides\n\n\n\n\n1\n13.03.2024\n13:00 – 14:30\nOrganisation, Einleitung\nVorlesung 1\n\n\n2\n13.03.2024\n14:45 – 16:15\nDatenerfassungsschicht, Data Warehousing\nVorlesung 2\n\n\n3\n22.03.2024\n09:00 – 10:30\nTransformationsschicht und Bereitstellungsschicht\nNA\n\n\n4\n22.03.2024\n10:45 – 12:15\nBig Data, Data Lake, Informationsgenerierung\nNA\n\n\n5\n29.03.2024\n09:00 – 10:30\nAdvanced und Predictive Analytics: Grundlagen\nNA\n\n\n6\n29.03.2024\n10:45 – 12:15\nAdvanced und Predictive Analytics: Klassifikation\nNA\n\n\n7\n16.04.2024\n13:00 – 14:30\nAdvanced und Predictive Analytics: Assoziationsanalyse\nNA\n\n\n8\n16.04.2024\n14:45 – 16:15\nInformationsbereitstellung: Visualisierung und Distribution\nNA\n\n\n9\n30.04.2024\n13:00 – 14:30\nData Science Use Case\nNA\n\n\n10\n30.04.2024\n14:45 – 16:15\nData Science Use Case\nNA\n\n\n-\n13.05.2024\n13:00 – 14:30\nKlausur\nNA\n\n\n\n\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+    "section": "Lernziele",
+    "text": "Lernziele\nIn diesem Kurs lernen wir…"
   },
   {
     "objectID": "01_VL.html#kursmaterialen",
@@ -33,13 +26,6 @@
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
     "text": "Kursmaterialen\nKurs-Website"
-  },
-  {
-    "objectID": "01_VL.html#kursaufbau",
-    "href": "01_VL.html#kursaufbau",
-    "title": "Business Intelligence & Data Science",
-    "section": "Kursaufbau",
-    "text": "Kursaufbau\nZeitplan\n\n\n\n\n\nBlock\nDatum\nUhrzeit\nThema\n\n\n\n\n1\n13.03.2024\n13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024\n14:45 – 16:15\nDatenerfassungsschicht, Data Warehousing\n\n\n3\n22.03.2024\n09:00 – 10:30\nTransformationsschicht und Bereitstellungsschicht\n\n\n4\n22.03.2024\n10:45 – 12:15\nBig Data, Data Lake, Informationsgenerierung\n\n\n5\n29.03.2024\n09:00 – 10:30\nAdvanced und Predictive Analytics: Grundlagen\n\n\n6\n29.03.2024\n10:45 – 12:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n7\n16.04.2024\n13:00 – 14:30\nAdvanced und Predictive Analytics: Assoziationsanalyse\n\n\n8\n16.04.2024\n14:45 – 16:15\nInformationsbereitstellung: Visualisierung und Distribution\n\n\n9\n30.04.2024\n13:00 – 14:30\nData Science Use Case\n\n\n10\n30.04.2024\n14:45 – 16:15\nData Science Use Case\n\n\n-\n13.05.2024\n13:00 – 14:30\nKlausur"
   },
   {
     "objectID": "01_VL.html#kursmaterialen-1",
@@ -54,12 +40,5 @@
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
     "text": "Kursmaterialen\nPDF-Skript\n\n\nPunkt 1\nPunkt 2\nPunkt 4"
-  },
-  {
-    "objectID": "01_VL.html#lernziele",
-    "href": "01_VL.html#lernziele",
-    "title": "Business Intelligence & Data Science",
-    "section": "Lernziele",
-    "text": "Lernziele\nIn diesem Kurs lernen wir…"
   }
 ]
