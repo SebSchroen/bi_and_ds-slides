@@ -16,6 +16,19 @@ library(dplyr)
 # Organisation 
 
 
+## Kursaufbau
+### Zeitplan
+
+```{r, message= FALSE, echo = FALSE, warning = FALSE}
+read_csv("https://raw.githubusercontent.com/SebSchroen/bi_and_ds-lecture_notes/main/data/ablauf.csv?token=GHSAT0AAAAAACM257XVVEYBBDRA7AUOJWCEZNKWVYQ") %>% 
+  select(-Slides) %>% 
+  kable( escape = FALSE)  %>% 
+  kable_styling(font_size = 24)
+```
+
+## Lernziele
+### In diesem Kurs lernen wir...
+
 ## Kursmaterialen
 ### Kurs-Website
 
@@ -28,15 +41,10 @@ library(dplyr)
 
 
 
+::: {.notes}
+* Punkt 1
+* Punkt 2
+* Punkt 4
+:::
 
-
-## Kursaufbau
-### Zeitplan
-
-```{r, message= FALSE, echo = FALSE, warning = FALSE}
-read_csv("https://raw.githubusercontent.com/SebSchroen/bi_and_ds-lecture_notes/main/data/ablauf.csv?token=GHSAT0AAAAAACM257XVVEYBBDRA7AUOJWCEZNKWVYQ") %>% 
-  select(-Slides) %>% 
-  kable( escape = FALSE)  %>% 
-  kable_styling(font_size = 24)
-```
 # Einleitung
