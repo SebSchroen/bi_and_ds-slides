@@ -3,11 +3,40 @@ title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 1"
 ---
 
+```{r}
 
-## Example slide
+library(kableExtra)
+library(readr)
+library(magrittr)
+library(dplyr)
+```
 
-### This is a  sub-title
+
+
+# Organisation 
+
+
+## Kursmaterialen
+### Kurs-Website
+
+## Kursmaterialen
+### Folien
+
+
+## Kursmaterialen
+### PDF-Skript
 
 
 
 
+
+## Kursaufbau
+### Zeitplan
+
+```{r, message= FALSE, echo = FALSE, warning = FALSE}
+read_csv("https://raw.githubusercontent.com/SebSchroen/bi_and_ds-lecture_notes/main/data/ablauf.csv?token=GHSAT0AAAAAACM257XVVEYBBDRA7AUOJWCEZNKWVYQ") %>% 
+  select(-Slides) %>% 
+  kable( escape = FALSE)  %>% 
+  kable_styling(font_size = 24)
+```
+# Einleitung
