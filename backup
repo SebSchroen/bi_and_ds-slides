@@ -1,0 +1,4 @@
+# How to include interatictive shiny apps
+```{=html, eval = FALSE}
+ <iframe id="example1" src="https://learnr-examples.shinyapps.io/ex-data-filter/#section-filter-rows-with-filter" style="border: none; width: 100%; height: 720px" frameborder="0"></iframe>
+```
