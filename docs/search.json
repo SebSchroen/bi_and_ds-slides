@@ -11,14 +11,14 @@
     "href": "01_VL.html#kursaufbau",
     "title": "Business Intelligence & Data Science",
     "section": "Kursaufbau",
-    "text": "Kursaufbau\nZeitplan\n\n\n\n\n\nBlock\nDatum\nUhrzeit\nThema\n\n\n\n\n1\n13.03.2024\n13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024\n14:45 – 16:15\nDatenerfassungsschicht, Data Warehousing\n\n\n3\n22.03.2024\n09:00 – 10:30\nTransformationsschicht und Bereitstellungsschicht\n\n\n4\n22.03.2024\n10:45 – 12:15\nBig Data, Data Lake, Informationsgenerierung\n\n\n5\n29.03.2024\n09:00 – 10:30\nAdvanced und Predictive Analytics: Grundlagen\n\n\n6\n29.03.2024\n10:45 – 12:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n7\n16.04.2024\n13:00 – 14:30\nAdvanced und Predictive Analytics: Assoziationsanalyse\n\n\n8\n16.04.2024\n14:45 – 16:15\nInformationsbereitstellung: Visualisierung und Distribution\n\n\n9\n30.04.2024\n13:00 – 14:30\nData Science Use Case\n\n\n10\n30.04.2024\n14:45 – 16:15\nData Science Use Case\n\n\n-\n13.05.2024\n13:00 – 14:30\nKlausur"
+    "text": "Kursaufbau\nZeitplan\n\n\n\n\n\nBlock\nDatum\nUhrzeit\nThema\n\n\n\n\n1\n13.03.2024\n13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024\n14:45 – 16:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n22.03.2024\n09:00 – 10:30\nDatentransformation\n\n\n4\n22.03.2024\n10:45 – 12:15\nBig Data und Data Lake\n\n\n5\n29.03.2024\n09:00 – 10:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n29.03.2024\n10:45 – 12:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n16.04.2024\n13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n16.04.2024\n14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n30.04.2024\n13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n30.04.2024\n14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024\n13:00 – 14:30\nKlausur"
   },
   {
     "objectID": "01_VL.html#lernziele",
     "href": "01_VL.html#lernziele",
     "title": "Business Intelligence & Data Science",
     "section": "Lernziele",
-    "text": "Lernziele\nIn diesem Kurs lernen wir…"
+    "text": "Lernziele\nIn diesem Kurs lernen wir…\n\ndas ist eine unnummerierte Liste\nDas auch\n\n\nDas ist eine nummerierte Liste\nDas auch"
   },
   {
     "objectID": "01_VL.html#kursmaterialen",
@@ -32,13 +32,13 @@
     "href": "01_VL.html#kursmaterialen-1",
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
-    "text": "Kursmaterialen\nFolien"
+    "text": "Kursmaterialen\nFolien\n\n\nDie Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.\n\n\nKonzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.\nIm Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.\nAm Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.\nDie HTML Fassung bleibt verfügbar."
   },
   {
     "objectID": "01_VL.html#kursmaterialen-2",
     "href": "01_VL.html#kursmaterialen-2",
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
-    "text": "Kursmaterialen\nPDF-Skript\n\n\nPunkt 1\nPunkt 2\nPunkt 4"
+    "text": "Kursmaterialen\nPDF-Skript\n\n\nDie PDF-Version zum Skript ist auf der Startseite der Website verlinkt und entspricht inhaltlich immer der Website.\nDie Darstellung ist für html optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken."
   }
 ]

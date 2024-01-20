@@ -29,6 +29,12 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ## Lernziele
 ### In diesem Kurs lernen wir...
 
+* das ist eine unnummerierte Liste
+* Das auch
+
+1. Das ist eine nummerierte Liste
+2. Das auch
+
 ## Kursmaterialen
 ### Kurs-Website
 
@@ -36,15 +42,22 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ### Folien
 
 
+::: {.notes}
+* Die Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen. 
+1. Konzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.
+2. Im Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.
+3. Am Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.
+4. Die HTML Fassung bleibt verfügbar.
+:::
+
 ## Kursmaterialen
 ### PDF-Skript
 
 
 
 ::: {.notes}
-* Punkt 1
-* Punkt 2
-* Punkt 4
+* Die PDF-Version zum Skript ist auf der Startseite der Website verlinkt und entspricht inhaltlich immer der Website.
+* Die Darstellung ist für html optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken.
 :::
 
 # Einleitung
