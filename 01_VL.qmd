@@ -15,6 +15,16 @@ library(dplyr)
 
 # Organisation 
 
+## Der Plan für heute...
+### Vorlesung 1
+  * Vorstellung & kurzes Kennenlern-Quizz
+  * Stresstest für unser BI-Tool *Apache Superset*
+  * Organisatorisches
+  * Einleitung:
+    * Was sind Business Intelligence & Data Science?
+    * Was sind operative und dispositive Daten?
+    * Wie werden aus operativen Daten entscheidungsrelevante Informationen?
+  * Der Data Science Prozess CRISP-DM
 
 ## Kursaufbau
 ### Zeitplan
@@ -22,18 +32,12 @@ library(dplyr)
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
 read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
   select(-Slides) %>% 
+  select(-`Gruppe D`) %>% 
   kable( escape = FALSE)  %>% 
   kable_styling(font_size = 24)
 ```
 
-## Lernziele
-### In diesem Kurs lernen wir...
 
-* das ist eine unnummerierte Liste
-* Das auch
-
-1. Das ist eine nummerierte Liste
-2. Das auch
 
 ## Kursmaterialen
 ### Kurs-Website
@@ -61,3 +65,36 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 :::
 
 # Einleitung
+
+# Der Data Science Prozess
+
+## CRISP-DM 
+### Geschäftsmodell
+
+1. Verständnis des Geschäftsmodells
+    * Verständnis des Geschäftsmodells und der Unternehmensziele
+    * Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten
+    * Definition des erwartbaren Nutzens und messbarer Erfolgskriterien
+
+## CRISP-DM
+### Anwendungs-/Datendomäne und Datenvorbereitung
+
+2. Verständnis der Anwendungs- und Datendomäne
+    * Analyse der Unternehmensprozesse und Datenquellen
+    * Zusammenführung, Beschreibung und Exploration der Zieldaten
+    * Eruierung der Datenqualität
+3. Datenvorbereitung
+    * Zusammenführung und Beschreibung polystrukturierter Daten
+    * Berechnung von Kennzahlen und Durchführung von Datentransformationen
+
+## CRISP-DM
+### Modellierung, Evaluation und Bereitstellung
+
+4. Modellierung
+    * Modellauswahl und -erstellung
+    * Iterativer Prozess zur Weiterentwicklung von Modellen
+    * Möglicher Einsatz vortrainierter Modelle für die Verfeinerung
+5. Evaluation
+    * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien
+6. Einsatz
+    * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse

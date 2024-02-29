@@ -7,18 +7,18 @@
     "text": "Example slide\nThis is a sub-title\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
   },
   {
+    "objectID": "01_VL.html#der-plan-für-heute",
+    "href": "01_VL.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung 1\n\nVorstellung & kurzes Kennenlern-Quizz\nStresstest für unser BI-Tool Apache Superset\nOrganisatorisches\nEinleitung:\n\nWas sind Business Intelligence & Data Science?\nWas sind operative und dispositive Daten?\nWie werden aus operativen Daten entscheidungsrelevante Informationen?\n\nDer Data Science Prozess CRISP-DM"
+  },
+  {
     "objectID": "01_VL.html#kursaufbau",
     "href": "01_VL.html#kursaufbau",
     "title": "Business Intelligence & Data Science",
     "section": "Kursaufbau",
-    "text": "Kursaufbau\nZeitplan\n\n\n\n\n\nBlock\nDatum\nUhrzeit\nThema\n\n\n\n\n1\n13.03.2024\n13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024\n14:45 – 16:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n22.03.2024\n09:00 – 10:30\nDatentransformation\n\n\n4\n22.03.2024\n10:45 – 12:15\nBig Data und Data Lake\n\n\n5\n29.03.2024\n09:00 – 10:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n29.03.2024\n10:45 – 12:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n16.04.2024\n13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n16.04.2024\n14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n30.04.2024\n13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n30.04.2024\n14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024\n13:00 – 14:30\nKlausur"
-  },
-  {
-    "objectID": "01_VL.html#lernziele",
-    "href": "01_VL.html#lernziele",
-    "title": "Business Intelligence & Data Science",
-    "section": "Lernziele",
-    "text": "Lernziele\nIn diesem Kurs lernen wir…\n\ndas ist eine unnummerierte Liste\nDas auch\n\n\nDas ist eine nummerierte Liste\nDas auch"
+    "text": "Kursaufbau\nZeitplan\n\n\n\n\n\nBlock\nGruppe C\nThema\n\n\n\n\n1\n13.03.2024:13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024:14:45 – 16:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n22.03.2024:09:00 – 10:30\nDatentransformation\n\n\n4\n22.03.2024:10:45 – 12:15\nBig Data und Data Lake\n\n\n5\n28.03.2024:09:00 – 10:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n28.03.2024:10:45 – 12:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n16.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n16.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n30.04.2024:13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n30.04.2024:14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur"
   },
   {
     "objectID": "01_VL.html#kursmaterialen",
@@ -40,5 +40,26 @@
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
     "text": "Kursmaterialen\nPDF-Skript\n\n\nDie PDF-Version zum Skript ist auf der Startseite der Website verlinkt und entspricht inhaltlich immer der Website.\nDie Darstellung ist für html optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken."
+  },
+  {
+    "objectID": "01_VL.html#crisp-dm",
+    "href": "01_VL.html#crisp-dm",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nGeschäftsmodell\n\nVerständnis des Geschäftsmodells\n\nVerständnis des Geschäftsmodells und der Unternehmensziele\nBerücksichtigung von Chancen, Risiken und zeitlichen Aspekten\nDefinition des erwartbaren Nutzens und messbarer Erfolgskriterien"
+  },
+  {
+    "objectID": "01_VL.html#crisp-dm-1",
+    "href": "01_VL.html#crisp-dm-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nAnwendungs-/Datendomäne und Datenvorbereitung\n\nVerständnis der Anwendungs- und Datendomäne\n\nAnalyse der Unternehmensprozesse und Datenquellen\nZusammenführung, Beschreibung und Exploration der Zieldaten\nEruierung der Datenqualität\n\nDatenvorbereitung\n\nZusammenführung und Beschreibung polystrukturierter Daten\nBerechnung von Kennzahlen und Durchführung von Datentransformationen"
+  },
+  {
+    "objectID": "01_VL.html#crisp-dm-2",
+    "href": "01_VL.html#crisp-dm-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nModellierung, Evaluation und Bereitstellung\n\nModellierung\n\nModellauswahl und -erstellung\nIterativer Prozess zur Weiterentwicklung von Modellen\nMöglicher Einsatz vortrainierter Modelle für die Verfeinerung\n\nEvaluation\n\nBewertung der erstellten Modelle anhand definierter Erfolgskriterien\n\nEinsatz\n\nUmsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse\n\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
   }
 ]
