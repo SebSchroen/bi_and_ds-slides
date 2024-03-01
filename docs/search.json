@@ -42,34 +42,6 @@
     "text": "Kursmaterialen\nPDF-Skript\n\nNeben der HTML-Version ist auch ein PDF-Skript verfügbar und kann auf der Startseite heruntergeladen werden\nDie PDF-Version entspricht inhaltlich immer der Website\nDie Darstellung ist für HTML optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken\n\n\n\nDie PDF-Version zum Skript ist auf der Startseite der Website verlinkt und entspricht inhaltlich immer der Website.\nDie Darstellung ist für html optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken"
   },
   {
-    "objectID": "01_VL.html#crisp-dm",
-    "href": "01_VL.html#crisp-dm",
-    "title": "Business Intelligence & Data Science",
-    "section": "CRISP-DM",
-    "text": "CRISP-DM\nGeschäftsmodell\n\nVerständnis des Geschäftsmodells\n\nVerständnis des Geschäftsmodells und der Unternehmensziele\nBerücksichtigung von Chancen, Risiken und zeitlichen Aspekten\nDefinition des erwartbaren Nutzens und messbarer Erfolgskriterien"
-  },
-  {
-    "objectID": "01_VL.html#crisp-dm-1",
-    "href": "01_VL.html#crisp-dm-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "CRISP-DM",
-    "text": "CRISP-DM\nAnwendungs-/Datendomäne und Datenvorbereitung\n\nVerständnis der Anwendungs- und Datendomäne\n\nAnalyse der Unternehmensprozesse und Datenquellen\nZusammenführung, Beschreibung und Exploration der Zieldaten\nEruierung der Datenqualität\n\nDatenvorbereitung\n\nZusammenführung und Beschreibung polystrukturierter Daten\nBerechnung von Kennzahlen und Durchführung von Datentransformationen"
-  },
-  {
-    "objectID": "01_VL.html#crisp-dm-2",
-    "href": "01_VL.html#crisp-dm-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "CRISP-DM",
-    "text": "CRISP-DM\nModellierung, Evaluation und Bereitstellung\n\nModellierung\n\nModellauswahl und -erstellung\nIterativer Prozess zur Weiterentwicklung von Modellen\nMöglicher Einsatz vortrainierter Modelle für die Verfeinerung\n\nEvaluation\n\nBewertung der erstellten Modelle anhand definierter Erfolgskriterien\n\nEinsatz\n\nUmsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse"
-  },
-  {
-    "objectID": "01_VL.html#begriffsabgrenzungen",
-    "href": "01_VL.html#begriffsabgrenzungen",
-    "title": "Business Intelligence & Data Science",
-    "section": "Begriffsabgrenzungen",
-    "text": "Begriffsabgrenzungen\nBusiness Intelligence"
-  },
-  {
     "objectID": "01_VL.html#business-intelligence",
     "href": "01_VL.html#business-intelligence",
     "title": "Business Intelligence & Data Science",
@@ -91,20 +63,6 @@
     "text": "Business Intelligence\nBetriebliche Dimensionen\n\nBegriffsdimensionen von BI nach Schieder (2016).\n\nEine Personengruppe innerhalb der Organisation ist mit der Realisierung von BI-Prozessen vertraut.\nDie Generierung geschäftsrelevanter Informationen, Erkenntnisse und Wissen erfordert die Überführung fragmentierter Unternehmens- und Wettbewerbsdaten in handlungsgerichtetes Wissen. Hierbei liegt der Fokus auf dem Geschäftsprozess von der Datenerfassung hin zur Wissenskommunnikation.\nBezeichnet das Ergebnis eines Erkenntnissprozesses, beispielsweise ziel- und zweckorientiertes Wissen in Form von Berichten, Analysen und Prognosen für das Management.\nEine Sammlung von informationstechnischen Werkzeugen, Architekturen, Systemen und Technologien zur Aufbereitung und Bereitstellung reschäftsrelevanter Daten zum Zweck der Informationsgewinnung.\n\nIm Mittelpunkt dieser Vorlesung steht der BI-Prozess, beginnend mit der Datenerfassung und -bereitstellung im unternehmenseigenen Data Warehouse, über die Informationsentdeckung bzw. -generierung mit modellgestützten Analysemethoden, bis hin zur Kommunikation. Jeder Bestandteil des BI-Prozesses wird dabei um wichtige technische Aspekte ergänzt, bspw. Data Warehouse Architekturen, ausgewählten Analysemethoden und Einblicken in moderne BI-Dashboard-Tools. Ziel ist eine ganzheitliche Sicht auf den BI-Prozess im Unternehmenskontext."
   },
   {
-    "objectID": "01_VL.html#references",
-    "href": "01_VL.html#references",
-    "title": "Business Intelligence & Data Science",
-    "section": "",
-    "text": "Business Intelligence & Data Science, SoSe 2024\n\n\n\nSchieder, Christian. 2016. „Historische Fragmente einer Integrationsdisziplin – Beitrag zur Konstruktgeschichte der Business Intelligence“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 13–32. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_2."
-  },
-  {
-    "objectID": "01_VL.html#quellen",
-    "href": "01_VL.html#quellen",
-    "title": "Business Intelligence & Data Science",
-    "section": "Quellen",
-    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nGesellschaft für Informatik. 2019. „Data Science: Lern- und Ausbildungsinhalte“. Gesellschaft für Informatik.\n\n\nSchieder, Christian. 2016. „Historische Fragmente einer Integrationsdisziplin – Beitrag zur Konstruktgeschichte der Business Intelligence“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 13–32. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_2."
-  },
-  {
     "objectID": "01_VL.html#data-science",
     "href": "01_VL.html#data-science",
     "title": "Business Intelligence & Data Science",
@@ -117,5 +75,33 @@
     "title": "Business Intelligence & Data Science",
     "section": "Data Science",
     "text": "Data Science\nSchwerpunkte\n\nAufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche:\n\nData Engineering: Methoden und Prozesse für die Speicherung, Haltung und Replikation von Daten\nData Analytics: Datenanalyse mit statistischen Methoden\nData Prediction: Die Verwendung von statistischen Methoden zur Vorhersage\nMachine Learning: Algorithmen, die aus Daten lernen, Muster erkennen und hierauf aufbauend neue Situationen oder zukünftige Entwicklungen vorhersagen"
+  },
+  {
+    "objectID": "01_VL.html#crisp-dm",
+    "href": "01_VL.html#crisp-dm",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nGeschäftsmodell\n\nVerständnis des Geschäftsmodells\n\nVerständnis des Geschäftsmodells und der Unternehmensziele\nBerücksichtigung von Chancen, Risiken und zeitlichen Aspekten\nDefinition des erwartbaren Nutzens und messbarer Erfolgskriterien"
+  },
+  {
+    "objectID": "01_VL.html#crisp-dm-1",
+    "href": "01_VL.html#crisp-dm-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nAnwendungs-/Datendomäne und Datenvorbereitung\n\nVerständnis der Anwendungs- und Datendomäne\n\nAnalyse der Unternehmensprozesse und Datenquellen\nZusammenführung, Beschreibung und Exploration der Zieldaten\nEruierung der Datenqualität\n\nDatenvorbereitung\n\nZusammenführung und Beschreibung polystrukturierter Daten\nBerechnung von Kennzahlen und Durchführung von Datentransformationen"
+  },
+  {
+    "objectID": "01_VL.html#crisp-dm-2",
+    "href": "01_VL.html#crisp-dm-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nModellierung, Evaluation und Bereitstellung\n\nModellierung\n\nModellauswahl und -erstellung\nIterativer Prozess zur Weiterentwicklung von Modellen\nMöglicher Einsatz vortrainierter Modelle für die Verfeinerung\n\nEvaluation\n\nBewertung der erstellten Modelle anhand definierter Erfolgskriterien\n\nEinsatz\n\nUmsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse"
+  },
+  {
+    "objectID": "01_VL.html#quellen",
+    "href": "01_VL.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nGesellschaft für Informatik. 2019. „Data Science: Lern- und Ausbildungsinhalte“. Gesellschaft für Informatik.\n\n\nSchieder, Christian. 2016. „Historische Fragmente einer Integrationsdisziplin – Beitrag zur Konstruktgeschichte der Business Intelligence“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 13–32. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_2."
   }
 ]
