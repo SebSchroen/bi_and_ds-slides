@@ -2,9 +2,11 @@
 
 // Custom colours and variables
 $jet: #131516;
-$accent: #107895;
+//$accent: #107895;
+$accent: #5b8ebf;
 $accent2: #9a2515;
-$right-arrow: "\2192"; // Unicode character for right arrow
+//$right-arrow: "\2192"; // Unicode character for right arrow
+$right-arrow: "\2023"; // Unicode character for right arrow
 
 // fonts
 @import url(https://fonts.googleapis.com/css?family=Roboto:200,200i,300,300i,350,350i,400,400i);
@@ -133,7 +135,7 @@ $selection-bg: #26351c !default;
   li:before {
     content: $right-arrow;
     color: mix($accent, white, 60%);
-    display: inline-block;
+    //display: inline-block;
     width: 1em;
     margin-left: -1em;
     margin-right: 0.5em;
@@ -207,8 +209,10 @@ $selection-bg: #26351c !default;
 }
 
 .button:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+  //background-color: #0056b3;
+  //border-color: #0056b3;
+  background-color: #72bbe3;
+  border-color: #72bbe3;
 }
 
 .button::before {

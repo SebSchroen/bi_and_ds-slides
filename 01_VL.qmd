@@ -42,12 +42,27 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ## Kursmaterialen
 ### Kurs-Website
 
+* Alle Kursinhalte sind auf der Kurs-Website verfügbar:
+
+  * [https://sebschroen.github.io/bi_and_ds-lecture_notes/](https://sebschroen.github.io/bi_and_ds-lecture_notes/)
+
+* Neue Inhalte werden regelmäßig *vor* den entsprechenden Vorlesungen freigeschaltet
+* Aktuell passwortgeschützt aufgrund Copyrights
+* 5 gefundene und gemeldete Typos = 1 PickUp
+* Tipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts
+
+
 ## Kursmaterialen
 ### Folien
 
+* Folien sind auf der Startseite der Kurs-Website verlinkt
+* Darstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen
+* Im Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen
+* Die finalen Folien werden nach jedem Block auf StudIP hochgeladen
+
 
 ::: {.notes}
-* Die Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen. 
+* Die Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.
 1. Konzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.
 2. Im Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.
 3. Am Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.
@@ -57,14 +72,74 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ## Kursmaterialen
 ### PDF-Skript
 
-
+* Neben der HTML-Version ist auch ein PDF-Skript verfügbar und kann auf der Startseite heruntergeladen werden
+* Die PDF-Version entspricht inhaltlich immer der Website
+* Die Darstellung ist für HTML optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken
 
 ::: {.notes}
 * Die PDF-Version zum Skript ist auf der Startseite der Website verlinkt und entspricht inhaltlich immer der Website.
-* Die Darstellung ist für html optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken.
+* Die Darstellung ist für html optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken
 :::
 
 # Einleitung
+
+## Business Intelligence
+### Begriffsabgrenzung
+
+
+::: {.callout-tip title="Definition"}
+Der Prozess, die richtigen Informationen zur richtigen Zeit an die richtigen Personen heranzutragen.
+:::
+
+* Ursprünge in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg
+* Frühe kommerzielle Ansätze in den 60er Jahren im Zuge der Entwicklung relationaler Datenbanken.
+* Zunächst Fokus auf Management Support Systeme (MSS) und daher eher auf oberste Ebenen zugeschnitten
+
+## Business Intelligence
+### Begriffsabgrenzung
+
+* Der Begriff Business Intelligence (BI) wurde in den 1990ern geprägt
+* Heute wird BI charakterisiert durch:
+    * Breite Verfügbarkeit von BI Tools auf allen Ebenen des Unternehmens
+    * Geschäftsentscheidung auf Basis aktueller Informationen und Daten und nicht auf Intuition
+    * Umfangreiche Analyse- und Reportingmöglichkeiten mit Self-Service Tools für Fachbereiche
+
+## Business Intelligence
+### Betriebliche Dimensionen
+
+
+![Begriffsdimensionen von BI nach @gluchowski_historische_2016.](https://sebschroen.github.io/bi_and_ds-lecture_notes/d90cdc8d7878e4a3c323e2982bd6be988cb4dd33/img/BI_Dimensionen.png)
+
+::: {.notes}
+1. Eine Personengruppe innerhalb der Organisation ist mit der Realisierung von BI-Prozessen vertraut.
+2. Die Generierung geschäftsrelevanter Informationen, Erkenntnisse und Wissen erfordert die Überführung fragmentierter Unternehmens- und Wettbewerbsdaten in handlungsgerichtetes Wissen. Hierbei liegt der Fokus auf dem Geschäftsprozess von der Datenerfassung hin zur Wissenskommunnikation.
+3. Bezeichnet das Ergebnis eines Erkenntnissprozesses, beispielsweise ziel- und zweckorientiertes Wissen in Form von Berichten, Analysen und Prognosen für das Management.
+3. Eine Sammlung von informationstechnischen Werkzeugen, Architekturen, Systemen und Technologien zur Aufbereitung und Bereitstellung reschäftsrelevanter Daten zum Zweck der Informationsgewinnung.
+
+Im Mittelpunkt dieser Vorlesung steht der BI-Prozess, beginnend mit der Datenerfassung und -bereitstellung im unternehmenseigenen Data Warehouse, über die  Informationsentdeckung bzw. -generierung mit modellgestützten Analysemethoden, bis hin zur Kommunikation. 
+Jeder Bestandteil des BI-Prozesses wird dabei um wichtige technische Aspekte ergänzt, bspw. Data Warehouse Architekturen, ausgewählten Analysemethoden und Einblicken in moderne BI-Dashboard-Tools.
+Ziel ist eine ganzheitliche Sicht auf den BI-Prozess im Unternehmenskontext.
+:::
+
+## Data Science
+### Begriffsabgrenzung
+
+::: {.callout-tip title="Definition"}
+Data Science beschäftigt sich mit einer zweckorientierten Datenanalyse und der systematischen Generierung von Entscheidungshilfen und -grundlagen, um Wettbewerbsvorteile erzielen zu können. Der Schwerpunkt liegt dabei nicht auf den Daten selbst, sondern auf der Art und weise, wie diese verarbeitet und analysiert werden [siehe @gesellschaft_fur_informatik_data_2019]
+:::
+
+* Data Science ist ein vergleichsweise neues wissenschaftliches Feld, eine Kombination aus Statistik und Informatik, insbesondere Software Engineering
+* Da es sich um ein junges Feld handelt sind Definitionen und die damit verbundenen Rollen im stetigen Wandel
+
+## Data Science
+### Schwerpunkte
+
+* Aufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche: 
+  1. **Data Engineering**: Methoden und Prozesse für die Speicherung, Haltung und Replikation von Daten
+  2. **Data Analytics**: Datenanalyse mit statistischen Methoden
+  3. **Data Prediction**: Die Verwendung von statistischen Methoden zur Vorhersage
+  4. **Machine Learning**: Algorithmen, die aus Daten lernen, Muster erkennen und hierauf aufbauend neue Situationen oder zukünftige Entwicklungen vorhersagen
+
 
 # Der Data Science Prozess
 
@@ -98,3 +173,5 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
     * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien
 6. Einsatz
     * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse
+    
+## Quellen    
