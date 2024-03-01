@@ -173,5 +173,6 @@ Data Science beschäftigt sich mit einer zweckorientierten Datenanalyse und der 
     * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien
 6. Einsatz
     * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse
+
     
 ## Quellen    
