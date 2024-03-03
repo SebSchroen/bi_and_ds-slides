@@ -21,7 +21,8 @@ author:
     affiliations: Bahlsen GmbH & Co. KG
 
 bibliography: references.bib
-toc: true
+toc: false
 toc-depth : 1
 toc-title: "Agenda"
 number-sections: false
+auto-stretch: false

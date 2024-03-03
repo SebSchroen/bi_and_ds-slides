@@ -29,7 +29,26 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -319,6 +338,10 @@
       margin-right: 0; 
     }
   </style>
+  <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+  <script src="site_libs/viz-1.8.2/viz.js"></script>
+  <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+  <script src="site_libs/grViz-binding-1.0.10/grViz.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -346,14 +369,397 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 
 </section>
-<section id="example-slide" class="slide level2">
-<h2>Example slide</h2>
-<h3 id="this-is-a-sub-title">This is a sub-title</h3>
+<section id="der-plan-für-heute" class="slide level2">
+<h2>Der Plan für heute…</h2>
+<h3 id="vorlesung-2">Vorlesung 2</h3>
+<ul>
+<li>Datenbereitstellung:
+<ul>
+<li>Data Warehouse</li>
+<li>Data Mart</li>
+<li>Architekturkonzepte</li>
+</ul></li>
+<li>Verknüpfung eines einfachen Data Marts mit Superset</li>
+</ul>
+</section>
+<section>
+<section id="datenbereitstellung" class="title-slide slide level1 center">
+<h1>Datenbereitstellung</h1>
+
+</section>
+<section id="überblick-zum-bia-gesamteinsatz" class="slide level2">
+<h2>Überblick zum BIA Gesamteinsatz</h2>
+<h3 id="datenbereitstellung-1">Datenbereitstellung</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/bia_ordnungsrahmen.drawio.png" width="700" height="500"></p>
+<figcaption>BIA Gesamtansatz. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span>.</figcaption>
+</figure>
+</div>
+</section>
+<section id="data-warehouse" class="slide level2">
+<h2>Data Warehouse</h2>
+<h3 id="begriff">Begriff</h3>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definition</strong></p>
+</div>
+<div class="callout-content">
+<p>Ein Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung <span class="citation" data-cites="kemper_data_2023">(siehe <a href="#/quellen" role="doc-biblioref" onclick="">Kemper und Sun 2023</a>)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="data-warehouse-1" class="slide level2">
+<h2>Data Warehouse</h2>
+<h3 id="eigenschaften">Eigenschaften</h3>
+<ol type="1">
+<li>Themenorientierung:
+<ul>
+<li>Dispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet</li>
+<li>Die operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert</li>
+<li>Themen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1</li>
+</ul></li>
+<li>Integration:
+<ul>
+<li>Daten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert</li>
+<li>Zusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”</li>
+</ul></li>
+</ol>
+</section>
+<section id="data-warehouse-2" class="slide level2">
+<h2>Data Warehouse</h2>
+<h3 id="eigenschaften-1">Eigenschaften</h3>
+<ol start="3" type="1">
+<li>Zeitraumbezug:
+<ul>
+<li>Operative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab</li>
+<li>Daten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr</li>
+</ul></li>
+<li>Nicht-Volatilität:
+<ul>
+<li>Daten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt</li>
+<li>DWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt</li>
+</ul></li>
+</ol>
+</section>
+<section id="data-warehouse-3" class="slide level2">
+<h2>Data Warehouse</h2>
+<h3 id="komponenten-des-data-warehouse">Komponenten des Data Warehouse</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Data Mart</strong></p>
+<ul>
+<li>Separater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen</li>
+<li>Nur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen</li>
+<li>Häufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><strong>Core Data Warehouse</strong></p>
+<ul>
+<li>Rückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet</li>
+<li>Befüllung über ETL-Prozesse aus operativen Quellsystemen</li>
+<li>Meist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)</li>
+<li>Applikationsneutral modelliert</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="data-warehouse-4" class="slide level2">
+<h2>Data Warehouse</h2>
+<h3 id="funktionen-des-cdwh">Funktionen des CDWH</h3>
+<ul>
+<li>Das Core Data Warehouse (CDWH) erfüllt folgende Funktionen:</li>
+</ul>
+<ol type="1">
+<li>Sammel- und Integrationsfunktion:
+<ul>
+<li>Aufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers</li>
+</ul></li>
+<li>Distributionsfunktion:
+<ul>
+<li>Versorgung aller nachgeschalteten Data Marts mit Daten</li>
+</ul></li>
+<li>Qualitätssicherungsfunktion:
+<ul>
+<li>Datentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis</li>
+</ul></li>
+</ol>
+</section>
+<section id="data-warehouse-5" class="slide level2">
+<h2>Data Warehouse</h2>
+<h3 id="data-mart-vs.-cdwh">Data Mart vs.&nbsp;CDWH</h3>
+<div style="font-size: 0.70em">
+<table>
+<caption>Charakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></caption>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Data Mart</th>
+<th>Core Data Warehouse</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ziel</td>
+<td>Entscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten</td>
+<td>Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</td>
+</tr>
+<tr class="even">
+<td>Ausrichtung</td>
+<td>Bereichsspezifisch oder Abteilungsbezogen</td>
+<td>Zentral und unternehmensweit</td>
+</tr>
+<tr class="odd">
+<td>Granularität</td>
+<td>Höhere Aggregationen</td>
+<td>Feinste verfügbare Granularität</td>
+</tr>
+<tr class="even">
+<td>Verfügbarkeit für Endanwendende</td>
+<td>In der Regel möglich</td>
+<td>Häufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt</td>
+</tr>
+<tr class="odd">
+<td>Flexibilität der Analysen</td>
+<td>Tendenziell gering und auf Anwendungsbereich beschränkt</td>
+<td>Sehr flexibel</td>
+</tr>
+<tr class="even">
+<td>Volumina</td>
+<td>Gering bis moderat</td>
+<td>Moderat bis umfangreich</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dwh-architekturen" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="unabhängige-data-marts">Unabhängige Data Marts</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="fragment fade-in">
+<ul>
+<li>Auch Stove-Pipe Ansatz</li>
+<li>Bedienen sich direkt aus den operativen und externen Systemen</li>
+<li>Bereiten die enthaltenen Daten für relevante Anwendungsfelder auf</li>
+<li>Daten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen</li>
+<li>Verschiedene Marts können unterschiedliche externe Datenquellen zusammenführen</li>
+</ul>
+</div>
+</div><div class="column" style="width:45%;">
+<!-- ![Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016](img/plot_marts.png){width="100%"} -->
+<div style="font-size: 0.70em">
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-ab081c91f6ad261b2339" style="width:400px;height:500px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ab081c91f6ad261b2339">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Unabhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dwh-architekturen-1" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="unabhängige-data-marts-1">Unabhängige Data Marts</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Vorteile:</p>
+<ul>
+<li>Schnelle und bereichsspezifische Informationsbereitstellung</li>
+<li>Sinnvoll bei fehlender Governance Strategie</li>
+<li>Erfüllung maßgeschneideter bereichsspezifischer Fragestellungen</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Nachteile:</p>
+<ul>
+<li>Häufig historisch gewachsene Strukturen und damit geringe Governance</li>
+<li>Mehrfache Aufbereitung der Quelldaten</li>
+<li>Gefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts</li>
+<li>Mangelnde Möglichkeit bereichsübergreifender Analysen</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="dwh-architekturen-2" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="abgestimmte-data-marts">Abgestimmte Data Marts</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment fade-in">
+<ul>
+<li>Konzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten</li>
+<li>Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung</li>
+<li>Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="font-size: 0.70em">
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-7639e76631afa5996b86" style="width:400px;height:500px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7639e76631afa5996b86">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Abhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dwh-architekturen-3" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="abgestimmte-data-marts-1">Abgestimmte Data Marts</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Vorteile:</p>
+<ul>
+<li>Integrität des Datenmodells wird gewährleistet</li>
+<li>Möglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche</li>
+<li>Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Nachteile:</p>
+<ul>
+<li>Durch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts</li>
+<li>Möglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition</li>
+<li>Informationsverlust bei übergreifenden Analysen</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="dwh-architekturen-4" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="core-data-warehouse">Core Data Warehouse</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="fragment fade-in">
+<ul>
+<li>Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank</li>
+<li>Dieser Ansatz wird oft als Monolith bezeichnet</li>
+<li>Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos</li>
+</ul>
+</div>
+</div><div class="column" style="width:45%;">
+<div style="font-size: 0.70em">
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-6091dada3959aa2ee686" style="width:400px;height:500px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6091dada3959aa2ee686">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Core Data Warehouse. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dwh-architekturen-5" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="core-data-warehouse-1">Core Data Warehouse</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Vorteile:</p>
+<ul>
+<li>Hoher Grad an Mehrfachverwendbarkeit der Daten</li>
+<li>Hoher Detailgrad möglich</li>
+<li>Bei kleineren Anwendungsfällen oft ausreichend</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Nachteile:</p>
+<ul>
+<li>Berechtigungsmanagement und Performance stoßen bei komplexen Anwendungsfällen schnell an Grenzen</li>
+<li>Bei größeren Einheiten mit eigenen Geschäftsprozessen und stark abweichenden Hierarchiestrukturen sehr komplex, hier bietet sich der Einsatz mehrerer CDWH an</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="dwh-architekturen-6" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="core-data-warehouse-mit-abhängigen-data-marts">Core Data Warehouse mit abhängigen Data Marts</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="fragment fade-in">
+<ul>
+<li>Auch Hub-and-Spoke Ansatz genannt</li>
+<li>CDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts</li>
+<li>Marts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf</li>
+<li>CDWH als Hub erfüllt Aufgaben der Integration, Qualitätssicherung und Datenverteilung an die Marts</li>
+</ul>
+</div>
+</div><div class="column" style="width:45%;">
+<div style="font-size: 0.70em">
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-199db27006f9c8b2c7bc" style="width:400px;height:500px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-199db27006f9c8b2c7bc">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Core Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dwh-architekturen-7" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="core-data-warehouse-2">Core Data Warehouse</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Vorteile:</p>
+<ul>
+<li>Einmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik</li>
+<li>Geringere Anzahl an Extraktionsprozessen</li>
+<li>Reduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Nachteile:</p>
+<ul>
+<li>Nach wie vor eher traditionelle BI-Sicht</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="dwh-architekturen-8" class="slide level2">
+<h2>DWH Architekturen</h2>
+<h3 id="architekturen-mix">Architekturen-Mix</h3>
+<div style="font-size: 0.70em">
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item" id="htmlwidget-601a46e8b171f780f71c" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-601a46e8b171f780f71c">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Architekturen-Mix. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="quellen" class="slide level2 smaller scrollable">
+<h2>Quellen</h2>
 
 <div class="footer footer-default">
 <p>Business Intelligence &amp; Data Science, SoSe 2024</p>
 </div>
-</section>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-baars_business_2021" class="csl-entry" role="listitem">
+Baars, Henning, und Hans-Georg Kemper. 2021. <em>Business Intelligence &amp; Analytics: Grundlagen und praktische Anwendungen: Ansätze der <span>IT</span>-basierten Entscheidungsunterstützung</em>. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.
+</div>
+<div id="ref-gluchowski_architekturkonzepte_2016" class="csl-entry" role="listitem">
+Hahne, Michael. 2016. <span>„Architekturkonzepte und Modellierungsverfahren für <span>BI</span>-Systeme“</span>. In <em>Analytische Informationssysteme</em>, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-47763-2_8">https://doi.org/10.1007/978-3-662-47763-2_8</a>.
+</div>
+<div id="ref-kemper_data_2023" class="csl-entry" role="listitem">
+Kemper, Hans-Georg, und Xuanpu Sun. 2023. <span>„Data Warehouse“</span>. In <em>Gabler Bankenlexikon</em>. <a href="https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924">https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924</a>.
+</div>
+</div>
+</section></section>
     </div>
   </div>
 
@@ -565,6 +971,44 @@ Dr.&nbsp;Sebastian Schrön
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

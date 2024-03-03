@@ -47,7 +47,7 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
   * [https://sebschroen.github.io/bi_and_ds-lecture_notes/](https://sebschroen.github.io/bi_and_ds-lecture_notes/)
 
 * Neue Inhalte werden regelmäßig *vor* den entsprechenden Vorlesungen freigeschaltet
-* Aktuell passwortgeschützt aufgrund Copyrights
+* Aktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien
 * 5 gefundene und gemeldete Typos = 1 PickUp
 * Tipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts
 
@@ -58,7 +58,8 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 * Folien sind auf der Startseite der Kurs-Website verlinkt
 * Darstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen
 * Im Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen
-* Die finalen Folien werden nach jedem Block auf StudIP hochgeladen
+* Die finalen Folien werden nach jedem Block als PDF auf StudIP hochgeladen
+* Interaktive Elemente werden als ausführbare R-Codes bereitgestellt
 
 
 ::: {.notes}
@@ -88,16 +89,18 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 
 
 ::: {.callout-tip title="Definition"}
-Der Prozess, die richtigen Informationen zur richtigen Zeit an die richtigen Personen heranzutragen.
+Business Intelligence (BI) ist eine Reihe von Methoden, Prozessen, Architekturen und Technologien, die Rohdaten in sinnvolle und nutzbare, entscheidungsrelevante Informationen umwandeln. 
+Es ermöglicht Anwendern, informierte Entscheidungen auf der Grundlage von Daten zu treffen, die ein Unternehmen gegenüber seinen Wettbewerbern in Vorteil bringen können.
 :::
 
-* Ursprünge in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg
+* Abgeleitet vom *Intelligence*-Begriff in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg: 
+  * Die richtigen Informationen zur richtigen Zeit an die richtigen Personen.
 * Frühe kommerzielle Ansätze in den 60er Jahren im Zuge der Entwicklung relationaler Datenbanken.
-* Zunächst Fokus auf Management Support Systeme (MSS) und daher eher auf oberste Ebenen zugeschnitten
 
 ## Business Intelligence
 ### Begriffsabgrenzung
 
+* Zunächst Fokus auf Management Support Systeme (MSS) und daher eher auf oberste Ebenen zugeschnitten
 * Der Begriff Business Intelligence (BI) wurde in den 1990ern geprägt
 * Heute wird BI charakterisiert durch:
     * Breite Verfügbarkeit von BI Tools auf allen Ebenen des Unternehmens
@@ -108,7 +111,7 @@ Der Prozess, die richtigen Informationen zur richtigen Zeit an die richtigen Per
 ### Betriebliche Dimensionen
 
 
-![Begriffsdimensionen von BI nach @gluchowski_historische_2016.](https://sebschroen.github.io/bi_and_ds-lecture_notes/d90cdc8d7878e4a3c323e2982bd6be988cb4dd33/img/BI_Dimensionen.png)
+![Begriffsdimensionen von BI nach @gluchowski_historische_2016.](https://sebschroen.github.io/bi_and_ds-lecture_notes/d90cdc8d7878e4a3c323e2982bd6be988cb4dd33/img/BI_Dimensionen.png){width="70%"}
 
 ::: {.notes}
 1. Eine Personengruppe innerhalb der Organisation ist mit der Realisierung von BI-Prozessen vertraut.
@@ -131,14 +134,142 @@ Data Science beschäftigt sich mit einer zweckorientierten Datenanalyse und der 
 * Data Science ist ein vergleichsweise neues wissenschaftliches Feld, eine Kombination aus Statistik und Informatik, insbesondere Software Engineering
 * Da es sich um ein junges Feld handelt sind Definitionen und die damit verbundenen Rollen im stetigen Wandel
 
+::: {.notes}
+Dieser Wandel geht so weit, dass die Rolle "Data Scientist" heute seltener auf Job-Portalen zu finden ist, als noch vor einigen Jahren. Stattdessen werden vermehrt spezialisierte Rollen wie "Data Engineer", "Data Analyst" oder "Machine Learning Engineer" ausgeschrieben.
+:::
+
 ## Data Science
 ### Schwerpunkte
 
 * Aufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche: 
   1. **Data Engineering**: Methoden und Prozesse für die Speicherung, Haltung und Replikation von Daten
   2. **Data Analytics**: Datenanalyse mit statistischen Methoden
-  3. **Data Prediction**: Die Verwendung von statistischen Methoden zur Vorhersage
+  3. **Predictive Modelling**: Die Verwendung von statistischen Methoden zur Vorhersage
   4. **Machine Learning**: Algorithmen, die aus Daten lernen, Muster erkennen und hierauf aufbauend neue Situationen oder zukünftige Entwicklungen vorhersagen
+
+## Data Science
+### Reifegrade von Data Analytics
+
+![Quelle: [Milind Desai on Medium.com](https://medium.com/@milind.bapuji.desai/understanding-the-analytics-maturity-model-84982836b107)](img/data_analytics_maturity.webp)
+
+::: {.notes}
+1. **Descriptive Analytics**: Beschreibende Analyse des Ist-Zustandes und der Vergangenheit. Im Mittelpunkt steht die Frage: Was ist passiert?
+2. **Diagnostic Analytics**: Analysiert die Zusammenhänge, die zum Ist-Zustand geführt haben und führt oft mehrere deskriptive Charakteristika zusammen: Warum ist der Status Quo eingetreten?
+3. **Predictive Modelling**: Ausgehend von einem detaillierten Verständnis des Status Quo wird eine Prognose für die Zukunft erstellt: Was wird passieren?
+4. **Prescriptive Analytics**: Dient der Identifizierung möglicher Handlungsoptionen auf Basis der Prognosen, entweder um eine schlechte Prognose abzuwenden oder die Realisierung einer guten Prognose zu unterstützen. Mit anderen Worten: Was muss getan werden, um die Zukunft zu unseren Gunsten zu beeinflussen
+:::
+
+
+## Data Science
+### Data Science, Data Analytics, Data Mining?
+
+* Die Unterscheidung zwischen den Begriffen Data Analyitcs, Data Mining und Data Science ist nicht immer trennscharf
+* Data Mining ist meist definiert als der Prozess der Informationsextraktion aus Daten und ist eine Teilmenge von Data Science
+* In dieser Vorlesung dient Data Science als methodischer Baukasten, um den BI-Prozess mit modellgestützten Methoden anzureichern und Zusammenhänge sichtbar zu machen
+* Hierbei steht der Zweck der Modelle, nämlich die Entscheidungsunterstützung, im Vordergrund
+
+
+## Business Intelligence und Data Science
+### Zusammenführung der Begriffe und inhaltlicher Aufbau der Vorlesung
+
+
+![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio.png){width="70%"}
+
+::: {.notes}
+Die Abbildung illustriert den BIA-Ansatz als dreiteiligen Ordnungsrahmen, bestehend aus Datenbereitstellung, Informationsgenerierung und Informationsbereitstellung. Die Datenerfassung aus operativen und externen Systemen ist diesem Ordnungsrahmen hier vorgelagert. Das hieraus entstehende Modell entspricht der prozessualen BI-Dimension.
+
+Ganz unten startenw ir mit zahlreichen operative und externen Quellsysteme, beispielsweise ERP-Systeme (häufig SAP), Produktdatenmanagement Systeme (PDM) oder Manufacturing Execution Systeme (MES). 
+
+Hinzu kommen häufig offene Daten wie Wetter- oder Konjunkturdaten und insbesondere im industriellen Kontext verstärkt Sensordaten aus internetfähigen Maschinen, sogenannte Internet of Things (IoT) Devices. 
+Die strukturierte und systematische Integration dieser Daten mittels ETL Methoden (Extract, Transfer, Load), ist die erste Herausforderung jedes integrierten BIA-Systems.
+
+Die sogenannte Datenbereitstellung dient der konsistenten und strukturierten Speicherung und Persistierung aller relevanten Daten aus den oben genannten Quellsystemen. 
+Hier gilt es verschiedene Konzepte näher zu beleuchten, insbesondere gängige Data Warehouse Konzepte, die meist aus sogenannten Data Marts und Core Data Warehouses bestehen und der themenbezogenen und integrierten Datenhaltung dienen. 
+Je nach Anwendung wird das Datenmaterial meist voraggregiert. Zur Integration großvolumiger und schnell einlaufender Daten hat sich ergänzend das Konzept eines Data Lakes etabliert, in dem anders als im Data Warehouse Rohdaten ohne Aggregation abgelegt und verfügbar gemacht werden.
+
+Die Informationsgenerierung als zweite Schicht dient der Umwandlung der Rohdaten in entscheidungsfreundliche Formate, bspw. berichtsorientierte oder modellgestützte Analysen. Hier werden aus Daten erste Informationen generiert, auf Basis derer weitere Erkenntnisse über den Status Quo entstehen und mögliche Prognosen für die Zukunft erstellt werden können. Das Bindeglied zwischen Datenbereitstellung und Informationsgenerierung sind Systeme zur Datenabfrage und Exploration.
+
+Die Darstellung, Kanalisierung und Verbreitung von Informationen folgt in der dritten Schicht, der Informationsbereitstellung. Neben modernen Self-Service BI-Tools umfasst dies auch zielgruppenadäquate Präsentationen oder statische Berichte.
+:::
+
+## Dispositive und operative Daten
+
+
+### Operative versus dispositive Aufgaben
+
+* Anders als die anfänglichen MSS unterstützen moderne BI-Systeme sowohl operative, als auch dispositive Aufgaben 
+* Dispositive Aufgaben sind Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf
+* Operative Aufgaben umfassen die Leistungserstellung oder -verwertung
+* An beide Aufgabenfelder gelten unterschiedliche Anforderungen, die in Daten und Systemen abgebildet werden müssen
+
+## Dispositive und operative Daten
+### Operative versus dispositive Daten
+
+:::: {.columns}
+
+::: {.column width="50%"}
+Operative Daten
+
+* Unterstützen Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf
+* Häufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert
+:::
+
+::: {.column width="50%"}
+Dispositive Daten
+
+* Dienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen^[Atomare und logisch untrennbare Datenbankvorgänge] erzeugt
+* Sehr granular und mit hoher Änderungsrate
+* Beispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten
+:::
+
+::::
+
+
+
+## Dispositive und operative Daten
+### Operative versus dispositive Daten  
+
+::: {style="font-size: 0.70em"}
+|  | Operative Daten | Entscheidungsorientierte Daten |
+|---|---|---|
+| Ziel | Abwicklung der Geschäftsprozesse | Informationen für Entscheidungen |
+| Ausrichtung | Detailliert und granular | Meist verdichtet und transformiert mit  Metadaten |
+| Zeitbezug | Aktualität steht im Vordergrund, Zeitpunkt der Transaktion, keine Historisierung | Aktualität variiert mit der Aufgabe, Historienbetrachtung ist möglich |
+|Modellierung  |Keine Altbestände | Sachgebiets- und themenbezogen orientiert und anwendungstauglich  |
+|Zustand  |Häufig redundant und inkonsistent zwischen Systemen  |Konsistent modelliert, Redundanz bewusst  |
+|Update  |Laufend, Real-time  | Ergänzend als Fortschreibung  |
+|Queries  |Strukturiert, standardisiert und meistens statisch  |Ad-hoc und dynamisch für wechselnde Fragestellungen sowie Standardberichte  |
+
+: Charakteristika operativer und entscheidungsorientierter Daten im Vergleich. In Anlehnung an  @baars_business_2021 {tbl-colwidths="[8,46,46]"}
+:::
+## Dispositive und operative Daten
+### Überführung von Daten in Information
+
+:::: {.columns}
+
+::: {.column width="50%"}
+* Hauptziel dieser Vorlesung ist die Überführung von operationalen Datne in entscheidungsrelevante Informationen.
+* Dies hat zwei Hauptaspekte:
+  * Block 1-4: Technische Infrastruktur und Architektur
+  * Block 5-9: Methodische Konzepte wie modellorientierte Analysen
+
+:::
+
+::: {.column width="50%"}
+
+```{r, message= FALSE, echo = FALSE, warning = FALSE}
+read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
+  select(-Slides) %>% 
+  select(-`Gruppe D`, -`Gruppe C`) %>%
+  filter(!Block %in% c("10", "-")) %>% 
+  kable( escape = FALSE)  %>% 
+  kable_styling(font_size = 24)
+```
+:::
+
+::::
+
+
 
 
 # Der Data Science Prozess

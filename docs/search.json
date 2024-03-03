@@ -1,10 +1,129 @@
 [
   {
-    "objectID": "02_VL.html#example-slide",
-    "href": "02_VL.html#example-slide",
+    "objectID": "02_VL.html#der-plan-für-heute",
+    "href": "02_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
-    "section": "Example slide",
-    "text": "Example slide\nThis is a sub-title\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung 2\n\nDatenbereitstellung:\n\nData Warehouse\nData Mart\nArchitekturkonzepte\n\nVerknüpfung eines einfachen Data Marts mit Superset"
+  },
+  {
+    "objectID": "02_VL.html#überblick-zum-bia-gesamteinsatz",
+    "href": "02_VL.html#überblick-zum-bia-gesamteinsatz",
+    "title": "Business Intelligence & Data Science",
+    "section": "Überblick zum BIA Gesamteinsatz",
+    "text": "Überblick zum BIA Gesamteinsatz\nDatenbereitstellung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse",
+    "href": "02_VL.html#data-warehouse",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nBegriff\n\n\n\n\n\n\nDefinition\n\n\nEin Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung (siehe Kemper und Sun 2023)."
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-1",
+    "href": "02_VL.html#data-warehouse-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nEigenschaften\n\nThemenorientierung:\n\nDispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet\nDie operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert\nThemen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1\n\nIntegration:\n\nDaten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert\nZusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-2",
+    "href": "02_VL.html#data-warehouse-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nEigenschaften\n\nZeitraumbezug:\n\nOperative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab\nDaten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr\n\nNicht-Volatilität:\n\nDaten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt\nDWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-3",
+    "href": "02_VL.html#data-warehouse-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nKomponenten des Data Warehouse\n\n\nData Mart\n\nSeparater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen\nNur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen\nHäufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen\n\n\nCore Data Warehouse\n\nRückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet\nBefüllung über ETL-Prozesse aus operativen Quellsystemen\nMeist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)\nApplikationsneutral modelliert"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-4",
+    "href": "02_VL.html#data-warehouse-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nFunktionen des CDWH\n\nDas Core Data Warehouse (CDWH) erfüllt folgende Funktionen:\n\n\nSammel- und Integrationsfunktion:\n\nAufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers\n\nDistributionsfunktion:\n\nVersorgung aller nachgeschalteten Data Marts mit Daten\n\nQualitätssicherungsfunktion:\n\nDatentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-5",
+    "href": "02_VL.html#data-warehouse-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nData Mart vs. CDWH\n\n\nCharakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an Baars und Kemper (2021)\n\n\n\n\n\n\n\n\nData Mart\nCore Data Warehouse\n\n\n\n\nZiel\nEntscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten\nEntscheidungsunterstützung für alle Bereiche in einem Unternehmen\n\n\nAusrichtung\nBereichsspezifisch oder Abteilungsbezogen\nZentral und unternehmensweit\n\n\nGranularität\nHöhere Aggregationen\nFeinste verfügbare Granularität\n\n\nVerfügbarkeit für Endanwendende\nIn der Regel möglich\nHäufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt\n\n\nFlexibilität der Analysen\nTendenziell gering und auf Anwendungsbereich beschränkt\nSehr flexibel\n\n\nVolumina\nGering bis moderat\nModerat bis umfangreich"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen",
+    "href": "02_VL.html#dwh-architekturen",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\n\nAuch Stove-Pipe Ansatz\nBedienen sich direkt aus den operativen und externen Systemen\nBereiten die enthaltenen Daten für relevante Anwendungsfelder auf\nDaten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen\nVerschiedene Marts können unterschiedliche externe Datenquellen zusammenführen\n\n\n\n\n\n\n\n\n\nUnabhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-1",
+    "href": "02_VL.html#dwh-architekturen-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\nVorteile:\n\nSchnelle und bereichsspezifische Informationsbereitstellung\nSinnvoll bei fehlender Governance Strategie\nErfüllung maßgeschneideter bereichsspezifischer Fragestellungen\n\n\nNachteile:\n\nHäufig historisch gewachsene Strukturen und damit geringe Governance\nMehrfache Aufbereitung der Quelldaten\nGefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts\nMangelnde Möglichkeit bereichsübergreifender Analysen"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-2",
+    "href": "02_VL.html#dwh-architekturen-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nAbgestimmte Data Marts\n\n\n\n\nKonzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten\nDas abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung\nInhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts\n\n\n\n\n\n\n\n\nAbhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-3",
+    "href": "02_VL.html#dwh-architekturen-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nAbgestimmte Data Marts\n\n\nVorteile:\n\nIntegrität des Datenmodells wird gewährleistet\nMöglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche\nEntscheidungsunterstützung für alle Bereiche in einem Unternehmen\n\n\nNachteile:\n\nDurch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts\nMöglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition\nInformationsverlust bei übergreifenden Analysen"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-4",
+    "href": "02_VL.html#dwh-architekturen-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nCore Data Warehouse\n\n\n\n\nDas CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank\nDieser Ansatz wird oft als Monolith bezeichnet\nDie Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos\n\n\n\n\n\n\n\n\nCore Data Warehouse. Eigene Darstellung in Anlehnung an Hahne (2016)"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-5",
+    "href": "02_VL.html#dwh-architekturen-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nCore Data Warehouse\n\n\nVorteile:\n\nHoher Grad an Mehrfachverwendbarkeit der Daten\nHoher Detailgrad möglich\nBei kleineren Anwendungsfällen oft ausreichend\n\n\nNachteile:\n\nBerechtigungsmanagement und Performance stoßen bei komplexen Anwendungsfällen schnell an Grenzen\nBei größeren Einheiten mit eigenen Geschäftsprozessen und stark abweichenden Hierarchiestrukturen sehr komplex, hier bietet sich der Einsatz mehrerer CDWH an"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-6",
+    "href": "02_VL.html#dwh-architekturen-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nCore Data Warehouse mit abhängigen Data Marts\n\n\n\n\nAuch Hub-and-Spoke Ansatz genannt\nCDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts\nMarts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf\nCDWH als Hub erfüllt Aufgaben der Integration, Qualitätssicherung und Datenverteilung an die Marts\n\n\n\n\n\n\n\n\nCore Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-7",
+    "href": "02_VL.html#dwh-architekturen-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nCore Data Warehouse\n\n\nVorteile:\n\nEinmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik\nGeringere Anzahl an Extraktionsprozessen\nReduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten\n\n\nNachteile:\n\nNach wie vor eher traditionelle BI-Sicht"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-8",
+    "href": "02_VL.html#dwh-architekturen-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nArchitekturen-Mix\n\n\n\n\n\nArchitekturen-Mix. Eigene Darstellung in Anlehnung an Hahne (2016)"
+  },
+  {
+    "objectID": "02_VL.html#quellen",
+    "href": "02_VL.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nHahne, Michael. 2016. „Architekturkonzepte und Modellierungsverfahren für BI-Systeme“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_8.\n\n\nKemper, Hans-Georg, und Xuanpu Sun. 2023. „Data Warehouse“. In Gabler Bankenlexikon. https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924."
   },
   {
     "objectID": "01_VL.html#der-plan-für-heute",
@@ -25,14 +144,14 @@
     "href": "01_VL.html#kursmaterialen",
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
-    "text": "Kursmaterialen\nKurs-Website\n\nAlle Kursinhalte sind auf der Kurs-Website verfügbar:\n\nhttps://sebschroen.github.io/bi_and_ds-lecture_notes/\n\nNeue Inhalte werden regelmäßig vor den entsprechenden Vorlesungen freigeschaltet\nAktuell passwortgeschützt aufgrund Copyrights\n5 gefundene und gemeldete Typos = 1 PickUp\nTipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts"
+    "text": "Kursmaterialen\nKurs-Website\n\nAlle Kursinhalte sind auf der Kurs-Website verfügbar:\n\nhttps://sebschroen.github.io/bi_and_ds-lecture_notes/\n\nNeue Inhalte werden regelmäßig vor den entsprechenden Vorlesungen freigeschaltet\nAktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien\n5 gefundene und gemeldete Typos = 1 PickUp\nTipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts"
   },
   {
     "objectID": "01_VL.html#kursmaterialen-1",
     "href": "01_VL.html#kursmaterialen-1",
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
-    "text": "Kursmaterialen\nFolien\n\nFolien sind auf der Startseite der Kurs-Website verlinkt\nDarstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen\nIm Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen\nDie finalen Folien werden nach jedem Block auf StudIP hochgeladen\n\n\n\nDie Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.\n\n\nKonzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.\nIm Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.\nAm Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.\nDie HTML Fassung bleibt verfügbar."
+    "text": "Kursmaterialen\nFolien\n\nFolien sind auf der Startseite der Kurs-Website verlinkt\nDarstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen\nIm Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen\nDie finalen Folien werden nach jedem Block als PDF auf StudIP hochgeladen\nInteraktive Elemente werden als ausführbare R-Codes bereitgestellt\n\n\n\nDie Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.\n\n\nKonzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.\nIm Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.\nAm Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.\nDie HTML Fassung bleibt verfügbar."
   },
   {
     "objectID": "01_VL.html#kursmaterialen-2",
@@ -46,35 +165,84 @@
     "href": "01_VL.html#business-intelligence",
     "title": "Business Intelligence & Data Science",
     "section": "Business Intelligence",
-    "text": "Business Intelligence\nBegriffsabgrenzung\n\n\n\n\n\n\nDefinition\n\n\nDer Prozess, die richtigen Informationen zur richtigen Zeit an die richtigen Personen heranzutragen.\n\n\n\n\nUrsprünge in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg\nFrühe kommerzielle Ansätze in den 60er Jahren im Zuge der Entwicklung relationaler Datenbanken.\nZunächst Fokus auf Management Support Systeme (MSS) und daher eher auf oberste Ebenen zugeschnitten"
+    "text": "Business Intelligence\nBegriffsabgrenzung\n\n\n\n\n\n\nDefinition\n\n\nBusiness Intelligence (BI) ist eine Reihe von Methoden, Prozessen, Architekturen und Technologien, die Rohdaten in sinnvolle und nutzbare, entscheidungsrelevante Informationen umwandeln. Es ermöglicht Anwendern, informierte Entscheidungen auf der Grundlage von Daten zu treffen, die ein Unternehmen gegenüber seinen Wettbewerbern in Vorteil bringen können.\n\n\n\n\nAbgeleitet vom Intelligence-Begriff in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg:\n\nDie richtigen Informationen zur richtigen Zeit an die richtigen Personen.\n\nFrühe kommerzielle Ansätze in den 60er Jahren im Zuge der Entwicklung relationaler Datenbanken."
   },
   {
     "objectID": "01_VL.html#business-intelligence-1",
     "href": "01_VL.html#business-intelligence-1",
     "title": "Business Intelligence & Data Science",
     "section": "Business Intelligence",
-    "text": "Business Intelligence\nBegriffsabgrenzung\n\nDer Begriff Business Intelligence (BI) wurde in den 1990ern geprägt\nHeute wird BI charakterisiert durch:\n\nBreite Verfügbarkeit von BI Tools auf allen Ebenen des Unternehmens\nGeschäftsentscheidung auf Basis aktueller Informationen und Daten und nicht auf Intuition\nUmfangreiche Analyse- und Reportingmöglichkeiten mit Self-Service Tools für Fachbereiche"
+    "text": "Business Intelligence\nBegriffsabgrenzung\n\nZunächst Fokus auf Management Support Systeme (MSS) und daher eher auf oberste Ebenen zugeschnitten\nDer Begriff Business Intelligence (BI) wurde in den 1990ern geprägt\nHeute wird BI charakterisiert durch:\n\nBreite Verfügbarkeit von BI Tools auf allen Ebenen des Unternehmens\nGeschäftsentscheidung auf Basis aktueller Informationen und Daten und nicht auf Intuition\nUmfangreiche Analyse- und Reportingmöglichkeiten mit Self-Service Tools für Fachbereiche"
   },
   {
     "objectID": "01_VL.html#business-intelligence-2",
     "href": "01_VL.html#business-intelligence-2",
     "title": "Business Intelligence & Data Science",
     "section": "Business Intelligence",
-    "text": "Business Intelligence\nBetriebliche Dimensionen\n\nBegriffsdimensionen von BI nach Schieder (2016).\n\nEine Personengruppe innerhalb der Organisation ist mit der Realisierung von BI-Prozessen vertraut.\nDie Generierung geschäftsrelevanter Informationen, Erkenntnisse und Wissen erfordert die Überführung fragmentierter Unternehmens- und Wettbewerbsdaten in handlungsgerichtetes Wissen. Hierbei liegt der Fokus auf dem Geschäftsprozess von der Datenerfassung hin zur Wissenskommunnikation.\nBezeichnet das Ergebnis eines Erkenntnissprozesses, beispielsweise ziel- und zweckorientiertes Wissen in Form von Berichten, Analysen und Prognosen für das Management.\nEine Sammlung von informationstechnischen Werkzeugen, Architekturen, Systemen und Technologien zur Aufbereitung und Bereitstellung reschäftsrelevanter Daten zum Zweck der Informationsgewinnung.\n\nIm Mittelpunkt dieser Vorlesung steht der BI-Prozess, beginnend mit der Datenerfassung und -bereitstellung im unternehmenseigenen Data Warehouse, über die Informationsentdeckung bzw. -generierung mit modellgestützten Analysemethoden, bis hin zur Kommunikation. Jeder Bestandteil des BI-Prozesses wird dabei um wichtige technische Aspekte ergänzt, bspw. Data Warehouse Architekturen, ausgewählten Analysemethoden und Einblicken in moderne BI-Dashboard-Tools. Ziel ist eine ganzheitliche Sicht auf den BI-Prozess im Unternehmenskontext."
+    "text": "Business Intelligence\nBetriebliche Dimensionen\n\n\n\nBegriffsdimensionen von BI nach Schieder (2016).\n\n\n\n\nEine Personengruppe innerhalb der Organisation ist mit der Realisierung von BI-Prozessen vertraut.\nDie Generierung geschäftsrelevanter Informationen, Erkenntnisse und Wissen erfordert die Überführung fragmentierter Unternehmens- und Wettbewerbsdaten in handlungsgerichtetes Wissen. Hierbei liegt der Fokus auf dem Geschäftsprozess von der Datenerfassung hin zur Wissenskommunnikation.\nBezeichnet das Ergebnis eines Erkenntnissprozesses, beispielsweise ziel- und zweckorientiertes Wissen in Form von Berichten, Analysen und Prognosen für das Management.\nEine Sammlung von informationstechnischen Werkzeugen, Architekturen, Systemen und Technologien zur Aufbereitung und Bereitstellung reschäftsrelevanter Daten zum Zweck der Informationsgewinnung.\n\nIm Mittelpunkt dieser Vorlesung steht der BI-Prozess, beginnend mit der Datenerfassung und -bereitstellung im unternehmenseigenen Data Warehouse, über die Informationsentdeckung bzw. -generierung mit modellgestützten Analysemethoden, bis hin zur Kommunikation. Jeder Bestandteil des BI-Prozesses wird dabei um wichtige technische Aspekte ergänzt, bspw. Data Warehouse Architekturen, ausgewählten Analysemethoden und Einblicken in moderne BI-Dashboard-Tools. Ziel ist eine ganzheitliche Sicht auf den BI-Prozess im Unternehmenskontext."
   },
   {
     "objectID": "01_VL.html#data-science",
     "href": "01_VL.html#data-science",
     "title": "Business Intelligence & Data Science",
     "section": "Data Science",
-    "text": "Data Science\nBegriffsabgrenzung\n\n\n\n\n\n\nDefinition\n\n\nData Science beschäftigt sich mit einer zweckorientierten Datenanalyse und der systematischen Generierung von Entscheidungshilfen und -grundlagen, um Wettbewerbsvorteile erzielen zu können. Der Schwerpunkt liegt dabei nicht auf den Daten selbst, sondern auf der Art und weise, wie diese verarbeitet und analysiert werden (siehe Gesellschaft für Informatik 2019)\n\n\n\n\nData Science ist ein vergleichsweise neues wissenschaftliches Feld, eine Kombination aus Statistik und Informatik, insbesondere Software Engineering\nDa es sich um ein junges Feld handelt sind Definitionen und die damit verbundenen Rollen im stetigen Wandel"
+    "text": "Data Science\nBegriffsabgrenzung\n\n\n\n\n\n\nDefinition\n\n\nData Science beschäftigt sich mit einer zweckorientierten Datenanalyse und der systematischen Generierung von Entscheidungshilfen und -grundlagen, um Wettbewerbsvorteile erzielen zu können. Der Schwerpunkt liegt dabei nicht auf den Daten selbst, sondern auf der Art und weise, wie diese verarbeitet und analysiert werden (siehe Gesellschaft für Informatik 2019)\n\n\n\n\nData Science ist ein vergleichsweise neues wissenschaftliches Feld, eine Kombination aus Statistik und Informatik, insbesondere Software Engineering\nDa es sich um ein junges Feld handelt sind Definitionen und die damit verbundenen Rollen im stetigen Wandel\n\n\nDieser Wandel geht so weit, dass die Rolle “Data Scientist” heute seltener auf Job-Portalen zu finden ist, als noch vor einigen Jahren. Stattdessen werden vermehrt spezialisierte Rollen wie “Data Engineer”, “Data Analyst” oder “Machine Learning Engineer” ausgeschrieben."
   },
   {
     "objectID": "01_VL.html#data-science-1",
     "href": "01_VL.html#data-science-1",
     "title": "Business Intelligence & Data Science",
     "section": "Data Science",
-    "text": "Data Science\nSchwerpunkte\n\nAufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche:\n\nData Engineering: Methoden und Prozesse für die Speicherung, Haltung und Replikation von Daten\nData Analytics: Datenanalyse mit statistischen Methoden\nData Prediction: Die Verwendung von statistischen Methoden zur Vorhersage\nMachine Learning: Algorithmen, die aus Daten lernen, Muster erkennen und hierauf aufbauend neue Situationen oder zukünftige Entwicklungen vorhersagen"
+    "text": "Data Science\nSchwerpunkte\n\nAufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche:\n\nData Engineering: Methoden und Prozesse für die Speicherung, Haltung und Replikation von Daten\nData Analytics: Datenanalyse mit statistischen Methoden\nPredictive Modelling: Die Verwendung von statistischen Methoden zur Vorhersage\nMachine Learning: Algorithmen, die aus Daten lernen, Muster erkennen und hierauf aufbauend neue Situationen oder zukünftige Entwicklungen vorhersagen"
+  },
+  {
+    "objectID": "01_VL.html#data-science-2",
+    "href": "01_VL.html#data-science-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Science",
+    "text": "Data Science\nReifegrade von Data Analytics\n\n\n\nQuelle: Milind Desai on Medium.com\n\n\n\n\nDescriptive Analytics: Beschreibende Analyse des Ist-Zustandes und der Vergangenheit. Im Mittelpunkt steht die Frage: Was ist passiert?\nDiagnostic Analytics: Analysiert die Zusammenhänge, die zum Ist-Zustand geführt haben und führt oft mehrere deskriptive Charakteristika zusammen: Warum ist der Status Quo eingetreten?\nPredictive Modelling: Ausgehend von einem detaillierten Verständnis des Status Quo wird eine Prognose für die Zukunft erstellt: Was wird passieren?\nPrescriptive Analytics: Dient der Identifizierung möglicher Handlungsoptionen auf Basis der Prognosen, entweder um eine schlechte Prognose abzuwenden oder die Realisierung einer guten Prognose zu unterstützen. Mit anderen Worten: Was muss getan werden, um die Zukunft zu unseren Gunsten zu beeinflussen"
+  },
+  {
+    "objectID": "01_VL.html#data-science-3",
+    "href": "01_VL.html#data-science-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Science",
+    "text": "Data Science\nData Science, Data Analytics, Data Mining?\n\nDie Unterscheidung zwischen den Begriffen Data Analyitcs, Data Mining und Data Science ist nicht immer trennscharf\nData Mining ist meist definiert als der Prozess der Informationsextraktion aus Daten und ist eine Teilmenge von Data Science\nIn dieser Vorlesung dient Data Science als methodischer Baukasten, um den BI-Prozess mit modellgestützten Methoden anzureichern und Zusammenhänge sichtbar zu machen\nHierbei steht der Zweck der Modelle, nämlich die Entscheidungsunterstützung, im Vordergrund"
+  },
+  {
+    "objectID": "01_VL.html#business-intelligence-und-data-science",
+    "href": "01_VL.html#business-intelligence-und-data-science",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Intelligence und Data Science",
+    "text": "Business Intelligence und Data Science\nZusammenführung der Begriffe und inhaltlicher Aufbau der Vorlesung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021).\n\n\n\nDie Abbildung illustriert den BIA-Ansatz als dreiteiligen Ordnungsrahmen, bestehend aus Datenbereitstellung, Informationsgenerierung und Informationsbereitstellung. Die Datenerfassung aus operativen und externen Systemen ist diesem Ordnungsrahmen hier vorgelagert. Das hieraus entstehende Modell entspricht der prozessualen BI-Dimension.\nGanz unten startenw ir mit zahlreichen operative und externen Quellsysteme, beispielsweise ERP-Systeme (häufig SAP), Produktdatenmanagement Systeme (PDM) oder Manufacturing Execution Systeme (MES).\nHinzu kommen häufig offene Daten wie Wetter- oder Konjunkturdaten und insbesondere im industriellen Kontext verstärkt Sensordaten aus internetfähigen Maschinen, sogenannte Internet of Things (IoT) Devices. Die strukturierte und systematische Integration dieser Daten mittels ETL Methoden (Extract, Transfer, Load), ist die erste Herausforderung jedes integrierten BIA-Systems.\nDie sogenannte Datenbereitstellung dient der konsistenten und strukturierten Speicherung und Persistierung aller relevanten Daten aus den oben genannten Quellsystemen. Hier gilt es verschiedene Konzepte näher zu beleuchten, insbesondere gängige Data Warehouse Konzepte, die meist aus sogenannten Data Marts und Core Data Warehouses bestehen und der themenbezogenen und integrierten Datenhaltung dienen. Je nach Anwendung wird das Datenmaterial meist voraggregiert. Zur Integration großvolumiger und schnell einlaufender Daten hat sich ergänzend das Konzept eines Data Lakes etabliert, in dem anders als im Data Warehouse Rohdaten ohne Aggregation abgelegt und verfügbar gemacht werden.\nDie Informationsgenerierung als zweite Schicht dient der Umwandlung der Rohdaten in entscheidungsfreundliche Formate, bspw. berichtsorientierte oder modellgestützte Analysen. Hier werden aus Daten erste Informationen generiert, auf Basis derer weitere Erkenntnisse über den Status Quo entstehen und mögliche Prognosen für die Zukunft erstellt werden können. Das Bindeglied zwischen Datenbereitstellung und Informationsgenerierung sind Systeme zur Datenabfrage und Exploration.\nDie Darstellung, Kanalisierung und Verbreitung von Informationen folgt in der dritten Schicht, der Informationsbereitstellung. Neben modernen Self-Service BI-Tools umfasst dies auch zielgruppenadäquate Präsentationen oder statische Berichte."
+  },
+  {
+    "objectID": "01_VL.html#dispositive-und-operative-daten",
+    "href": "01_VL.html#dispositive-und-operative-daten",
+    "title": "Business Intelligence & Data Science",
+    "section": "Dispositive und operative Daten",
+    "text": "Dispositive und operative Daten\nOperative versus dispositive Aufgaben\n\nAnders als die anfänglichen MSS unterstützen moderne BI-Systeme sowohl operative, als auch dispositive Aufgaben\nDispositive Aufgaben sind Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf\nOperative Aufgaben umfassen die Leistungserstellung oder -verwertung\nAn beide Aufgabenfelder gelten unterschiedliche Anforderungen, die in Daten und Systemen abgebildet werden müssen"
+  },
+  {
+    "objectID": "01_VL.html#dispositive-und-operative-daten-1",
+    "href": "01_VL.html#dispositive-und-operative-daten-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Dispositive und operative Daten",
+    "text": "Dispositive und operative Daten\nOperative versus dispositive Daten\n\n\nOperative Daten\n\nUnterstützen Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf\nHäufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert\n\n\nDispositive Daten\n\nDienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen1 erzeugt\nSehr granular und mit hoher Änderungsrate\nBeispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten\n\n\n\nAtomare und logisch untrennbare Datenbankvorgänge"
+  },
+  {
+    "objectID": "01_VL.html#dispositive-und-operative-daten-2",
+    "href": "01_VL.html#dispositive-und-operative-daten-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Dispositive und operative Daten",
+    "text": "Dispositive und operative Daten\nOperative versus dispositive Daten\n\n\nCharakteristika operativer und entscheidungsorientierter Daten im Vergleich. In Anlehnung an Baars und Kemper (2021)\n\n\n\n\n\n\n\n\nOperative Daten\nEntscheidungsorientierte Daten\n\n\n\n\nZiel\nAbwicklung der Geschäftsprozesse\nInformationen für Entscheidungen\n\n\nAusrichtung\nDetailliert und granular\nMeist verdichtet und transformiert mit Metadaten\n\n\nZeitbezug\nAktualität steht im Vordergrund, Zeitpunkt der Transaktion, keine Historisierung\nAktualität variiert mit der Aufgabe, Historienbetrachtung ist möglich\n\n\nModellierung\nKeine Altbestände\nSachgebiets- und themenbezogen orientiert und anwendungstauglich\n\n\nZustand\nHäufig redundant und inkonsistent zwischen Systemen\nKonsistent modelliert, Redundanz bewusst\n\n\nUpdate\nLaufend, Real-time\nErgänzend als Fortschreibung\n\n\nQueries\nStrukturiert, standardisiert und meistens statisch\nAd-hoc und dynamisch für wechselnde Fragestellungen sowie Standardberichte"
+  },
+  {
+    "objectID": "01_VL.html#dispositive-und-operative-daten-3",
+    "href": "01_VL.html#dispositive-und-operative-daten-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Dispositive und operative Daten",
+    "text": "Dispositive und operative Daten\nÜberführung von Daten in Information\n\n\n\nHauptziel dieser Vorlesung ist die Überführung von operationalen Datne in entscheidungsrelevante Informationen.\nDies hat zwei Hauptaspekte:\n\nBlock 1-4: Technische Infrastruktur und Architektur\nBlock 5-9: Methodische Konzepte wie modellorientierte Analysen\n\n\n\n\n\n\n\n\nBlock\nThema\n\n\n\n\n1\nOrganisation, Einleitung\n\n\n2\nDatenbereitstellung: Data Warehousing\n\n\n3\nDatentransformation\n\n\n4\nBig Data und Data Lake\n\n\n5\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\nInformationsbereitstellung: Visualisierungstechniken"
   },
   {
     "objectID": "01_VL.html#crisp-dm",
@@ -102,6 +270,6 @@
     "href": "01_VL.html#quellen",
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
-    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nGesellschaft für Informatik. 2019. „Data Science: Lern- und Ausbildungsinhalte“. Gesellschaft für Informatik.\n\n\nSchieder, Christian. 2016. „Historische Fragmente einer Integrationsdisziplin – Beitrag zur Konstruktgeschichte der Business Intelligence“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 13–32. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_2."
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nGesellschaft für Informatik. 2019. „Data Science: Lern- und Ausbildungsinhalte“. Gesellschaft für Informatik.\n\n\nSchieder, Christian. 2016. „Historische Fragmente einer Integrationsdisziplin – Beitrag zur Konstruktgeschichte der Business Intelligence“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 13–32. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_2."
   }
 ]
