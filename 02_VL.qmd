@@ -29,7 +29,7 @@ subtitle: "Vorlesung 2"
 
 ## Data Warehouse
 ### Eigenschaften
-
+::: {style="font-size: 0.95em"}
 1. Themenorientierung: 
     * Dispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet
     * Die operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert
@@ -38,7 +38,7 @@ subtitle: "Vorlesung 2"
 2. Integration: 
     * Daten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert
     * Zusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”
-    
+:::    
 
 ## Data Warehouse
 ### Eigenschaften
@@ -145,7 +145,7 @@ sales [label = 'Sales', width = 1]
 # edge definitions with the node IDs
 {pdm sap}  -> {sales }
 {sap mes} -> controlling
-}", height = 500, width = 400)
+}", height = 450, width = 400)
 
 
 ```
@@ -222,7 +222,7 @@ procurement [label= 'Procurement', width = 1]
 # edge definitions with the node IDs
 {mes pdm}  -> {sales procurement}
 {sap mes} -> controlling
-}", height = 500, width = 400)
+}", height = 450, width = 400)
 
 
 ```
@@ -290,7 +290,7 @@ cdwh [label = 'Core Data Warehouse', shape = cylinder, width = 2]
 # edge definitions with the node IDs
 {sap mes pdm}  -> cdwh
 
-}", height = 500, width = 400)
+}", height = 450, width = 400)
 
 
 
@@ -366,7 +366,7 @@ procurement [label= 'Procurement', width = 1]
 # edge definitions with the node IDs
 {sap mes pdm}  -> cdwh -> {controlling sales procurement}
 
-}", height = 500, width = 400)
+}", height = 450, width = 400)
 
 
 

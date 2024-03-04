@@ -25,7 +25,7 @@
     "href": "02_VL.html#data-warehouse-1",
     "title": "Business Intelligence & Data Science",
     "section": "Data Warehouse",
-    "text": "Data Warehouse\nEigenschaften\n\nThemenorientierung:\n\nDispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet\nDie operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert\nThemen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1\n\nIntegration:\n\nDaten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert\nZusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”"
+    "text": "Data Warehouse\nEigenschaften\n\n\nThemenorientierung:\n\nDispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet\nDie operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert\nThemen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1\n\nIntegration:\n\nDaten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert\nZusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”"
   },
   {
     "objectID": "02_VL.html#data-warehouse-2",
@@ -242,7 +242,7 @@
     "href": "01_VL.html#dispositive-und-operative-daten-3",
     "title": "Business Intelligence & Data Science",
     "section": "Dispositive und operative Daten",
-    "text": "Dispositive und operative Daten\nÜberführung von Daten in Information\n\n\n\nHauptziel dieser Vorlesung ist die Überführung von operationalen Datne in entscheidungsrelevante Informationen.\nDies hat zwei Hauptaspekte:\n\nBlock 1-4: Technische Infrastruktur und Architektur\nBlock 5-9: Methodische Konzepte wie modellorientierte Analysen\n\n\n\n\n\n\n\n\nBlock\nThema\n\n\n\n\n1\nOrganisation, Einleitung\n\n\n2\nDatenbereitstellung: Data Warehousing\n\n\n3\nDatentransformation\n\n\n4\nBig Data und Data Lake\n\n\n5\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\nInformationsbereitstellung: Visualisierungstechniken"
+    "text": "Dispositive und operative Daten\nÜberführung von Daten in Information\n\n\n\nHauptziel dieser Vorlesung ist die Überführung von operationalen Daten in entscheidungsrelevante Informationen.\nDies hat zwei Hauptaspekte:\n\nBlock 1-4: Technische Infrastruktur und Architektur\nBlock 5-9: Methodische Konzepte wie modellorientierte Analysen\n\n\n\n\n\n\n\n\nBlock\nThema\n\n\n\n\n1\nOrganisation, Einleitung\n\n\n2\nDatenbereitstellung: Data Warehousing\n\n\n3\nDatentransformation\n\n\n4\nBig Data und Data Lake\n\n\n5\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\nInformationsbereitstellung: Visualisierungstechniken"
   },
   {
     "objectID": "01_VL.html#crisp-dm",

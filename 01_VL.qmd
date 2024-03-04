@@ -111,7 +111,7 @@ Es ermöglicht Anwendern, informierte Entscheidungen auf der Grundlage von Daten
 ### Betriebliche Dimensionen
 
 
-![Begriffsdimensionen von BI nach @gluchowski_historische_2016.](https://sebschroen.github.io/bi_and_ds-lecture_notes/d90cdc8d7878e4a3c323e2982bd6be988cb4dd33/img/BI_Dimensionen.png){width="70%"}
+![Begriffsdimensionen von BI nach @gluchowski_historische_2016.](https://sebschroen.github.io/bi_and_ds-lecture_notes/d90cdc8d7878e4a3c323e2982bd6be988cb4dd33/img/BI_Dimensionen.png){width="65%"}
 
 ::: {.notes}
 1. Eine Personengruppe innerhalb der Organisation ist mit der Realisierung von BI-Prozessen vertraut.
@@ -173,7 +173,7 @@ Dieser Wandel geht so weit, dass die Rolle "Data Scientist" heute seltener auf J
 ### Zusammenführung der Begriffe und inhaltlicher Aufbau der Vorlesung
 
 
-![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio.png){width="70%"}
+![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio.png){width="65%"}
 
 ::: {.notes}
 Die Abbildung illustriert den BIA-Ansatz als dreiteiligen Ordnungsrahmen, bestehend aus Datenbereitstellung, Informationsgenerierung und Informationsbereitstellung. Die Datenerfassung aus operativen und externen Systemen ist diesem Ordnungsrahmen hier vorgelagert. Das hieraus entstehende Modell entspricht der prozessualen BI-Dimension.
@@ -247,15 +247,15 @@ Dispositive Daten
 
 :::: {.columns}
 
-::: {.column width="50%"}
-* Hauptziel dieser Vorlesung ist die Überführung von operationalen Datne in entscheidungsrelevante Informationen.
+::: {.column width="45%"}
+* Hauptziel dieser Vorlesung ist die Überführung von operationalen Daten in entscheidungsrelevante Informationen.
 * Dies hat zwei Hauptaspekte:
   * Block 1-4: Technische Infrastruktur und Architektur
   * Block 5-9: Methodische Konzepte wie modellorientierte Analysen
 
 :::
 
-::: {.column width="50%"}
+::: {.column width="55%"}
 
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
 read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
