@@ -90,7 +90,7 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 
 ::: {.callout-tip title="Definition"}
 Business Intelligence (BI) ist eine Reihe von Methoden, Prozessen, Architekturen und Technologien, die Rohdaten in sinnvolle und nutzbare, entscheidungsrelevante Informationen umwandeln. 
-Es ermöglicht Anwendern, informierte Entscheidungen auf der Grundlage von Daten zu treffen, die ein Unternehmen gegenüber seinen Wettbewerbern in Vorteil bringen können.
+Es ermöglicht Anwendenden, informierte Entscheidungen auf der Grundlage von Daten zu treffen, die ein Unternehmen gegenüber seinen Wettbewerbern in Vorteil bringen können (siehe [Forrester.com](https://www.forrester.com/report/Topic-Overview-Business-Intelligence/RES39218)).
 :::
 
 * Abgeleitet vom *Intelligence*-Begriff in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg: 
@@ -128,7 +128,7 @@ Ziel ist eine ganzheitliche Sicht auf den BI-Prozess im Unternehmenskontext.
 ### Begriffsabgrenzung
 
 ::: {.callout-tip title="Definition"}
-Data Science beschäftigt sich mit einer zweckorientierten Datenanalyse und der systematischen Generierung von Entscheidungshilfen und -grundlagen, um Wettbewerbsvorteile erzielen zu können. Der Schwerpunkt liegt dabei nicht auf den Daten selbst, sondern auf der Art und weise, wie diese verarbeitet und analysiert werden [siehe @gesellschaft_fur_informatik_data_2019]
+Data Science beschäftigt sich mit einer zweckorientierten Datenanalyse und der systematischen Generierung von Entscheidungshilfen und -grundlagen, um Wettbewerbsvorteile erzielen zu können. Der Schwerpunkt liegt dabei nicht auf den Daten selbst, sondern auf der Art und weise, wie diese verarbeitet und analysiert werden [siehe @gesellschaft_fur_informatik_data_2019].
 :::
 
 * Data Science ist ein vergleichsweise neues wissenschaftliches Feld, eine Kombination aus Statistik und Informatik, insbesondere Software Engineering
