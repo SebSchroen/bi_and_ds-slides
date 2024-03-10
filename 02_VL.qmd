@@ -10,7 +10,8 @@ subtitle: "Vorlesung 2"
     * Data Warehouse
     * Data Mart
     * Architekturkonzepte
-  * Verknüpfung eines einfachen Data Marts mit Superset
+  * Business Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe
+  * Verknüpfung eines ersten Data Marts mit Superset
 
 
 #  Datenbereitstellung
@@ -109,15 +110,6 @@ subtitle: "Vorlesung 2"
 ### Unabhängige Data Marts
 
 :::: {.columns}
-::: {.column width="55%"}
-::: {.fragment .fade-in}
-* Auch Stove-Pipe Ansatz
-* Bedienen sich direkt aus den operativen und externen Systemen
-* Bereiten die enthaltenen Daten für relevante Anwendungsfelder auf
-* Daten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen
-* Verschiedene Marts können unterschiedliche externe Datenquellen zusammenführen
-:::
-:::
 ::: {.column width="45%"}
 <!-- ![Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016](img/plot_marts.png){width="100%"} -->
 
@@ -151,6 +143,17 @@ sales [label = 'Sales', width = 1]
 ```
 :::
 :::
+
+::: {.column width="55%"}
+::: {.fragment .fade-in}
+* Auch Stove-Pipe Ansatz
+* Bedienen sich direkt aus den operativen und externen Systemen
+* Bereiten die enthaltenen Daten für relevante Anwendungsfelder auf
+* Daten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen
+* Verschiedene Marts können unterschiedliche externe Datenquellen zusammenführen
+:::
+:::
+
 ::::
 
 
@@ -159,15 +162,18 @@ sales [label = 'Sales', width = 1]
 
 :::: {.columns}
 ::: {.column width="50%"}
+::: {.fragment .fade-out}
 Vorteile:
 
 * Schnelle und bereichsspezifische Informationsbereitstellung
 * Sinnvoll bei fehlender Governance Strategie
 * Erfüllung maßgeschneideter bereichsspezifischer Fragestellungen
 
-
+:::
 :::
 ::: {.column width="50%"}
+::: {.fragment .fade-in}
+
 Nachteile:
 
 * Häufig historisch gewachsene Strukturen und damit geringe Governance
@@ -176,7 +182,7 @@ Nachteile:
 * Mangelnde Möglichkeit bereichsübergreifender Analysen
 
 :::
-
+:::
 ::::
 
 ## DWH Architekturen
@@ -184,13 +190,7 @@ Nachteile:
 
 
 :::: {.columns}
-::: {.column width="50%"}
-::: {.fragment .fade-in}
-* Konzeptionell abgestimmte Datenmodelle um  die Integrität des Datenmaterials zu gewährleisten
-* Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung
-* Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts
-:::
-:::
+
 ::: {.column width="50%"}
 
 ::: {style="font-size: 0.70em"}
@@ -228,6 +228,15 @@ procurement [label= 'Procurement', width = 1]
 ```
 :::
 :::
+
+::: {.column width="50%"}
+::: {.fragment .fade-in}
+* Konzeptionell abgestimmte Datenmodelle um  die Integrität des Datenmaterials zu gewährleisten
+* Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung
+* Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts
+:::
+:::
+
 ::::
 
 
@@ -235,22 +244,25 @@ procurement [label= 'Procurement', width = 1]
 ### Abgestimmte Data Marts
 
 :::: {.columns}
-::: {.column width="50%"}
+::: {.column width="47%"}
+
+::: {.fragment .fade-out}
 Vorteile:
 
 * Integrität des Datenmodells wird gewährleistet
 * Möglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche
 * Entscheidungsunterstützung für alle Bereiche in einem Unternehmen
 
-
 :::
-::: {.column width="50%"}
+:::
+::: {.column width="53%"}
+::: {.fragment .fade-in}
 Nachteile:
 
 * Durch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts
 * Möglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition
 * Informationsverlust bei übergreifenden Analysen
-
+:::
 :::
 
 ::::
@@ -259,13 +271,6 @@ Nachteile:
 ### Core Data Warehouse
 
 :::: {.columns}
-::: {.column width="55%"}
-::: {.fragment .fade-in}
-* Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank
-* Dieser Ansatz wird oft als Monolith bezeichnet
-* Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos
-:::
-:::
 ::: {.column width="45%"}
 
 ::: {style="font-size: 0.70em"}
@@ -298,6 +303,14 @@ cdwh [label = 'Core Data Warehouse', shape = cylinder, width = 2]
 
 :::
 :::
+::: {.column width="55%"}
+::: {.fragment .fade-in}
+* Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank
+* Dieser Ansatz wird oft als Monolith bezeichnet
+* Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos
+:::
+:::
+
 ::::
 
 
@@ -378,22 +391,24 @@ procurement [label= 'Procurement', width = 1]
 
 
 ## DWH Architekturen
-### Core Data Warehouse
+### Core Data Warehouse mit abhängigen Data Marts
 
 :::: {.columns}
 ::: {.column width="50%"}
+::: {.fragment .fade-out}
 Vorteile:
 
 * Einmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik
 * Geringere Anzahl an Extraktionsprozessen
 * Reduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten
-
+:::
 :::
 ::: {.column width="50%"}
+::: {.fragment .fade-in}
 Nachteile:
 
 * Nach wie vor eher traditionelle BI-Sicht
-
+:::
 :::
 ::::
 
@@ -439,4 +454,52 @@ da [label = 'Data & \n Analytics', width = 1, height = 0.7]
 ```
 
 :::
+
+## Business Case
+### Das Wachstum bei Tofispy stagniert
+
+* Tofispy ist ein Musikstreaming Anbieter aus Deutschland 
+* Das Unternehmen kämpft mit stagnierendem Wachstum
+* Wir -- die Unternehmensberatung LeinbizConsult -- wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln
+* Die Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben
+![](img/fotispy.png){.absolute bottom=550 right=50 width="125" height="125"}
+
+## Business Case
+### Datensätze
+
+1. *Überblick über den Streamingmarkt*: 
+    * Tabelle "market_share"
+    * Anzahl der Nutzer pro Plattform in Mio
+    * Daten von 2016 bis 2024
+    * Die Daten für 2024 sind eine Hochrechnung für das laufende Jahr
+2. *Nutzerdaten*:
+    * Tabelle "user_events"
+    * Enthält Zeitstempel und event_type, entweder "subscribe" oder "unsubscribe"
+
+
+
+## Business Case
+
+### Fragen
+
+* Warum stagniert das Wachstum bei Tofispy? 
+* Wächst Tofispy schneller oder langsamer als der Gesamtmarkt? 
+* Sind die Datensätze eher dispositiv oder operativ?
+
+
+
+## Hausaufgabe
+### Video anschauen
+
+{{< video https://vimeo.com/770676371 width="80%" height="80%" >}}
+
+
+## Hausaufgabe
+### Fragen zu Superset
+
+* Was sind Dimensions und Metrics? Welchen Zweck haben sie?
+* Was ist der Unterschied zwischen einem Dataset und einer Database?
+* Was ist der Unterschied zwischen Superset und Preset?
+
+
 ## Quellen    

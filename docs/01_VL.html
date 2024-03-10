@@ -386,9 +386,9 @@ Dr.&nbsp;Sebastian Schrön
 <li>Was sind operative und dispositive Daten?</li>
 <li>Wie werden aus operativen Daten entscheidungsrelevante Informationen?</li>
 </ul></li>
-<li>Der Data Science Prozess CRISP-DM</li>
 </ul>
 </section>
+
 <section id="kursaufbau" class="slide level2">
 <h2>Kursaufbau</h2>
 <h3 id="zeitplan">Zeitplan</h3>
@@ -473,9 +473,9 @@ Dr.&nbsp;Sebastian Schrön
 <ul>
 <li><a href="https://sebschroen.github.io/bi_and_ds-lecture_notes/">https://sebschroen.github.io/bi_and_ds-lecture_notes/</a></li>
 </ul></li>
-<li><p>Neue Inhalte werden regelmäßig <em>vor</em> den entsprechenden Vorlesungen freigeschaltet</p></li>
+<li><p>Neue Inhalte werden regelmäßig vor den entsprechenden Vorlesungen freigeschaltet</p></li>
 <li><p>Aktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien</p></li>
-<li><p>5 gefundene und gemeldete Typos = 1 PickUp</p></li>
+<li><p>3 gefundene und gemeldete Typos (E-Mail, StudIP) = 1 PickUp</p></li>
 <li><p>Tipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts</p></li>
 </ul>
 </section>
@@ -487,7 +487,7 @@ Dr.&nbsp;Sebastian Schrön
 <li>Darstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen</li>
 <li>Im Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen</li>
 <li>Die finalen Folien werden nach jedem Block als PDF auf StudIP hochgeladen</li>
-<li>Interaktive Elemente werden als ausführbare R-Codes bereitgestellt</li>
+<li>Interaktive Elemente werden separat verlinkt.</li>
 </ul>
 <aside class="notes">
 <ul>
@@ -535,6 +535,17 @@ Dr.&nbsp;Sebastian Schrön
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="kursmaterialien" class="slide level2">
+<h2>Kursmaterialien</h2>
+<h3 id="ergänzende-literatur">Ergänzende Literatur</h3>
+<ul>
+<li>Alle klausurrelevanten Inhalte lassen sich auf der Kurs-Website finden und nachlesen, zusätzliche Literatur ist nicht notwendig</li>
+<li>Der Aufbau des Kurses richtet sich nach dem Lehrbuch <a href="https://link.springer.com/book/10.1007/978-3-8348-2344-1">Business Intelligence &amp; Analytics - Grundlagen und praktische Anwendungen, 4. Auflage</a> von Henning Baars und Hans-Georg Kemper</li>
+<li>Block 1 - 5 entstammen größtenteils in <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></li>
+<li>Methodische Aspekte rund um Predictive Analytics entstammen größtenteils <a href="https://www.statlearning.com/">Introduction to Statistical Learning, 2. Auflage</a> von Gareth James, Daniela Witten, Trevor Hastie und Robert Tibshirani</li>
+<li>Die Quellen zu jeder Vorlesung sind jeweils auf der letzten Folien angegeben.</li>
+</ul>
 </section></section>
 <section>
 <section id="einleitung" class="title-slide slide level1 center">
@@ -553,10 +564,11 @@ Dr.&nbsp;Sebastian Schrön
 <p><strong>Definition</strong></p>
 </div>
 <div class="callout-content">
-<p>Business Intelligence (BI) ist eine Reihe von Methoden, Prozessen, Architekturen und Technologien, die Rohdaten in sinnvolle und nutzbare, entscheidungsrelevante Informationen umwandeln. Es ermöglicht Anwendenden, informierte Entscheidungen auf der Grundlage von Daten zu treffen, die ein Unternehmen gegenüber seinen Wettbewerbern in Vorteil bringen können (siehe <a href="https://www.forrester.com/report/Topic-Overview-Business-Intelligence/RES39218">Forrester.com</a>).</p>
+<p>Business Intelligence (BI) ist eine Reihe von Architekturen und Technologien, die Rohdaten in sinnvolle und nutzbare, entscheidungsrelevante Informationen umwandeln. Es ermöglicht Anwendenden, informierte Entscheidungen auf der Grundlage von Daten zu treffen, die ein Unternehmen gegenüber seinen Wettbewerbern in Vorteil bringen können (siehe <a href="https://www.forrester.com/report/Topic-Overview-Business-Intelligence/RES39218">Forrester.com</a>).</p>
 </div>
 </div>
 </div>
+<div class="fragment fade-in">
 <ul>
 <li>Abgeleitet vom <em>Intelligence</em>-Begriff in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg:
 <ul>
@@ -564,6 +576,7 @@ Dr.&nbsp;Sebastian Schrön
 </ul></li>
 <li>Frühe kommerzielle Ansätze in den 60er Jahren im Zuge der Entwicklung relationaler Datenbanken.</li>
 </ul>
+</div>
 </section>
 <section id="business-intelligence-1" class="slide level2">
 <h2>Business Intelligence</h2>
@@ -624,10 +637,12 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 </div>
 </div>
+<div class="fragment fade-in">
 <ul>
 <li>Data Science ist ein vergleichsweise neues wissenschaftliches Feld, eine Kombination aus Statistik und Informatik, insbesondere Software Engineering</li>
 <li>Da es sich um ein junges Feld handelt sind Definitionen und die damit verbundenen Rollen im stetigen Wandel</li>
 </ul>
+</div>
 <aside class="notes">
 <p>Dieser Wandel geht so weit, dass die Rolle “Data Scientist” heute seltener auf Job-Portalen zu finden ist, als noch vor einigen Jahren. Stattdessen werden vermehrt spezialisierte Rollen wie “Data Engineer”, “Data Analyst” oder “Machine Learning Engineer” ausgeschrieben.</p>
 <style type="text/css">
@@ -646,7 +661,7 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Data Science</h2>
 <h3 id="schwerpunkte">Schwerpunkte</h3>
 <ul>
-<li>Aufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche:
+<li><p>Aufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche:</p>
 <ol type="1">
 <li><strong>Data Engineering</strong>: Methoden und Prozesse für die Speicherung, Haltung und Replikation von Daten</li>
 <li><strong>Data Analytics</strong>: Datenanalyse mit statistischen Methoden</li>
@@ -877,60 +892,32 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="der-data-science-prozess" class="title-slide slide level1 center">
-<h1>Der Data Science Prozess</h1>
-
-</section>
-<section id="crisp-dm" class="slide level2">
-<h2>CRISP-DM</h2>
-<h3 id="geschäftsmodell">Geschäftsmodell</h3>
-<ol type="1">
-<li>Verständnis des Geschäftsmodells
-<ul>
-<li>Verständnis des Geschäftsmodells und der Unternehmensziele</li>
-<li>Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten</li>
-<li>Definition des erwartbaren Nutzens und messbarer Erfolgskriterien</li>
-</ul></li>
-</ol>
-</section>
-<section id="crisp-dm-1" class="slide level2">
-<h2>CRISP-DM</h2>
-<h3 id="anwendungs-datendomäne-und-datenvorbereitung">Anwendungs-/Datendomäne und Datenvorbereitung</h3>
-<ol start="2" type="1">
-<li>Verständnis der Anwendungs- und Datendomäne
-<ul>
-<li>Analyse der Unternehmensprozesse und Datenquellen</li>
-<li>Zusammenführung, Beschreibung und Exploration der Zieldaten</li>
-<li>Eruierung der Datenqualität</li>
-</ul></li>
-<li>Datenvorbereitung
-<ul>
-<li>Zusammenführung und Beschreibung polystrukturierter Daten</li>
-<li>Berechnung von Kennzahlen und Durchführung von Datentransformationen</li>
-</ul></li>
-</ol>
-</section>
-<section id="crisp-dm-2" class="slide level2">
-<h2>CRISP-DM</h2>
-<h3 id="modellierung-evaluation-und-bereitstellung">Modellierung, Evaluation und Bereitstellung</h3>
-<ol start="4" type="1">
-<li>Modellierung
-<ul>
-<li>Modellauswahl und -erstellung</li>
-<li>Iterativer Prozess zur Weiterentwicklung von Modellen</li>
-<li>Möglicher Einsatz vortrainierter Modelle für die Verfeinerung</li>
-</ul></li>
-<li>Evaluation
-<ul>
-<li>Bewertung der erstellten Modelle anhand definierter Erfolgskriterien</li>
-</ul></li>
-<li>Einsatz
-<ul>
-<li>Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse</li>
-</ul></li>
-</ol>
+<!-- # Der Data Science Prozess -->
+<!-- ## CRISP-DM  -->
+<!-- ### Geschäftsmodell -->
+<!-- 1. Verständnis des Geschäftsmodells -->
+<!--     * Verständnis des Geschäftsmodells und der Unternehmensziele -->
+<!--     * Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten -->
+<!--     * Definition des erwartbaren Nutzens und messbarer Erfolgskriterien -->
+<!-- ## CRISP-DM -->
+<!-- ### Anwendungs-/Datendomäne und Datenvorbereitung -->
+<!-- 2. Verständnis der Anwendungs- und Datendomäne -->
+<!--     * Analyse der Unternehmensprozesse und Datenquellen -->
+<!--     * Zusammenführung, Beschreibung und Exploration der Zieldaten -->
+<!--     * Eruierung der Datenqualität -->
+<!-- 3. Datenvorbereitung -->
+<!--     * Zusammenführung und Beschreibung polystrukturierter Daten -->
+<!--     * Berechnung von Kennzahlen und Durchführung von Datentransformationen -->
+<!-- ## CRISP-DM -->
+<!-- ### Modellierung, Evaluation und Bereitstellung -->
+<!-- 4. Modellierung -->
+<!--     * Modellauswahl und -erstellung -->
+<!--     * Iterativer Prozess zur Weiterentwicklung von Modellen -->
+<!--     * Möglicher Einsatz vortrainierter Modelle für die Verfeinerung -->
+<!-- 5. Evaluation -->
+<!--     * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien -->
+<!-- 6. Einsatz -->
+<!--     * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse -->
 </section>
 <section id="quellen" class="slide level2 smaller scrollable">
 <h2>Quellen</h2>

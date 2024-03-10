@@ -379,7 +379,8 @@ Dr.&nbsp;Sebastian Schrön
 <li>Data Mart</li>
 <li>Architekturkonzepte</li>
 </ul></li>
-<li>Verknüpfung eines einfachen Data Marts mit Superset</li>
+<li>Business Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe</li>
+<li>Verknüpfung eines ersten Data Marts mit Superset</li>
 </ul>
 </section>
 <section>
@@ -549,7 +550,18 @@ Dr.&nbsp;Sebastian Schrön
 <h2>DWH Architekturen</h2>
 <h3 id="unabhängige-data-marts">Unabhängige Data Marts</h3>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:45%;">
+<!-- ![Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016](img/plot_marts.png){width="100%"} -->
+<div style="font-size: 0.70em">
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-59b397ee906e58c38315" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-59b397ee906e58c38315">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Unabhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:55%;">
 <div class="fragment fade-in">
 <ul>
 <li>Auch Stove-Pipe Ansatz</li>
@@ -559,17 +571,6 @@ Dr.&nbsp;Sebastian Schrön
 <li>Verschiedene Marts können unterschiedliche externe Datenquellen zusammenführen</li>
 </ul>
 </div>
-</div><div class="column" style="width:45%;">
-<!-- ![Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016](img/plot_marts.png){width="100%"} -->
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-bd9dd421a0445b23a9dd" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-bd9dd421a0445b23a9dd">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Unabhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -578,13 +579,16 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="unabhängige-data-marts-1">Unabhängige Data Marts</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div class="fragment fade-out">
 <p>Vorteile:</p>
 <ul>
 <li>Schnelle und bereichsspezifische Informationsbereitstellung</li>
 <li>Sinnvoll bei fehlender Governance Strategie</li>
 <li>Erfüllung maßgeschneideter bereichsspezifischer Fragestellungen</li>
 </ul>
+</div>
 </div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <p>Nachteile:</p>
 <ul>
 <li>Häufig historisch gewachsene Strukturen und damit geringe Governance</li>
@@ -594,28 +598,29 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div>
+</div>
 </section>
 <section id="dwh-architekturen-2" class="slide level2">
 <h2>DWH Architekturen</h2>
 <h3 id="abgestimmte-data-marts">Abgestimmte Data Marts</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div style="font-size: 0.70em">
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-dfa0d17dac396f96a480" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-dfa0d17dac396f96a480">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Abhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
 <div class="fragment fade-in">
 <ul>
 <li>Konzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten</li>
 <li>Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung</li>
 <li>Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts</li>
 </ul>
-</div>
-</div><div class="column" style="width:50%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-4fbd465abf8d8bb38f0e" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4fbd465abf8d8bb38f0e">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Abhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -624,14 +629,17 @@ Dr.&nbsp;Sebastian Schrön
 <h2>DWH Architekturen</h2>
 <h3 id="abgestimmte-data-marts-1">Abgestimmte Data Marts</h3>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:47%;">
+<div class="fragment fade-out">
 <p>Vorteile:</p>
 <ul>
 <li>Integrität des Datenmodells wird gewährleistet</li>
 <li>Möglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche</li>
 <li>Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div>
+</div><div class="column" style="width:53%;">
+<div class="fragment fade-in">
 <p>Nachteile:</p>
 <ul>
 <li>Durch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts</li>
@@ -640,28 +648,29 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div>
+</div>
 </section>
 <section id="dwh-architekturen-4" class="slide level2">
 <h2>DWH Architekturen</h2>
 <h3 id="core-data-warehouse">Core Data Warehouse</h3>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:45%;">
+<div style="font-size: 0.70em">
+<div class="cell">
+<div class="cell-output-display">
+<div id="htmlwidget-26f0450ff22f4846c076" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-26f0450ff22f4846c076">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Core Data Warehouse. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:55%;">
 <div class="fragment fade-in">
 <ul>
 <li>Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank</li>
 <li>Dieser Ansatz wird oft als Monolith bezeichnet</li>
 <li>Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos</li>
 </ul>
-</div>
-</div><div class="column" style="width:45%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-0cf403fd1142ff737280" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0cf403fd1142ff737280">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Core Data Warehouse. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -703,8 +712,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-b590eab86f6a400db739" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b590eab86f6a400db739">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-756f480a5ae23d0dcb9a" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-756f480a5ae23d0dcb9a">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Core Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -714,20 +723,24 @@ Dr.&nbsp;Sebastian Schrön
 </section>
 <section id="dwh-architekturen-7" class="slide level2">
 <h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-2">Core Data Warehouse</h3>
+<h3 id="core-data-warehouse-mit-abhängigen-data-marts-1">Core Data Warehouse mit abhängigen Data Marts</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div class="fragment fade-out">
 <p>Vorteile:</p>
 <ul>
 <li>Einmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik</li>
 <li>Geringere Anzahl an Extraktionsprozessen</li>
 <li>Reduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten</li>
 </ul>
+</div>
 </div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <p>Nachteile:</p>
 <ul>
 <li>Nach wie vor eher traditionelle BI-Sicht</li>
 </ul>
+</div>
 </div>
 </div>
 </section>
@@ -737,12 +750,63 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-65e8d9472b8fa471ddc4" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-65e8d9472b8fa471ddc4">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-2c7c852d63cad04222e6" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-2c7c852d63cad04222e6">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Architekturen-Mix. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
 </div>
+</section>
+<section id="business-case" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="das-wachstum-bei-tofispy-stagniert">Das Wachstum bei Tofispy stagniert</h3>
+<ul>
+<li>Tofispy ist ein Musikstreaming Anbieter aus Deutschland</li>
+<li>Das Unternehmen kämpft mit stagnierendem Wachstum</li>
+<li>Wir – die Unternehmensberatung LeinbizConsult – wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln</li>
+<li>Die Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben <img data-src="img/fotispy.png" class="absolute" style="bottom: 550px; right: 50px; width: 125px; height: 125px; "></li>
+</ul>
+</section>
+<section id="business-case-1" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="datensätze">Datensätze</h3>
+<ol type="1">
+<li><em>Überblick über den Streamingmarkt</em>:
+<ul>
+<li>Tabelle “market_share”</li>
+<li>Anzahl der Nutzer pro Plattform in Mio</li>
+<li>Daten von 2016 bis 2024</li>
+<li>Die Daten für 2024 sind eine Hochrechnung für das laufende Jahr</li>
+</ul></li>
+<li><em>Nutzerdaten</em>:
+<ul>
+<li>Tabelle “user_events”</li>
+<li>Enthält Zeitstempel und event_type, entweder “subscribe” oder “unsubscribe”</li>
+</ul></li>
+</ol>
+</section>
+<section id="business-case-2" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="fragen">Fragen</h3>
+<ul>
+<li>Warum stagniert das Wachstum bei Tofispy?</li>
+<li>Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?</li>
+<li>Sind die Datensätze eher dispositiv oder operativ?</li>
+</ul>
+</section>
+<section id="hausaufgabe" class="slide level2">
+<h2>Hausaufgabe</h2>
+<h3 id="video-anschauen">Video anschauen</h3>
+<iframe data-external="1" src="https://player.vimeo.com/video/770676371" width="80%" height="80%" frameborder="0" allow="autoplay; title=" "="" fullscreen;="" picture-in-picture"="" allowfullscreen=""></iframe>
+</section>
+<section id="hausaufgabe-1" class="slide level2">
+<h2>Hausaufgabe</h2>
+<h3 id="fragen-zu-superset">Fragen zu Superset</h3>
+<ul>
+<li>Was sind Dimensions und Metrics? Welchen Zweck haben sie?</li>
+<li>Was ist der Unterschied zwischen einem Dataset und einer Database?</li>
+<li>Was ist der Unterschied zwischen Superset und Preset?</li>
+</ul>
 </section>
 <section id="quellen" class="slide level2 smaller scrollable">
 <h2>Quellen</h2>

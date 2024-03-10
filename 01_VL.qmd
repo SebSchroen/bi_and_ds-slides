@@ -24,7 +24,22 @@ library(dplyr)
     * Was sind Business Intelligence & Data Science?
     * Was sind operative und dispositive Daten?
     * Wie werden aus operativen Daten entscheidungsrelevante Informationen?
-  * Der Data Science Prozess CRISP-DM
+
+## Apache Superset {visibility="hidden"}
+### Stresstest
+
+* Apache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient.
+* Das Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden:
+
+
+
+* Die Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt.
+* Die Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind.
+* Die Superset Instanz bleibt bis zur letzten Vorlesung online.
+
+
+
+
 
 ## Kursaufbau
 ### Zeitplan
@@ -46,9 +61,9 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 
   * [https://sebschroen.github.io/bi_and_ds-lecture_notes/](https://sebschroen.github.io/bi_and_ds-lecture_notes/)
 
-* Neue Inhalte werden regelmäßig *vor* den entsprechenden Vorlesungen freigeschaltet
+* Neue Inhalte werden regelmäßig vor den entsprechenden Vorlesungen freigeschaltet
 * Aktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien
-* 5 gefundene und gemeldete Typos = 1 PickUp
+* 3 gefundene und gemeldete Typos (E-Mail, StudIP)  = 1 PickUp
 * Tipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts
 
 
@@ -59,7 +74,7 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 * Darstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen
 * Im Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen
 * Die finalen Folien werden nach jedem Block als PDF auf StudIP hochgeladen
-* Interaktive Elemente werden als ausführbare R-Codes bereitgestellt
+* Interaktive Elemente werden separat verlinkt.
 
 
 ::: {.notes}
@@ -82,6 +97,16 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 * Die Darstellung ist für html optimiert und kann für Artefakte beim PDF Rendering sorgen, erleichtert aber das Ausdrucken
 :::
 
+## Kursmaterialien
+### Ergänzende Literatur
+
+* Alle klausurrelevanten Inhalte lassen sich auf der Kurs-Website finden und nachlesen, zusätzliche Literatur ist nicht notwendig
+* Der Aufbau des Kurses richtet sich nach dem Lehrbuch [Business Intelligence & Analytics - Grundlagen und praktische Anwendungen, 4. Auflage](https://link.springer.com/book/10.1007/978-3-8348-2344-1) von Henning Baars und Hans-Georg Kemper
+* Block 1 - 5 entstammen größtenteils in @baars_business_2021 
+* Methodische Aspekte rund um Predictive Analytics entstammen größtenteils [Introduction to Statistical Learning, 2. Auflage](https://www.statlearning.com/) von Gareth James, Daniela Witten, Trevor Hastie und Robert Tibshirani
+* Die Quellen zu jeder Vorlesung sind jeweils auf der letzten Folien angegeben.
+
+
 # Einleitung
 
 ## Business Intelligence
@@ -89,14 +114,15 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 
 
 ::: {.callout-tip title="Definition"}
-Business Intelligence (BI) ist eine Reihe von Methoden, Prozessen, Architekturen und Technologien, die Rohdaten in sinnvolle und nutzbare, entscheidungsrelevante Informationen umwandeln. 
+Business Intelligence (BI) ist eine Reihe von  Architekturen und Technologien, die Rohdaten in sinnvolle und nutzbare, entscheidungsrelevante Informationen umwandeln. 
 Es ermöglicht Anwendenden, informierte Entscheidungen auf der Grundlage von Daten zu treffen, die ein Unternehmen gegenüber seinen Wettbewerbern in Vorteil bringen können (siehe [Forrester.com](https://www.forrester.com/report/Topic-Overview-Business-Intelligence/RES39218)).
 :::
 
+::: {.fragment .fade-in}
 * Abgeleitet vom *Intelligence*-Begriff in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg: 
   * Die richtigen Informationen zur richtigen Zeit an die richtigen Personen.
 * Frühe kommerzielle Ansätze in den 60er Jahren im Zuge der Entwicklung relationaler Datenbanken.
-
+:::
 ## Business Intelligence
 ### Begriffsabgrenzung
 
@@ -131,9 +157,11 @@ Ziel ist eine ganzheitliche Sicht auf den BI-Prozess im Unternehmenskontext.
 Data Science beschäftigt sich mit einer zweckorientierten Datenanalyse und der systematischen Generierung von Entscheidungshilfen und -grundlagen, um Wettbewerbsvorteile erzielen zu können. Der Schwerpunkt liegt dabei nicht auf den Daten selbst, sondern auf der Art und weise, wie diese verarbeitet und analysiert werden [siehe @gesellschaft_fur_informatik_data_2019].
 :::
 
+::: {.fragment .fade-in}
+
 * Data Science ist ein vergleichsweise neues wissenschaftliches Feld, eine Kombination aus Statistik und Informatik, insbesondere Software Engineering
 * Da es sich um ein junges Feld handelt sind Definitionen und die damit verbundenen Rollen im stetigen Wandel
-
+:::
 ::: {.notes}
 Dieser Wandel geht so weit, dass die Rolle "Data Scientist" heute seltener auf Job-Portalen zu finden ist, als noch vor einigen Jahren. Stattdessen werden vermehrt spezialisierte Rollen wie "Data Engineer", "Data Analyst" oder "Machine Learning Engineer" ausgeschrieben.
 :::
@@ -141,7 +169,8 @@ Dieser Wandel geht so weit, dass die Rolle "Data Scientist" heute seltener auf J
 ## Data Science
 ### Schwerpunkte
 
-* Aufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche: 
+* Aufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche:
+
   1. **Data Engineering**: Methoden und Prozesse für die Speicherung, Haltung und Replikation von Daten
   2. **Data Analytics**: Datenanalyse mit statistischen Methoden
   3. **Predictive Modelling**: Die Verwendung von statistischen Methoden zur Vorhersage
@@ -197,6 +226,7 @@ Die Darstellung, Kanalisierung und Verbreitung von Informationen folgt in der dr
 
 ### Operative versus dispositive Aufgaben
 
+
 * Anders als die anfänglichen MSS unterstützen moderne BI-Systeme sowohl operative, als auch dispositive Aufgaben 
 * Dispositive Aufgaben sind Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf
 * Operative Aufgaben umfassen die Leistungserstellung oder -verwertung
@@ -214,16 +244,17 @@ Operative Daten
 * Häufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert
 :::
 
+
 ::: {.column width="50%"}
+
 Dispositive Daten
 
 * Dienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen^[Atomare und logisch untrennbare Datenbankvorgänge] erzeugt
 * Sehr granular und mit hoher Änderungsrate
 * Beispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten
+
 :::
-
 ::::
-
 
 
 ## Dispositive und operative Daten
@@ -272,38 +303,38 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 
 
 
-# Der Data Science Prozess
+<!-- # Der Data Science Prozess -->
 
-## CRISP-DM 
-### Geschäftsmodell
+<!-- ## CRISP-DM  -->
+<!-- ### Geschäftsmodell -->
 
-1. Verständnis des Geschäftsmodells
-    * Verständnis des Geschäftsmodells und der Unternehmensziele
-    * Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten
-    * Definition des erwartbaren Nutzens und messbarer Erfolgskriterien
+<!-- 1. Verständnis des Geschäftsmodells -->
+<!--     * Verständnis des Geschäftsmodells und der Unternehmensziele -->
+<!--     * Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten -->
+<!--     * Definition des erwartbaren Nutzens und messbarer Erfolgskriterien -->
 
-## CRISP-DM
-### Anwendungs-/Datendomäne und Datenvorbereitung
+<!-- ## CRISP-DM -->
+<!-- ### Anwendungs-/Datendomäne und Datenvorbereitung -->
 
-2. Verständnis der Anwendungs- und Datendomäne
-    * Analyse der Unternehmensprozesse und Datenquellen
-    * Zusammenführung, Beschreibung und Exploration der Zieldaten
-    * Eruierung der Datenqualität
-3. Datenvorbereitung
-    * Zusammenführung und Beschreibung polystrukturierter Daten
-    * Berechnung von Kennzahlen und Durchführung von Datentransformationen
+<!-- 2. Verständnis der Anwendungs- und Datendomäne -->
+<!--     * Analyse der Unternehmensprozesse und Datenquellen -->
+<!--     * Zusammenführung, Beschreibung und Exploration der Zieldaten -->
+<!--     * Eruierung der Datenqualität -->
+<!-- 3. Datenvorbereitung -->
+<!--     * Zusammenführung und Beschreibung polystrukturierter Daten -->
+<!--     * Berechnung von Kennzahlen und Durchführung von Datentransformationen -->
 
-## CRISP-DM
-### Modellierung, Evaluation und Bereitstellung
+<!-- ## CRISP-DM -->
+<!-- ### Modellierung, Evaluation und Bereitstellung -->
 
-4. Modellierung
-    * Modellauswahl und -erstellung
-    * Iterativer Prozess zur Weiterentwicklung von Modellen
-    * Möglicher Einsatz vortrainierter Modelle für die Verfeinerung
-5. Evaluation
-    * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien
-6. Einsatz
-    * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse
+<!-- 4. Modellierung -->
+<!--     * Modellauswahl und -erstellung -->
+<!--     * Iterativer Prozess zur Weiterentwicklung von Modellen -->
+<!--     * Möglicher Einsatz vortrainierter Modelle für die Verfeinerung -->
+<!-- 5. Evaluation -->
+<!--     * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien -->
+<!-- 6. Einsatz -->
+<!--     * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse -->
 
     
 ## Quellen    
