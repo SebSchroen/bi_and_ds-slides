@@ -11,7 +11,7 @@ subtitle: "Vorlesung 2"
     * Data Mart
     * Architekturkonzepte
   * Business Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe
-  * Verknüpfung eines ersten Data Marts mit Superset
+  * Verknüpfung eines ersten Data Marts mit Superset oder Datenanalyse mit Excel
 
 
 #  Datenbereitstellung
@@ -31,6 +31,7 @@ subtitle: "Vorlesung 2"
 ## Data Warehouse
 ### Eigenschaften
 ::: {style="font-size: 0.95em"}
+::: {.incremental}
 1. Themenorientierung: 
     * Dispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet
     * Die operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert
@@ -40,11 +41,11 @@ subtitle: "Vorlesung 2"
     * Daten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert
     * Zusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”
 :::    
-
+:::
 ## Data Warehouse
 ### Eigenschaften
 
-
+::: {.incremental}
 3. Zeitraumbezug:
     * Operative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab
     * Daten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr
@@ -52,47 +53,57 @@ subtitle: "Vorlesung 2"
 4. Nicht-Volatilität:
     * Daten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt
     * DWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt
-
+:::
 
 ## Data Warehouse 
 ### Komponenten des Data Warehouse
-
+::: {.incremental}
 :::: {.columns}
 ::: {.column width="50%"}
-**Data Mart**
+
+Data Mart
 
 * Separater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen
 * Nur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen
 * Häufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen
 :::
-
 ::: {.column width="50%"}
-**Core Data Warehouse**
+
+Core Data Warehouse
 
 * Rückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet
 * Befüllung über ETL-Prozesse aus operativen Quellsystemen
 * Meist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)
 * Applikationsneutral modelliert
 :::
-
 ::::
-
+:::
 
 
 ## Data Warehouse
 ### Funktionen des CDWH
 
-* Das Core Data Warehouse (CDWH) erfüllt folgende Funktionen:
 1. Sammel- und Integrationsfunktion: 
-    * Aufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers
+
+::: {.fragment .fade-in}
+  * Aufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers
+:::
+
 2. Distributionsfunktion: 
-    * Versorgung aller nachgeschalteten Data Marts mit Daten
+
+::: {.fragment .fade-in}
+  * Versorgung aller nachgeschalteten Data Marts mit Daten
+:::
 3. Qualitätssicherungsfunktion: 
-    * Datentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis
+
+::: {.fragment .fade-in}
+  * Datentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis
+:::
+
 
 ## Data Warehouse 
 ### Data Mart vs. CDWH
-
+::: {.incremental}
 ::: {style="font-size: 0.70em"}
 |  | Data Mart | Core Data Warehouse |
 |---|---|---|
@@ -105,7 +116,7 @@ subtitle: "Vorlesung 2"
 
 : Charakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an  @baars_business_2021 {tbl-colwidths="[20,40,40]"}
 :::
-
+:::
 ## DWH Architekturen
 ### Unabhängige Data Marts
 
@@ -145,7 +156,7 @@ sales [label = 'Sales', width = 1]
 :::
 
 ::: {.column width="55%"}
-::: {.fragment .fade-in}
+::: {.incremental}
 * Auch Stove-Pipe Ansatz
 * Bedienen sich direkt aus den operativen und externen Systemen
 * Bereiten die enthaltenen Daten für relevante Anwendungsfelder auf
@@ -159,10 +170,10 @@ sales [label = 'Sales', width = 1]
 
 ## DWH Architekturen
 ### Unabhängige Data Marts
-
+::: {.incremental}
 :::: {.columns}
 ::: {.column width="50%"}
-::: {.fragment .fade-out}
+
 Vorteile:
 
 * Schnelle und bereichsspezifische Informationsbereitstellung
@@ -170,9 +181,8 @@ Vorteile:
 * Erfüllung maßgeschneideter bereichsspezifischer Fragestellungen
 
 :::
-:::
 ::: {.column width="50%"}
-::: {.fragment .fade-in}
+
 
 Nachteile:
 
@@ -182,9 +192,8 @@ Nachteile:
 * Mangelnde Möglichkeit bereichsübergreifender Analysen
 
 :::
-:::
 ::::
-
+:::
 ## DWH Architekturen
 ### Abgestimmte Data Marts
 
@@ -230,7 +239,7 @@ procurement [label= 'Procurement', width = 1]
 :::
 
 ::: {.column width="50%"}
-::: {.fragment .fade-in}
+::: {.incremental}
 * Konzeptionell abgestimmte Datenmodelle um  die Integrität des Datenmaterials zu gewährleisten
 * Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung
 * Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts
@@ -242,31 +251,28 @@ procurement [label= 'Procurement', width = 1]
 
 ## DWH Architekturen
 ### Abgestimmte Data Marts
-
+::: {.incremental}
 :::: {.columns}
 ::: {.column width="47%"}
 
-::: {.fragment .fade-out}
 Vorteile:
 
 * Integrität des Datenmodells wird gewährleistet
 * Möglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche
 * Entscheidungsunterstützung für alle Bereiche in einem Unternehmen
 
-:::
+
 :::
 ::: {.column width="53%"}
-::: {.fragment .fade-in}
 Nachteile:
 
 * Durch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts
 * Möglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition
 * Informationsverlust bei übergreifenden Analysen
 :::
-:::
 
 ::::
-
+:::
 ## DWH Architekturen
 ### Core Data Warehouse
 
@@ -304,7 +310,7 @@ cdwh [label = 'Core Data Warehouse', shape = cylinder, width = 2]
 :::
 :::
 ::: {.column width="55%"}
-::: {.fragment .fade-in}
+::: {.incremental}
 * Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank
 * Dieser Ansatz wird oft als Monolith bezeichnet
 * Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos
@@ -316,7 +322,7 @@ cdwh [label = 'Core Data Warehouse', shape = cylinder, width = 2]
 
 ## DWH Architekturen
 ### Core Data Warehouse
-
+::: {.incremental}
 :::: {.columns}
 ::: {.column width="50%"}
 Vorteile:
@@ -334,13 +340,13 @@ Nachteile:
 
 :::
 ::::
-
+:::
 ## DWH Architekturen
 ### Core Data Warehouse mit abhängigen Data Marts
 
 :::: {.columns}
 ::: {.column width="55%"}
-::: {.fragment .fade-in}
+::: {.incremental}
 * Auch Hub-and-Spoke Ansatz genannt
 * CDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts
 * Marts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf
@@ -392,26 +398,23 @@ procurement [label= 'Procurement', width = 1]
 
 ## DWH Architekturen
 ### Core Data Warehouse mit abhängigen Data Marts
-
+:::{.incremental}
 :::: {.columns}
 ::: {.column width="50%"}
-::: {.fragment .fade-out}
+
 Vorteile:
 
 * Einmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik
 * Geringere Anzahl an Extraktionsprozessen
 * Reduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten
 :::
-:::
 ::: {.column width="50%"}
-::: {.fragment .fade-in}
 Nachteile:
 
 * Nach wie vor eher traditionelle BI-Sicht
 :::
-:::
 ::::
-
+:::
 ## DWH Architekturen
 ### Architekturen-Mix
 
@@ -458,41 +461,51 @@ da [label = 'Data & \n Analytics', width = 1, height = 0.7]
 ## Business Case
 ### Das Wachstum bei Tofispy stagniert
 
-* Tofispy ist ein Musikstreaming Anbieter aus Deutschland 
+* Tofispy ist ein Musikstreaming Anbieter aus Deutschland
 * Das Unternehmen kämpft mit stagnierendem Wachstum
 * Wir -- die Unternehmensberatung LeinbizConsult -- wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln
 * Die Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben
 ![](img/fotispy.png){.absolute bottom=550 right=50 width="125" height="125"}
 
 ## Business Case
-### Datensätze
+### Datensatz
 
-1. *Überblick über den Streamingmarkt*: 
+1. *Überblick über den Streamingmarkt*:
     * Tabelle "market_share"
     * Anzahl der Nutzer pro Plattform in Mio
     * Daten von 2016 bis 2024
     * Die Daten für 2024 sind eine Hochrechnung für das laufende Jahr
-2. *Nutzerdaten*:
-    * Tabelle "user_events"
-    * Enthält Zeitstempel und event_type, entweder "subscribe" oder "unsubscribe"
 
 
+## Business Case
+### Aufgabe
+
+* Arbeit in 2er Teams mit mindestens einem Laptop oder Tablet (nicht ideal für Excel) pro Team
+* Jedes Team lädt die Daten bei StudIP herunter und diskutiert untereinander, wie die Daten strukturiert sind
+* Trial & Error in Superset mit Hilfe der Dokumentation:
+  * Dokumentation unter [preset.io](https://docs.preset.io/docs/creating-a-chart)
+   * Startpunkt: Creating a Chart (in der preset Doku)
+   * Table als Ausgangspunkt für explorative Analyse
+* Anschließend Analyse in Excel + Superset und kritische Gegenüberstellung der beiden Ansätze
 
 ## Business Case
 
 ### Fragen
 
-* Warum stagniert das Wachstum bei Tofispy? 
-* Wächst Tofispy schneller oder langsamer als der Gesamtmarkt? 
-* Sind die Datensätze eher dispositiv oder operativ?
+* Was sind die Vorteile der beiden Ansätze?
+* Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?
+* Wie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?
+* Welcher Konkurrent wächst am stärksten?
+* Ist der Datensatz operativ oder dispositiv?
+
 
 
 
 ## Hausaufgabe
 ### Video anschauen
 
-{{< video https://vimeo.com/770676371 width="80%" height="80%" >}}
-
+{{< video https://vimeo.com/770676371 width="60%" height="60%" >}}
+[Link zum Video](https://vimeo.com/770676371)
 
 ## Hausaufgabe
 ### Fragen zu Superset

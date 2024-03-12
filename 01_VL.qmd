@@ -13,34 +13,63 @@ library(dplyr)
 
 
 
-# Organisation 
 
 ## Der Plan für heute...
 ### Vorlesung 1
-  * Vorstellung & kurzes Kennenlern-Quizz
-  * Stresstest für unser BI-Tool *Apache Superset*
+  * Vorstellung & kurzes Kennenlern-Quiz
+  * Stresstest für unser BI-Tool Apache Superset
   * Organisatorisches
   * Einleitung:
     * Was sind Business Intelligence & Data Science?
     * Was sind operative und dispositive Daten?
     * Wie werden aus operativen Daten entscheidungsrelevante Informationen?
 
-## Apache Superset {visibility="hidden"}
+
+
+## Vorstellung
+### Kennenlern-Quiz
+
+::: {.incremental}
+* Das Kennenlern-Quiz umfasst Fragen zu Vorkenntnissen rund um BI-Software und R, um ein Gefühl für den Wissensstand zu bekommen.
+* Außerdem gibt es wichtige Fachfragen rund um BI und Data Science.
+* Die Gewinnerin/Der Gewinner erhält einen großartigen Preis
+* Als Plattform dient Quizziz.com, es ist keine Registrierung notwendig, Verwendung über Smartphone und Laptop möglich
+* Künftig starten wir einen Doppelblock mit einem Quiz zum vorangeganenen Block mit einem kleinen Preis für den Tagessieg
+:::
+## Apache Superset
 ### Stresstest
+
+:::{.incremental}
 
 * Apache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient.
 * Das Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden:
 
-
+    * [http://34.95.70.95/login/](http://34.95.70.95/login/)
 
 * Die Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt.
 * Die Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind.
-* Die Superset Instanz bleibt bis zur letzten Vorlesung online.
+* Die Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt.
+:::
+
+# Motivation
+
+## Warum BI und Data Science?
+
+### Entscheidende Skills für die berufliche Zukunft
+
+![Quelle: [McKinsey](https://kure.app/insights/mckinsey-company-defines-key-skills-needed-for-future-workforce)](img/job_skills.png){width="525" height="525"}
 
 
 
+## Warum BI und Data Science?
+
+### Technologische Kompetenzen
 
 
+![[Link zur Quelle](https://www.stifterverband.org/medien/future-skills-2021)](img/IT_Skills.png){width="900" height="500"}
+
+
+# Organisation 
 ## Kursaufbau
 ### Zeitplan
 
@@ -61,21 +90,22 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 
   * [https://sebschroen.github.io/bi_and_ds-lecture_notes/](https://sebschroen.github.io/bi_and_ds-lecture_notes/)
 
+::: {.incremental}
 * Neue Inhalte werden regelmäßig vor den entsprechenden Vorlesungen freigeschaltet
 * Aktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien
-* 3 gefundene und gemeldete Typos (E-Mail, StudIP)  = 1 PickUp
+* 3 gefundene und gemeldete Typos (E-Mail, StudIP)  = 1 Packung Bahlsen-Kekse nach Wahl
 * Tipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts
-
+:::
 
 ## Kursmaterialen
 ### Folien
-
+::: {.incremental}
 * Folien sind auf der Startseite der Kurs-Website verlinkt
 * Darstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen
 * Im Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen
-* Die finalen Folien werden nach jedem Block als PDF auf StudIP hochgeladen
+* Die finalen Folien werden als PDF auf StudIP hochgeladen
 * Interaktive Elemente werden separat verlinkt.
-
+:::
 
 ::: {.notes}
 * Die Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.
@@ -100,12 +130,13 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ## Kursmaterialien
 ### Ergänzende Literatur
 
+::: {.incremental}
 * Alle klausurrelevanten Inhalte lassen sich auf der Kurs-Website finden und nachlesen, zusätzliche Literatur ist nicht notwendig
 * Der Aufbau des Kurses richtet sich nach dem Lehrbuch [Business Intelligence & Analytics - Grundlagen und praktische Anwendungen, 4. Auflage](https://link.springer.com/book/10.1007/978-3-8348-2344-1) von Henning Baars und Hans-Georg Kemper
 * Block 1 - 5 entstammen größtenteils in @baars_business_2021 
 * Methodische Aspekte rund um Predictive Analytics entstammen größtenteils [Introduction to Statistical Learning, 2. Auflage](https://www.statlearning.com/) von Gareth James, Daniela Witten, Trevor Hastie und Robert Tibshirani
 * Die Quellen zu jeder Vorlesung sind jeweils auf der letzten Folien angegeben.
-
+:::
 
 # Einleitung
 
@@ -118,7 +149,7 @@ Business Intelligence (BI) ist eine Reihe von  Architekturen und Technologien, d
 Es ermöglicht Anwendenden, informierte Entscheidungen auf der Grundlage von Daten zu treffen, die ein Unternehmen gegenüber seinen Wettbewerbern in Vorteil bringen können (siehe [Forrester.com](https://www.forrester.com/report/Topic-Overview-Business-Intelligence/RES39218)).
 :::
 
-::: {.fragment .fade-in}
+::: {.incremental}
 * Abgeleitet vom *Intelligence*-Begriff in der militärischen Informationsverarbeitung Großbritanniens im 2. Weltkrieg: 
   * Die richtigen Informationen zur richtigen Zeit an die richtigen Personen.
 * Frühe kommerzielle Ansätze in den 60er Jahren im Zuge der Entwicklung relationaler Datenbanken.
@@ -126,12 +157,14 @@ Es ermöglicht Anwendenden, informierte Entscheidungen auf der Grundlage von Dat
 ## Business Intelligence
 ### Begriffsabgrenzung
 
+::: {.incremental}
 * Zunächst Fokus auf Management Support Systeme (MSS) und daher eher auf oberste Ebenen zugeschnitten
 * Der Begriff Business Intelligence (BI) wurde in den 1990ern geprägt
-* Heute wird BI charakterisiert durch:
+* Heute wird BI laut Gartner Group charakterisiert durch:
     * Breite Verfügbarkeit von BI Tools auf allen Ebenen des Unternehmens
     * Geschäftsentscheidung auf Basis aktueller Informationen und Daten und nicht auf Intuition
     * Umfangreiche Analyse- und Reportingmöglichkeiten mit Self-Service Tools für Fachbereiche
+:::
 
 ## Business Intelligence
 ### Betriebliche Dimensionen
@@ -171,10 +204,12 @@ Dieser Wandel geht so weit, dass die Rolle "Data Scientist" heute seltener auf J
 
 * Aufgrund der potentiellen Breite des Felds erfolgt oft eine genauere Aufteilung in vier Kernbereiche:
 
+::: {.incremental}
   1. **Data Engineering**: Methoden und Prozesse für die Speicherung, Haltung und Replikation von Daten
   2. **Data Analytics**: Datenanalyse mit statistischen Methoden
   3. **Predictive Modelling**: Die Verwendung von statistischen Methoden zur Vorhersage
   4. **Machine Learning**: Algorithmen, die aus Daten lernen, Muster erkennen und hierauf aufbauend neue Situationen oder zukünftige Entwicklungen vorhersagen
+:::
 
 ## Data Science
 ### Reifegrade von Data Analytics
@@ -192,11 +227,12 @@ Dieser Wandel geht so weit, dass die Rolle "Data Scientist" heute seltener auf J
 ## Data Science
 ### Data Science, Data Analytics, Data Mining?
 
-* Die Unterscheidung zwischen den Begriffen Data Analyitcs, Data Mining und Data Science ist nicht immer trennscharf
+::: {.incremental}
+* Die Unterscheidung zwischen den Begriffen Data Analytics, Data Mining und Data Science ist nicht immer trennscharf
 * Data Mining ist meist definiert als der Prozess der Informationsextraktion aus Daten und ist eine Teilmenge von Data Science
 * In dieser Vorlesung dient Data Science als methodischer Baukasten, um den BI-Prozess mit modellgestützten Methoden anzureichern und Zusammenhänge sichtbar zu machen
 * Hierbei steht der Zweck der Modelle, nämlich die Entscheidungsunterstützung, im Vordergrund
-
+:::
 
 ## Business Intelligence und Data Science
 ### Zusammenführung der Begriffe und inhaltlicher Aufbau der Vorlesung
@@ -226,15 +262,17 @@ Die Darstellung, Kanalisierung und Verbreitung von Informationen folgt in der dr
 
 ### Operative versus dispositive Aufgaben
 
-
+::: {.incremental}
 * Anders als die anfänglichen MSS unterstützen moderne BI-Systeme sowohl operative, als auch dispositive Aufgaben 
 * Dispositive Aufgaben sind Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf
 * Operative Aufgaben umfassen die Leistungserstellung oder -verwertung
 * An beide Aufgabenfelder gelten unterschiedliche Anforderungen, die in Daten und Systemen abgebildet werden müssen
 
+:::
 ## Dispositive und operative Daten
 ### Operative versus dispositive Daten
-
+::: {style="font-size: 0.90em"}
+::: {.incremental}
 :::: {.columns}
 
 ::: {.column width="50%"}
@@ -244,19 +282,16 @@ Operative Daten
 * Häufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert
 :::
 
-
 ::: {.column width="50%"}
-
 Dispositive Daten
 
 * Dienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen^[Atomare und logisch untrennbare Datenbankvorgänge] erzeugt
 * Sehr granular und mit hoher Änderungsrate
 * Beispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten
-
 :::
 ::::
-
-
+:::
+:::
 ## Dispositive und operative Daten
 ### Operative versus dispositive Daten  
 
@@ -279,7 +314,7 @@ Dispositive Daten
 :::: {.columns}
 
 ::: {.column width="45%"}
-* Hauptziel dieser Vorlesung ist die Überführung von operationalen Daten in entscheidungsrelevante Informationen.
+* Hauptziel dieser Vorlesung ist die Überführung von operationalen Daten in entscheidungsrelevante Informationen
 * Dies hat zwei Hauptaspekte:
   * Block 1-4: Technische Infrastruktur und Architektur
   * Block 5-9: Methodische Konzepte wie modellorientierte Analysen
@@ -335,6 +370,13 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 <!--     * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien -->
 <!-- 6. Einsatz -->
 <!--     * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse -->
+
+## Slide Title {visibility="hidden"}
+
+@gluchowski_analytische_2016
+
+@sharma_analytics_2023
+@gluchowski_analytische_2016
 
     
 ## Quellen    
