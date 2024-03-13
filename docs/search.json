@@ -18,7 +18,7 @@
     "href": "02_VL.html#data-warehouse",
     "title": "Business Intelligence & Data Science",
     "section": "Data Warehouse",
-    "text": "Data Warehouse\nBegriff\n\n\n\n\n\n\nDefinition\n\n\nEin Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung (siehe Kemper und Sun 2023)."
+    "text": "Data Warehouse\nBegriff\n\n\n\n\n\n\nDefinition\n\n\nEin Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung (siehe Kemper und Sun 2023).\n\n\n\n\n\nDie entscheidenden Punkte sind hier:\n\nTrennung von operativen und dispositiven Daten\nIntegration von Datenbeständen aus verschiedenen und oftmals sehr heterogenen Quellen\nEinheitliche und konsistente Datenbasis für das gesamte Unternehmen"
   },
   {
     "objectID": "02_VL.html#data-warehouse-1",
@@ -60,7 +60,7 @@
     "href": "02_VL.html#dwh-architekturen",
     "title": "Business Intelligence & Data Science",
     "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\n\n\n\n\n\nUnabhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nAuch Stove-Pipe Ansatz\nBedienen sich direkt aus den operativen und externen Systemen\nBereiten die enthaltenen Daten für relevante Anwendungsfelder auf\nDaten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen\nVerschiedene Marts können unterschiedliche externe Datenquellen zusammenführen"
+    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\n\n\n\n\n\nUnabhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nAuch Stove-Pipe Ansatz\nBedienen sich direkt aus den operativen und externen Systemen\nBereiten die enthaltenen Daten für relevante Anwendungsfelder auf\nDaten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen\nVerschiedene Marts können unterschiedliche externe Datenquellen zusammenführen\n\n\n\n\n\n\nStove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel"
   },
   {
     "objectID": "02_VL.html#dwh-architekturen-1",
@@ -123,7 +123,7 @@
     "href": "02_VL.html#business-case",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
-    "text": "Business Case\nDas Wachstum bei Tofispy stagniert\n\nTofispy ist ein Musikstreaming Anbieter aus Deutschland\nDas Unternehmen kämpft mit stagnierendem Wachstum\nWir – die Unternehmensberatung LeinbizConsult – wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln\nDie Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben"
+    "text": "Business Case\nDas Wachstum bei Tofispy stagniert\n\n\n\nTofispy ist ein Musikstreaming Anbieter aus Deutschland\nDas Unternehmen kämpft mit stagnierendem Wachstum\nWir – die Unternehmensberatung LeinbizConsult – wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln\nDie Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben"
   },
   {
     "objectID": "02_VL.html#business-case-1",
@@ -137,14 +137,14 @@
     "href": "02_VL.html#business-case-2",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
-    "text": "Business Case\nAufgabe\n\nArbeit in 2er Teams mit mindestens einem Laptop oder Tablet (nicht ideal für Excel) pro Team\nJedes Team lädt die Daten bei StudIP herunter und diskutiert untereinander, wie die Daten strukturiert sind\nTrial & Error in Superset mit Hilfe der Dokumentation:\n\nDokumentation unter preset.io\nStartpunkt: Creating a Chart (in der preset Doku)\nTable als Ausgangspunkt für explorative Analyse\n\nAnschließend Analyse in Excel + Superset und kritische Gegenüberstellung der beiden Ansätze"
+    "text": "Business Case\nAufgabe\n\n\nArbeit in 2er Teams mit mindestens einem Laptop oder Tablet (nicht ideal für Excel) pro Team\nJedes Team lädt die Daten bei StudIP herunter und diskutiert untereinander, wie die Daten strukturiert sind\nTrial & Error in Superset mit Hilfe der Dokumentation:\n\nDokumentation unter preset.io\nStartpunkt: Creating a Chart (in der preset Doku)\nTable als Ausgangspunkt für explorative Analyse\n\nAnschließend Analyse in Excel + Superset und kritische Gegenüberstellung der beiden Ansätze"
   },
   {
     "objectID": "02_VL.html#business-case-3",
     "href": "02_VL.html#business-case-3",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
-    "text": "Business Case\nFragen\n\nWas sind die Vorteile der beiden Ansätze?\nWächst Tofispy schneller oder langsamer als der Gesamtmarkt?\nWie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?\nWelcher Konkurrent wächst am stärksten?\nIst der Datensatz operativ oder dispositiv?"
+    "text": "Business Case\nFragen\n\n\nWas sind die Vorteile der beiden Ansätze?\nWächst Tofispy schneller oder langsamer als der Gesamtmarkt?\nWie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?\nWelcher Konkurrent wächst am stärksten?\nIst der Datensatz operativ oder dispositiv?\nWelcher Reifegrad von Analytics liegt vor?"
   },
   {
     "objectID": "02_VL.html#hausaufgabe",
