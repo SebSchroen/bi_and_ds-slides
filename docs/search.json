@@ -172,7 +172,7 @@
     "href": "01_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung 1\n\n\nVorstellung & kurzes Kennenlern-Quiz\nStresstest für unser BI-Tool Apache Superset\nOrganisatorisches\nEinleitung:\n\nWas sind Business Intelligence & Data Science?\nWas sind operative und dispositive Daten?\nWie werden aus operativen Daten entscheidungsrelevante Informationen?\n\n\n\n\n\nWir starten mit einer kurzen Vorstellung, in der ich mich kurz vorstelle und anschließend gibt es ein kurzes Quiz, das einerseits Quizzes als Tool einführt, mit dem wir künftig die Doppelblöcke eröffnet und mir andererseits die Gelegenheit gibt, den Wissenstand abzuklopfn\nDann folgt ein Stresstest für unser BI-Tool Apache Superset, das wir künftig für die Visualisierung von Daten nutzen werden, indem wir uns alle gleichzeitig einloggen und testen, ob das System der Last standhält\nHiernach folgen ein paar organisatorische Hinweise, bevor wir in die inhaltliche Einführung starten:\n\nWas ist das eigentlich, Business Intelligence und Data Science?\nWie werden Informationen aus operativen Daten gewonnen?"
+    "text": "Der Plan für heute…\nVorlesung 1\n\n\nVorstellung & kurzes Kennenlern-Quiz\nOrganisatorisches\nEinleitung:\n\nWas sind Business Intelligence & Data Science?\nWas sind operative und dispositive Daten?\nWie werden aus operativen Daten entscheidungsrelevante Informationen?\n\n\n\n\n\nWir starten mit einer kurzen Vorstellung, in der ich mich kurz vorstelle und anschließend gibt es ein kurzes Quiz, das einerseits Quizzes als Tool einführt, mit dem wir künftig die Doppelblöcke eröffnet und mir andererseits die Gelegenheit gibt, den Wissenstand abzuklopfn\nDann folgt ein Stresstest für unser BI-Tool Apache Superset, das wir künftig für die Visualisierung von Daten nutzen werden, indem wir uns alle gleichzeitig einloggen und testen, ob das System der Last standhält\nHiernach folgen ein paar organisatorische Hinweise, bevor wir in die inhaltliche Einführung starten:\n\nWas ist das eigentlich, Business Intelligence und Data Science?\nWie werden Informationen aus operativen Daten gewonnen?"
   },
   {
     "objectID": "01_VL.html#vorstellung",
@@ -180,13 +180,6 @@
     "title": "Business Intelligence & Data Science",
     "section": "Vorstellung",
     "text": "Vorstellung\nKennenlern-Quiz\n\n\nDas Kennenlern-Quiz umfasst Fragen zu Vorkenntnissen rund um BI-Software und R, um ein Gefühl für den Wissensstand zu bekommen.\nAußerdem gibt es wichtige Fachfragen rund um BI und Data Science.\nDie Gewinnerin/Der Gewinner erhält einen großartigen Preis\nAls Plattform dient Quizziz.com, es ist keine Registrierung notwendig, Verwendung über Smartphone und Laptop möglich\nKünftig starten wir einen Doppelblock mit einem Quiz zum vorangeganenen Block mit einem kleinen Preis für den Tagessieg"
-  },
-  {
-    "objectID": "01_VL.html#apache-superset",
-    "href": "01_VL.html#apache-superset",
-    "title": "Business Intelligence & Data Science",
-    "section": "Apache Superset",
-    "text": "Apache Superset\nStresstest\n\n\n\nApache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient.\nDas Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden:\n\nhttp://34.95.70.95/login/\n\nDie Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt.\nDie Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind.\nDie Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt."
   },
   {
     "objectID": "01_VL.html#warum-bi-und-data-science",
@@ -207,7 +200,14 @@
     "href": "01_VL.html#kursaufbau",
     "title": "Business Intelligence & Data Science",
     "section": "Kursaufbau",
-    "text": "Kursaufbau\nZeitplan\n\n\n\n\n\nBlock\nGruppe C\nThema\n\n\n\n\n1\n13.03.2024:13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024:14:45 – 16:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n22.03.2024:09:00 – 10:30\nDatentransformation\n\n\n4\n22.03.2024:10:45 – 12:15\nBig Data und Data Lake\n\n\n5\n28.03.2024:09:00 – 10:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n28.03.2024:10:45 – 12:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n16.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n16.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n30.04.2024:13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n30.04.2024:14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur"
+    "text": "Kursaufbau\nZeitplan Gruppe C\n\n\n\n\n\nBlock\nGruppe C\nThema\n\n\n\n\n1\n13.03.2024:13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024:14:45 – 16:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n22.03.2024:09:00 – 10:30\nDatentransformation\n\n\n4\n22.03.2024:10:45 – 12:15\nBig Data und Data Lake\n\n\n5\n28.03.2024:09:00 – 10:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n28.03.2024:10:45 – 12:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n16.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n16.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n30.04.2024:13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n30.04.2024:14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
+  },
+  {
+    "objectID": "01_VL.html#kursaufbau-1",
+    "href": "01_VL.html#kursaufbau-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Kursaufbau",
+    "text": "Kursaufbau\nZeitplan Gruppe D\n\n\n\n\n\nBlock\nGruppe D\nThema\n\n\n\n\n1\n21.03.2024:09:00 – 10:30\nOrganisation, Einleitung\n\n\n2\n21.03.2024:10:45 – 12:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n28.03.2024:13:00 – 14:30\nDatentransformation\n\n\n4\n28.03.2024:14:45 – 16:15\nBig Data und Data Lake\n\n\n5\n02.04.2024:13:00 – 14:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n02.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n15.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n15.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n02.05.2024:13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n02.05.2024:14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
   },
   {
     "objectID": "01_VL.html#kursmaterialen",
@@ -221,7 +221,7 @@
     "href": "01_VL.html#kursmaterialen-1",
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
-    "text": "Kursmaterialen\nFolien\n\n\nFolien sind auf der Startseite der Kurs-Website verlinkt\nDarstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen\nIm Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen:\n\nTools -&gt; PDF Export Mode -&gt; Strg + P (Cmd + P) -&gt; Druck als PDF\n\nDie finalen Folien werden als PDF auf StudIP hochgeladen\nInteraktive Elemente werden separat verlinkt.\n\n\n\n\nDie Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.\n\n\nKonzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.\nIm Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.\nAm Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.\nDie HTML Fassung bleibt verfügbar."
+    "text": "Kursmaterialen\nFolien\n\n\nFolien sind auf der Startseite der Kurs-Website verlinkt\nDarstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen\nIm Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen:\n\nTools -&gt; PDF Export Mode -&gt; Strg + P (Cmd + P) -&gt; Druck als PDF\n\nDie Folien werden rechtzeitig vor der Vorlesung als PDF auf StudIP hochgeladen\nInteraktive Elemente werden separat verlinkt.\n\n\n\n\nDie Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.\n\n\nKonzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.\nIm Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.\nAm Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.\nDie HTML Fassung bleibt verfügbar."
   },
   {
     "objectID": "01_VL.html#kursmaterialen-2",

@@ -18,7 +18,6 @@ library(dplyr)
 ### Vorlesung 1
 :::{.incremental}
   * Vorstellung & kurzes Kennenlern-Quiz
-  * Stresstest für unser BI-Tool Apache Superset
   * Organisatorisches
   * Einleitung:
     * Was sind Business Intelligence & Data Science?
@@ -46,21 +45,21 @@ library(dplyr)
 * Künftig starten wir einen Doppelblock mit einem Quiz zum vorangeganenen Block mit einem kleinen Preis für den Tagessieg
 :::
 
-## Apache Superset
-### Stresstest
-::: {style="font-size: 0.92em"}
-:::{.incremental}
+<!-- ## Apache Superset -->
+<!-- ### Stresstest -->
+<!-- ::: {style="font-size: 0.92em"} -->
+<!-- :::{.incremental} -->
 
-* Apache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient.
-* Das Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden:
+<!-- * Apache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient. -->
+<!-- * Das Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden: -->
 
-    * [http://34.95.70.95/login/](http://34.95.70.95/login/)
+<!--     * [http://34.95.70.95/login/](http://34.95.70.95/login/) -->
 
-* Die Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt.
-* Die Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind.
-* Die Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt.
-:::
-:::
+<!-- * Die Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt. -->
+<!-- * Die Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind. -->
+<!-- * Die Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt. -->
+<!-- ::: -->
+<!-- ::: -->
 # Motivation
 
 ## Warum BI und Data Science?
@@ -102,7 +101,7 @@ library(dplyr)
 
 # Organisation 
 ## Kursaufbau
-### Zeitplan
+### Zeitplan Gruppe C
 
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
 read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
@@ -112,7 +111,16 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
   kable_styling(font_size = 24)
 ```
 
+## Kursaufbau
+### Zeitplan Gruppe D
 
+```{r, message= FALSE, echo = FALSE, warning = FALSE}
+read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
+  select(-Slides) %>% 
+  select(-`Gruppe C`) %>% 
+  kable( escape = FALSE)  %>% 
+  kable_styling(font_size = 24)
+```
 
 ## Kursmaterialen
 ### Kurs-Website
@@ -140,7 +148,7 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 * Darstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen
 * Im Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen:
   * Tools -> PDF Export Mode -> Strg + P (Cmd + P) -> Druck als PDF
-* Die finalen Folien werden als PDF auf StudIP hochgeladen
+* Die Folien werden rechtzeitig vor der Vorlesung als PDF auf StudIP hochgeladen
 * Interaktive Elemente werden separat verlinkt.
 :::
 
