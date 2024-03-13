@@ -16,6 +16,7 @@ library(dplyr)
 
 ## Der Plan für heute...
 ### Vorlesung 1
+:::{.incremental}
   * Vorstellung & kurzes Kennenlern-Quiz
   * Stresstest für unser BI-Tool Apache Superset
   * Organisatorisches
@@ -23,8 +24,16 @@ library(dplyr)
     * Was sind Business Intelligence & Data Science?
     * Was sind operative und dispositive Daten?
     * Wie werden aus operativen Daten entscheidungsrelevante Informationen?
+:::
 
-
+::: {.notes}
+* Wir starten mit einer kurzen Vorstellung, in der ich mich kurz vorstelle und anschließend gibt es ein kurzes Quiz, das einerseits Quizzes als Tool einführt, mit dem wir künftig die Doppelblöcke eröffnet und mir andererseits die Gelegenheit gibt, den Wissenstand abzuklopfn
+* Dann folgt ein Stresstest für unser BI-Tool Apache Superset, das wir künftig für die Visualisierung von Daten nutzen werden, indem wir uns alle gleichzeitig einloggen und testen, ob das System der Last standhält
+* Hiernach folgen ein paar organisatorische Hinweise, bevor wir in die inhaltliche Einführung starten:
+  * Was ist das eigentlich, Business Intelligence und Data Science?
+  * Wie werden Informationen aus operativen Daten gewonnen? 
+  
+:::
 
 ## Vorstellung
 ### Kennenlern-Quiz
@@ -36,9 +45,10 @@ library(dplyr)
 * Als Plattform dient Quizziz.com, es ist keine Registrierung notwendig, Verwendung über Smartphone und Laptop möglich
 * Künftig starten wir einen Doppelblock mit einem Quiz zum vorangeganenen Block mit einem kleinen Preis für den Tagessieg
 :::
+
 ## Apache Superset
 ### Stresstest
-
+::: {style="font-size: 0.92em"}
 :::{.incremental}
 
 * Apache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient.
@@ -50,7 +60,7 @@ library(dplyr)
 * Die Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind.
 * Die Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt.
 :::
-
+:::
 # Motivation
 
 ## Warum BI und Data Science?
@@ -59,7 +69,18 @@ library(dplyr)
 
 ![Quelle: [McKinsey](https://kure.app/insights/mckinsey-company-defines-key-skills-needed-for-future-workforce)](img/job_skills.png){width="525" height="525"}
 
+::: {.notes}
 
+* Die Grafik zeigt die sogenannten Delta Skills nach McKinsey, das sind jene Fähigkeiten, die einen Unterschied machen werden, um in der Arbeitswelt der Zukunft erfolgreich zu sein.
+* Die Kategorien sind: Kognitiv, Interpersonell, Selbstführung und Digital
+* Unser FOkus ist die Kategorie Digital, die sich wiederum in die Bereiche Digital Fluency, Software Nutzung und Entwicklung sowie Verständnis digitaler Systeme aufteilt.
+* Was ist digital Fluency? Es ist die Fähigkeit, digitale Tools und Technologien zu nutzen und hier Digital Learning und Collaboration besonders wichtig.
+* Software Nutzung und Entwicklung umfasst insbesondere Programming und Datenanalyse, insbesondere den zweiten Punkt werden wir sehr ausführlich im Methodenteil zu Data Science behandeln.
+* Ziel ist hier nicht, in wenigen Blöcken eine vollwertige Ausbildung in diesem Bereich zu ersetzen, sondern vielmehr das Big Picture zu vermitteln, um im Unternehmen als guter Sparringspartner für Data Science Themen und Projekte zu fungieren.
+* Programming wird eher nebenbei mit einfließen
+* Ein entscheidender Punkt ist unten rechts die Data Literacy. Das umfasst die Fähigkeit, Daten zu lesen, zu interpretieren und zu kommunizieren. Das ist ein zentraler Punkt, den wir in dieser Vorlesung adressieren werden. Meines Erachtens der größte Knackpunkt im Unternehmensumfeld, da hier die größte Lücke zwischen den Fachbereichen und der IT besteht.
+
+:::
 
 ## Warum BI und Data Science?
 
@@ -68,6 +89,16 @@ library(dplyr)
 
 ![[Link zur Quelle](https://www.stifterverband.org/medien/future-skills-2021)](img/IT_Skills.png){width="900" height="500"}
 
+::: {.notes}
+
+* Die Grafik zeigt die Ergebnisse einer Studie des Stifterverbands, die sich mit den zukünftigen Anforderungen an die Arbeitswelt befasst.
+* Es handelt sich hier um eine Umfrage und die Grafik gibt den Anteil der teilnehmenden an, welche die gegeben Aspekte jetzt und in 5 Jahren als wichtig erachten.
+* Für uns wichtig sind IT-Architektur und Data Analytics & KI
+* Die Vorlesung wird einige Architektur-Komponenten umfassen, nämlich den Aufbau einer BI-Architektur und eine Einbettung ins Unternehmen allgemein
+* Data Analytics und KI umfasst die Methoden, die wir in der zweiten Hälfte der Vorlesung behandeln werden, wobei der Fokus weniger auf KI liegt und mehr auf den Data Science Methoden, die vielen KI-Technologien zu Grunde liegen
+
+
+:::
 
 # Organisation 
 ## Kursaufbau
@@ -91,10 +122,15 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
   * [https://sebschroen.github.io/bi_and_ds-lecture_notes/](https://sebschroen.github.io/bi_and_ds-lecture_notes/)
 
 ::: {.incremental}
-* Neue Inhalte werden regelmäßig vor den entsprechenden Vorlesungen freigeschaltet
-* Aktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien
+* Aktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien, daher nur Nutzung in diesem Personenkreis
 * 3 gefundene und gemeldete Typos (E-Mail, StudIP)  = 1 Packung Bahlsen-Kekse nach Wahl
 * Tipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts
+:::
+
+::: {.notes}
+* Passwort anschreiben
+* Einfach zusammen durchklicken und kurz Zeit zur Orientierung geben, Trick zum Bookmark zeigen
+
 :::
 
 ## Kursmaterialen
@@ -102,7 +138,8 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ::: {.incremental}
 * Folien sind auf der Startseite der Kurs-Website verlinkt
 * Darstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen
-* Im Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen
+* Im Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen:
+  * Tools -> PDF Export Mode -> Strg + P (Cmd + P) -> Druck als PDF
 * Die finalen Folien werden als PDF auf StudIP hochgeladen
 * Interaktive Elemente werden separat verlinkt.
 :::
@@ -130,14 +167,16 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ## Kursmaterialien
 ### Ergänzende Literatur
 
+::: {style="font-size: 0.92em"}
 ::: {.incremental}
 * Alle klausurrelevanten Inhalte lassen sich auf der Kurs-Website finden und nachlesen, zusätzliche Literatur ist nicht notwendig
 * Der Aufbau des Kurses richtet sich nach dem Lehrbuch [Business Intelligence & Analytics - Grundlagen und praktische Anwendungen, 4. Auflage](https://link.springer.com/book/10.1007/978-3-8348-2344-1) von Henning Baars und Hans-Georg Kemper
+* Das Buch ist über die Bibliothek der Leibniz FH als E-Book verfügbar
 * Block 1 - 5 entstammen größtenteils in @baars_business_2021 
-* Methodische Aspekte rund um Predictive Analytics entstammen größtenteils [Introduction to Statistical Learning, 2. Auflage](https://www.statlearning.com/) von Gareth James, Daniela Witten, Trevor Hastie und Robert Tibshirani
+* Methodische Aspekte rund um Predictive Analytics entstammen größtenteils dem **frei verfügbaren** [Introduction to Statistical Learning, 2. Auflage](https://www.statlearning.com/) von Gareth James, Daniela Witten, Trevor Hastie und Robert Tibshirani
 * Die Quellen zu jeder Vorlesung sind jeweils auf der letzten Folien angegeben.
 :::
-
+:::
 # Einleitung
 
 ## Business Intelligence
@@ -229,7 +268,7 @@ Dieser Wandel geht so weit, dass die Rolle "Data Scientist" heute seltener auf J
 
 ::: {.incremental}
 * Die Unterscheidung zwischen den Begriffen Data Analytics, Data Mining und Data Science ist nicht immer trennscharf
-* Data Mining ist meist definiert als der Prozess der Informationsextraktion aus Daten und ist eine Teilmenge von Data Science
+* Data Mining ist meist definiert als der Prozess der Informationsextraktion aus Daten und ist ebenso wie Data Analytics  eine Teilmenge von Data Science
 * In dieser Vorlesung dient Data Science als methodischer Baukasten, um den BI-Prozess mit modellgestützten Methoden anzureichern und Zusammenhänge sichtbar zu machen
 * Hierbei steht der Zweck der Modelle, nämlich die Entscheidungsunterstützung, im Vordergrund
 :::
@@ -276,14 +315,14 @@ Die Darstellung, Kanalisierung und Verbreitung von Informationen folgt in der dr
 :::: {.columns}
 
 ::: {.column width="50%"}
-Operative Daten
+Dispositive Daten
 
 * Unterstützen Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf
 * Häufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert
 :::
 
 ::: {.column width="50%"}
-Dispositive Daten
+Operative Daten
 
 * Dienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen^[Atomare und logisch untrennbare Datenbankvorgänge] erzeugt
 * Sehr granular und mit hoher Änderungsrate

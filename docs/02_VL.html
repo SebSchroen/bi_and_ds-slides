@@ -570,8 +570,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-661949a5f3db8fdec23b" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-661949a5f3db8fdec23b">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-26d3e096a7f566611e62" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-26d3e096a7f566611e62">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Unabhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -621,8 +621,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-985743e5461e34e67d91" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-985743e5461e34e67d91">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4305f24ef2b0fdfc3150" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4305f24ef2b0fdfc3150">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Abhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -669,8 +669,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-8679b6907cc44a1e1d09" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8679b6907cc44a1e1d09">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-18c80a322375ba6ce354" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-18c80a322375ba6ce354">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Core Data Warehouse. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -725,8 +725,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-f9e2e3d442aac398afbc" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f9e2e3d442aac398afbc">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e44b985378532290be4a" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e44b985378532290be4a">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Core Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -761,8 +761,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-f62d4fa2f332c3befc0a" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-f62d4fa2f332c3befc0a">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-eb8c20284b62f02c8233" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-eb8c20284b62f02c8233">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Architekturen-Mix. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>

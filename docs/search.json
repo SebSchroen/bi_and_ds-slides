@@ -140,6 +140,13 @@
     "text": "Business Case\nAufgabe\n\nArbeit in 2er Teams mit mindestens einem Laptop oder Tablet (nicht ideal für Excel) pro Team\nJedes Team lädt die Daten bei StudIP herunter und diskutiert untereinander, wie die Daten strukturiert sind\nTrial & Error in Superset mit Hilfe der Dokumentation:\n\nDokumentation unter preset.io\nStartpunkt: Creating a Chart (in der preset Doku)\nTable als Ausgangspunkt für explorative Analyse\n\nAnschließend Analyse in Excel + Superset und kritische Gegenüberstellung der beiden Ansätze"
   },
   {
+    "objectID": "02_VL.html#business-case-3",
+    "href": "02_VL.html#business-case-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nFragen\n\nWas sind die Vorteile der beiden Ansätze?\nWächst Tofispy schneller oder langsamer als der Gesamtmarkt?\nWie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?\nWelcher Konkurrent wächst am stärksten?\nIst der Datensatz operativ oder dispositiv?"
+  },
+  {
     "objectID": "02_VL.html#hausaufgabe",
     "href": "02_VL.html#hausaufgabe",
     "title": "Business Intelligence & Data Science",
@@ -165,7 +172,35 @@
     "href": "01_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung 1\n\nVorstellung & kurzes Kennenlern-Quiz\nStresstest für unser BI-Tool Apache Superset\nOrganisatorisches\nEinleitung:\n\nWas sind Business Intelligence & Data Science?\nWas sind operative und dispositive Daten?\nWie werden aus operativen Daten entscheidungsrelevante Informationen?"
+    "text": "Der Plan für heute…\nVorlesung 1\n\n\nVorstellung & kurzes Kennenlern-Quiz\nStresstest für unser BI-Tool Apache Superset\nOrganisatorisches\nEinleitung:\n\nWas sind Business Intelligence & Data Science?\nWas sind operative und dispositive Daten?\nWie werden aus operativen Daten entscheidungsrelevante Informationen?\n\n\n\n\n\nWir starten mit einer kurzen Vorstellung, in der ich mich kurz vorstelle und anschließend gibt es ein kurzes Quiz, das einerseits Quizzes als Tool einführt, mit dem wir künftig die Doppelblöcke eröffnet und mir andererseits die Gelegenheit gibt, den Wissenstand abzuklopfn\nDann folgt ein Stresstest für unser BI-Tool Apache Superset, das wir künftig für die Visualisierung von Daten nutzen werden, indem wir uns alle gleichzeitig einloggen und testen, ob das System der Last standhält\nHiernach folgen ein paar organisatorische Hinweise, bevor wir in die inhaltliche Einführung starten:\n\nWas ist das eigentlich, Business Intelligence und Data Science?\nWie werden Informationen aus operativen Daten gewonnen?"
+  },
+  {
+    "objectID": "01_VL.html#vorstellung",
+    "href": "01_VL.html#vorstellung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Vorstellung",
+    "text": "Vorstellung\nKennenlern-Quiz\n\n\nDas Kennenlern-Quiz umfasst Fragen zu Vorkenntnissen rund um BI-Software und R, um ein Gefühl für den Wissensstand zu bekommen.\nAußerdem gibt es wichtige Fachfragen rund um BI und Data Science.\nDie Gewinnerin/Der Gewinner erhält einen großartigen Preis\nAls Plattform dient Quizziz.com, es ist keine Registrierung notwendig, Verwendung über Smartphone und Laptop möglich\nKünftig starten wir einen Doppelblock mit einem Quiz zum vorangeganenen Block mit einem kleinen Preis für den Tagessieg"
+  },
+  {
+    "objectID": "01_VL.html#apache-superset",
+    "href": "01_VL.html#apache-superset",
+    "title": "Business Intelligence & Data Science",
+    "section": "Apache Superset",
+    "text": "Apache Superset\nStresstest\n\n\n\nApache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient.\nDas Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden:\n\nhttp://34.95.70.95/login/\n\nDie Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt.\nDie Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind.\nDie Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt."
+  },
+  {
+    "objectID": "01_VL.html#warum-bi-und-data-science",
+    "href": "01_VL.html#warum-bi-und-data-science",
+    "title": "Business Intelligence & Data Science",
+    "section": "Warum BI und Data Science?",
+    "text": "Warum BI und Data Science?\nEntscheidende Skills für die berufliche Zukunft\n\n\n\nQuelle: McKinsey\n\n\n\n\nDie Grafik zeigt die sogenannten Delta Skills nach McKinsey, das sind jene Fähigkeiten, die einen Unterschied machen werden, um in der Arbeitswelt der Zukunft erfolgreich zu sein.\nDie Kategorien sind: Kognitiv, Interpersonell, Selbstführung und Digital\nUnser FOkus ist die Kategorie Digital, die sich wiederum in die Bereiche Digital Fluency, Software Nutzung und Entwicklung sowie Verständnis digitaler Systeme aufteilt.\nWas ist digital Fluency? Es ist die Fähigkeit, digitale Tools und Technologien zu nutzen und hier Digital Learning und Collaboration besonders wichtig.\nSoftware Nutzung und Entwicklung umfasst insbesondere Programming und Datenanalyse, insbesondere den zweiten Punkt werden wir sehr ausführlich im Methodenteil zu Data Science behandeln.\nZiel ist hier nicht, in wenigen Blöcken eine vollwertige Ausbildung in diesem Bereich zu ersetzen, sondern vielmehr das Big Picture zu vermitteln, um im Unternehmen als guter Sparringspartner für Data Science Themen und Projekte zu fungieren.\nProgramming wird eher nebenbei mit einfließen\nEin entscheidender Punkt ist unten rechts die Data Literacy. Das umfasst die Fähigkeit, Daten zu lesen, zu interpretieren und zu kommunizieren. Das ist ein zentraler Punkt, den wir in dieser Vorlesung adressieren werden. Meines Erachtens der größte Knackpunkt im Unternehmensumfeld, da hier die größte Lücke zwischen den Fachbereichen und der IT besteht."
+  },
+  {
+    "objectID": "01_VL.html#warum-bi-und-data-science-1",
+    "href": "01_VL.html#warum-bi-und-data-science-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Warum BI und Data Science?",
+    "text": "Warum BI und Data Science?\nTechnologische Kompetenzen\n\n\n\nLink zur Quelle\n\n\n\n\nDie Grafik zeigt die Ergebnisse einer Studie des Stifterverbands, die sich mit den zukünftigen Anforderungen an die Arbeitswelt befasst.\nEs handelt sich hier um eine Umfrage und die Grafik gibt den Anteil der teilnehmenden an, welche die gegeben Aspekte jetzt und in 5 Jahren als wichtig erachten.\nFür uns wichtig sind IT-Architektur und Data Analytics & KI\nDie Vorlesung wird einige Architektur-Komponenten umfassen, nämlich den Aufbau einer BI-Architektur und eine Einbettung ins Unternehmen allgemein\nData Analytics und KI umfasst die Methoden, die wir in der zweiten Hälfte der Vorlesung behandeln werden, wobei der Fokus weniger auf KI liegt und mehr auf den Data Science Methoden, die vielen KI-Technologien zu Grunde liegen"
   },
   {
     "objectID": "01_VL.html#kursaufbau",
@@ -179,14 +214,14 @@
     "href": "01_VL.html#kursmaterialen",
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
-    "text": "Kursmaterialen\nKurs-Website\n\nAlle Kursinhalte sind auf der Kurs-Website verfügbar:\n\nhttps://sebschroen.github.io/bi_and_ds-lecture_notes/\n\n\n\n\nNeue Inhalte werden regelmäßig vor den entsprechenden Vorlesungen freigeschaltet\nAktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien\n3 gefundene und gemeldete Typos (E-Mail, StudIP) = 1 Packung Bahlsen-Kekse nach Wahl\nTipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts"
+    "text": "Kursmaterialen\nKurs-Website\n\nAlle Kursinhalte sind auf der Kurs-Website verfügbar:\n\nhttps://sebschroen.github.io/bi_and_ds-lecture_notes/\n\n\n\n\nAktuell passwortgeschützt aufgrund Nutzung Copyright-geschützter Materialien, daher nur Nutzung in diesem Personenkreis\n3 gefundene und gemeldete Typos (E-Mail, StudIP) = 1 Packung Bahlsen-Kekse nach Wahl\nTipp: Bookmark des Links nach Passworteingabe erübrigt künftige Eingabe des Passworts\n\n\n\n\nPasswort anschreiben\nEinfach zusammen durchklicken und kurz Zeit zur Orientierung geben, Trick zum Bookmark zeigen"
   },
   {
     "objectID": "01_VL.html#kursmaterialen-1",
     "href": "01_VL.html#kursmaterialen-1",
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialen",
-    "text": "Kursmaterialen\nFolien\n\n\nFolien sind auf der Startseite der Kurs-Website verlinkt\nDarstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen\nIm Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen\nDie finalen Folien werden als PDF auf StudIP hochgeladen\nInteraktive Elemente werden separat verlinkt.\n\n\n\n\nDie Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.\n\n\nKonzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.\nIm Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.\nAm Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.\nDie HTML Fassung bleibt verfügbar."
+    "text": "Kursmaterialen\nFolien\n\n\nFolien sind auf der Startseite der Kurs-Website verlinkt\nDarstellung ist für den Browser (Chrome, Safari und Firefox) optimiert, um interaktive Elemente darzustellen\nIm Burger-Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdruck in Papierform oder für Notizen erstellen:\n\nTools -&gt; PDF Export Mode -&gt; Strg + P (Cmd + P) -&gt; Druck als PDF\n\nDie finalen Folien werden als PDF auf StudIP hochgeladen\nInteraktive Elemente werden separat verlinkt.\n\n\n\n\nDie Folien sind im Ablaufplan auf der Startseite in aktueller Fassung verlinkt und lassen sich auf mehreren Wegen darstellen.\n\n\nKonzipiert sind die Folien für die Darstellung im Browser, um interaktive Elemente darzustellen.\nIm Menü oben rechts lässt sich zu jeder Zeit auch eine PDF Version zum Ausdrucken in Papierform erstellen oder zur Darstellung auf Endgeräten, auf denen Sie Notizen machen möchten.\nAm Ende jeder Vorlesung wird die finale Fassung der Folien auf StudIP im PDF Format hochgeladen.\nDie HTML Fassung bleibt verfügbar."
   },
   {
     "objectID": "01_VL.html#kursmaterialen-2",
@@ -200,7 +235,7 @@
     "href": "01_VL.html#kursmaterialien",
     "title": "Business Intelligence & Data Science",
     "section": "Kursmaterialien",
-    "text": "Kursmaterialien\nErgänzende Literatur\n\n\nAlle klausurrelevanten Inhalte lassen sich auf der Kurs-Website finden und nachlesen, zusätzliche Literatur ist nicht notwendig\nDer Aufbau des Kurses richtet sich nach dem Lehrbuch Business Intelligence & Analytics - Grundlagen und praktische Anwendungen, 4. Auflage von Henning Baars und Hans-Georg Kemper\nBlock 1 - 5 entstammen größtenteils in Baars und Kemper (2021)\nMethodische Aspekte rund um Predictive Analytics entstammen größtenteils Introduction to Statistical Learning, 2. Auflage von Gareth James, Daniela Witten, Trevor Hastie und Robert Tibshirani\nDie Quellen zu jeder Vorlesung sind jeweils auf der letzten Folien angegeben."
+    "text": "Kursmaterialien\nErgänzende Literatur\n\n\n\nAlle klausurrelevanten Inhalte lassen sich auf der Kurs-Website finden und nachlesen, zusätzliche Literatur ist nicht notwendig\nDer Aufbau des Kurses richtet sich nach dem Lehrbuch Business Intelligence & Analytics - Grundlagen und praktische Anwendungen, 4. Auflage von Henning Baars und Hans-Georg Kemper\nDas Buch ist über die Bibliothek der Leibniz FH als E-Book verfügbar\nBlock 1 - 5 entstammen größtenteils in Baars und Kemper (2021)\nMethodische Aspekte rund um Predictive Analytics entstammen größtenteils dem frei verfügbaren Introduction to Statistical Learning, 2. Auflage von Gareth James, Daniela Witten, Trevor Hastie und Robert Tibshirani\nDie Quellen zu jeder Vorlesung sind jeweils auf der letzten Folien angegeben."
   },
   {
     "objectID": "01_VL.html#business-intelligence",
@@ -249,7 +284,7 @@
     "href": "01_VL.html#data-science-3",
     "title": "Business Intelligence & Data Science",
     "section": "Data Science",
-    "text": "Data Science\nData Science, Data Analytics, Data Mining?\n\n\nDie Unterscheidung zwischen den Begriffen Data Analytics, Data Mining und Data Science ist nicht immer trennscharf\nData Mining ist meist definiert als der Prozess der Informationsextraktion aus Daten und ist eine Teilmenge von Data Science\nIn dieser Vorlesung dient Data Science als methodischer Baukasten, um den BI-Prozess mit modellgestützten Methoden anzureichern und Zusammenhänge sichtbar zu machen\nHierbei steht der Zweck der Modelle, nämlich die Entscheidungsunterstützung, im Vordergrund"
+    "text": "Data Science\nData Science, Data Analytics, Data Mining?\n\n\nDie Unterscheidung zwischen den Begriffen Data Analytics, Data Mining und Data Science ist nicht immer trennscharf\nData Mining ist meist definiert als der Prozess der Informationsextraktion aus Daten und ist ebenso wie Data Analytics eine Teilmenge von Data Science\nIn dieser Vorlesung dient Data Science als methodischer Baukasten, um den BI-Prozess mit modellgestützten Methoden anzureichern und Zusammenhänge sichtbar zu machen\nHierbei steht der Zweck der Modelle, nämlich die Entscheidungsunterstützung, im Vordergrund"
   },
   {
     "objectID": "01_VL.html#business-intelligence-und-data-science",
@@ -270,7 +305,7 @@
     "href": "01_VL.html#dispositive-und-operative-daten-1",
     "title": "Business Intelligence & Data Science",
     "section": "Dispositive und operative Daten",
-    "text": "Dispositive und operative Daten\nOperative versus dispositive Daten\n\n\n\n\nOperative Daten\n\nUnterstützen Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf\nHäufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert\n\n\nDispositive Daten\n\nDienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen1 erzeugt\nSehr granular und mit hoher Änderungsrate\nBeispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten\n\n\n\n\n\nAtomare und logisch untrennbare Datenbankvorgänge"
+    "text": "Dispositive und operative Daten\nOperative versus dispositive Daten\n\n\n\n\nDispositive Daten\n\nUnterstützen Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf\nHäufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert\n\n\nOperative Daten\n\nDienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen1 erzeugt\nSehr granular und mit hoher Änderungsrate\nBeispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten\n\n\n\n\n\nAtomare und logisch untrennbare Datenbankvorgänge"
   },
   {
     "objectID": "01_VL.html#dispositive-und-operative-daten-2",
@@ -292,54 +327,5 @@
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
     "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nGesellschaft für Informatik. 2019. „Data Science: Lern- und Ausbildungsinhalte“. Gesellschaft für Informatik.\n\n\nSchieder, Christian. 2016. „Historische Fragmente einer Integrationsdisziplin – Beitrag zur Konstruktgeschichte der Business Intelligence“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 13–32. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_2.\n\n\nSharma, Vinod, Jeanne Poulose, und Chandan Maheshkar. 2023. „Analytics Enabled Decision Making ‚Tracing the Journey from Data to Decisions‘“. In Analytics Enabled Decision Making, herausgegeben von Vinod Sharma, Chandan Maheshkar, und Jeanne Poulose, 1–22. Singapore: Springer Nature Singapore. https://doi.org/10.1007/978-981-19-9658-0_1.\n\n\nWinter, Robert. 2016. „Analytische Informationssysteme aus Managementsicht: lokale Entscheidungsunterstützung vs. unternehmensweite Informations-Infrastruktur“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 67–95. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_5."
-  },
-  {
-    "objectID": "01_VL.html#motivation",
-    "href": "01_VL.html#motivation",
-    "title": "Business Intelligence & Data Science",
-    "section": "Motivation",
-    "text": "Motivation\nEntscheidende Skills für die berufliche Zukunft\n\n\n\nQuelle: McKinsey"
-  },
-  {
-    "objectID": "01_VL.html#motivation-1",
-    "href": "01_VL.html#motivation-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Motivation",
-    "text": "Motivation\nTechnologische Kompetenzen\n\n\n\nLink zur Quelle"
-  },
-  {
-    "objectID": "01_VL.html#warum-bi-und-data-science",
-    "href": "01_VL.html#warum-bi-und-data-science",
-    "title": "Business Intelligence & Data Science",
-    "section": "Warum BI und Data Science?",
-    "text": "Warum BI und Data Science?\nEntscheidende Skills für die berufliche Zukunft\n\n\n\nQuelle: McKinsey"
-  },
-  {
-    "objectID": "01_VL.html#warum-bi-und-data-science-1",
-    "href": "01_VL.html#warum-bi-und-data-science-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Warum BI und Data Science?",
-    "text": "Warum BI und Data Science?\nTechnologische Kompetenzen\n\n\n\nLink zur Quelle"
-  },
-  {
-    "objectID": "02_VL.html#business-case-3",
-    "href": "02_VL.html#business-case-3",
-    "title": "Business Intelligence & Data Science",
-    "section": "Business Case",
-    "text": "Business Case\nFragen\n\nWas sind die Vorteile der beiden Ansätze?\nWächst Tofispy schneller oder langsamer als der Gesamtmarkt?\nWie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?\nWelcher Konkurrent wächst am stärksten?\nIst der Datensatz operativ oder dispositiv?"
-  },
-  {
-    "objectID": "01_VL.html#apache-superset",
-    "href": "01_VL.html#apache-superset",
-    "title": "Business Intelligence & Data Science",
-    "section": "Apache Superset",
-    "text": "Apache Superset\nStresstest\n\n\nApache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient.\nDas Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden:\n\nhttp://34.95.70.95/login/\n\nDie Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt.\nDie Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind.\nDie Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt."
-  },
-  {
-    "objectID": "01_VL.html#vorstellung",
-    "href": "01_VL.html#vorstellung",
-    "title": "Business Intelligence & Data Science",
-    "section": "Vorstellung",
-    "text": "Vorstellung\nKennenlern-Quiz\n\n\nDas Kennenlern-Quiz umfasst Fragen zu Vorkenntnissen rund um BI-Software und R, um ein Gefühl für den Wissensstand zu bekommen.\nAußerdem gibt es wichtige Fachfragen rund um BI und Data Science.\nDie Gewinnerin/Der Gewinner erhält einen überragenden Preis\nAls Plattform dient Quizziz.com, es ist keine Registrierung notwendig, Verwendung über Smartphone und Laptop möglich\nKünftig starten wir einen Doppelblock mit einem Quiz zum vorangeganenen Block mit einem kleinen Preis für den Tagessieg"
   }
 ]
