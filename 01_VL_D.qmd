@@ -1,6 +1,9 @@
 ---
 title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 1"
+format:
+  revealjs:
+    incremental: false  
 ---
 
 ```{r}
@@ -23,6 +26,8 @@ library(dplyr)
     * Was sind Business Intelligence & Data Science?
     * Was sind operative und dispositive Daten?
     * Wie werden aus operativen Daten entscheidungsrelevante Informationen?
+  * Erster Login bei unserem BI-Tool Superset 
+  
 :::
 
 ::: {.notes}
@@ -98,18 +103,6 @@ library(dplyr)
 
 
 :::
-
-# Organisation 
-## Kursaufbau
-### Zeitplan Gruppe C
-
-```{r, message= FALSE, echo = FALSE, warning = FALSE}
-read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
-  select(-Slides) %>% 
-  select(-`Gruppe D`) %>% 
-  kable( escape = FALSE)  %>% 
-  kable_styling(font_size = 24)
-```
 
 ## Kursaufbau
 ### Zeitplan Gruppe D
@@ -417,6 +410,98 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 <!--     * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien -->
 <!-- 6. Einsatz -->
 <!--     * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse -->
+
+
+
+
+## Apache Superset
+### Erster Login und Überblick
+::: {style="font-size: 0.92em"}
+:::{.incremental}
+
+* Apache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient
+* Das Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden:
+
+    * [http://34.95.70.95/login/](http://34.95.70.95/login/)
+
+* Die Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt
+* Die Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind
+* Die Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt
+:::
+:::
+
+## Apache Superset
+### Terminologie
+::: {style="font-size: 0.95em"}
+* Database:
+  * Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse
+  * In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich
+  * Auch der Upload von Excel und CSV Dateien ist möglich
+* Dataset:
+  * Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen
+  * Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden
+  * Physische Datasets "leben" auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert
+:::
+
+## Apache Superset
+### Terminologie
+::: {style="font-size: 0.95em"}
+* Dashboard:
+  * Eine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden
+  * Ein Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren
+  * Die Visualisierungen können über globale Filter gefiltert werden
+* Chart:
+  * Eigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann
+  * Es gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können
+  * [Preset.io](https://docs.preset.io/docs/chart-walkthroughs) gibt eine Übersicht über die gängigsten Chart-Typen
+:::  
+
+## Apache Superset
+### Terminologie
+::: {style="font-size: 0.90em"}
+* Dimensions:
+  * Dimensionen sind die Kategorien, nach denen Daten gruppiert
+  * Idealerweise kategoriale Variablen, die nicht aggregiert werden
+  * Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar
+  * Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain
+
+* Metrics
+  * Quantitative Variablen, die sich mit Funktionen aggregieren lassen
+  * Beispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts
+  * Besonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt
+
+:::
+## Warmup
+### Datenexploration in Superset
+
+* Wir starten mit einer kurzen Datenexploration in Superset mit dem Dataset "Warmup"
+* Hierzu gehen wir auf der Startseite auf Charts und wählen oben rechts +Chart aus
+* Nun sind 2 Schritte notwendig:
+  1. Auswahl des Datasets
+      * Hier wählen wir "Warmup" aus
+  2. Auswahl des Chart-Typs
+      * Ein guter Startpunkt für die explorative Analyse ist eine Tabelle, also wählen wir Table
+
+## Warmup
+### Datenexploration in Superset
+
+![](img/Superset_Explorer-1.jpg){width="900" height="450"}
+
+
+## Warmup
+### Datenexploration in Superset
+
+![](img/Superset_Explorer-2.jpg){width="900" height="450"}
+
+## Warmup
+### Datenexploration in Superset
+
+* Fragen:
+  * Wie viele Zeilen hat der Datensatz?
+  * Welche Genres und Artists gibt es?
+  * Wie viele Songs gibt es pro Genre?
+  * Was ist die durchschnittliche Beliebtheit pro Artist?
+  * Wann ist das aktuellste (älteste) Album erschienen?
 
 ## Slide Title {visibility="hidden"}
 
