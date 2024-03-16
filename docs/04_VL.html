@@ -338,10 +338,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-  <script src="site_libs/viz-1.8.2/viz.js"></script>
-  <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-  <script src="site_libs/grViz-binding-1.0.10/grViz.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -349,7 +345,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Business Intelligence &amp; Data Science</h1>
-  <p class="subtitle">Vorlesung 2</p>
+  <p class="subtitle">Vorlesung 4</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -371,26 +367,26 @@ Dr.&nbsp;Sebastian Schrön
 </section>
 <section id="der-plan-für-heute" class="slide level2">
 <h2>Der Plan für heute…</h2>
-<h3 id="vorlesung-2">Vorlesung 2</h3>
+<h3 id="vorlesung-4">Vorlesung 4</h3>
 <ul>
-<li>Datenbereitstellung:
+<li>Big Data:
 <ul>
-<li>Data Warehouse</li>
-<li>Data Mart</li>
-<li>Architekturkonzepte</li>
+<li>Was ist Big Data?</li>
+<li>Definitionen und Eigenschaften</li>
+<li>Technologien und Werkzeuge</li>
+<li>Anwendungsfälle</li>
 </ul></li>
-<li>Business Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe</li>
-<li>Verknüpfung eines ersten Data Marts mit Superset oder Datenanalyse mit Excel</li>
+<li>Data Lake:
+<ul>
+<li>Was ist der Data Lake?</li>
+<li>Braucht man das?</li>
+<li>Was sind die Unterschiede zum Data Warehouse?</li>
+</ul></li>
 </ul>
 </section>
-<section>
-<section id="datenbereitstellung" class="title-slide slide level1 center">
-<h1>Datenbereitstellung</h1>
-
-</section>
-<section id="überblick-zum-bia-gesamteinsatz" class="slide level2">
-<h2>Überblick zum BIA Gesamteinsatz</h2>
-<h3 id="datenbereitstellung-1">Datenbereitstellung</h3>
+<section id="einordnung-in-den-gesamtkontext" class="slide level2">
+<h2>Einordnung in den Gesamtkontext</h2>
+<h3 id="der-data-lake-big-data">Der Data Lake &amp; Big Data</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/bia_ordnungsrahmen.drawio.png" width="700" height="500"></p>
@@ -398,483 +394,315 @@ Dr.&nbsp;Sebastian Schrön
 </figure>
 </div>
 </section>
-<section id="data-warehouse" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="begriff">Begriff</h3>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Definition</strong></p>
-</div>
-<div class="callout-content">
-<p>Ein Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung <span class="citation" data-cites="kemper_data_2023">(siehe <a href="#/quellen" role="doc-biblioref" onclick="">Kemper und Sun 2023</a>)</span>.</p>
-</div>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Die entscheidenden Punkte sind hier:
-<ul>
-<li>Trennung von operativen und dispositiven Daten</li>
-<li>Integration von Datenbeständen aus verschiedenen und oftmals sehr heterogenen Quellen</li>
-<li>Einheitliche und konsistente Datenbasis für das gesamte Unternehmen</li>
-</ul></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section>
+<section id="big-data" class="title-slide slide level1 center">
+<h1>Big Data</h1>
+
 </section>
-<section id="data-warehouse-1" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="eigenschaften">Eigenschaften</h3>
-<div style="font-size: 0.95em">
-<div>
-<ol type="1">
-<li class="fragment">Themenorientierung:
-<ul>
-<li class="fragment">Dispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet</li>
-<li class="fragment">Die operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert</li>
-<li class="fragment">Themen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1</li>
-</ul></li>
-<li class="fragment">Integration:
-<ul>
-<li class="fragment">Daten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert</li>
-<li class="fragment">Zusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”</li>
-</ul></li>
-</ol>
-</div>
+<section id="big-data-1" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="was-ist-big-data">Was ist Big Data?</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/big_data.png" width="700" height="500"></p>
+<figcaption>Quelle: <a href="https://medienportal.siemens-stiftung.org/de/big-data-einfuehrung-111982">Siemens Stiftung 2019</a></figcaption>
+</figure>
 </div>
 </section>
-<section id="data-warehouse-2" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="eigenschaften-1">Eigenschaften</h3>
-<div>
-<ol start="3" type="1">
-<li class="fragment">Zeitraumbezug:
-<ul>
-<li class="fragment">Operative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab</li>
-<li class="fragment">Daten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr</li>
-</ul></li>
-<li class="fragment">Nicht-Volatilität:
-<ul>
-<li class="fragment">Daten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt</li>
-<li class="fragment">DWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt</li>
-</ul></li>
-</ol>
-</div>
-</section>
-<section id="data-warehouse-3" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="komponenten-des-data-warehouse">Komponenten des Data Warehouse</h3>
-<div>
+<section id="big-data-2" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="die-3vs">Die 3Vs</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Data Mart</p>
+<div style="font-size: 0.65em">
+<ol type="1">
+<li>Volume:
 <ul>
-<li class="fragment">Separater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen</li>
-<li class="fragment">Nur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen</li>
-<li class="fragment">Häufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen</li>
+<li>Die erhebliche Menge an Daten, die erfasst oder generiert wird und die vorgehalten sowie gespeichert werden muss</li>
+<li><span class="citation" data-cites="donofrio_big_2021">D’Onofrio und Meier (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span> sprechen im Petabyte bis Zettabyte-Bereich von Big Data</li>
+</ul></li>
+<li>Variety:
+<ul>
+<li>Meint die unterschiedlichen Arten von Daten in Big Data-Szenarien</li>
+<li>Neben strukturierte Daten in Tabellenform auch um unstrukturierte Daten wie Texte, Bilder, Videos, Audios sowie semi-strukturierte Daten</li>
+</ul></li>
+<li>Velocity:
+<ul>
+<li>Die Rate, mit der Daten erzeugt, gesammelt und verarbeitet werden.</li>
+<li>Im Extremfall müssen Daten in Echtzeit analysiert werden, um sofortige Erkenntnisse zu gewinnen.</li>
+</ul></li>
+</ol>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/3vs.png"></p>
+<figcaption>Quelle: <a href="https://medienportal.siemens-stiftung.org/de/big-data-111955">Siemens Stiftung 2019</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="big-data-3" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="und-noch-mehr-vs">…und noch mehr Vs</h3>
+<ul>
+<li>Weitere Vs in der Literatur zielen auf die Verwendung der Daten ab und weniger auf die technischen Eigenschaften der 3 Vs</li>
+</ul>
+<ol start="4" type="1">
+<li>Value (Wert)
+<ul>
+<li>Der Wert, den Unternehmen aus den gesammelten und analysierten Daten ziehen können</li>
+<li>Das Hauptziel von Big Data ist es, nutzbare Erkenntnisse zu gewinnen und daraus einen Mehrwert zu generieren</li>
+</ul></li>
+</ol>
+</section>
+<section id="big-data-4" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="und-noch-mehr-vs-1">…und noch mehr Vs</h3>
+<ol start="5" type="1">
+<li>Veracity (Genauigkeit)
+<ul>
+<li>Die Qualität der Daten, besonders Präzision und Zuverlässigkeit, da große Daten oft Rauschen und ungenaue Informationen enthalten</li>
+<li><span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span> betonen, dass Genauigkeit auf die durch Big Data erzielten Ergebnisse abzielt und weniger auf die Daten</li>
+</ul></li>
+<li>Validity (Validität)
+<ul>
+<li>Die Gültigkeit der Datenanalyse, inwiefern die durchgeführten Analysen tatsächlich die gewünschten Erkenntnisse liefern</li>
+</ul></li>
+<li>Output Velocity (Analyse-Geschwindigkeit)
+<ul>
+<li>Die Bereitstellung von relevanten Ergebnissen mit geringer Latenz, idealerweise nahezu in Echtzeit</li>
+</ul></li>
+</ol>
+</section>
+<section id="big-data-5" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="technologien-und-werkzeuge">Technologien und Werkzeuge</h3>
+<ul>
+<li>Big Data Technologien müssen hohe Datenvolumina im mehrstelligen Petabyte-Bereich handhaben, um hierauf Analysen durchzuführen</li>
+<li>Die Ergebnisse dieser Analysen gilt es hiernach im IT-Entscheidungsunterstützungssystem zu integrieren</li>
+<li>Dies ist mit den bisher vorgestellten relationalen CDWH-Lösungen nicht ohne Weiteres möglich</li>
+<li>Die aus den 3 Vs resultierenden Anforderungen erfordern hohe Rechen- und Speicherkapazitäten, die oft durch parallele Infrastruktur realisiert werden.</li>
+</ul>
+</section>
+<section id="big-data-6" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="technologien-und-werkzeuge-1">Technologien und Werkzeuge</h3>
+<ul>
+<li>Allgemein werden zwei Formen der Parallelisierung unterschieden:
+<ul>
+<li>Vertikale Skalierung:
+<ul>
+<li>Auch Scale Up genannt</li>
+<li>Nutzung von leistungsstärkeren Rechnern</li>
+</ul></li>
+<li>Horizontale Skalierung:
+<ul>
+<li>Auch Scale Out genannt</li>
+<li>Nutzung von vielen günstigen Standard-Servern oder Cloud Infrastruktur bei modernen Cloud Hyper Scalern, um Lasten zu verteilen</li>
+</ul></li>
+</ul></li>
+<li>Vertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen</li>
+</ul>
+</section>
+<section id="big-data-7" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="technologien-und-werkzeuge-2">Technologien und Werkzeuge</h3>
+<ul>
+<li>Vertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen</li>
+<li>Die Datenhaltung in Big Data-Szenarien erfolgt in der Regel in NoSQL-Datenbanken (Not Only SQL)</li>
+<li>Dies dient primär der Parallelisierung der Datenhaltung und -verarbeitung</li>
+<li>Gleichzeitig ermöglichen diese Datenbanken die Speicherung von unstrukturierten Daten</li>
+</ul>
+</section>
+<section id="nosql-datenbanken" class="slide level2">
+<h2>NoSQL Datenbanken</h2>
+<h3 id="key-value-stores">Key-Value Stores</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Datenbanken, die paarweise einen (einmaligen) Schlüssel mit einem zugehörigen Wert ablegen</li>
+<li>Diese Werte können beliebige Datenstrukturen sein, wie z.B. Texte, Bilder, Videos, Audios, JSON-Objekte, XML-Dateien, etc.</li>
+<li>Key-Value Stores sind optimiert für schnelle Lese- und Schreibzugriffe auf Basis von Keys</li>
 </ul>
 </div><div class="column" style="width:50%;">
-<p>Core Data Warehouse</p>
-<ul>
-<li class="fragment">Rückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet</li>
-<li class="fragment">Befüllung über ETL-Prozesse aus operativen Quellsystemen</li>
-<li class="fragment">Meist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)</li>
-<li class="fragment">Applikationsneutral modelliert</li>
-</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/key_value_database_example.png" width="250" height="250"></p>
+<figcaption>Key Value Store, Quelle: <a href="https://dataengineering.wiki/Concepts/Key-Value+Database">Data Engineering Wiki</a></figcaption>
+</figure>
 </div>
 </div>
 </div>
 </section>
-<section id="data-warehouse-4" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="funktionen-des-cdwh">Funktionen des CDWH</h3>
-<ol type="1">
-<li>Sammel- und Integrationsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
+<section id="nosql-datenbanken-1" class="slide level2">
+<h2>NoSQL Datenbanken</h2>
+<h3 id="document-stores">Document Stores</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
-<li>Aufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers</li>
+<li>Enthalten poly-strukturierte Dokumente beliebiger Länge, die auf Basis von Dokumenteninhalten recherchiert werden können.</li>
+<li>Häufig in Form von JSON oder XML Files abgelegt, da diese die Möglichkeit bieten, unstrukturierte Attribute zu hinterlegen und flexible Schemata zu definiere.</li>
+<li>Das Beispiel rechts entspricht dem JavaScript Object Notation JSON</li>
 </ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/document_database_example.png" width="250" height="400"></p>
+<figcaption>Document Data Base, Quelle: <a href="https://dataengineering.wiki/Concepts/Document+Database">Data Engineering Wiki</a></figcaption>
+</figure>
 </div>
-<ol start="2" type="1">
-<li>Distributionsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
-<ul>
-<li>Versorgung aller nachgeschalteten Data Marts mit Daten</li>
-</ul>
 </div>
-<ol start="3" type="1">
-<li>Qualitätssicherungsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
-<ul>
-<li>Datentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis</li>
-</ul>
 </div>
 </section>
-<section id="data-warehouse-5" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="data-mart-vs.-cdwh">Data Mart vs.&nbsp;CDWH</h3>
-<div>
-<div style="font-size: 0.70em">
-<table>
-<caption>Charakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></caption>
+<section id="nosql-datenbanken-2" class="slide level2">
+<h2>NoSQL Datenbanken</h2>
+<h3 id="wide-column-stores-und-graph-databases">Wide Column Stores und Graph-Databases</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div style="font-size: 0.75em">
+<ul>
+<li>Wide Column Stores:
+<ul>
+<li>Datenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können</li>
+<li>Einzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann</li>
+</ul></li>
+<li>Graph-Databases:
+<ul>
+<li>Sind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet.</li>
+<li>Basieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/graph_database_example.png" width="400" height="400"></p>
+<figcaption>Graph Database, Quelle: <a href="https://dataengineering.wiki/Concepts/Graph+Database">Data Engineering Wiki</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="data-lake" class="title-slide slide level1 center">
+<h1>Data Lake</h1>
+
+</section>
+<section id="data-lake-1" class="slide level2">
+<h2>Data Lake</h2>
+<h3 id="das-konzept-des-data-lake">Das Konzept des Data Lake</h3>
+<ul>
+<li>Das Data Warehouse galt lange Zeit als das zentrale Architekturkonzept für dispositive Reporting- und Analysezwecke</li>
+<li>Big Data Technologien haben den Data Lake in den Fokus gerückt, der meist als eine ergänzende Komponente zu DWH dient</li>
+<li>Ein Data Lake erhebt den Anspruch, alle Quelldaten in roher Form als Rohdaten zu persistieren und zur Verfügung zu stellen</li>
+<li>Beim Data Lake steht der effiziente Umgang mit großen und polystrukturierten Datenmengen im Vordergrund, die es schnell zu verarbeiten gilt</li>
+<li>Dies ermöglicht komplexe Analysen für neue Machine Learning Anwendungen, die verschiedene Datenquellen benötigen</li>
+</ul>
+</section>
+<section id="data-lake-vs.-data-warehouse" class="slide level2">
+<h2>Data Lake vs.&nbsp;Data Warehouse</h2>
+<h3 id="illustration">Illustration</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/data_lake.jpeg" width="600" height="400"></p>
+<figcaption>Data Lake versus Data Warehouse, Quelle: <a href="https://twitter.com/freest_man/status/1764664361581445546">Twitter</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="data-lake-vs.-data-warehouse-1" class="slide level2">
+<h2>Data Lake vs.&nbsp;Data Warehouse</h2>
+<h3 id="charakteristika">Charakteristika</h3>
+<div style="font-size: 0.75em">
+<div id="tbl-lake_vs_dwh">
+<table class="table-striped table-hover">
+<caption>Tabelle&nbsp;1: Wichtige Charakteristika von Data Lake und Data Warehouse im Vergleich. In Anlehnung an <span class="citation" data-cites="gillhuber_architekturen_2023">Dittmar und Schulz (<a href="#/quellen" role="doc-biblioref" onclick="">2023</a>)</span>, S. 159</caption>
 <colgroup>
-<col style="width: 20%">
-<col style="width: 40%">
-<col style="width: 40%">
+<col style="width: 50%">
+<col style="width: 50%">
 </colgroup>
 <thead>
 <tr class="header">
-<th></th>
-<th>Data Mart</th>
-<th>Core Data Warehouse</th>
+<th>Data Warehouse</th>
+<th>Data Lake</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Ziel</td>
-<td>Entscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten</td>
-<td>Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</td>
+<td>Optimiert für wiederholbare Prozesse</td>
+<td>Originär eine Erweiterung der DWH Staging Area</td>
 </tr>
 <tr class="even">
-<td>Ausrichtung</td>
-<td>Bereichsspezifisch oder Abteilungsbezogen</td>
-<td>Zentral und unternehmensweit</td>
+<td>Unterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen</td>
+<td>Optimiert Daten für Analystics-Lösungen</td>
 </tr>
 <tr class="odd">
-<td>Granularität</td>
-<td>Höhere Aggregationen</td>
-<td>Feinste verfügbare Granularität</td>
+<td>Fokus auf vergangenheitsbezogene Auswertungen</td>
+<td>Fokus auf unbekannte explorative Datenanalyse und zukunftsorienterte Methoden</td>
 </tr>
 <tr class="even">
-<td>Verfügbarkeit für Endanwendende</td>
-<td>In der Regel möglich</td>
-<td>Häufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt</td>
-</tr>
-<tr class="odd">
-<td>Flexibilität der Analysen</td>
-<td>Tendenziell gering und auf Anwendungsbereich beschränkt</td>
-<td>Sehr flexibel</td>
-</tr>
-<tr class="even">
-<td>Volumina</td>
-<td>Gering bis moderat</td>
-<td>Moderat bis umfangreich</td>
+<td>Schema-on-Write mit harmonisiertem Datenmodell</td>
+<td>Schema-on-Read mit Echtzeit Rohdaten Bewirtschaftung</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-<section id="dwh-architekturen" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="unabhängige-data-marts">Unabhängige Data Marts</h3>
-<div class="columns">
-<div class="column" style="width:45%;">
-<!-- ![Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016](img/plot_marts.png){width="100%"} -->
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-fa020c48e6c01fed796f" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fa020c48e6c01fed796f">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Unabhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div>
-<ul>
-<li class="fragment">Auch Stove-Pipe Ansatz</li>
-<li class="fragment">Bedienen sich direkt aus den operativen und externen Systemen</li>
-<li class="fragment">Bereiten die enthaltenen Daten für relevante Anwendungsfelder auf</li>
-<li class="fragment">Daten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen</li>
-<li class="fragment">Verschiedene Marts können unterschiedliche externe Datenquellen zusammenführen</li>
-</ul>
-</div>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Stove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="dwh-architekturen-1" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="unabhängige-data-marts-1">Unabhängige Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Schnelle und bereichsspezifische Informationsbereitstellung</li>
-<li class="fragment">Sinnvoll bei fehlender Governance Strategie</li>
-<li class="fragment">Erfüllung maßgeschneideter bereichsspezifischer Fragestellungen</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Häufig historisch gewachsene Strukturen und damit geringe Governance</li>
-<li class="fragment">Mehrfache Aufbereitung der Quelldaten</li>
-<li class="fragment">Gefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts</li>
-<li class="fragment">Mangelnde Möglichkeit bereichsübergreifender Analysen</li>
-</ul>
-</div>
-</div>
+<section id="data-lake-vs.-data-warehouse-2" class="slide level2">
+<h2>Data Lake vs.&nbsp;Data Warehouse</h2>
+<h3 id="anwendungsbereiche">Anwendungsbereiche</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/use_cases.jpeg" width="700" height="500"></p>
+<figcaption>Anwendungsfälle Data Lake und Data Warehouse, Quelle: <a href="https://twitter.com/freest_man/status/1764664361581445546">Twitter</a></figcaption>
+</figure>
 </div>
 </section>
-<section id="dwh-architekturen-2" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="abgestimmte-data-marts">Abgestimmte Data Marts</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-cd9ab91c922a236003a4" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cd9ab91c922a236003a4">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Abhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div>
+<section id="data-lake-2" class="slide level2">
+<h2>Data Lake</h2>
+<h3 id="architekturprinzipien">Architekturprinzipien</h3>
+<div style="font-size: 0.80em">
 <ul>
-<li class="fragment">Konzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten</li>
-<li class="fragment">Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung</li>
-<li class="fragment">Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-3" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="abgestimmte-data-marts-1">Abgestimmte Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:47%;">
-<p>Vorteile:</p>
+<li>Datenanbindung:
 <ul>
-<li class="fragment">Integrität des Datenmodells wird gewährleistet</li>
-<li class="fragment">Möglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche</li>
-<li class="fragment">Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</li>
-</ul>
-</div><div class="column" style="width:53%;">
-<p>Nachteile:</p>
+<li>Es werden ausschließlich primäre Datenquellen angebunden</li>
+<li>Die feinste Granularität der Datenquelle wird verwendet</li>
+</ul></li>
+<li>Datenhaltung
 <ul>
-<li class="fragment">Durch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts</li>
-<li class="fragment">Möglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition</li>
-<li class="fragment">Informationsverlust bei übergreifenden Analysen</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-4" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse">Core Data Warehouse</h3>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-65499979504f9f68f063" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-65499979504f9f68f063">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Core Data Warehouse. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div>
+<li>Eine Löschung der Rohdaten erfolgt nur aus regulatorischen Gründen (Datenschutz)</li>
+<li>Ein Zonenkonzept ist zu empfehlen</li>
+<li>Eine Anonymisierung persönlicher Daten erfolgt während der Beladung</li>
+</ul></li>
+<li>Datenplattform
 <ul>
-<li class="fragment">Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank</li>
-<li class="fragment">Dieser Ansatz wird oft als Monolith bezeichnet</li>
-<li class="fragment">Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-5" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-1">Core Data Warehouse</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Hoher Grad an Mehrfachverwendbarkeit der Daten</li>
-<li class="fragment">Hoher Detailgrad möglich</li>
-<li class="fragment">Bei kleineren Anwendungsfällen oft ausreichend</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Berechtigungsmanagement und Performance stoßen bei komplexen Anwendungsfällen schnell an Grenzen</li>
-<li class="fragment">Bei größeren Einheiten mit eigenen Geschäftsprozessen und stark abweichenden Hierarchiestrukturen sehr komplex, hier bietet sich der Einsatz mehrerer CDWH an</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-6" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-mit-abhängigen-data-marts">Core Data Warehouse mit abhängigen Data Marts</h3>
-<div class="columns">
-<div class="column" style="width:55%;">
-<div>
-<ul>
-<li class="fragment">Auch Hub-and-Spoke Ansatz genannt</li>
-<li class="fragment">CDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts</li>
-<li class="fragment">Marts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf</li>
-<li class="fragment">CDWH als Hub erfüllt Aufgaben der Integration, Qualitätssicherung und Datenverteilung an die Marts</li>
-</ul>
-</div>
-</div><div class="column" style="width:45%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-ef2106b9d6e5f78f9eaa" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ef2106b9d6e5f78f9eaa">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Core Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-7" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-mit-abhängigen-data-marts-1">Core Data Warehouse mit abhängigen Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Einmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik</li>
-<li class="fragment">Geringere Anzahl an Extraktionsprozessen</li>
-<li class="fragment">Reduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Nach wie vor eher traditionelle BI-Sicht</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-8" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="architekturen-mix">Architekturen-Mix</h3>
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-8d2b7b2a6338d2027883" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-8d2b7b2a6338d2027883">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Architekturen-Mix. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="business-case" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="das-wachstum-bei-tofispy-stagniert">Das Wachstum bei Tofispy stagniert</h3>
-<div>
-<p><img data-src="img/fotispy.png" class="absolute" style="bottom: 550px; right: 50px; width: 125px; height: 125px; "></p>
-<ul>
-<li class="fragment">Tofispy ist ein Musikstreaming Anbieter aus Deutschland</li>
-<li class="fragment">Das Unternehmen kämpft mit stagnierendem Wachstum</li>
-<li class="fragment">Wir – die Unternehmensberatung LeinbizConsult – wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln</li>
-<li class="fragment">Die Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben</li>
+<li>Infrastructure as Code wird angestrebt</li>
+<li>Eine Portierbarkeit zur Vermeidung von Vendor-Lock-In wird angestrebt</li>
+<li>Ein zentrales Identity Management System steuert Zugriffe granular</li>
+<li>Ein Datenkatalog mit fachlicher und operativer Perspektive wird empfohlen</li>
+</ul></li>
 </ul>
 </div>
 </section>
-<section id="business-case-1" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="datensatz">Datensatz</h3>
+<section id="data-lake-3" class="slide level2">
+<h2>Data Lake</h2>
+<h3 id="zonen">Zonen</h3>
+<ul>
+<li>Ähnlich wie im ETL Prozess umfasst auch der Data Lake verschiedene Zonen, in denen die Daten verschiedene Prozesse durchlaufen:</li>
+</ul>
+<div style="font-size: 0.87em">
 <ol type="1">
-<li><em>Überblick über den Streamingmarkt</em>:
-<ul>
-<li>Tabelle “market_share”</li>
-<li>Anzahl der Nutzer pro Plattform in Mio</li>
-<li>Daten von 2016 bis 2024</li>
-<li>Die Daten für 2024 sind eine Hochrechnung für das laufende Jahr</li>
-</ul></li>
+<li><strong>Transient Zone</strong>: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert</li>
+<li><strong>Raw Data Zone</strong>: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten</li>
+<li><strong>Curated Zone</strong>: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haen und von Mängeln befreit wurden</li>
+<li><strong>Discovery Sandbox</strong>: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt</li>
+<li><strong>Consumption Zone</strong>: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung</li>
 </ol>
-</section>
-<section id="business-case-2" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="aufgabe">Aufgabe</h3>
-<div>
-<ul>
-<li class="fragment">Arbeit in 2er Teams mit mindestens einem Laptop oder Tablet (nicht ideal für Excel) pro Team</li>
-<li class="fragment">Jedes Team lädt die Daten bei StudIP herunter und diskutiert untereinander, wie die Daten strukturiert sind</li>
-<li class="fragment">Trial &amp; Error in Superset mit Hilfe der Dokumentation:
-<ul>
-<li class="fragment">Dokumentation unter <a href="https://docs.preset.io/docs/creating-a-chart">preset.io</a></li>
-<li class="fragment">Startpunkt: Creating a Chart (in der preset Doku)</li>
-<li class="fragment">Table als Ausgangspunkt für explorative Analyse</li>
-</ul></li>
-<li class="fragment">Anschließend Analyse in Excel + Superset und kritische Gegenüberstellung der beiden Ansätze</li>
-</ul>
 </div>
 </section>
-<section id="business-case-3" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="fragen">Fragen</h3>
-<div>
-<ul>
-<li class="fragment">Was sind die Vorteile der beiden Ansätze?</li>
-<li class="fragment">Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?</li>
-<li class="fragment">Wie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?</li>
-<li class="fragment">Welcher Konkurrent wächst am stärksten?</li>
-<li class="fragment">Ist der Datensatz operativ oder dispositiv?</li>
-<li class="fragment">Welcher Reifegrad von Analytics liegt vor?</li>
-</ul>
-</div>
-</section>
-<section id="hausaufgabe" class="slide level2">
-<h2>Hausaufgabe</h2>
-<h3 id="video-anschauen">Video anschauen</h3>
-<iframe data-external="1" src="https://player.vimeo.com/video/770676371" width="60%" height="60%" frameborder="0" allow="autoplay; title=" "="" fullscreen;="" picture-in-picture"="" allowfullscreen=""></iframe>
-<p><a href="https://vimeo.com/770676371">Link zum Video</a></p>
-</section>
-<section id="hausaufgabe-1" class="slide level2">
-<h2>Hausaufgabe</h2>
-<h3 id="fragen-zu-superset">Fragen zu Superset</h3>
-<ul>
-<li>Was sind Dimensions und Metrics? Welchen Zweck haben sie?</li>
-<li>Was ist der Unterschied zwischen einem Dataset und einer Database?</li>
-<li>Was ist der Unterschied zwischen Superset und Preset?</li>
-</ul>
-</section>
+
 <section id="quellen" class="slide level2 smaller scrollable">
 <h2>Quellen</h2>
 
@@ -885,11 +713,14 @@ Dr.&nbsp;Sebastian Schrön
 <div id="ref-baars_business_2021" class="csl-entry" role="listitem">
 Baars, Henning, und Hans-Georg Kemper. 2021. <em>Business Intelligence &amp; Analytics: Grundlagen und praktische Anwendungen: Ansätze der <span>IT</span>-basierten Entscheidungsunterstützung</em>. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.
 </div>
-<div id="ref-gluchowski_architekturkonzepte_2016" class="csl-entry" role="listitem">
-Hahne, Michael. 2016. <span>„Architekturkonzepte und Modellierungsverfahren für <span>BI</span>-Systeme“</span>. In <em>Analytische Informationssysteme</em>, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-47763-2_8">https://doi.org/10.1007/978-3-662-47763-2_8</a>.
+<div id="ref-donofrio_big_2021" class="csl-entry" role="listitem">
+D’Onofrio, Sara, und Andreas Meier, Hrsg. 2021. <em>Big Data Analytics: Grundlagen, Fallbeispiele und Nutzungspotenziale</em>. Edition <span>HMD</span>. Wiesbaden: Springer Fachmedien Wiesbaden. <a href="https://doi.org/10.1007/978-3-658-32236-6">https://doi.org/10.1007/978-3-658-32236-6</a>.
 </div>
-<div id="ref-kemper_data_2023" class="csl-entry" role="listitem">
-Kemper, Hans-Georg, und Xuanpu Sun. 2023. <span>„Data Warehouse“</span>. In <em>Gabler Bankenlexikon</em>. <a href="https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924">https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924</a>.
+<div id="ref-gillhuber_architekturen_2023" class="csl-entry" role="listitem">
+Dittmar, Carsten, und Peter Schulz. 2023. <span>„Architekturen und Technologien für den Data Lake“</span>. In <em>Künstliche Intelligenz und Data Science in Theorie und Praxis</em>, herausgegeben von Andreas Gillhuber, Göran Kauermann, und Wolfgang Hauner, 157–66. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-66278-6_12">https://doi.org/10.1007/978-3-662-66278-6_12</a>.
+</div>
+<div id="ref-frick_big-data-technologien_2021" class="csl-entry" role="listitem">
+Quix, Christoph. 2021. <span>„Big-Data-Technologien“</span>. In <em>Data Science</em>, herausgegeben von Detlev Frick, Andreas Gadatsch, Jens Kaufmann, Birgit Lankes, Christoph Quix, Andreas Schmidt, und Uwe Schmitz, 133–48. Wiesbaden: Springer Fachmedien Wiesbaden. <a href="https://doi.org/10.1007/978-3-658-33403-1_8">https://doi.org/10.1007/978-3-658-33403-1_8</a>.
 </div>
 </div>
 </section></section>

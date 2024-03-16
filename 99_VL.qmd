@@ -1,0 +1,21 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung "
+format:
+  revealjs:
+    incremental: false  
+---
+  
+```{r}
+
+library(kableExtra)
+library(readr)
+library(magrittr)
+library(dplyr)
+```
+
+
+
+
+## Der Plan für heute...
+### Vorlesung 

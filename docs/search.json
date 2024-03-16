@@ -1,5 +1,110 @@
 [
   {
+    "objectID": "03_VL.html#der-plan-für-heute",
+    "href": "03_VL.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung 3\n\n\nQuiz\nDatentransformation:\n\nWas heißt ETL?\nWelche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?\n\nErste Transformationsschritte eines Datensatzes mit User-Events mit Superset"
+  },
+  {
+    "objectID": "03_VL.html#kurzer-überblick-wo-gehts-weiter",
+    "href": "03_VL.html#kurzer-überblick-wo-gehts-weiter",
+    "title": "Business Intelligence & Data Science",
+    "section": "Kurzer Überblick: Wo geht’s weiter?",
+    "text": "Kurzer Überblick: Wo geht’s weiter?\nDer ETL Prozess\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+  },
+  {
+    "objectID": "03_VL.html#etl-prozess",
+    "href": "03_VL.html#etl-prozess",
+    "title": "Business Intelligence & Data Science",
+    "section": "ETL Prozess",
+    "text": "ETL Prozess\nWas ist ETL?\n\nETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden\nExtraktion beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt\nHier erfolgt die Transformation, die wiederum aus vier Teilschritten besteht:\n\nFilterung\nHarmonisierung\nAggregation\nAnreicherung\n\nAnschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank geladen"
+  },
+  {
+    "objectID": "03_VL.html#etl-prozess-1",
+    "href": "03_VL.html#etl-prozess-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "ETL Prozess",
+    "text": "ETL Prozess\nTeilschritte der Transformation\n\n\n\n\nTeilprozesse im ETL-Prozess. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)"
+  },
+  {
+    "objectID": "03_VL.html#filterung",
+    "href": "03_VL.html#filterung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nExtraktion und erste Bereinigung\n\nFilterung umfasst die Extraktion aus operativen Daten und die Bereinigung syntaktischer und semantischer Defekte in den Rohdaten\nDie Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen\nAus Performance-Erwärgungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt\nBaars und Kemper (2021) ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten\nDiese Extrakte werden anschließend bereinigt"
+  },
+  {
+    "objectID": "03_VL.html#filterung-1",
+    "href": "03_VL.html#filterung-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nSyntaktische Mängel\n\nSyntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen\nSyntaktische Mängel sind in der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren\nBeispiele:\n\nFehlende Werte\nWidersprüchliche Datumsformate (2022-04-03 und 04.03.2022)\nLeere Primärschlüssel\nUnzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. “123a” statt “123”)"
+  },
+  {
+    "objectID": "03_VL.html#filterung-2",
+    "href": "03_VL.html#filterung-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nSemantische Mängel\n\nSemantische Mängel beziehen sich auf Probleme in Bezug auf die Bedeutung und Interpretation der Daten\nDaten sind dann inkonsistent sind oder enthalten widersprüchliche Informationen, selbst wenn sie syntaktisch korrekt sind\nSemantische Mängel erfordern oft ein tieferes Verständnis der Domäne und der Daten, um sie zu identifizieren und zu beheben\nBeispiele:\n\nNegative oder unplausible Werte in Preis-, Alters- oder Umsatzfeldern\nNicht-zulässige Postleitzahlen\nUngültige IBAN"
+  },
+  {
+    "objectID": "03_VL.html#harmonisierung",
+    "href": "03_VL.html#harmonisierung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Harmonisierung",
+    "text": "Harmonisierung\nHarmonisierung\n\nHarmonisierung ist die zweite Schicht der Datentransformation\nNach Abschluss der Filterungs- und der Harmonisierungsschicht liegt im DWH ein bereinigter und konsistenter Datenbestand auf der festgelegten Granularitätsebene vor\nDieser ist bereits direkt für Komponenten der Informationsgenerierung nutzbar\nAuch hier wird zwischen syntaktischer und semantischer Harmonisierung unterschieden"
+  },
+  {
+    "objectID": "03_VL.html#harmonisierung-2",
+    "href": "03_VL.html#harmonisierung-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Harmonisierung",
+    "text": "Harmonisierung\nSyntaktische Harmonisierung\n\nDie operativen Quelldatenbestände weisen meist eine hohe Heterogenität auf und müssen mit Hilfe von umfangreichen Transformationsregeln syntaktisch harmonisiert werden.\nHäufige Gründe sind:\n\n\nSchlüsseldisharmonien\n\nAufgrund verschiedener Primärschlüssel ist die Zusammenführung nicht möglich\nBeispiel: Kundennummer in System A weist eine führende 0 auf, in System B nicht\nOft durch Zuordnungstabellen oder die Generierung neuer Primärschlüssel gelöst"
+  },
+  {
+    "objectID": "03_VL.html#harmonisierung-3",
+    "href": "03_VL.html#harmonisierung-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Harmonisierung",
+    "text": "Harmonisierung\nSyntaktische Harmonisierung\n\nAbweichende Kodierung\n\nDie Systeme weisen identische Attributnamen auf, haben jedoch unterschiedliche Wertebereiche\nBeispiel: Geschlecht in System A: “männlich”, “weiblich”, “divers” und in System B: “m”, “w”, “d”\n\nSynonyme\n\nAttribute haben verschiedene Namen, aber dieselbe Bedeutung\nKundennummer in System A und Customer ID in System B\n\nHomonyme\n\nAttribute haben dieselben Namen, aber verschiedene Bedeutungen\n“Business Partner” als Lieferant in A und als Kunde in B"
+  },
+  {
+    "objectID": "03_VL.html#harmonisierung-4",
+    "href": "03_VL.html#harmonisierung-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Harmonisierung",
+    "text": "Harmonisierung\nSemantische Harmonisierung\n\n\nDie semantische Harmonisierung bezieht sich auf die Vereinheitlichung der fachlichen Bedeutung von Daten\n\n\nAbgleichung fachlicher Kennzahlen\n\nGewährleistet inhaltlich konsistente entscheidungsorientierte Daten\nBeispiele sind Währungen oder Maßeinheiten oder die Periodenzuordnung betriebswirtschaftlicher Kennzahlen\nErfordert hohe Fachkompetenz und ist nicht automatisierbar\n\nGranularität\n\nDie Überführung der operativen Daten in eine gewünschte Granularität erfordert weitere Transforationsregeln\nEine Übersicht tagesaktueller Bestellungen erfordert bspw. die Zusammenfassung aller Transaktionen eines Tages"
+  },
+  {
+    "objectID": "03_VL.html#aggregation",
+    "href": "03_VL.html#aggregation",
+    "title": "Business Intelligence & Data Science",
+    "section": "Aggregation",
+    "text": "Aggregation\nVerdichtung und Hierarchisierung\n\nDie Aggregation dient der Erweiterung der gefilterten und harmonisierten Daten um Verdichtungsstrukturen\nIdealerweise mittels mehrfach verwendbarer, zentraler Dimensionshierarchien, die übergreifende Analysen unterstützen\nDie Entwicklung dieser Dimensionshierarchietabellen setzt die Antizipation potenzieller Auswertungen voraus\nDiese Tabellen müssen zudem gepflegt und mit Gültigkeitszeiträumen versehen werden\nDie Erstellung und Pflege von Hierarchietabellen und die Speicherung aggregierter Tabellen ermöglicht erste Anwendungen mit den Daten\nDie physische Speicherung von aggregierten Daten anstelle granularster Ebenen erfolgt hierbei häufig aus Performancegründen"
+  },
+  {
+    "objectID": "03_VL.html#anreicherung",
+    "href": "03_VL.html#anreicherung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Anreicherung",
+    "text": "Anreicherung\nKennzahlberechnung\n\nIn der Anreicherungsschicht werden fachliche Kennzahlen berechnet und in die Datenbasis integriert.\nHier können sowohl Werte auf Basis der harmonisierten Daten der gewünschten Granularität (zweite Schicht) als auch auf Basis der dritten Schicht (bereits aggregierte Tabellen) berechnet werden.\nBeispiele sind monatliche Deckungsbeiträge auf Produktebene oder jährliche Deckungsbeiträge auf Filialebene."
+  },
+  {
+    "objectID": "03_VL.html#anreicherung-1",
+    "href": "03_VL.html#anreicherung-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Anreicherung",
+    "text": "Anreicherung\nKennzahlberechnung\n\nDiese Vorgehensweise hat mehrere Vorteile:\n\nKalkulierbare Reaktionszeigen bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.\nGarantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.\nEtablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes"
+  },
+  {
+    "objectID": "03_VL.html#quellen",
+    "href": "03_VL.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg."
+  },
+  {
     "objectID": "02_VL.html#der-plan-für-heute",
     "href": "02_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
@@ -327,5 +432,145 @@
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
     "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nGesellschaft für Informatik. 2019. „Data Science: Lern- und Ausbildungsinhalte“. Gesellschaft für Informatik.\n\n\nSchieder, Christian. 2016. „Historische Fragmente einer Integrationsdisziplin – Beitrag zur Konstruktgeschichte der Business Intelligence“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 13–32. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_2.\n\n\nSharma, Vinod, Jeanne Poulose, und Chandan Maheshkar. 2023. „Analytics Enabled Decision Making ‚Tracing the Journey from Data to Decisions‘“. In Analytics Enabled Decision Making, herausgegeben von Vinod Sharma, Chandan Maheshkar, und Jeanne Poulose, 1–22. Singapore: Springer Nature Singapore. https://doi.org/10.1007/978-981-19-9658-0_1.\n\n\nWinter, Robert. 2016. „Analytische Informationssysteme aus Managementsicht: lokale Entscheidungsunterstützung vs. unternehmensweite Informations-Infrastruktur“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 67–95. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_5."
+  },
+  {
+    "objectID": "04_VL.html#der-plan-für-heute",
+    "href": "04_VL.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung 4\n\nBig Data:\n\nWas ist Big Data?\nDefinitionen und Eigenschaften\nTechnologien und Werkzeuge\nAnwendungsfälle\n\nData Lake:\n\nWas ist der Data Lake?\nBraucht man das?\nWas sind die Unterschiede zum Data Warehouse?"
+  },
+  {
+    "objectID": "04_VL.html#einordnung-in-den-gesamtkontext",
+    "href": "04_VL.html#einordnung-in-den-gesamtkontext",
+    "title": "Business Intelligence & Data Science",
+    "section": "Einordnung in den Gesamtkontext",
+    "text": "Einordnung in den Gesamtkontext\nDer Data Lake & Big Data\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+  },
+  {
+    "objectID": "04_VL.html#big-data-1",
+    "href": "04_VL.html#big-data-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nWas ist Big Data?\n\n\n\nQuelle: Siemens Stiftung 2019"
+  },
+  {
+    "objectID": "04_VL.html#big-data-2",
+    "href": "04_VL.html#big-data-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nDie 3Vs\n\n\n\n\nVolume:\n\nDie erhebliche Menge an Daten, die erfasst oder generiert wird und die vorgehalten sowie gespeichert werden muss\nD’Onofrio und Meier (2021) sprechen im Petabyte bis Zettabyte-Bereich von Big Data\n\nVariety:\n\nMeint die unterschiedlichen Arten von Daten in Big Data-Szenarien\nNeben strukturierte Daten in Tabellenform auch um unstrukturierte Daten wie Texte, Bilder, Videos, Audios sowie semi-strukturierte Daten\n\nVelocity:\n\nDie Rate, mit der Daten erzeugt, gesammelt und verarbeitet werden.\nIm Extremfall müssen Daten in Echtzeit analysiert werden, um sofortige Erkenntnisse zu gewinnen.\n\n\n\n\n\n\n\nQuelle: Siemens Stiftung 2019"
+  },
+  {
+    "objectID": "04_VL.html#big-data-3",
+    "href": "04_VL.html#big-data-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\n…und noch mehr Vs\n\nWeitere Vs in der Literatur zielen auf die Verwendung der Daten ab und weniger auf die technischen Eigenschaften der 3 Vs\n\n\nValue (Wert)\n\nDer Wert, den Unternehmen aus den gesammelten und analysierten Daten ziehen können\nDas Hauptziel von Big Data ist es, nutzbare Erkenntnisse zu gewinnen und daraus einen Mehrwert zu generieren"
+  },
+  {
+    "objectID": "04_VL.html#big-data-4",
+    "href": "04_VL.html#big-data-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\n…und noch mehr Vs\n\nVeracity (Genauigkeit)\n\nDie Qualität der Daten, besonders Präzision und Zuverlässigkeit, da große Daten oft Rauschen und ungenaue Informationen enthalten\nBaars und Kemper (2021) betonen, dass Genauigkeit auf die durch Big Data erzielten Ergebnisse abzielt und weniger auf die Daten\n\nValidity (Validität)\n\nDie Gültigkeit der Datenanalyse, inwiefern die durchgeführten Analysen tatsächlich die gewünschten Erkenntnisse liefern\n\nOutput Velocity (Analyse-Geschwindigkeit)\n\nDie Bereitstellung von relevanten Ergebnissen mit geringer Latenz, idealerweise nahezu in Echtzeit"
+  },
+  {
+    "objectID": "04_VL.html#big-data-5",
+    "href": "04_VL.html#big-data-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nBig Data Technologien müssen hohe Datenvolumina im mehrstelligen Petabyte-Bereich handhaben, um hierauf Analysen durchzuführen\nDie Ergebnisse dieser Analysen gilt es hiernach im IT-Entscheidungsunterstützungssystem zu integrieren\nDies ist mit den bisher vorgestellten relationalen CDWH-Lösungen nicht ohne Weiteres möglich\nDie aus den 3 Vs resultierenden Anforderungen erfordern hohe Rechen- und Speicherkapazitäten, die oft durch parallele Infrastruktur realisiert werden."
+  },
+  {
+    "objectID": "04_VL.html#big-data-6",
+    "href": "04_VL.html#big-data-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nAllgemein werden zwei Formen der Parallelisierung unterschieden:\n\nVertikale Skalierung:\n\nAuch Scale Up genannt\nNutzung von leistungsstärkeren Rechnern\n\nHorizontale Skalierung:\n\nAuch Scale Out genannt\nNutzung von vielen günstigen Standard-Servern oder Cloud Infrastruktur bei modernen Cloud Hyper Scalern, um Lasten zu verteilen\n\n\nVertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen"
+  },
+  {
+    "objectID": "04_VL.html#big-data-7",
+    "href": "04_VL.html#big-data-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nVertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen\nDie Datenhaltung in Big Data-Szenarien erfolgt in der Regel in NoSQL-Datenbanken (Not Only SQL)\nDies dient primär der Parallelisierung der Datenhaltung und -verarbeitung\nGleichzeitig ermöglichen diese Datenbanken die Speicherung von unstrukturierten Daten"
+  },
+  {
+    "objectID": "04_VL.html#nosql-datenbanken",
+    "href": "04_VL.html#nosql-datenbanken",
+    "title": "Business Intelligence & Data Science",
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nKey-Value Stores\n\n\n\nDatenbanken, die paarweise einen (einmaligen) Schlüssel mit einem zugehörigen Wert ablegen\nDiese Werte können beliebige Datenstrukturen sein, wie z.B. Texte, Bilder, Videos, Audios, JSON-Objekte, XML-Dateien, etc.\nKey-Value Stores sind optimiert für schnelle Lese- und Schreibzugriffe auf Basis von Keys\n\n\n\n\n\nKey Value Store, Quelle: Data Engineering Wiki"
+  },
+  {
+    "objectID": "04_VL.html#nosql-datenbanken-1",
+    "href": "04_VL.html#nosql-datenbanken-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nDocument Stores\n\n\n\nEnthalten poly-strukturierte Dokumente beliebiger Länge, die auf Basis von Dokumenteninhalten recherchiert werden können.\nHäufig in Form von JSON oder XML Files abgelegt, da diese die Möglichkeit bieten, unstrukturierte Attribute zu hinterlegen und flexible Schemata zu definiere.\nDas Beispiel rechts entspricht dem JavaScript Object Notation JSON\n\n\n\n\n\nDocument Data Base, Quelle: Data Engineering Wiki"
+  },
+  {
+    "objectID": "04_VL.html#nosql-datenbanken-2",
+    "href": "04_VL.html#nosql-datenbanken-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nWide Column Stores und Graph-Databases\n\n\n\n\nWide Column Stores:\n\nDatenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können\nEinzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann\n\nGraph-Databases:\n\nSind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet.\nBasieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)\n\n\n\n\n\n\n\nGraph Database, Quelle: Data Engineering Wiki"
+  },
+  {
+    "objectID": "04_VL.html#data-lake-1",
+    "href": "04_VL.html#data-lake-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake",
+    "text": "Data Lake\nDas Konzept des Data Lake\n\nDas Data Warehouse galt lange Zeit als das zentrale Architekturkonzept für dispositive Reporting- und Analysezwecke\nBig Data Technologien haben den Data Lake in den Fokus gerückt, der meist als eine ergänzende Komponente zu DWH dient\nEin Data Lake erhebt den Anspruch, alle Quelldaten in roher Form als Rohdaten zu persistieren und zur Verfügung zu stellen\nBeim Data Lake steht der effiziente Umgang mit großen und polystrukturierten Datenmengen im Vordergrund, die es schnell zu verarbeiten gilt\nDies ermöglicht komplexe Analysen für neue Machine Learning Anwendungen, die verschiedene Datenquellen benötigen"
+  },
+  {
+    "objectID": "04_VL.html#data-lake-vs.-data-warehouse",
+    "href": "04_VL.html#data-lake-vs.-data-warehouse",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nIllustration\n\n\n\nData Lake versus Data Warehouse, Quelle: Twitter"
+  },
+  {
+    "objectID": "04_VL.html#data-lake-vs.-data-warehouse-1",
+    "href": "04_VL.html#data-lake-vs.-data-warehouse-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nCharakteristika\n\n\n\nTabelle 1: Wichtige Charakteristika von Data Lake und Data Warehouse im Vergleich. In Anlehnung an Dittmar und Schulz (2023), S. 159\n\n\n\n\n\n\nData Warehouse\nData Lake\n\n\n\n\nOptimiert für wiederholbare Prozesse\nOriginär eine Erweiterung der DWH Staging Area\n\n\nUnterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen\nOptimiert Daten für Analystics-Lösungen\n\n\nFokus auf vergangenheitsbezogene Auswertungen\nFokus auf unbekannte explorative Datenanalyse und zukunftsorienterte Methoden\n\n\nSchema-on-Write mit harmonisiertem Datenmodell\nSchema-on-Read mit Echtzeit Rohdaten Bewirtschaftung"
+  },
+  {
+    "objectID": "04_VL.html#data-lake-vs.-data-warehouse-2",
+    "href": "04_VL.html#data-lake-vs.-data-warehouse-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nAnwendungsbereiche\n\n\n\nAnwendungsfälle Data Lake und Data Warehouse, Quelle: Twitter"
+  },
+  {
+    "objectID": "04_VL.html#data-lake-2",
+    "href": "04_VL.html#data-lake-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake",
+    "text": "Data Lake\nArchitekturprinzipien\n\n\nDatenanbindung:\n\nEs werden ausschließlich primäre Datenquellen angebunden\nDie feinste Granularität der Datenquelle wird verwendet\n\nDatenhaltung\n\nEine Löschung der Rohdaten erfolgt nur aus regulatorischen Gründen (Datenschutz)\nEin Zonenkonzept ist zu empfehlen\nEine Anonymisierung persönlicher Daten erfolgt während der Beladung\n\nDatenplattform\n\nInfrastructure as Code wird angestrebt\nEine Portierbarkeit zur Vermeidung von Vendor-Lock-In wird angestrebt\nEin zentrales Identity Management System steuert Zugriffe granular\nEin Datenkatalog mit fachlicher und operativer Perspektive wird empfohlen"
+  },
+  {
+    "objectID": "04_VL.html#data-lake-3",
+    "href": "04_VL.html#data-lake-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake",
+    "text": "Data Lake\nZonen\n\nÄhnlich wie im ETL Prozess umfasst auch der Data Lake verschiedene Zonen, in denen die Daten verschiedene Prozesse durchlaufen:\n\n\n\nTransient Zone: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert\nRaw Data Zone: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten\nCurated Zone: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haen und von Mängeln befreit wurden\nDiscovery Sandbox: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt\nConsumption Zone: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung"
+  },
+  {
+    "objectID": "04_VL.html#quellen",
+    "href": "04_VL.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nD’Onofrio, Sara, und Andreas Meier, Hrsg. 2021. Big Data Analytics: Grundlagen, Fallbeispiele und Nutzungspotenziale. Edition HMD. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-32236-6.\n\n\nDittmar, Carsten, und Peter Schulz. 2023. „Architekturen und Technologien für den Data Lake“. In Künstliche Intelligenz und Data Science in Theorie und Praxis, herausgegeben von Andreas Gillhuber, Göran Kauermann, und Wolfgang Hauner, 157–66. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-66278-6_12.\n\n\nQuix, Christoph. 2021. „Big-Data-Technologien“. In Data Science, herausgegeben von Detlev Frick, Andreas Gadatsch, Jens Kaufmann, Birgit Lankes, Christoph Quix, Andreas Schmidt, und Uwe Schmitz, 133–48. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-33403-1_8."
+  },
+  {
+    "objectID": "99_VL.html#der-plan-für-heute",
+    "href": "99_VL.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
   }
 ]

@@ -1,0 +1,228 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung 3"
+format:
+  revealjs:
+    incremental: false  
+---
+  
+```{r}
+
+library(kableExtra)
+library(readr)
+library(magrittr)
+library(dplyr)
+```
+
+
+
+
+## Der Plan für heute...
+### Vorlesung 3
+:::{.incremental}
+* Quiz
+* Datentransformation:
+  * Was heißt ETL?
+  * Welche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?
+* Erste Transformationsschritte eines Datensatzes mit User-Events mit Superset  
+
+:::
+  
+
+## Kurzer Überblick: Wo geht's weiter?
+### Der ETL Prozess
+![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio.png){width="700" height="500"}
+
+
+## ETL Prozess
+### Was ist ETL?
+
+
+* ETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden
+* **Extraktion** beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt
+* Hier erfolgt die **Transformation**, die wiederum aus vier Teilschritten besteht:
+  * Filterung
+  * Harmonisierung
+  * Aggregation
+  * Anreicherung
+* Anschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank ge**laden**  
+
+
+## ETL Prozess
+### Teilschritte der Transformation
+
+```{r, etl, echo = FALSE}
+#| fig.cap: Teilprozesse im ETL-Prozess. Eigene Darstellung in Anlehnung an @baars_business_2021
+
+
+library(magrittr)
+
+plot_marts_aligned <-DiagrammeR::grViz("digraph {
+
+graph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]
+
+
+node [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]
+
+
+sap [label = 'SAP', shape = cylinder, fillcolor = Beige, width = 1]
+mes [label = 'MES', shape = cylinder, fillcolor = Beige, width = 1]
+pdm [label = 'PDM', shape = cylinder, fillcolor = Beige, width = 1]
+
+
+subgraph cluster_EBD {
+label = 'Filterung'
+labelloc = 'b'
+extract1 [label =  'Extrakte', fillcolor = grey95, width = 1]
+fextract1 [label =  'Bereinigte Extrakte',fillcolor = grey95, width = 1]
+extract2 [label =  'Extrakte',fillcolor = grey95, width = 1]
+fextract2 [label =  'Bereinigte Extrakte',fillcolor = grey95, width = 1]
+extract3 [label =  'Extrakte',fillcolor = grey95, width = 1]
+fextract3 [label =  'Bereinigte Extrakte',fillcolor = grey95, width = 1]
+
+}
+
+subgraph cluster_Harm {
+label = 'Harmonisierung'
+labelloc = 'b'
+rankdir = TB
+syntactic [label =  'Syntaktische Harmonisierung',fillcolor = grey96, width =1]
+semantic [label =  'Semantische Harmonisierung',fillcolor = grey96, width = 1]
+
+
+}
+
+
+
+subgraph cluster_Agg {
+label = 'Aggregation'
+labelloc = 'b'
+aggregation [label =  'Verdichtung und Hierarchisierung',fillcolor = grey97, width =1]
+}
+
+subgraph cluster_Anr {
+label = 'Anreicherung'
+labelloc = 'b'
+anreicherung [label =  'Kennzahlberechnung',fillcolor = grey98, width =1]
+}
+# edge definitions with the node IDs
+{sap} -> {extract1}
+extract1 -> fextract1
+{mes}-> {extract2}
+{pdm} -> {extract3}
+extract2 -> fextract2
+extract3 -> fextract3
+{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung
+}", height = 400, width = 1000)
+
+plot_marts_aligned
+
+```
+
+## Filterung
+### Extraktion und erste Bereinigung
+
+* Filterung umfasst die Extraktion aus operativen Daten und die Bereinigung **syntaktischer** und **semantischer** Defekte in den Rohdaten
+* Die Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen
+* Aus Performance-Erwärgungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt
+* @baars_business_2021 ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten
+* Diese Extrakte werden anschließend bereinigt
+
+## Filterung
+### Syntaktische Mängel
+
+* Syntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen
+* Syntaktische Mängel sind in der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren
+* Beispiele:
+  * Fehlende Werte
+  * Widersprüchliche Datumsformate (2022-04-03 und 04.03.2022)
+  * Leere Primärschlüssel 
+  * Unzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. "123a" statt "123")
+
+## Filterung
+### Semantische Mängel
+
+* Semantische Mängel beziehen sich auf Probleme in Bezug auf die Bedeutung und Interpretation der Daten
+* Daten sind dann inkonsistent sind oder enthalten widersprüchliche Informationen, selbst wenn sie syntaktisch korrekt sind 
+* Semantische Mängel erfordern oft ein tieferes Verständnis der Domäne und der Daten, um sie zu identifizieren und zu beheben
+* Beispiele: 
+  * Negative oder unplausible Werte in Preis-, Alters- oder Umsatzfeldern
+  * Nicht-zulässige Postleitzahlen
+  * Ungültige IBAN
+
+## Harmonisierung
+### Harmonisierung
+
+* Harmonisierung ist die zweite Schicht der Datentransformation
+* Nach Abschluss der Filterungs- und der Harmonisierungsschicht liegt im DWH ein bereinigter und konsistenter Datenbestand auf der festgelegten Granularitätsebene vor
+* Dieser ist bereits direkt für Komponenten der Informationsgenerierung nutzbar
+* Auch hier wird zwischen syntaktischer und semantischer Harmonisierung unterschieden
+
+
+## Harmonisierung
+### Syntaktische Harmonisierung
+
+* Die operativen Quelldatenbestände weisen meist eine hohe Heterogenität auf und müssen mit Hilfe von umfangreichen Transformationsregeln syntaktisch harmonisiert werden.
+* Häufige Gründe sind:
+1. Schlüsseldisharmonien
+    * Aufgrund verschiedener Primärschlüssel ist die Zusammenführung nicht möglich
+    * Beispiel: Kundennummer in System A weist eine führende 0 auf, in System B nicht
+    * Oft durch Zuordnungstabellen oder die Generierung neuer Primärschlüssel gelöst
+
+
+## Harmonisierung
+### Syntaktische Harmonisierung
+
+2. Abweichende Kodierung
+    * Die Systeme weisen identische Attributnamen auf, haben jedoch unterschiedliche Wertebereiche
+    * Beispiel: Geschlecht in System A: "männlich", "weiblich", "divers" und in System B: "m", "w", "d"
+3. Synonyme 
+    * Attribute haben verschiedene Namen, aber dieselbe Bedeutung
+    * Kundennummer in System A und Customer ID in System B
+4. Homonyme
+    * Attribute haben dieselben Namen, aber verschiedene Bedeutungen 
+    * "Business Partner" als Lieferant in A und als Kunde in B
+
+## Harmonisierung
+### Semantische Harmonisierung
+
+
+::: {style="font-size: 0.90em"}
+* Die semantische Harmonisierung bezieht sich auf die Vereinheitlichung der fachlichen Bedeutung von Daten
+1. Abgleichung fachlicher Kennzahlen
+    * Gewährleistet inhaltlich konsistente entscheidungsorientierte Daten
+    * Beispiele sind Währungen oder Maßeinheiten oder die Periodenzuordnung betriebswirtschaftlicher Kennzahlen
+    * Erfordert hohe Fachkompetenz und ist nicht automatisierbar
+2. Granularität
+    * Die Überführung der operativen Daten in eine gewünschte Granularität erfordert weitere Transforationsregeln
+    * Eine Übersicht tagesaktueller Bestellungen erfordert bspw. die Zusammenfassung aller Transaktionen eines Tages 
+:::    
+
+## Aggregation
+### Verdichtung und Hierarchisierung
+
+* Die Aggregation dient der Erweiterung der gefilterten und harmonisierten Daten um Verdichtungsstrukturen
+* Idealerweise mittels mehrfach verwendbarer, zentraler Dimensionshierarchien, die übergreifende Analysen  unterstützen
+* Die Entwicklung dieser Dimensionshierarchietabellen setzt die Antizipation potenzieller Auswertungen voraus 
+* Diese Tabellen müssen zudem gepflegt und mit Gültigkeitszeiträumen versehen werden
+* Die Erstellung und Pflege von Hierarchietabellen und die Speicherung aggregierter Tabellen ermöglicht erste Anwendungen mit den Daten
+* Die physische Speicherung von aggregierten Daten anstelle granularster Ebenen erfolgt hierbei häufig aus Performancegründen
+
+## Anreicherung
+### Kennzahlberechnung
+
+* In der Anreicherungsschicht werden fachliche Kennzahlen berechnet und in die Datenbasis integriert. 
+* Hier können sowohl Werte auf Basis der harmonisierten Daten der gewünschten Granularität (zweite Schicht) als auch auf Basis der dritten Schicht (bereits aggregierte Tabellen) berechnet  werden. 
+* Beispiele sind monatliche Deckungsbeiträge auf Produktebene oder jährliche Deckungsbeiträge auf Filialebene. 
+
+## Anreicherung
+### Kennzahlberechnung
+
+* Diese Vorgehensweise hat mehrere Vorteile:
+    * Kalkulierbare Reaktionszeigen bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.
+    * Garantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.
+    * Etablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes
+
+
+
+## Quellen
