@@ -1,0 +1,520 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung 2"
+---
+
+
+## Der Plan für heute...
+### Vorlesung 2
+  * Datenbereitstellung:
+    * Data Warehouse
+    * Data Mart
+    * Architekturkonzepte
+  * Business Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe
+  * Verknüpfung eines ersten Data Marts mit Superset 
+
+
+#  Datenbereitstellung
+
+## Überblick zum BIA Gesamteinsatz
+### Datenbereitstellung
+![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio.png){width="700" height="500"}
+
+## Data Warehouse
+### Begriff
+
+
+::: {.callout-tip title="Definition"}
+ Ein Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung [siehe @kemper_data_2023].
+::: 
+
+::: {.notes}
+* Die entscheidenden Punkte sind hier:
+  * Trennung von operativen und dispositiven Daten
+  * Integration von Datenbeständen aus verschiedenen und oftmals sehr heterogenen Quellen
+  * Einheitliche und konsistente Datenbasis für das gesamte Unternehmen
+:::
+
+## Data Warehouse
+### Eigenschaften
+::: {style="font-size: 0.95em"}
+::: {.incremental}
+1. Themenorientierung: 
+    * Dispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet
+    * Die operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert
+    * Themen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1
+
+2. Integration: 
+    * Daten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert
+    * Zusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”
+:::    
+:::
+## Data Warehouse
+### Eigenschaften
+
+::: {.incremental}
+3. Zeitraumbezug:
+    * Operative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab
+    * Daten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr
+
+4. Nicht-Volatilität:
+    * Daten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt
+    * DWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt
+:::
+
+## Data Warehouse 
+### Komponenten des Data Warehouse
+::: {.incremental}
+:::: {.columns}
+::: {.column width="50%"}
+
+Data Mart
+
+* Separater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen
+* Nur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen
+* Häufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen
+:::
+::: {.column width="50%"}
+
+Core Data Warehouse
+
+* Rückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet
+* Befüllung über ETL-Prozesse aus operativen Quellsystemen
+* Meist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)
+* Applikationsneutral modelliert
+:::
+::::
+:::
+
+
+## Data Warehouse
+### Funktionen des CDWH
+
+1. Sammel- und Integrationsfunktion: 
+
+::: {.fragment .fade-in}
+  * Aufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers
+:::
+
+2. Distributionsfunktion: 
+
+::: {.fragment .fade-in}
+  * Versorgung aller nachgeschalteten Data Marts mit Daten
+:::
+3. Qualitätssicherungsfunktion: 
+
+::: {.fragment .fade-in}
+  * Datentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis
+:::
+
+
+## Data Warehouse 
+### Data Mart vs. CDWH
+::: {.incremental}
+::: {style="font-size: 0.70em"}
+|  | Data Mart | Core Data Warehouse |
+|---|---|---|
+| Ziel | Entscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten | Entscheidungsunterstützung für alle Bereiche in einem Unternehmen |
+| Ausrichtung | Bereichsspezifisch oder Abteilungsbezogen | Zentral und unternehmensweit |
+| Granularität | Höhere Aggregationen | Feinste verfügbare Granularität |
+| Verfügbarkeit für Endanwendende | In der Regel möglich | Häufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt |
+| Flexibilität der Analysen | Tendenziell gering und auf Anwendungsbereich beschränkt | Sehr flexibel |
+| Volumina | Gering bis moderat | Moderat bis umfangreich |
+
+: Charakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an  @baars_business_2021 {tbl-colwidths="[20,40,40]"}
+:::
+:::
+## DWH Architekturen
+### Unabhängige Data Marts
+
+:::: {.columns}
+::: {.column width="45%"}
+<!-- ![Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016](img/plot_marts.png){width="100%"} -->
+
+
+::: {style="font-size: 0.70em"}
+```{r, stove_pipe, echo = FALSE}
+#| fig.cap: Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016
+
+library(DiagrammeR)
+
+grViz("digraph {
+
+graph [layout = dot, rankdir = LR]
+
+
+node [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]
+
+sap [label = 'SAP', shape = cylinder, fillcolor = Beige]
+mes [label = 'MES', shape = cylinder, fillcolor = Beige]
+pdm [label = 'PDM', shape = cylinder, fillcolor = Beige]
+
+controlling [label =  'Controlling', width = 1]
+sales [label = 'Sales', width = 1]
+
+# edge definitions with the node IDs
+{pdm sap}  -> {sales }
+{sap mes} -> controlling
+}", height = 450, width = 400)
+
+
+```
+:::
+:::
+
+::: {.column width="55%"}
+::: {.incremental}
+* Auch Stove-Pipe Ansatz
+* Bedienen sich direkt aus den operativen und externen Systemen
+* Bereiten die enthaltenen Daten für relevante Anwendungsfelder auf
+* Daten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen
+* Verschiedene Marts können unterschiedliche externe Datenquellen zusammenführen
+:::
+:::
+
+::::
+
+::: {.notes}
+* Stove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel
+:::
+
+
+## DWH Architekturen
+### Unabhängige Data Marts
+::: {.incremental}
+:::: {.columns}
+::: {.column width="50%"}
+
+Vorteile:
+
+* Schnelle und bereichsspezifische Informationsbereitstellung
+* Sinnvoll bei fehlender Governance Strategie
+* Erfüllung maßgeschneideter bereichsspezifischer Fragestellungen
+
+:::
+::: {.column width="50%"}
+
+
+Nachteile:
+
+* Häufig historisch gewachsene Strukturen und damit geringe Governance
+* Mehrfache Aufbereitung der Quelldaten
+* Gefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts
+* Mangelnde Möglichkeit bereichsübergreifender Analysen
+
+:::
+::::
+:::
+## DWH Architekturen
+### Abgestimmte Data Marts
+
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {style="font-size: 0.70em"}
+```{r, marts_abgestimmt, echo = FALSE}
+#| fig.cap: Abhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016
+
+
+
+grViz("digraph {
+
+graph [layout = dot, rankdir = LR]
+
+
+node [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]
+
+
+sap [label = 'SAP', shape = cylinder, fillcolor = Beige]
+mes [label = 'MES', shape = cylinder, fillcolor = Beige]
+pdm [label = 'PDM', shape = cylinder, fillcolor = Beige]
+
+subgraph cluster_EBD {
+label = 'Abgestimmtes Datenmodell'
+labelloc = 'b'
+controlling [label =  'Controlling', width = 1]
+sales [label = 'Sales', width = 1]
+procurement [label= 'Procurement', width = 1]
+}
+
+# edge definitions with the node IDs
+{mes pdm}  -> {sales procurement}
+{sap mes} -> controlling
+}", height = 450, width = 400)
+
+
+```
+:::
+:::
+
+::: {.column width="50%"}
+::: {.incremental}
+* Konzeptionell abgestimmte Datenmodelle um  die Integrität des Datenmaterials zu gewährleisten
+* Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung
+* Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts
+:::
+:::
+
+::::
+
+
+## DWH Architekturen
+### Abgestimmte Data Marts
+::: {.incremental}
+:::: {.columns}
+::: {.column width="47%"}
+
+Vorteile:
+
+* Integrität des Datenmodells wird gewährleistet
+* Möglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche
+* Entscheidungsunterstützung für alle Bereiche in einem Unternehmen
+
+
+:::
+::: {.column width="53%"}
+Nachteile:
+
+* Durch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts
+* Möglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition
+* Informationsverlust bei übergreifenden Analysen
+:::
+
+::::
+:::
+## DWH Architekturen
+### Core Data Warehouse
+
+:::: {.columns}
+::: {.column width="45%"}
+
+::: {style="font-size: 0.70em"}
+
+```{r}
+#| fig.cap: Core Data Warehouse. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016
+
+grViz("digraph {
+
+graph [layout = dot, rankdir = BT]
+
+
+node [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]
+
+
+sap [label = 'SAP', shape = cylinder, fillcolor = Beige]
+mes [label = 'MES', shape = cylinder, fillcolor = Beige]
+pdm [label = 'PDM', shape = cylinder, fillcolor = Beige]
+
+cdwh [label = 'Core Data Warehouse', shape = cylinder, width = 2]
+
+# edge definitions with the node IDs
+{sap mes pdm}  -> cdwh
+
+}", height = 450, width = 400)
+
+
+
+```
+
+:::
+:::
+::: {.column width="55%"}
+::: {.incremental}
+* Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank
+* Dieser Ansatz wird oft als Monolith bezeichnet
+* Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos
+:::
+:::
+
+::::
+
+
+## DWH Architekturen
+### Core Data Warehouse
+::: {.incremental}
+:::: {.columns}
+::: {.column width="50%"}
+Vorteile:
+
+* Hoher Grad an Mehrfachverwendbarkeit der Daten
+* Hoher Detailgrad möglich
+* Bei kleineren Anwendungsfällen oft ausreichend
+
+:::
+::: {.column width="50%"}
+Nachteile:
+
+* Berechtigungsmanagement und Performance stoßen bei komplexen Anwendungsfällen schnell an Grenzen
+* Bei größeren Einheiten mit eigenen Geschäftsprozessen und stark abweichenden Hierarchiestrukturen sehr komplex, hier bietet sich der Einsatz mehrerer CDWH an
+
+:::
+::::
+:::
+## DWH Architekturen
+### Core Data Warehouse mit abhängigen Data Marts
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {.incremental}
+* Auch Hub-and-Spoke Ansatz genannt
+* CDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts
+* Marts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf
+* CDWH als Hub erfüllt  Aufgaben der Integration, Qualitätssicherung und Datenverteilung an die Marts
+:::
+:::
+::: {.column width="45%"}
+
+::: {style="font-size: 0.70em"}
+
+```{r}
+#| fig.cap: Core Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016
+
+
+
+
+grViz("digraph {
+
+graph [layout = dot, rankdir = BT]
+
+
+node [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]
+
+
+sap [label = 'SAP', shape = cylinder, fillcolor = Beige]
+mes [label = 'MES', shape = cylinder, fillcolor = Beige]
+pdm [label = 'PDM', shape = cylinder, fillcolor = Beige]
+
+cdwh [label = 'Core Data Warehouse', shape = cylinder, width = 2]
+
+controlling [label =  'Controlling', width = 1]
+sales [label = 'Sales', width = 1]
+procurement [label= 'Procurement', width = 1]
+
+
+# edge definitions with the node IDs
+{sap mes pdm}  -> cdwh -> {controlling sales procurement}
+
+}", height = 450, width = 400)
+
+
+
+```
+
+:::
+:::
+::::
+
+
+## DWH Architekturen
+### Core Data Warehouse mit abhängigen Data Marts
+:::{.incremental}
+:::: {.columns}
+::: {.column width="50%"}
+
+Vorteile:
+
+* Einmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik
+* Geringere Anzahl an Extraktionsprozessen
+* Reduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten
+:::
+::: {.column width="50%"}
+Nachteile:
+
+* Nach wie vor eher traditionelle BI-Sicht
+:::
+::::
+:::
+## DWH Architekturen
+### Architekturen-Mix
+
+::: {style="font-size: 0.70em"}
+
+```{r}
+#| fig.cap: Architekturen-Mix. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016
+
+
+
+
+
+grViz("digraph {
+
+graph [layout = dot, rankdir = BT]
+
+
+node [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]
+
+
+sap [label = 'SAP', shape = cylinder, fillcolor = Beige]
+mes [label = 'MES', shape = cylinder, fillcolor = Beige]
+pdm [label = 'PDM', shape = cylinder, fillcolor = Beige]
+omp [label = 'Externe Daten', shape = cylinder, fillcolor = Beige]
+
+cdwh [label = 'Core Data Warehouse', shape = cylinder, width = 2]
+
+controlling [label =  'Controlling', width = 1]
+sales [label = 'Sales', width = 1]
+procurement [label= 'Procurement', width = 1]
+da [label = 'Data & \n Analytics', width = 1, height = 0.7]
+
+# edge definitions with the node IDs
+{sap mes pdm}  -> cdwh -> {controlling sales procurement}
+{sap omp} -> da
+}")
+
+
+
+```
+
+:::
+
+## Business Case
+### Das Wachstum bei Tofispy stagniert
+::: {.incremental}
+
+![](img/fotispy.png){.absolute bottom=550 right=50 width="125" height="125"}
+
+* Tofispy ist ein Musikstreaming Anbieter aus Deutschland
+* Das Unternehmen kämpft mit stagnierendem Wachstum
+* Wir -- die Unternehmensberatung LeinbizConsult -- wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln
+* Die Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben
+
+:::
+## Business Case
+### Datensatz
+
+1. *Überblick über den Streamingmarkt*:
+    * Tabelle "market_share" im Dataset Market Research
+    * Anzahl der Nutzer pro Plattform in Mio
+    * Daten von 2016 bis 2024
+    * Die Daten für 2024 sind eine Hochrechnung für das laufende Jahr
+
+
+## Business Case
+### Aufgabe
+
+::: {.incremental}
+* Arbeit in 2er Teams mit mindestens einem Laptop oder Tablet pro Team, Laptop ideal
+* Trial & Error in Superset mit Hilfe der Dokumentation:
+  * Dokumentation unter [preset.io](https://docs.preset.io/docs/creating-a-chart)
+   * Startpunkt: Creating a Chart (in der preset Doku)
+   * Table oder Preview im SQL Editor als Ausgangspunkt für explorative Analyse
+* Ziel: 
+  * Gestapeltes Balkendiagramm für die relativen Marktanteile der Plattformen im Zeitverlauf
+  * Liniendiagramm für die absolute Marktentwicklung
+:::
+
+## Business Case
+### Fragen (ggf. als Hausaufgabe)
+
+:::: {.incremental}
+* Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?
+* Wie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?
+* Welcher Konkurrent wächst am stärksten?
+* Ist der Datensatz operativ oder dispositiv?
+* Welcher Reifegrad von Analytics liegt vor?
+:::
+
+
+## Quellen    

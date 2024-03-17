@@ -105,7 +105,7 @@ library(dplyr)
 
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
 read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
-  select(-Slides) %>% 
+  select(-`Slides C`, -`Slides D`) %>% 
   select(-`Gruppe D`) %>% 
   kable( escape = FALSE)  %>% 
   kable_styling(font_size = 24)
@@ -116,7 +116,7 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
 read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
-  select(-Slides) %>% 
+  select(-`Slides C`, -`Slides D`) %>% 
   select(-`Gruppe C`) %>% 
   kable( escape = FALSE)  %>% 
   kable_styling(font_size = 24)
@@ -372,7 +372,7 @@ Operative Daten
 
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
 read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
-  select(-Slides) %>% 
+  select(-`Slides C`, -`Slides D`) %>% 
   select(-`Gruppe D`, -`Gruppe C`) %>%
   filter(!Block %in% c("10", "-")) %>% 
   kable( escape = FALSE)  %>% 
