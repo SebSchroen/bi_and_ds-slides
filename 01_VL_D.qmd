@@ -417,20 +417,8 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 :::
 :::
 
-## Apache Superset
-### Terminologie
-::: {style="font-size: 0.95em"}
-* Database:
-  * Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse
-  * In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich
-  * Auch der Upload von Excel und CSV Dateien ist möglich
-* Dataset:
-  * Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen
-  * Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden
-  * Physische Datasets "leben" auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert
-:::
 
-## Apache Superset
+## Self-Service BI
 ### Terminologie
 ::: {style="font-size: 0.95em"}
 * Dashboard:
@@ -443,7 +431,7 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
   * [Preset.io](https://docs.preset.io/docs/chart-walkthroughs) gibt eine Übersicht über die gängigsten Chart-Typen
 :::  
 
-## Apache Superset
+## Self-Service BI
 ### Terminologie
 ::: {style="font-size: 0.90em"}
 * Dimensions:
@@ -451,13 +439,41 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
   * Idealerweise kategoriale Variablen, die nicht aggregiert werden
   * Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar
   * Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain
-
 * Metrics
   * Quantitative Variablen, die sich mit Funktionen aggregieren lassen
   * Beispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts
   * Besonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt
 
 :::
+
+## Self-Service BI
+### Terminologie
+::: {style="font-size: 0.90em"}
+* Aggregationsfunktionen
+  * Self-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen
+  * Aggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten
+  * Einfache Beispiele sind Summen, Durchschnitte, Min und Max
+  * Besonderheit Count und Count Distinct:
+    * Count zählt die Anzahl der Datenpunkte,
+    * Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)
+  * Semantisches Wissen und Fragestellung  sind für die Wahl der Aggregation
+
+:::
+
+
+## Self-Service BI
+### Besonderheiten Superset
+::: {style="font-size: 0.95em"}
+* Database:
+  * Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse
+  * In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich
+  * Auch der Upload von Excel und CSV Dateien ist möglich
+* Dataset:
+  * Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen
+  * Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden
+  * Physische Datasets "leben" auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert
+:::
+
 ## Warmup
 ### Datenexploration in Superset
 
@@ -472,13 +488,10 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ## Warmup
 ### Datenexploration in Superset
 
-![](img/Superset_Explorer-1.jpg){width="900" height="450"}
+![](img/Superset_Explorer-1.jpg){width="800" height="500"}
 
 
-## Warmup
-### Datenexploration in Superset
 
-![](img/Superset_Explorer-2.jpg){width="900" height="450"}
 
 ## Warmup
 ### Datenexploration in Superset
@@ -487,8 +500,17 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
   * Wie viele Zeilen hat der Datensatz?
   * Welche Genres und Artists gibt es?
   * Wie viele Songs gibt es pro Genre?
-  * Was ist die durchschnittliche Beliebtheit pro Artist?
+  * Wie viele verschiedene Artists gibt es pro Genre?
+  * Welches ist das beliebteste Genre?
   * Wann ist das aktuellste (älteste) Album erschienen?
+
+
+
+## Warmup
+### Datenexploration in Superset mit SQL Lab (Alternative)
+
+![](img/Superset_Explore.png){width="800" height="500"}
+
 
 ## Slide Title {visibility="hidden"}
 

@@ -1075,29 +1075,9 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 </div>
 </section>
-<section id="apache-superset-1" class="slide level2">
-<h2>Apache Superset</h2>
+<section id="self-service-bi" class="slide level2">
+<h2>Self-Service BI</h2>
 <h3 id="terminologie">Terminologie</h3>
-<div style="font-size: 0.95em">
-<ul>
-<li>Database:
-<ul>
-<li>Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse</li>
-<li>In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich</li>
-<li>Auch der Upload von Excel und CSV Dateien ist möglich</li>
-</ul></li>
-<li>Dataset:
-<ul>
-<li>Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen</li>
-<li>Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden</li>
-<li>Physische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="apache-superset-2" class="slide level2">
-<h2>Apache Superset</h2>
-<h3 id="terminologie-1">Terminologie</h3>
 <div style="font-size: 0.95em">
 <ul>
 <li>Dashboard:
@@ -1115,9 +1095,9 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </section>
-<section id="apache-superset-3" class="slide level2">
-<h2>Apache Superset</h2>
-<h3 id="terminologie-2">Terminologie</h3>
+<section id="self-service-bi-1" class="slide level2">
+<h2>Self-Service BI</h2>
+<h3 id="terminologie-1">Terminologie</h3>
 <div style="font-size: 0.90em">
 <ul>
 <li>Dimensions:
@@ -1132,6 +1112,46 @@ Dr.&nbsp;Sebastian Schrön
 <li>Quantitative Variablen, die sich mit Funktionen aggregieren lassen</li>
 <li>Beispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts</li>
 <li>Besonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="self-service-bi-2" class="slide level2">
+<h2>Self-Service BI</h2>
+<h3 id="terminologie-2">Terminologie</h3>
+<div style="font-size: 0.90em">
+<ul>
+<li>Aggregationsfunktionen
+<ul>
+<li>Self-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen</li>
+<li>Aggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten</li>
+<li>Einfache Beispiele sind Summen, Durchschnitte, Min und Max</li>
+<li>Besonderheit Count und Count Distinct:
+<ul>
+<li>Count zählt die Anzahl der Datenpunkte,</li>
+<li>Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)</li>
+</ul></li>
+<li>Semantisches Wissen und Fragestellung sind für die Wahl der Aggregation</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="self-service-bi-3" class="slide level2">
+<h2>Self-Service BI</h2>
+<h3 id="besonderheiten-superset">Besonderheiten Superset</h3>
+<div style="font-size: 0.95em">
+<ul>
+<li>Database:
+<ul>
+<li>Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse</li>
+<li>In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich</li>
+<li>Auch der Upload von Excel und CSV Dateien ist möglich</li>
+</ul></li>
+<li>Dataset:
+<ul>
+<li>Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen</li>
+<li>Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden</li>
+<li>Physische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert</li>
 </ul></li>
 </ul>
 </div>
@@ -1158,26 +1178,27 @@ Dr.&nbsp;Sebastian Schrön
 <section id="warmup-1" class="slide level2">
 <h2>Warmup</h2>
 <h3 id="datenexploration-in-superset-1">Datenexploration in Superset</h3>
-<p><img data-src="img/Superset_Explorer-1.jpg" width="900" height="450"></p>
+<p><img data-src="img/Superset_Explorer-1.jpg" width="800" height="500"></p>
 </section>
 <section id="warmup-2" class="slide level2">
 <h2>Warmup</h2>
 <h3 id="datenexploration-in-superset-2">Datenexploration in Superset</h3>
-<p><img data-src="img/Superset_Explorer-2.jpg" width="900" height="450"></p>
-</section>
-<section id="warmup-3" class="slide level2">
-<h2>Warmup</h2>
-<h3 id="datenexploration-in-superset-3">Datenexploration in Superset</h3>
 <ul>
 <li>Fragen:
 <ul>
 <li>Wie viele Zeilen hat der Datensatz?</li>
 <li>Welche Genres und Artists gibt es?</li>
 <li>Wie viele Songs gibt es pro Genre?</li>
-<li>Was ist die durchschnittliche Beliebtheit pro Artist?</li>
+<li>Wie viele verschiedene Artists gibt es pro Genre?</li>
+<li>Welches ist das beliebteste Genre?</li>
 <li>Wann ist das aktuellste (älteste) Album erschienen?</li>
 </ul></li>
 </ul>
+</section>
+<section id="warmup-3" class="slide level2">
+<h2>Warmup</h2>
+<h3 id="datenexploration-in-superset-mit-sql-lab-alternative">Datenexploration in Superset mit SQL Lab (Alternative)</h3>
+<p><img data-src="img/Superset_Explore.png" width="800" height="500"></p>
 </section>
 
 <section id="quellen" class="slide level2 smaller scrollable">

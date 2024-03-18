@@ -21,13 +21,74 @@ library(dplyr)
 ### Vorlesung 3
 :::{.incremental}
 * Quiz
+* Self-Service BI Terminologie
+* Recap zur Aufgabe von letzter Woche
 * Datentransformation:
   * Was heißt ETL?
   * Welche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?
-* Erste Transformationsschritte eines Datensatzes mit User-Events mit Superset  
+* Erste Transformationsschritte eines Datensatzes mit User-Events direkt mit Superset  
 
 :::
-  
+
+# Recap & Self-Service BI
+
+
+## Self-Service BI
+### Terminologie
+::: {style="font-size: 0.95em"}
+* Dashboard:
+  * Eine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden
+  * Ein Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren
+  * Die Visualisierungen können über globale Filter gefiltert werden
+* Chart:
+  * Eigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann
+  * Es gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können
+  * [Preset.io](https://docs.preset.io/docs/chart-walkthroughs) gibt eine Übersicht über die gängigsten Chart-Typen
+:::  
+
+## Self-Service BI
+### Terminologie
+::: {style="font-size: 0.90em"}
+* Dimensions:
+  * Dimensionen sind die Kategorien, nach denen Daten gruppiert
+  * Idealerweise kategoriale Variablen, die nicht aggregiert werden
+  * Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar
+  * Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain
+* Metrics
+  * Quantitative Variablen, die sich mit Funktionen aggregieren lassen
+  * Beispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts
+  * Besonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt
+
+:::
+
+## Self-Service BI
+### Terminologie
+::: {style="font-size: 0.90em"}
+* Aggregationsfunktionen
+  * Self-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen
+  * Aggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten
+  * Einfache Beispiele sind Summen, Durchschnitte, Min und Max
+  * Besonderheit Count und Count Distinct:
+    * Count zählt die Anzahl der Datenpunkte,
+    * Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)
+  * Semantisches Wissen und Fragestellung  sind für die Wahl der Aggregation
+
+:::
+
+## Self-Service BI
+### Besonderheiten Superset
+::: {style="font-size: 0.95em"}
+* Database:
+  * Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse
+  * In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich
+  * Auch der Upload von Excel und CSV Dateien ist möglich
+* Dataset:
+  * Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen
+  * Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden
+  * Physische Datasets "leben" auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert
+:::
+
+
 
 ## Kurzer Überblick: Wo geht's weiter?
 ### Der ETL Prozess
@@ -124,7 +185,7 @@ plot_marts_aligned
 
 * Filterung umfasst die Extraktion aus operativen Daten und die Bereinigung **syntaktischer** und **semantischer** Defekte in den Rohdaten
 * Die Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen
-* Aus Performance-Erwärgungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt
+* Aus Performance-Erwägungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt
 * @baars_business_2021 ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten
 * Diese Extrakte werden anschließend bereinigt
 
@@ -138,6 +199,38 @@ plot_marts_aligned
   * Widersprüchliche Datumsformate (2022-04-03 und 04.03.2022)
   * Leere Primärschlüssel 
   * Unzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. "123a" statt "123")
+
+## Filterung
+### Was ist ein Primärschlüssel?
+
+:::: {.columns}
+::: {.column width="55%"}
+* Ein Primärschlüssel ist ein Attribut oder eine Kombination von Attributen, die eindeutig ein Tupel in einer Tabelle identifizieren
+* Ein Primärschlüssel darf keine leeren Werte enthalten
+* Ein Primärschlüssel darf keine Duplikate enthalten
+* Häufig wird ein ID-Feld als Primärschlüssel verwendet
+* Wie muss der Primärschlüssel in der Tabelle rechts aussehen?
+
+:::
+
+::: {.column width="45%"}
+```{r}
+
+tibble::tibble(
+    Vorname = c("Eclipse", "Fantastic", "Crazy", "Crazy", "Harmony", "Omega", "Radiant"),
+    Nachname = c("Enigma", "Enigma", "Commander", "Cameleon", "Herald", "Oracle", "Voyager")
+) %>% kable(booktabs = TRUE)
+
+
+
+
+
+
+```
+
+
+:::
+::::
 
 ## Filterung
 ### Semantische Mängel
@@ -222,6 +315,8 @@ plot_marts_aligned
     * Kalkulierbare Reaktionszeigen bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.
     * Garantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.
     * Etablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes
+
+
 
 
 

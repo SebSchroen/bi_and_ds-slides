@@ -4,7 +4,35 @@
     "href": "03_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung 3\n\n\nQuiz\nDatentransformation:\n\nWas heißt ETL?\nWelche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?\n\nErste Transformationsschritte eines Datensatzes mit User-Events mit Superset"
+    "text": "Der Plan für heute…\nVorlesung 3\n\n\nQuiz\nSelf-Service BI Terminologie\nRecap zur Aufgabe von letzter Woche\nDatentransformation:\n\nWas heißt ETL?\nWelche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?\n\nErste Transformationsschritte eines Datensatzes mit User-Events direkt mit Superset"
+  },
+  {
+    "objectID": "03_VL.html#self-service-bi",
+    "href": "03_VL.html#self-service-bi",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nTerminologie\n\n\nDashboard:\n\nEine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden\nEin Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren\nDie Visualisierungen können über globale Filter gefiltert werden\n\nChart:\n\nEigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann\nEs gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können\nPreset.io gibt eine Übersicht über die gängigsten Chart-Typen"
+  },
+  {
+    "objectID": "03_VL.html#self-service-bi-1",
+    "href": "03_VL.html#self-service-bi-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nTerminologie\n\n\nDimensions:\n\nDimensionen sind die Kategorien, nach denen Daten gruppiert\nIdealerweise kategoriale Variablen, die nicht aggregiert werden\nWenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar\nBei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain\n\nMetrics\n\nQuantitative Variablen, die sich mit Funktionen aggregieren lassen\nBeispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts\nBesonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt"
+  },
+  {
+    "objectID": "03_VL.html#self-service-bi-2",
+    "href": "03_VL.html#self-service-bi-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nTerminologie\n\n\nAggregationsfunktionen\n\nSelf-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen\nAggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten\nEinfache Beispiele sind Summen, Durchschnitte, Min und Max\nBesonderheit Count und Count Distinct:\n\nCount zählt die Anzahl der Datenpunkte,\nCount Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)\n\nSemantisches Wissen und Fragestellung sind für die Wahl der Aggregation"
+  },
+  {
+    "objectID": "03_VL.html#self-service-bi-3",
+    "href": "03_VL.html#self-service-bi-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nBesonderheiten Superset\n\n\nDatabase:\n\nBackend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse\nIn unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich\nAuch der Upload von Excel und CSV Dateien ist möglich\n\nDataset:\n\nEinzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen\nBasieren auf Rohdaten, die für die Visualisierung verarbeitet werden\nPhysische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert"
   },
   {
     "objectID": "03_VL.html#kurzer-überblick-wo-gehts-weiter",
@@ -32,7 +60,7 @@
     "href": "03_VL.html#filterung",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nExtraktion und erste Bereinigung\n\nFilterung umfasst die Extraktion aus operativen Daten und die Bereinigung syntaktischer und semantischer Defekte in den Rohdaten\nDie Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen\nAus Performance-Erwärgungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt\nBaars und Kemper (2021) ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten\nDiese Extrakte werden anschließend bereinigt"
+    "text": "Filterung\nExtraktion und erste Bereinigung\n\nFilterung umfasst die Extraktion aus operativen Daten und die Bereinigung syntaktischer und semantischer Defekte in den Rohdaten\nDie Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen\nAus Performance-Erwägungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt\nBaars und Kemper (2021) ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten\nDiese Extrakte werden anschließend bereinigt"
   },
   {
     "objectID": "03_VL.html#filterung-1",
@@ -44,6 +72,13 @@
   {
     "objectID": "03_VL.html#filterung-2",
     "href": "03_VL.html#filterung-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nWas ist ein Primärschlüssel?\n\n\n\nEin Primärschlüssel ist ein Attribut oder eine Kombination von Attributen, die eindeutig ein Tupel in einer Tabelle identifizieren\nEin Primärschlüssel darf keine leeren Werte enthalten\nEin Primärschlüssel darf keine Duplikate enthalten\nHäufig wird ein ID-Feld als Primärschlüssel verwendet\nWie muss der Primärschlüssel in der Tabelle rechts aussehen?\n\n\n\n\n\n\n\nVorname\nNachname\n\n\n\n\nEclipse\nEnigma\n\n\nFantastic\nEnigma\n\n\nCrazy\nCommander\n\n\nCrazy\nCameleon\n\n\nHarmony\nHerald\n\n\nOmega\nOracle\n\n\nRadiant\nVoyager"
+  },
+  {
+    "objectID": "03_VL.html#filterung-3",
+    "href": "03_VL.html#filterung-3",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
     "text": "Filterung\nSemantische Mängel\n\nSemantische Mängel beziehen sich auf Probleme in Bezug auf die Bedeutung und Interpretation der Daten\nDaten sind dann inkonsistent sind oder enthalten widersprüchliche Informationen, selbst wenn sie syntaktisch korrekt sind\nSemantische Mängel erfordern oft ein tieferes Verständnis der Domäne und der Daten, um sie zu identifizieren und zu beheben\nBeispiele:\n\nNegative oder unplausible Werte in Preis-, Alters- oder Umsatzfeldern\nNicht-zulässige Postleitzahlen\nUngültige IBAN"
@@ -427,25 +462,32 @@
     "text": "Apache Superset\nErster Login und Überblick\n\n\n\nApache Superset ist ein Open Source BI-Tool, das über die Vorlesung hinweg neben R als zentrales Tool dient\nDas Tool ist in einem sogenannten Kubernetes Cluster in der Google Cloud gehosted und kann über folgenden Link erreicht werden:\n\nhttp://34.95.70.95/login/\n\nDie Verbindung ist (aktuell noch) nicht https verschlüsselt, daher wird ein Warnhinweis erscheinen, der sich je nach Browser unterschiedlich umgehen lässt\nDie Anmeldung erfolgt mit den Zugangsdaten, die auf StudIP veröffentlicht sind\nDie Superset Instanz bleibt bis zur letzten Vorlesung online, bis dahin erstellte Dashboards und Grafiken werden als Export auf StudIP bereitgestellt"
   },
   {
-    "objectID": "01_VL_D.html#apache-superset-1",
-    "href": "01_VL_D.html#apache-superset-1",
+    "objectID": "01_VL_D.html#self-service-bi",
+    "href": "01_VL_D.html#self-service-bi",
     "title": "Business Intelligence & Data Science",
-    "section": "Apache Superset",
-    "text": "Apache Superset\nTerminologie\n\n\nDatabase:\n\nBackend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse\nIn unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich\nAuch der Upload von Excel und CSV Dateien ist möglich\n\nDataset:\n\nEinzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen\nBasieren auf Rohdaten, die für die Visualisierung verarbeitet werden\nPhysische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert"
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nTerminologie\n\n\nDashboard:\n\nEine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden\nEin Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren\nDie Visualisierungen können über globale Filter gefiltert werden\n\nChart:\n\nEigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann\nEs gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können\nPreset.io gibt eine Übersicht über die gängigsten Chart-Typen"
   },
   {
-    "objectID": "01_VL_D.html#apache-superset-2",
-    "href": "01_VL_D.html#apache-superset-2",
+    "objectID": "01_VL_D.html#self-service-bi-1",
+    "href": "01_VL_D.html#self-service-bi-1",
     "title": "Business Intelligence & Data Science",
-    "section": "Apache Superset",
-    "text": "Apache Superset\nTerminologie\n\n\nDashboard:\n\nEine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden\nEin Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren\nDie Visualisierungen können über globale Filter gefiltert werden\n\nChart:\n\nEigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann\nEs gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können\nPreset.io gibt eine Übersicht über die gängigsten Chart-Typen"
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nTerminologie\n\n\nDimensions:\n\nDimensionen sind die Kategorien, nach denen Daten gruppiert\nIdealerweise kategoriale Variablen, die nicht aggregiert werden\nWenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar\nBei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain\n\nMetrics\n\nQuantitative Variablen, die sich mit Funktionen aggregieren lassen\nBeispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts\nBesonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt"
   },
   {
-    "objectID": "01_VL_D.html#apache-superset-3",
-    "href": "01_VL_D.html#apache-superset-3",
+    "objectID": "01_VL_D.html#self-service-bi-2",
+    "href": "01_VL_D.html#self-service-bi-2",
     "title": "Business Intelligence & Data Science",
-    "section": "Apache Superset",
-    "text": "Apache Superset\nTerminologie\n\n\nDimensions:\n\nDimensionen sind die Kategorien, nach denen Daten gruppiert\nIdealerweise kategoriale Variablen, die nicht aggregiert werden\nWenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar\nBei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain\n\nMetrics\n\nQuantitative Variablen, die sich mit Funktionen aggregieren lassen\nBeispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts\nBesonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt"
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nTerminologie\n\n\nAggregationsfunktionen\n\nSelf-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen\nAggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten\nEinfache Beispiele sind Summen, Durchschnitte, Min und Max\nBesonderheit Count und Count Distinct:\n\nCount zählt die Anzahl der Datenpunkte,\nCount Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)\n\nSemantisches Wissen und Fragestellung sind für die Wahl der Aggregation"
+  },
+  {
+    "objectID": "01_VL_D.html#self-service-bi-3",
+    "href": "01_VL_D.html#self-service-bi-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nBesonderheiten Superset\n\n\nDatabase:\n\nBackend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse\nIn unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich\nAuch der Upload von Excel und CSV Dateien ist möglich\n\nDataset:\n\nEinzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen\nBasieren auf Rohdaten, die für die Visualisierung verarbeitet werden\nPhysische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert"
   },
   {
     "objectID": "01_VL_D.html#warmup",
@@ -466,14 +508,14 @@
     "href": "01_VL_D.html#warmup-2",
     "title": "Business Intelligence & Data Science",
     "section": "Warmup",
-    "text": "Warmup\nDatenexploration in Superset"
+    "text": "Warmup\nDatenexploration in Superset\n\nFragen:\n\nWie viele Zeilen hat der Datensatz?\nWelche Genres und Artists gibt es?\nWie viele Songs gibt es pro Genre?\nWie viele verschiedene Artists gibt es pro Genre?\nWelches ist das beliebteste Genre?\nWann ist das aktuellste (älteste) Album erschienen?"
   },
   {
     "objectID": "01_VL_D.html#warmup-3",
     "href": "01_VL_D.html#warmup-3",
     "title": "Business Intelligence & Data Science",
     "section": "Warmup",
-    "text": "Warmup\nDatenexploration in Superset\n\nFragen:\n\nWie viele Zeilen hat der Datensatz?\nWelche Genres und Artists gibt es?\nWie viele Songs gibt es pro Genre?\nWas ist die durchschnittliche Beliebtheit pro Artist?\nWann ist das aktuellste (älteste) Album erschienen?"
+    "text": "Warmup\nDatenexploration in Superset mit SQL Lab (Alternative)"
   },
   {
     "objectID": "01_VL_D.html#quellen",
