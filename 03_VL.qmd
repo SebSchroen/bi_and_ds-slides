@@ -3,15 +3,18 @@ title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 3"
 format:
   revealjs:
-    incremental: false  
+    incremental: true  
 ---
   
 ```{r}
 
 library(kableExtra)
-library(readr)
-library(magrittr)
-library(dplyr)
+library(tidyverse)
+library(patchwork)
+library(ggthemes)
+market_share <- read_csv("data/market_research.csv") %>% 
+  pivot_longer(cols = -c(Year), names_to = "Anbieter", values_to = "User")
+
 ```
 
 
@@ -22,11 +25,12 @@ library(dplyr)
 :::{.incremental}
 * Quiz
 * Self-Service BI Terminologie
-* Recap zur Aufgabe von letzter Woche
+* Recap zur Aufgabe von letzter Woche und gemeinsamer Walk-Through
+* Visualisierungstyp Balkendiagramm
 * Datentransformation:
   * Was heißt ETL?
   * Welche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?
-* Erste Transformationsschritte eines Datensatzes mit User-Events direkt mit Superset  
+* Gemeinsame Transformation eines Datensatzes mit User-Events
 
 :::
 
@@ -88,7 +92,192 @@ library(dplyr)
   * Physische Datasets "leben" auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert
 :::
 
+## Business Case
+### Recap zu den Fragen
 
+:::: {.columns}
+::: {.column width="35%"}
+::: {style="font-size: 0.75em"}
+* Fragen zu Tofispy
+  1. Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?
+  2. Wie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?
+  3. Welcher Konkurrent wächst am stärksten?
+  4. Sind die Daten dispositiv oder operativ?
+  5. Welcher Reifegrad von Analytics liegt vor?
+:::
+:::
+
+::: {.column width="65%"}
+
+
+::: {style="font-size: 0.75em"}
+
+* Tofispy verliert Marktanteile, wächst also langsamer als der Markt
+* Der Marktanteil liegt Ende 2024 bei 34%
+* YoutubeMusic wächst am stärksten
+* Der Datensatz ist dispositiv und der Reifegrad  deskriptiv
+:::
+![](img/balkendiagramm.jpg){width="600" height="300"}
+
+:::
+
+::::
+
+## Visualisierung
+### Balkendiagramm
+:::: {.columns}
+::: {.column width="35%"}
+::: {style="font-size: 0.75em"}
+* Einfache Balkendiagramme eignen sich besonders gut zur Visualisierung absoluter Häufigkeiten
+* Idealerweise ist die Anzahl der Dimensionen entlang der X-Achse dabei begrenzt
+* Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen
+* Zeitachse immer aufsteigend sortieren 
+:::
+:::
+::: {.column width="65%"}
+
+```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
+
+vertical <- market_share %>% 
+  group_by(Year) %>% 
+  summarise(User = sum(User)) %>%
+ggplot(data = ., aes(x = Year, y = User)) +
+  geom_col(position = "dodge") +
+  labs(title = "Vertikales Balkendiagramm",
+       subtitle = "User in Mio insgesamt",
+       x = "Jahr",
+       y = "User in Mio.") +
+  theme_minimal()
+
+horizontal <- market_share %>% 
+  group_by(Year) %>% 
+  summarise(User = sum(User)) %>% 
+  mutate(Year = year(Year)) %>% 
+ggplot(data = ., aes(x = reorder(Year, -User), y = User)) +
+  geom_col(position = "dodge") +
+  labs(title = "Horizontales Balkendiagramm",
+       subtitle = "User in Mio insgesamt",
+       x = "Jahr",
+       y = "User in Mio.") +
+  theme_minimal() + 
+  coord_flip()
+
+
+vertical/horizontal
+
+
+```
+
+
+
+
+:::
+::::
+
+
+
+## Visualisierung
+### Gruppiertes Balkendiagramm
+:::: {.columns}
+::: {.column width="35%"}
+::: {style="font-size: 0.75em"}
+* Eignen sich für die Darstellung absoluter Häufigkeiten über mehrere Dimensionen
+* Bei zu großen Unterschieden zwischen Gruppen schwer lesbar
+* Auch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und* Zeitachse immer aufsteigend sortieren 
+:::
+:::
+::: {.column width="65%"}
+
+```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
+
+ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
+  geom_col(position = "dodge") +
+  labs(title = "Gruppiertes Balkendiagramm",
+       subtitle = "User in Mio pro Anbieter",
+       x = "Jahr",
+       y = "User in Mio.",
+       fill = "Anbieter") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_fill_tableau(palette = "Color Blind")
+
+```
+
+
+
+
+:::
+::::
+
+
+## Visualisierung
+### Gestapeltes Balkendiagramm
+:::: {.columns}
+::: {.column width="35%"}
+::: {style="font-size: 0.75em"}
+* Statt Darstellung nebeneinander, werden Balken gestapelt
+* Sinnvoll, wenn die Summe der Beträge, eine sinnvolle Botschaft vermittelt
+* Aber: Hierbei geht der Eindruck der Anteile der Dimensionen oft verloren, daher nicht ratsam, wenn die Anteile eigentlich von Interesse sind
+
+:::
+:::
+::: {.column width="65%"}
+
+```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
+
+ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
+  geom_col(position = "stack") +
+  labs(title = "Gruppiertes Balkendiagramm",
+       subtitle = "User in Mio pro Anbieter",
+       x = "Jahr",
+       y = "User in Mio.",
+       fill = "Anbieter") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_fill_tableau(palette = "Color Blind")
+
+```
+
+
+
+
+:::
+::::
+
+
+
+## Visualisierung
+### Relatives gestapeltes Balkendiagramm
+:::: {.columns}
+::: {.column width="35%"}
+::: {style="font-size: 0.75em"}
+* Wenn die Anteile der Dimensionen wichtiger sind als die Summe bzw. die Summe keine sinnvolle Interpretation zulässt
+* Hinweise des einfachen Balkendiagramms gelten weiterhin, ggf. horizontal und Jahreszahlen aufsteigend sortieren
+
+:::
+:::
+::: {.column width="65%"}
+
+```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
+
+ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
+  geom_col(position = "fill") +
+  labs(title = "Gruppiertes Balkendiagramm",
+       subtitle = "User in Mio pro Anbieter",
+       x = "Jahr",
+       y = "User in Mio.",
+       fill = "Anbieter") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  scale_fill_tableau(palette = "Color Blind")
+
+```
+
+
+
+
+:::
+::::
 
 ## Kurzer Überblick: Wo geht's weiter?
 ### Der ETL Prozess
@@ -98,7 +287,7 @@ library(dplyr)
 ## ETL Prozess
 ### Was ist ETL?
 
-
+::: {style="font-size: 0.90em"}
 * ETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden
 * **Extraktion** beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt
 * Hier erfolgt die **Transformation**, die wiederum aus vier Teilschritten besteht:
@@ -107,7 +296,7 @@ library(dplyr)
   * Aggregation
   * Anreicherung
 * Anschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank ge**laden**  
-
+:::
 
 ## ETL Prozess
 ### Teilschritte der Transformation
@@ -243,6 +432,37 @@ tibble::tibble(
   * Nicht-zulässige Postleitzahlen
   * Ungültige IBAN
 
+
+## Filterung
+### Finde die Mängel
+
+```{r}
+set.seed(1)
+user_data <- tibble(
+  `ID (Key)` = c("1", "2", "3", "4", ""),
+  Name = c("Jo (h)N", "Mary", "Bob", "Alice", "Tom"),
+  Alter = c(25, 30, 40, 18, 19),
+  Land = c("DE", "DE", "DE", "DE", "DEU"),
+  PLZ = c(2345, 67890, 98765, 54321, 21345),
+  Premium = c("TRUE", "FALSE", "TRUE", "1", "FALSE")
+) %>% 
+  mutate(Geburtsdatum = today( ) - years(Alter) + days(round(runif(5, 10, 30)))) %>% 
+  mutate(Geburtsdatum = if_else(Name == "Alice",as_date("2026-04-03"), Geburtsdatum))
+
+kable(user_data, digits = 0)
+
+```
+
+
+::: {.notes}
+1. UserID ist ein Key, NA ist nicht zugelassen
+2. Jo(h)n ist ein Tippfehler
+3. Land DEU ist nicht der ISO-Code für Deutschland
+4. PLZ 2345 ist nicht gültig, da nur 4 Stellen
+5. Premium ist ein boolscher Wert, sollte also TRUE oder FALSE sein
+6. Das Geburtsdatum von Alice liegt in der Zukunft
+:::
+
 ## Harmonisierung
 ### Harmonisierung
 
@@ -316,6 +536,36 @@ tibble::tibble(
     * Garantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.
     * Etablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes
 
+## Business Case
+### Zurück zu Tofispy
+
+* Tofispy hat uns einen Extrakt aus dem System für Neuregistrierung zur Verfügung gestellt
+* Der Datensatz ist bei Superset im Dataset Controlling unter "user_events" hinterlegt, hierbei handelt es sich um den Rohdatensatz, den wir erst einmal transformieren müssen
+* Erneuter Startpunkt ist eine explorative Analyse, um die Daten zu verstehen
+* In Superset:
+  * Oben auf + Chart
+  * Dataset "user_events" auswählen
+  * Table als Visualisierung auswählen
+
+## Business Case
+### Table Visualisierung in Superset
+
+
+![](img/Superset_Table_Raw.png){width="800" height="500"}
+
+## Business Case
+### Table Visualisierung in Superset
+
+
+![](img/Superset_Table_Raw_2.png){width="800" height="500"}
+
+## Business Case
+### Transformationschritte
+
+* Die Daten enthalten mehrere Event-Types und Timestamps
+* Welche der Events sind interessant, um User-Wachstum zu verstehen?
+* Welche Aggregation des Zeitstempels ist sinnvoll?
+* Welche Kennzahlen wollen wir aus den Daten ableiten?
 
 
 

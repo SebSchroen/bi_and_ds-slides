@@ -376,13 +376,14 @@ Dr.&nbsp;Sebastian Schrön
 <ul>
 <li class="fragment">Quiz</li>
 <li class="fragment">Self-Service BI Terminologie</li>
-<li class="fragment">Recap zur Aufgabe von letzter Woche</li>
+<li class="fragment">Recap zur Aufgabe von letzter Woche und gemeinsamer Walk-Through</li>
+<li class="fragment">Visualisierungstyp Balkendiagramm</li>
 <li class="fragment">Datentransformation:
 <ul>
 <li class="fragment">Was heißt ETL?</li>
 <li class="fragment">Welche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?</li>
 </ul></li>
-<li class="fragment">Erste Transformationsschritte eines Datensatzes mit User-Events direkt mit Superset</li>
+<li class="fragment">Gemeinsame Transformation eines Datensatzes mit User-Events</li>
 </ul>
 </div>
 </section>
@@ -396,17 +397,17 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="terminologie">Terminologie</h3>
 <div style="font-size: 0.95em">
 <ul>
-<li>Dashboard:
+<li class="fragment">Dashboard:
 <ul>
-<li>Eine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden</li>
-<li>Ein Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren</li>
-<li>Die Visualisierungen können über globale Filter gefiltert werden</li>
+<li class="fragment">Eine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden</li>
+<li class="fragment">Ein Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren</li>
+<li class="fragment">Die Visualisierungen können über globale Filter gefiltert werden</li>
 </ul></li>
-<li>Chart:
+<li class="fragment">Chart:
 <ul>
-<li>Eigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann</li>
-<li>Es gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können</li>
-<li><a href="https://docs.preset.io/docs/chart-walkthroughs">Preset.io</a> gibt eine Übersicht über die gängigsten Chart-Typen</li>
+<li class="fragment">Eigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann</li>
+<li class="fragment">Es gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können</li>
+<li class="fragment"><a href="https://docs.preset.io/docs/chart-walkthroughs">Preset.io</a> gibt eine Übersicht über die gängigsten Chart-Typen</li>
 </ul></li>
 </ul>
 </div>
@@ -416,18 +417,18 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="terminologie-1">Terminologie</h3>
 <div style="font-size: 0.90em">
 <ul>
-<li>Dimensions:
+<li class="fragment">Dimensions:
 <ul>
-<li>Dimensionen sind die Kategorien, nach denen Daten gruppiert</li>
-<li>Idealerweise kategoriale Variablen, die nicht aggregiert werden</li>
-<li>Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar</li>
-<li>Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain</li>
+<li class="fragment">Dimensionen sind die Kategorien, nach denen Daten gruppiert</li>
+<li class="fragment">Idealerweise kategoriale Variablen, die nicht aggregiert werden</li>
+<li class="fragment">Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar</li>
+<li class="fragment">Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain</li>
 </ul></li>
-<li>Metrics
+<li class="fragment">Metrics
 <ul>
-<li>Quantitative Variablen, die sich mit Funktionen aggregieren lassen</li>
-<li>Beispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts</li>
-<li>Besonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt</li>
+<li class="fragment">Quantitative Variablen, die sich mit Funktionen aggregieren lassen</li>
+<li class="fragment">Beispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts</li>
+<li class="fragment">Besonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt</li>
 </ul></li>
 </ul>
 </div>
@@ -437,17 +438,17 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="terminologie-2">Terminologie</h3>
 <div style="font-size: 0.90em">
 <ul>
-<li>Aggregationsfunktionen
+<li class="fragment">Aggregationsfunktionen
 <ul>
-<li>Self-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen</li>
-<li>Aggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten</li>
-<li>Einfache Beispiele sind Summen, Durchschnitte, Min und Max</li>
-<li>Besonderheit Count und Count Distinct:
+<li class="fragment">Self-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen</li>
+<li class="fragment">Aggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten</li>
+<li class="fragment">Einfache Beispiele sind Summen, Durchschnitte, Min und Max</li>
+<li class="fragment">Besonderheit Count und Count Distinct:
 <ul>
-<li>Count zählt die Anzahl der Datenpunkte,</li>
-<li>Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)</li>
+<li class="fragment">Count zählt die Anzahl der Datenpunkte,</li>
+<li class="fragment">Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)</li>
 </ul></li>
-<li>Semantisches Wissen und Fragestellung sind für die Wahl der Aggregation</li>
+<li class="fragment">Semantisches Wissen und Fragestellung sind für die Wahl der Aggregation</li>
 </ul></li>
 </ul>
 </div>
@@ -457,19 +458,133 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="besonderheiten-superset">Besonderheiten Superset</h3>
 <div style="font-size: 0.95em">
 <ul>
-<li>Database:
+<li class="fragment">Database:
 <ul>
-<li>Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse</li>
-<li>In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich</li>
-<li>Auch der Upload von Excel und CSV Dateien ist möglich</li>
+<li class="fragment">Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse</li>
+<li class="fragment">In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich</li>
+<li class="fragment">Auch der Upload von Excel und CSV Dateien ist möglich</li>
 </ul></li>
-<li>Dataset:
+<li class="fragment">Dataset:
 <ul>
-<li>Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen</li>
-<li>Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden</li>
-<li>Physische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert</li>
+<li class="fragment">Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen</li>
+<li class="fragment">Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden</li>
+<li class="fragment">Physische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert</li>
 </ul></li>
 </ul>
+</div>
+</section>
+<section id="business-case" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="recap-zu-den-fragen">Recap zu den Fragen</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div style="font-size: 0.75em">
+<ul>
+<li class="fragment">Fragen zu Tofispy
+<ol type="1">
+<li class="fragment">Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?</li>
+<li class="fragment">Wie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?</li>
+<li class="fragment">Welcher Konkurrent wächst am stärksten?</li>
+<li class="fragment">Sind die Daten dispositiv oder operativ?</li>
+<li class="fragment">Welcher Reifegrad von Analytics liegt vor?</li>
+</ol></li>
+</ul>
+</div>
+</div><div class="column" style="width:65%;">
+<div style="font-size: 0.75em">
+<ul>
+<li class="fragment">Tofispy verliert Marktanteile, wächst also langsamer als der Markt</li>
+<li class="fragment">Der Marktanteil liegt Ende 2024 bei 34%</li>
+<li class="fragment">YoutubeMusic wächst am stärksten</li>
+<li class="fragment">Der Datensatz ist dispositiv und der Reifegrad deskriptiv</li>
+</ul>
+</div>
+<p><img data-src="img/balkendiagramm.jpg" width="600" height="300"></p>
+</div>
+</div>
+</section>
+<section id="visualisierung" class="slide level2">
+<h2>Visualisierung</h2>
+<h3 id="balkendiagramm">Balkendiagramm</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div style="font-size: 0.75em">
+<ul>
+<li class="fragment">Einfache Balkendiagramme eignen sich besonders gut zur Visualisierung absoluter Häufigkeiten</li>
+<li class="fragment">Idealerweise ist die Anzahl der Dimensionen entlang der X-Achse dabei begrenzt</li>
+<li class="fragment">Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen</li>
+<li class="fragment">Zeitachse immer aufsteigend sortieren</li>
+</ul>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="576"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisierung-1" class="slide level2">
+<h2>Visualisierung</h2>
+<h3 id="gruppiertes-balkendiagramm">Gruppiertes Balkendiagramm</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div style="font-size: 0.75em">
+<ul>
+<li class="fragment">Eignen sich für die Darstellung absoluter Häufigkeiten über mehrere Dimensionen</li>
+<li class="fragment">Bei zu großen Unterschieden zwischen Gruppen schwer lesbar</li>
+<li class="fragment">Auch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und* Zeitachse immer aufsteigend sortieren</li>
+</ul>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="576"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisierung-2" class="slide level2">
+<h2>Visualisierung</h2>
+<h3 id="gestapeltes-balkendiagramm">Gestapeltes Balkendiagramm</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div style="font-size: 0.75em">
+<ul>
+<li class="fragment">Statt Darstellung nebeneinander, werden Balken gestapelt</li>
+<li class="fragment">Sinnvoll, wenn die Summe der Beträge, eine sinnvolle Botschaft vermittelt</li>
+<li class="fragment">Aber: Hierbei geht der Eindruck der Anteile der Dimensionen oft verloren, daher nicht ratsam, wenn die Anteile eigentlich von Interesse sind</li>
+</ul>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-4-1.png" width="576"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisierung-3" class="slide level2">
+<h2>Visualisierung</h2>
+<h3 id="relatives-gestapeltes-balkendiagramm">Relatives gestapeltes Balkendiagramm</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div style="font-size: 0.75em">
+<ul>
+<li class="fragment">Wenn die Anteile der Dimensionen wichtiger sind als die Summe bzw. die Summe keine sinnvolle Interpretation zulässt</li>
+<li class="fragment">Hinweise des einfachen Balkendiagramms gelten weiterhin, ggf. horizontal und Jahreszahlen aufsteigend sortieren</li>
+</ul>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="kurzer-überblick-wo-gehts-weiter" class="slide level2">
@@ -485,26 +600,29 @@ Dr.&nbsp;Sebastian Schrön
 <section id="etl-prozess" class="slide level2">
 <h2>ETL Prozess</h2>
 <h3 id="was-ist-etl">Was ist ETL?</h3>
+<div style="font-size: 0.90em">
 <ul>
-<li>ETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden</li>
-<li><strong>Extraktion</strong> beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt</li>
-<li>Hier erfolgt die <strong>Transformation</strong>, die wiederum aus vier Teilschritten besteht:
+<li class="fragment">ETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden</li>
+<li class="fragment"><strong>Extraktion</strong> beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt</li>
+<li class="fragment">Hier erfolgt die <strong>Transformation</strong>, die wiederum aus vier Teilschritten besteht:
 <ul>
-<li>Filterung</li>
-<li>Harmonisierung</li>
-<li>Aggregation</li>
-<li>Anreicherung</li>
+<li class="fragment">Filterung</li>
+<li class="fragment">Harmonisierung</li>
+<li class="fragment">Aggregation</li>
+<li class="fragment">Anreicherung</li>
 </ul></li>
-<li>Anschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank ge<strong>laden</strong></li>
+<li class="fragment">Anschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank ge<strong>laden</strong><br>
+</li>
 </ul>
+</div>
 </section>
 <section id="etl-prozess-1" class="slide level2">
 <h2>ETL Prozess</h2>
 <h3 id="teilschritte-der-transformation">Teilschritte der Transformation</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-0964f5b96ef21c865aa5" style="width:1000px;height:400px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0964f5b96ef21c865aa5">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-83d71ad02192a9977d54" style="width:1000px;height:400px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-83d71ad02192a9977d54">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Teilprozesse im ETL-Prozess. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></p>
 </div>
 </div>
@@ -513,25 +631,25 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Filterung</h2>
 <h3 id="extraktion-und-erste-bereinigung">Extraktion und erste Bereinigung</h3>
 <ul>
-<li>Filterung umfasst die Extraktion aus operativen Daten und die Bereinigung <strong>syntaktischer</strong> und <strong>semantischer</strong> Defekte in den Rohdaten</li>
-<li>Die Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen</li>
-<li>Aus Performance-Erwägungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt</li>
-<li><span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span> ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten</li>
-<li>Diese Extrakte werden anschließend bereinigt</li>
+<li class="fragment">Filterung umfasst die Extraktion aus operativen Daten und die Bereinigung <strong>syntaktischer</strong> und <strong>semantischer</strong> Defekte in den Rohdaten</li>
+<li class="fragment">Die Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen</li>
+<li class="fragment">Aus Performance-Erwägungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt</li>
+<li class="fragment"><span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span> ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten</li>
+<li class="fragment">Diese Extrakte werden anschließend bereinigt</li>
 </ul>
 </section>
 <section id="filterung-1" class="slide level2">
 <h2>Filterung</h2>
 <h3 id="syntaktische-mängel">Syntaktische Mängel</h3>
 <ul>
-<li>Syntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen</li>
-<li>Syntaktische Mängel sind in der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren</li>
-<li>Beispiele:
+<li class="fragment">Syntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen</li>
+<li class="fragment">Syntaktische Mängel sind in der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren</li>
+<li class="fragment">Beispiele:
 <ul>
-<li>Fehlende Werte</li>
-<li>Widersprüchliche Datumsformate (2022-04-03 und 04.03.2022)</li>
-<li>Leere Primärschlüssel</li>
-<li>Unzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. “123a” statt “123”)</li>
+<li class="fragment">Fehlende Werte</li>
+<li class="fragment">Widersprüchliche Datumsformate (2022-04-03 und 04.03.2022)</li>
+<li class="fragment">Leere Primärschlüssel</li>
+<li class="fragment">Unzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. “123a” statt “123”)</li>
 </ul></li>
 </ul>
 </section>
@@ -541,11 +659,11 @@ Dr.&nbsp;Sebastian Schrön
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li>Ein Primärschlüssel ist ein Attribut oder eine Kombination von Attributen, die eindeutig ein Tupel in einer Tabelle identifizieren</li>
-<li>Ein Primärschlüssel darf keine leeren Werte enthalten</li>
-<li>Ein Primärschlüssel darf keine Duplikate enthalten</li>
-<li>Häufig wird ein ID-Feld als Primärschlüssel verwendet</li>
-<li>Wie muss der Primärschlüssel in der Tabelle rechts aussehen?</li>
+<li class="fragment">Ein Primärschlüssel ist ein Attribut oder eine Kombination von Attributen, die eindeutig ein Tupel in einer Tabelle identifizieren</li>
+<li class="fragment">Ein Primärschlüssel darf keine leeren Werte enthalten</li>
+<li class="fragment">Ein Primärschlüssel darf keine Duplikate enthalten</li>
+<li class="fragment">Häufig wird ein ID-Feld als Primärschlüssel verwendet</li>
+<li class="fragment">Wie muss der Primärschlüssel in der Tabelle rechts aussehen?</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <div class="cell">
@@ -599,40 +717,130 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Filterung</h2>
 <h3 id="semantische-mängel">Semantische Mängel</h3>
 <ul>
-<li>Semantische Mängel beziehen sich auf Probleme in Bezug auf die Bedeutung und Interpretation der Daten</li>
-<li>Daten sind dann inkonsistent sind oder enthalten widersprüchliche Informationen, selbst wenn sie syntaktisch korrekt sind</li>
-<li>Semantische Mängel erfordern oft ein tieferes Verständnis der Domäne und der Daten, um sie zu identifizieren und zu beheben</li>
-<li>Beispiele:
+<li class="fragment">Semantische Mängel beziehen sich auf Probleme in Bezug auf die Bedeutung und Interpretation der Daten</li>
+<li class="fragment">Daten sind dann inkonsistent sind oder enthalten widersprüchliche Informationen, selbst wenn sie syntaktisch korrekt sind</li>
+<li class="fragment">Semantische Mängel erfordern oft ein tieferes Verständnis der Domäne und der Daten, um sie zu identifizieren und zu beheben</li>
+<li class="fragment">Beispiele:
 <ul>
-<li>Negative oder unplausible Werte in Preis-, Alters- oder Umsatzfeldern</li>
-<li>Nicht-zulässige Postleitzahlen</li>
-<li>Ungültige IBAN</li>
+<li class="fragment">Negative oder unplausible Werte in Preis-, Alters- oder Umsatzfeldern</li>
+<li class="fragment">Nicht-zulässige Postleitzahlen</li>
+<li class="fragment">Ungültige IBAN</li>
 </ul></li>
 </ul>
+</section>
+<section id="filterung-4" class="slide level2">
+<h2>Filterung</h2>
+<h3 id="finde-die-mängel">Finde die Mängel</h3>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">ID (Key)</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Name</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Alter</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Land</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">PLZ</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Premium</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Geburtsdatum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Jo (h)N</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">DE</td>
+<td style="text-align: right;">2345</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">1999-04-05</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Mary</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">DE</td>
+<td style="text-align: right;">67890</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">1994-04-07</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Bob</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">DE</td>
+<td style="text-align: right;">98765</td>
+<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">1984-04-11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Alice</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">DE</td>
+<td style="text-align: right;">54321</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">2026-04-03</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Tom</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">DEU</td>
+<td style="text-align: right;">21345</td>
+<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">2005-04-04</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<aside class="notes">
+<ol type="1">
+<li>UserID ist ein Key, NA ist nicht zugelassen</li>
+<li>Jo(h)n ist ein Tippfehler</li>
+<li>Land DEU ist nicht der ISO-Code für Deutschland</li>
+<li>PLZ 2345 ist nicht gültig, da nur 4 Stellen</li>
+<li>Premium ist ein boolscher Wert, sollte also TRUE oder FALSE sein</li>
+<li>Das Geburtsdatum von Alice liegt in der Zukunft</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="harmonisierung" class="slide level2">
 <h2>Harmonisierung</h2>
 <h3 id="harmonisierung-1">Harmonisierung</h3>
 <ul>
-<li>Harmonisierung ist die zweite Schicht der Datentransformation</li>
-<li>Nach Abschluss der Filterungs- und der Harmonisierungsschicht liegt im DWH ein bereinigter und konsistenter Datenbestand auf der festgelegten Granularitätsebene vor</li>
-<li>Dieser ist bereits direkt für Komponenten der Informationsgenerierung nutzbar</li>
-<li>Auch hier wird zwischen syntaktischer und semantischer Harmonisierung unterschieden</li>
+<li class="fragment">Harmonisierung ist die zweite Schicht der Datentransformation</li>
+<li class="fragment">Nach Abschluss der Filterungs- und der Harmonisierungsschicht liegt im DWH ein bereinigter und konsistenter Datenbestand auf der festgelegten Granularitätsebene vor</li>
+<li class="fragment">Dieser ist bereits direkt für Komponenten der Informationsgenerierung nutzbar</li>
+<li class="fragment">Auch hier wird zwischen syntaktischer und semantischer Harmonisierung unterschieden</li>
 </ul>
 </section>
 <section id="harmonisierung-2" class="slide level2">
 <h2>Harmonisierung</h2>
 <h3 id="syntaktische-harmonisierung">Syntaktische Harmonisierung</h3>
 <ul>
-<li>Die operativen Quelldatenbestände weisen meist eine hohe Heterogenität auf und müssen mit Hilfe von umfangreichen Transformationsregeln syntaktisch harmonisiert werden.</li>
-<li>Häufige Gründe sind:</li>
+<li class="fragment">Die operativen Quelldatenbestände weisen meist eine hohe Heterogenität auf und müssen mit Hilfe von umfangreichen Transformationsregeln syntaktisch harmonisiert werden.</li>
+<li class="fragment">Häufige Gründe sind:</li>
 </ul>
 <ol type="1">
-<li>Schlüsseldisharmonien
+<li class="fragment">Schlüsseldisharmonien
 <ul>
-<li>Aufgrund verschiedener Primärschlüssel ist die Zusammenführung nicht möglich</li>
-<li>Beispiel: Kundennummer in System A weist eine führende 0 auf, in System B nicht</li>
-<li>Oft durch Zuordnungstabellen oder die Generierung neuer Primärschlüssel gelöst</li>
+<li class="fragment">Aufgrund verschiedener Primärschlüssel ist die Zusammenführung nicht möglich</li>
+<li class="fragment">Beispiel: Kundennummer in System A weist eine führende 0 auf, in System B nicht</li>
+<li class="fragment">Oft durch Zuordnungstabellen oder die Generierung neuer Primärschlüssel gelöst</li>
 </ul></li>
 </ol>
 </section>
@@ -640,20 +848,20 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Harmonisierung</h2>
 <h3 id="syntaktische-harmonisierung-1">Syntaktische Harmonisierung</h3>
 <ol start="2" type="1">
-<li>Abweichende Kodierung
+<li class="fragment">Abweichende Kodierung
 <ul>
-<li>Die Systeme weisen identische Attributnamen auf, haben jedoch unterschiedliche Wertebereiche</li>
-<li>Beispiel: Geschlecht in System A: “männlich”, “weiblich”, “divers” und in System B: “m”, “w”, “d”</li>
+<li class="fragment">Die Systeme weisen identische Attributnamen auf, haben jedoch unterschiedliche Wertebereiche</li>
+<li class="fragment">Beispiel: Geschlecht in System A: “männlich”, “weiblich”, “divers” und in System B: “m”, “w”, “d”</li>
 </ul></li>
-<li>Synonyme
+<li class="fragment">Synonyme
 <ul>
-<li>Attribute haben verschiedene Namen, aber dieselbe Bedeutung</li>
-<li>Kundennummer in System A und Customer ID in System B</li>
+<li class="fragment">Attribute haben verschiedene Namen, aber dieselbe Bedeutung</li>
+<li class="fragment">Kundennummer in System A und Customer ID in System B</li>
 </ul></li>
-<li>Homonyme
+<li class="fragment">Homonyme
 <ul>
-<li>Attribute haben dieselben Namen, aber verschiedene Bedeutungen</li>
-<li>“Business Partner” als Lieferant in A und als Kunde in B</li>
+<li class="fragment">Attribute haben dieselben Namen, aber verschiedene Bedeutungen</li>
+<li class="fragment">“Business Partner” als Lieferant in A und als Kunde in B</li>
 </ul></li>
 </ol>
 </section>
@@ -662,19 +870,19 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="semantische-harmonisierung">Semantische Harmonisierung</h3>
 <div style="font-size: 0.90em">
 <ul>
-<li>Die semantische Harmonisierung bezieht sich auf die Vereinheitlichung der fachlichen Bedeutung von Daten</li>
+<li class="fragment">Die semantische Harmonisierung bezieht sich auf die Vereinheitlichung der fachlichen Bedeutung von Daten</li>
 </ul>
 <ol type="1">
-<li>Abgleichung fachlicher Kennzahlen
+<li class="fragment">Abgleichung fachlicher Kennzahlen
 <ul>
-<li>Gewährleistet inhaltlich konsistente entscheidungsorientierte Daten</li>
-<li>Beispiele sind Währungen oder Maßeinheiten oder die Periodenzuordnung betriebswirtschaftlicher Kennzahlen</li>
-<li>Erfordert hohe Fachkompetenz und ist nicht automatisierbar</li>
+<li class="fragment">Gewährleistet inhaltlich konsistente entscheidungsorientierte Daten</li>
+<li class="fragment">Beispiele sind Währungen oder Maßeinheiten oder die Periodenzuordnung betriebswirtschaftlicher Kennzahlen</li>
+<li class="fragment">Erfordert hohe Fachkompetenz und ist nicht automatisierbar</li>
 </ul></li>
-<li>Granularität
+<li class="fragment">Granularität
 <ul>
-<li>Die Überführung der operativen Daten in eine gewünschte Granularität erfordert weitere Transforationsregeln</li>
-<li>Eine Übersicht tagesaktueller Bestellungen erfordert bspw. die Zusammenfassung aller Transaktionen eines Tages</li>
+<li class="fragment">Die Überführung der operativen Daten in eine gewünschte Granularität erfordert weitere Transforationsregeln</li>
+<li class="fragment">Eine Übersicht tagesaktueller Bestellungen erfordert bspw. die Zusammenfassung aller Transaktionen eines Tages</li>
 </ul></li>
 </ol>
 </div>
@@ -683,33 +891,68 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Aggregation</h2>
 <h3 id="verdichtung-und-hierarchisierung">Verdichtung und Hierarchisierung</h3>
 <ul>
-<li>Die Aggregation dient der Erweiterung der gefilterten und harmonisierten Daten um Verdichtungsstrukturen</li>
-<li>Idealerweise mittels mehrfach verwendbarer, zentraler Dimensionshierarchien, die übergreifende Analysen unterstützen</li>
-<li>Die Entwicklung dieser Dimensionshierarchietabellen setzt die Antizipation potenzieller Auswertungen voraus</li>
-<li>Diese Tabellen müssen zudem gepflegt und mit Gültigkeitszeiträumen versehen werden</li>
-<li>Die Erstellung und Pflege von Hierarchietabellen und die Speicherung aggregierter Tabellen ermöglicht erste Anwendungen mit den Daten</li>
-<li>Die physische Speicherung von aggregierten Daten anstelle granularster Ebenen erfolgt hierbei häufig aus Performancegründen</li>
+<li class="fragment">Die Aggregation dient der Erweiterung der gefilterten und harmonisierten Daten um Verdichtungsstrukturen</li>
+<li class="fragment">Idealerweise mittels mehrfach verwendbarer, zentraler Dimensionshierarchien, die übergreifende Analysen unterstützen</li>
+<li class="fragment">Die Entwicklung dieser Dimensionshierarchietabellen setzt die Antizipation potenzieller Auswertungen voraus</li>
+<li class="fragment">Diese Tabellen müssen zudem gepflegt und mit Gültigkeitszeiträumen versehen werden</li>
+<li class="fragment">Die Erstellung und Pflege von Hierarchietabellen und die Speicherung aggregierter Tabellen ermöglicht erste Anwendungen mit den Daten</li>
+<li class="fragment">Die physische Speicherung von aggregierten Daten anstelle granularster Ebenen erfolgt hierbei häufig aus Performancegründen</li>
 </ul>
 </section>
 <section id="anreicherung" class="slide level2">
 <h2>Anreicherung</h2>
 <h3 id="kennzahlberechnung">Kennzahlberechnung</h3>
 <ul>
-<li>In der Anreicherungsschicht werden fachliche Kennzahlen berechnet und in die Datenbasis integriert.</li>
-<li>Hier können sowohl Werte auf Basis der harmonisierten Daten der gewünschten Granularität (zweite Schicht) als auch auf Basis der dritten Schicht (bereits aggregierte Tabellen) berechnet werden.</li>
-<li>Beispiele sind monatliche Deckungsbeiträge auf Produktebene oder jährliche Deckungsbeiträge auf Filialebene.</li>
+<li class="fragment">In der Anreicherungsschicht werden fachliche Kennzahlen berechnet und in die Datenbasis integriert.</li>
+<li class="fragment">Hier können sowohl Werte auf Basis der harmonisierten Daten der gewünschten Granularität (zweite Schicht) als auch auf Basis der dritten Schicht (bereits aggregierte Tabellen) berechnet werden.</li>
+<li class="fragment">Beispiele sind monatliche Deckungsbeiträge auf Produktebene oder jährliche Deckungsbeiträge auf Filialebene.</li>
 </ul>
 </section>
 <section id="anreicherung-1" class="slide level2">
 <h2>Anreicherung</h2>
 <h3 id="kennzahlberechnung-1">Kennzahlberechnung</h3>
 <ul>
-<li>Diese Vorgehensweise hat mehrere Vorteile:
+<li class="fragment">Diese Vorgehensweise hat mehrere Vorteile:
 <ul>
-<li>Kalkulierbare Reaktionszeigen bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.</li>
-<li>Garantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.</li>
-<li>Etablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes</li>
+<li class="fragment">Kalkulierbare Reaktionszeigen bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.</li>
+<li class="fragment">Garantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.</li>
+<li class="fragment">Etablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes</li>
 </ul></li>
+</ul>
+</section>
+<section id="business-case-1" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="zurück-zu-tofispy">Zurück zu Tofispy</h3>
+<ul>
+<li class="fragment">Tofispy hat uns einen Extrakt aus dem System für Neuregistrierung zur Verfügung gestellt</li>
+<li class="fragment">Der Datensatz ist bei Superset im Dataset Controlling unter “user_events” hinterlegt, hierbei handelt es sich um den Rohdatensatz, den wir erst einmal transformieren müssen</li>
+<li class="fragment">Erneuter Startpunkt ist eine explorative Analyse, um die Daten zu verstehen</li>
+<li class="fragment">In Superset:
+<ul>
+<li class="fragment">Oben auf + Chart</li>
+<li class="fragment">Dataset “user_events” auswählen</li>
+<li class="fragment">Table als Visualisierung auswählen</li>
+</ul></li>
+</ul>
+</section>
+<section id="business-case-2" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="table-visualisierung-in-superset">Table Visualisierung in Superset</h3>
+<p><img data-src="img/Superset_Table_Raw.png" width="800" height="500"></p>
+</section>
+<section id="business-case-3" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="table-visualisierung-in-superset-1">Table Visualisierung in Superset</h3>
+<p><img data-src="img/Superset_Table_Raw_2.png" width="800" height="500"></p>
+</section>
+<section id="business-case-4" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="transformationschritte">Transformationschritte</h3>
+<ul>
+<li class="fragment">Die Daten enthalten mehrere Event-Types und Timestamps</li>
+<li class="fragment">Welche der Events sind interessant, um User-Wachstum zu verstehen?</li>
+<li class="fragment">Welche Aggregation des Zeitstempels ist sinnvoll?</li>
+<li class="fragment">Welche Kennzahlen wollen wir aus den Daten ableiten?</li>
 </ul>
 </section>
 <section id="quellen" class="slide level2 smaller scrollable">

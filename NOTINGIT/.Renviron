@@ -1,0 +1,2 @@
+GOOGLE_APPLICATION_CREDENTIALS = "/home/.config/gcloud/legacy_credentials/finconda2024@gmail.com/adc.json"
+GCP_PROJECT = "superset-leibniz-fh"

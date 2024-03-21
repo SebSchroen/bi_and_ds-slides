@@ -3,7 +3,7 @@ title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 4"
 format:
   revealjs:
-    incremental: false  
+    incremental: true  
 ---
   
 ```{r}
@@ -29,7 +29,7 @@ library(dplyr)
   * Was ist der Data Lake?
   * Braucht man das?
   * Was sind die Unterschiede zum Data Warehouse?
-
+* Weitere Ursachenforschung für den Wachstumsschwund bei Tofispy
 
 ## Einordnung in den Gesamtkontext
 ### Der Data Lake & Big Data
@@ -243,6 +243,35 @@ library(dplyr)
 4. **Discovery Sandbox**: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt
 5. **Consumption Zone**: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung
 :::
+
+## Business Case
+### Tofispy User Events
+
+* Nachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen
+* Der Datensatz in Superset heißt nun "user_events_clean" und ist nach wie vor im Controlling Mart gespeichert.
+* Wie wäre es mit einem Line Chart?
+* Hierzu erneut in Superset:
+  * Oben auf "+Chart" klicken
+  * Das Dataset "user_events_clean" auswählen
+  * Anschließend "Time Series Line Chart" auswählen
+* Frage: Was ist der Hauptgrund für das schwindende Wachstum?
+
+## Business Case
+### Line Plot Starthilfe
+
+
+![](img/Superset_Line_Plot.png){width="800" height="500"}
+
+
+## Business Case
+### Hausaufgabe
+
+* In Superset befindet sich ein weiterer Datensatz "cancellation_questionnaire", der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen
+* Der Datensatz enthält zwei Spalten:
+  * Question: Die gestellte Frage mit vier Ausprägungen
+  * Response: Die Antworten der User
+* Ziel: Eine passende Visualisierung, die aufzeigt, wieso User hauptsächlich kündigen
+* Support durch Google und preset.io Dokumentation  
 
 ## Slide Title {visibility="hidden"}
 

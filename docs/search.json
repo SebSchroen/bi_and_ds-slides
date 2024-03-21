@@ -4,7 +4,7 @@
     "href": "03_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung 3\n\n\nQuiz\nSelf-Service BI Terminologie\nRecap zur Aufgabe von letzter Woche\nDatentransformation:\n\nWas heißt ETL?\nWelche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?\n\nErste Transformationsschritte eines Datensatzes mit User-Events direkt mit Superset"
+    "text": "Der Plan für heute…\nVorlesung 3\n\n\nQuiz\nSelf-Service BI Terminologie\nRecap zur Aufgabe von letzter Woche und gemeinsamer Walk-Through\nVisualisierungstyp Balkendiagramm\nDatentransformation:\n\nWas heißt ETL?\nWelche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?\n\nGemeinsame Transformation eines Datensatzes mit User-Events"
   },
   {
     "objectID": "03_VL.html#self-service-bi",
@@ -35,6 +35,41 @@
     "text": "Self-Service BI\nBesonderheiten Superset\n\n\nDatabase:\n\nBackend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse\nIn unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich\nAuch der Upload von Excel und CSV Dateien ist möglich\n\nDataset:\n\nEinzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen\nBasieren auf Rohdaten, die für die Visualisierung verarbeitet werden\nPhysische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert"
   },
   {
+    "objectID": "03_VL.html#business-case",
+    "href": "03_VL.html#business-case",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nRecap zu den Fragen\n\n\n\n\nFragen zu Tofispy\n\nWächst Tofispy schneller oder langsamer als der Gesamtmarkt?\nWie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?\nWelcher Konkurrent wächst am stärksten?\nSind die Daten dispositiv oder operativ?\nWelcher Reifegrad von Analytics liegt vor?\n\n\n\n\n\n\nTofispy verliert Marktanteile, wächst also langsamer als der Markt\nDer Marktanteil liegt Ende 2024 bei 34%\nYoutubeMusic wächst am stärksten\nDer Datensatz ist dispositiv und der Reifegrad deskriptiv"
+  },
+  {
+    "objectID": "03_VL.html#visualisierung",
+    "href": "03_VL.html#visualisierung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung",
+    "text": "Visualisierung\nBalkendiagramm\n\n\n\n\nEinfache Balkendiagramme eignen sich besonders gut zur Visualisierung absoluter Häufigkeiten\nIdealerweise ist die Anzahl der Dimensionen entlang der X-Achse dabei begrenzt\nBei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen\nZeitachse immer aufsteigend sortieren"
+  },
+  {
+    "objectID": "03_VL.html#visualisierung-1",
+    "href": "03_VL.html#visualisierung-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung",
+    "text": "Visualisierung\nGruppiertes Balkendiagramm\n\n\n\n\nEignen sich für die Darstellung absoluter Häufigkeiten über mehrere Dimensionen\nBei zu großen Unterschieden zwischen Gruppen schwer lesbar\nAuch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und* Zeitachse immer aufsteigend sortieren"
+  },
+  {
+    "objectID": "03_VL.html#visualisierung-2",
+    "href": "03_VL.html#visualisierung-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung",
+    "text": "Visualisierung\nGestapeltes Balkendiagramm\n\n\n\n\nStatt Darstellung nebeneinander, werden Balken gestapelt\nSinnvoll, wenn die Summe der Beträge, eine sinnvolle Botschaft vermittelt\nAber: Hierbei geht der Eindruck der Anteile der Dimensionen oft verloren, daher nicht ratsam, wenn die Anteile eigentlich von Interesse sind"
+  },
+  {
+    "objectID": "03_VL.html#visualisierung-3",
+    "href": "03_VL.html#visualisierung-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung",
+    "text": "Visualisierung\nRelatives gestapeltes Balkendiagramm\n\n\n\n\nWenn die Anteile der Dimensionen wichtiger sind als die Summe bzw. die Summe keine sinnvolle Interpretation zulässt\nHinweise des einfachen Balkendiagramms gelten weiterhin, ggf. horizontal und Jahreszahlen aufsteigend sortieren"
+  },
+  {
     "objectID": "03_VL.html#kurzer-überblick-wo-gehts-weiter",
     "href": "03_VL.html#kurzer-überblick-wo-gehts-weiter",
     "title": "Business Intelligence & Data Science",
@@ -46,7 +81,7 @@
     "href": "03_VL.html#etl-prozess",
     "title": "Business Intelligence & Data Science",
     "section": "ETL Prozess",
-    "text": "ETL Prozess\nWas ist ETL?\n\nETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden\nExtraktion beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt\nHier erfolgt die Transformation, die wiederum aus vier Teilschritten besteht:\n\nFilterung\nHarmonisierung\nAggregation\nAnreicherung\n\nAnschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank geladen"
+    "text": "ETL Prozess\nWas ist ETL?\n\n\nETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden\nExtraktion beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt\nHier erfolgt die Transformation, die wiederum aus vier Teilschritten besteht:\n\nFilterung\nHarmonisierung\nAggregation\nAnreicherung\n\nAnschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank geladen"
   },
   {
     "objectID": "03_VL.html#etl-prozess-1",
@@ -82,6 +117,13 @@
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
     "text": "Filterung\nSemantische Mängel\n\nSemantische Mängel beziehen sich auf Probleme in Bezug auf die Bedeutung und Interpretation der Daten\nDaten sind dann inkonsistent sind oder enthalten widersprüchliche Informationen, selbst wenn sie syntaktisch korrekt sind\nSemantische Mängel erfordern oft ein tieferes Verständnis der Domäne und der Daten, um sie zu identifizieren und zu beheben\nBeispiele:\n\nNegative oder unplausible Werte in Preis-, Alters- oder Umsatzfeldern\nNicht-zulässige Postleitzahlen\nUngültige IBAN"
+  },
+  {
+    "objectID": "03_VL.html#filterung-4",
+    "href": "03_VL.html#filterung-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-05\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-07\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-11\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-04\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",
@@ -131,6 +173,34 @@
     "title": "Business Intelligence & Data Science",
     "section": "Anreicherung",
     "text": "Anreicherung\nKennzahlberechnung\n\nDiese Vorgehensweise hat mehrere Vorteile:\n\nKalkulierbare Reaktionszeigen bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.\nGarantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.\nEtablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes"
+  },
+  {
+    "objectID": "03_VL.html#business-case-1",
+    "href": "03_VL.html#business-case-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nZurück zu Tofispy\n\nTofispy hat uns einen Extrakt aus dem System für Neuregistrierung zur Verfügung gestellt\nDer Datensatz ist bei Superset im Dataset Controlling unter “user_events” hinterlegt, hierbei handelt es sich um den Rohdatensatz, den wir erst einmal transformieren müssen\nErneuter Startpunkt ist eine explorative Analyse, um die Daten zu verstehen\nIn Superset:\n\nOben auf + Chart\nDataset “user_events” auswählen\nTable als Visualisierung auswählen"
+  },
+  {
+    "objectID": "03_VL.html#business-case-2",
+    "href": "03_VL.html#business-case-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nTable Visualisierung in Superset"
+  },
+  {
+    "objectID": "03_VL.html#business-case-3",
+    "href": "03_VL.html#business-case-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nTable Visualisierung in Superset"
+  },
+  {
+    "objectID": "03_VL.html#business-case-4",
+    "href": "03_VL.html#business-case-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nTransformationschritte\n\nDie Daten enthalten mehrere Event-Types und Timestamps\nWelche der Events sind interessant, um User-Wachstum zu verstehen?\nWelche Aggregation des Zeitstempels ist sinnvoll?\nWelche Kennzahlen wollen wir aus den Daten ableiten?"
   },
   {
     "objectID": "03_VL.html#quellen",
@@ -851,7 +921,7 @@
     "href": "04_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung 4\n\nBig Data:\n\nWas ist Big Data?\nDefinitionen und Eigenschaften\nTechnologien und Werkzeuge\nAnwendungsfälle\n\nData Lake:\n\nWas ist der Data Lake?\nBraucht man das?\nWas sind die Unterschiede zum Data Warehouse?"
+    "text": "Der Plan für heute…\nVorlesung 4\n\nBig Data:\n\nWas ist Big Data?\nDefinitionen und Eigenschaften\nTechnologien und Werkzeuge\nAnwendungsfälle\n\nData Lake:\n\nWas ist der Data Lake?\nBraucht man das?\nWas sind die Unterschiede zum Data Warehouse?\n\nWeitere Ursachenforschung für den Wachstumsschwund bei Tofispy"
   },
   {
     "objectID": "04_VL.html#einordnung-in-den-gesamtkontext",
@@ -971,6 +1041,27 @@
     "title": "Business Intelligence & Data Science",
     "section": "Data Lake",
     "text": "Data Lake\nZonen\n\nÄhnlich wie im ETL Prozess umfasst auch der Data Lake verschiedene Zonen, in denen die Daten verschiedene Prozesse durchlaufen:\n\n\n\nTransient Zone: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert\nRaw Data Zone: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten\nCurated Zone: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haen und von Mängeln befreit wurden\nDiscovery Sandbox: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt\nConsumption Zone: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung"
+  },
+  {
+    "objectID": "04_VL.html#business-case",
+    "href": "04_VL.html#business-case",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nTofispy User Events\n\nNachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen\nDer Datensatz in Superset heißt nun “user_events_clean” und ist nach wie vor im Controlling Mart gespeichert.\nWie wäre es mit einem Line Chart?\nHierzu erneut in Superset:\n\nOben auf “+Chart” klicken\nDas Dataset “user_events_clean” auswählen\nAnschließend “Time Series Line Chart” auswählen\n\nFrage: Was ist der Hauptgrund für das schwindende Wachstum?"
+  },
+  {
+    "objectID": "04_VL.html#business-case-1",
+    "href": "04_VL.html#business-case-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nLine Plot Starthilfe"
+  },
+  {
+    "objectID": "04_VL.html#business-case-2",
+    "href": "04_VL.html#business-case-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nHausaufgabe\n\nIn Superset befindet sich ein weiterer Datensatz “cancellation_questionnaire”, der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen\nDer Datensatz enthält zwei Spalten:\n\nQuestion: Die gestellte Frage mit vier Ausprägungen\nResponse: Die Antworten der User\n\nZiel: Eine passende Visualisierung, die aufzeigt, wieso User hauptsächlich kündigen\nSupport durch Google und preset.io Dokumentation"
   },
   {
     "objectID": "04_VL.html#quellen",
