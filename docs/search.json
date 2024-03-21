@@ -18,14 +18,14 @@
     "href": "03_VL.html#self-service-bi-1",
     "title": "Business Intelligence & Data Science",
     "section": "Self-Service BI",
-    "text": "Self-Service BI\nTerminologie\n\n\nDimensions:\n\nDimensionen sind die Kategorien, nach denen Daten gruppiert\nIdealerweise kategoriale Variablen, die nicht aggregiert werden\nWenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar\nBei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain\n\nMetrics\n\nQuantitative Variablen, die sich mit Funktionen aggregieren lassen\nBeispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts\nBesonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt"
+    "text": "Self-Service BI\nTerminologie\n\n\nDimensions:\n\nDimensionen sind die Kategorien, nach denen Daten gruppiert wird\nIdealerweise kategoriale Variablen, die nicht aggregiert werden\nWenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar\nBei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain\n\nMetrics\n\nQuantitative Variablen, die sich mit Funktionen aggregieren lassen\nBeispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts\nBesonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt"
   },
   {
     "objectID": "03_VL.html#self-service-bi-2",
     "href": "03_VL.html#self-service-bi-2",
     "title": "Business Intelligence & Data Science",
     "section": "Self-Service BI",
-    "text": "Self-Service BI\nTerminologie\n\n\nAggregationsfunktionen\n\nSelf-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen\nAggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten\nEinfache Beispiele sind Summen, Durchschnitte, Min und Max\nBesonderheit Count und Count Distinct:\n\nCount zählt die Anzahl der Datenpunkte,\nCount Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)\n\nSemantisches Wissen und Fragestellung sind für die Wahl der Aggregation"
+    "text": "Self-Service BI\nTerminologie\n\n\nAggregationsfunktionen\n\nSelf-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen\nAggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten\nEinfache Beispiele sind Summen, Durchschnitte, Min und Max\nBesonderheit Count und Count Distinct:\n\nCount zählt die Anzahl der Datenpunkte,\nCount Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)\n\nSemantisches Wissen und Fragestellung sind für die Wahl der Aggregation entscheidend\n\n\n\n\nBeispieltabelle anschreiben: Kunden A und B, Umsatz 100 und 50, Zufriedenheit (1-100%) 80 und 20"
   },
   {
     "objectID": "03_VL.html#self-service-bi-3",
@@ -123,7 +123,7 @@
     "href": "03_VL.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-05\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-07\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-11\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-04\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-05\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-07\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-11\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-04\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",

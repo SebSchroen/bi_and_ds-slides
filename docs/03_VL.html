@@ -419,7 +419,7 @@ Dr.&nbsp;Sebastian Schrön
 <ul>
 <li class="fragment">Dimensions:
 <ul>
-<li class="fragment">Dimensionen sind die Kategorien, nach denen Daten gruppiert</li>
+<li class="fragment">Dimensionen sind die Kategorien, nach denen Daten gruppiert wird</li>
 <li class="fragment">Idealerweise kategoriale Variablen, die nicht aggregiert werden</li>
 <li class="fragment">Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar</li>
 <li class="fragment">Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain</li>
@@ -448,10 +448,23 @@ Dr.&nbsp;Sebastian Schrön
 <li class="fragment">Count zählt die Anzahl der Datenpunkte,</li>
 <li class="fragment">Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)</li>
 </ul></li>
-<li class="fragment">Semantisches Wissen und Fragestellung sind für die Wahl der Aggregation</li>
+<li class="fragment">Semantisches Wissen und Fragestellung sind für die Wahl der Aggregation entscheidend</li>
 </ul></li>
 </ul>
 </div>
+<aside class="notes">
+<p>Beispieltabelle anschreiben: Kunden A und B, Umsatz 100 und 50, Zufriedenheit (1-100%) 80 und 20</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="self-service-bi-3" class="slide level2">
 <h2>Self-Service BI</h2>
@@ -517,9 +530,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:65%;">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="576"></p>
+</div>
 </div>
 </div>
 </div>
@@ -538,9 +553,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:65%;">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="576"></p>
+</div>
 </div>
 </div>
 </div>
@@ -559,9 +576,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:65%;">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-4-1.png" width="576"></p>
+</div>
 </div>
 </div>
 </div>
@@ -579,9 +598,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:65%;">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
+</div>
 </div>
 </div>
 </div>
@@ -621,8 +642,8 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="teilschritte-der-transformation">Teilschritte der Transformation</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-83d71ad02192a9977d54" style="width:1000px;height:400px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-83d71ad02192a9977d54">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-97e815c7ef8f4966d896" style="width:1000px;height:400px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-97e815c7ef8f4966d896">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Teilprozesse im ETL-Prozess. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></p>
 </div>
 </div>
@@ -796,6 +817,16 @@ Dr.&nbsp;Sebastian Schrön
 
 
 </div>
+</div>
+<div style="font-size: 0.80em">
+<ol type="1">
+<li class="fragment">UserID ist ein Key, leere Werte nicht zugelassen</li>
+<li class="fragment">Jo(h)n ist ein Tippfehler</li>
+<li class="fragment">Land DEU weicht ab von den anderen Zeilen</li>
+<li class="fragment">PLZ 2345 ist nicht gültig, da nur 4 Stellen</li>
+<li class="fragment">Premium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1</li>
+<li class="fragment">Das Geburtsdatum von Alice liegt in der Zukunft</li>
+</ol>
 </div>
 <aside class="notes">
 <ol type="1">

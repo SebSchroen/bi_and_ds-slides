@@ -54,7 +54,7 @@ market_share <- read_csv("data/market_research.csv") %>%
 ### Terminologie
 ::: {style="font-size: 0.90em"}
 * Dimensions:
-  * Dimensionen sind die Kategorien, nach denen Daten gruppiert
+  * Dimensionen sind die Kategorien, nach denen Daten gruppiert wird
   * Idealerweise kategoriale Variablen, die nicht aggregiert werden
   * Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar
   * Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain
@@ -75,8 +75,13 @@ market_share <- read_csv("data/market_research.csv") %>%
   * Besonderheit Count und Count Distinct:
     * Count zählt die Anzahl der Datenpunkte,
     * Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)
-  * Semantisches Wissen und Fragestellung  sind für die Wahl der Aggregation
+  * Semantisches Wissen und Fragestellung  sind für die Wahl der Aggregation entscheidend
 
+:::
+
+::: {.notes}
+Beispieltabelle anschreiben:
+Kunden A und B, Umsatz 100 und 50, Zufriedenheit (1-100%) 80  und 20
 :::
 
 ## Self-Service BI
@@ -117,9 +122,11 @@ market_share <- read_csv("data/market_research.csv") %>%
 * YoutubeMusic wächst am stärksten
 * Der Datensatz ist dispositiv und der Reifegrad  deskriptiv
 :::
-![](img/balkendiagramm.jpg){width="600" height="300"}
 
+
+![](img/balkendiagramm.jpg){width="600" height="300"}
 :::
+
 
 ::::
 
@@ -134,7 +141,13 @@ market_share <- read_csv("data/market_research.csv") %>%
 * Zeitachse immer aufsteigend sortieren 
 :::
 :::
+
+
+
 ::: {.column width="65%"}
+
+
+::: {.fragment .fade-in}
 
 ```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
 
@@ -169,7 +182,7 @@ vertical/horizontal
 ```
 
 
-
+:::
 
 :::
 ::::
@@ -188,6 +201,8 @@ vertical/horizontal
 :::
 ::: {.column width="65%"}
 
+::: {.fragment .fade-in}
+
 ```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
 
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
@@ -203,7 +218,7 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 
 ```
 
-
+:::
 
 
 :::
@@ -223,6 +238,8 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 :::
 ::: {.column width="65%"}
 
+::: {.fragment .fade-in}
+
 ```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
 
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
@@ -239,7 +256,7 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 ```
 
 
-
+:::
 
 :::
 ::::
@@ -258,6 +275,8 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 :::
 ::: {.column width="65%"}
 
+::: {.fragment .fade-in}
+
 ```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
 
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
@@ -274,7 +293,7 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 ```
 
 
-
+:::
 
 :::
 ::::
@@ -453,7 +472,14 @@ kable(user_data, digits = 0)
 
 ```
 
-
+::: {style="font-size: 0.80em"}
+1. UserID ist ein Key, leere Werte nicht zugelassen
+2. Jo(h)n ist ein Tippfehler
+3. Land DEU weicht ab von den anderen Zeilen
+4. PLZ 2345 ist nicht gültig, da nur 4 Stellen
+5. Premium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1
+6. Das Geburtsdatum von Alice liegt in der Zukunft
+:::
 ::: {.notes}
 1. UserID ist ein Key, NA ist nicht zugelassen
 2. Jo(h)n ist ein Tippfehler
