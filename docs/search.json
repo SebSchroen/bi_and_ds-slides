@@ -270,7 +270,7 @@
     "href": "02_VL.html#business-case-1",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
-    "text": "Business Case\nDatensatz\n\nÜberblick über den Streamingmarkt:\n\nTabelle “market_share”\nAnzahl der Nutzer pro Plattform in Mio\nDaten von 2016 bis 2024\nDie Daten für 2024 sind eine Hochrechnung für das laufende Jahr"
+    "text": "Business Case\nDatensatz\n\nÜberblick über den Streamingmarkt:\n\nDataset “market_share”\nAnzahl der Nutzer pro Plattform in Mio\nDaten von 2016 bis 2024\nDie Daten für 2024 sind eine Hochrechnung für das laufende Jahr"
   },
   {
     "objectID": "02_VL.html#business-case-2",
@@ -382,7 +382,7 @@
     "href": "01_VL_D.html#business-intelligence-1",
     "title": "Business Intelligence & Data Science",
     "section": "Business Intelligence",
-    "text": "Business Intelligence\nBegriffsabgrenzung\n\n\nZunächst Fokus auf Management Support Systeme (MSS) und daher eher auf oberste Ebenen zugeschnitten\nDer Begriff Business Intelligence (BI) wurde in den 1990ern geprägt\nHeute wird BI laut Gartner Group charakterisiert durch:\n\nBreite Verfügbarkeit von BI Tools auf allen Ebenen des Unternehmens\nGeschäftsentscheidung auf Basis aktueller Informationen und Daten und nicht auf Intuition\nUmfangreiche Analyse- und Reportingmöglichkeiten mit Self-Service Tools für Fachbereiche"
+    "text": "Business Intelligence\nBegriffsabgrenzung\n\n\nZunächst Fokus auf Management Support Systeme (MSS) und daher eher auf oberste Ebenen zugeschnitten\nDer Begriff Business Intelligence (BI) wurde in den 1990ern geprägt\nHeute wird BI laut Gartner Group charakterisiert durch:\n\nBreite Verfügbarkeit von BI Tools auf allen Ebenen des Unternehmens\nGeschäftsentscheidung auf Basis aktueller Informationen und Daten und nicht auf Intuition\nUmfangreiche Analyse- und Reportingmöglichkeiten mit Self-Service Tools für Fachbereiche\n\n\n\n\n\nPunkt 1 und 3 der Definition von Gartner auf den ersten Blick identisch\nAber: Punkt 3 geht einen Schritt weiter, nämlich dass moderne Self-Service BI Tools mehr könnnen als früher und Fachbereichen ermöglichen, viele der Aufgaben selbst zu übernehmen, die früher durch die IT ausgeführt wurden, wie Drill-Downs, Erstellung eigener Visualisierungen und Dashbboards"
   },
   {
     "objectID": "01_VL_D.html#business-intelligence-2",
@@ -438,7 +438,7 @@
     "href": "01_VL_D.html#dispositive-und-operative-daten-1",
     "title": "Business Intelligence & Data Science",
     "section": "Dispositive und operative Daten",
-    "text": "Dispositive und operative Daten\nOperative versus dispositive Daten\n\n\n\n\nDispositive Daten\n\nUnterstützen Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf\nHäufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert\n\n\nOperative Daten\n\nDienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen1 erzeugt\nSehr granular und mit hoher Änderungsrate\nBeispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten\n\n\n\n\n\nAtomare und logisch untrennbare Datenbankvorgänge"
+    "text": "Dispositive und operative Daten\nOperative versus dispositive Daten\n\n\n\n\nDispositive Daten\n\nUnterstützen Leitungs- und Lenkungstätigkeiten im betrieblichen Ablauf\nHäufig verdichtet, transformiert und themenbezogen aufbereitet und mit Historie angereichert\n\n\nOperative Daten\n\nDienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen erzeugt\nTransaktionen: Atomare und logisch untrennbare Datenbankvorgänge\nSehr granular und mit hoher Änderungsrate\nBeispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten"
   },
   {
     "objectID": "01_VL_D.html#dispositive-und-operative-daten-2",
@@ -473,14 +473,14 @@
     "href": "01_VL_D.html#self-service-bi-1",
     "title": "Business Intelligence & Data Science",
     "section": "Self-Service BI",
-    "text": "Self-Service BI\nTerminologie\n\n\nDimensions:\n\nDimensionen sind die Kategorien, nach denen Daten gruppiert\nIdealerweise kategoriale Variablen, die nicht aggregiert werden\nWenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar\nBei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain\n\nMetrics\n\nQuantitative Variablen, die sich mit Funktionen aggregieren lassen\nBeispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts\nBesonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt"
+    "text": "Self-Service BI\nTerminologie\n\n\nDimensions:\n\nDimensionen sind die Kategorien, nach denen Daten gruppiert werden\nIdealerweise kategoriale Variablen, die nicht aggregiert werden\nWenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar\nBei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain\n\nMetrics\n\nQuantitative Variablen, die sich mit Funktionen aggregieren lassen\nBeispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts\nBesonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt"
   },
   {
     "objectID": "01_VL_D.html#self-service-bi-2",
     "href": "01_VL_D.html#self-service-bi-2",
     "title": "Business Intelligence & Data Science",
     "section": "Self-Service BI",
-    "text": "Self-Service BI\nTerminologie\n\n\nAggregationsfunktionen\n\nSelf-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen\nAggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten\nEinfache Beispiele sind Summen, Durchschnitte, Min und Max\nBesonderheit Count und Count Distinct:\n\nCount zählt die Anzahl der Datenpunkte,\nCount Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)\n\nSemantisches Wissen und Fragestellung sind für die Wahl der Aggregation"
+    "text": "Self-Service BI\nTerminologie\n\n\nAggregationsfunktionen\n\nSelf-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen\nAggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten\nEinfache Beispiele sind Summen, Durchschnitte, Min und Max\nBesonderheit Count und Count Distinct:\n\nCount zählt die Anzahl der Datenpunkte,\nCount Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)\n\nSemantisches Wissen und Fragestellung sind für die Wahl der Aggregation entscheidend"
   },
   {
     "objectID": "01_VL_D.html#self-service-bi-3",
@@ -508,11 +508,18 @@
     "href": "01_VL_D.html#warmup-2",
     "title": "Business Intelligence & Data Science",
     "section": "Warmup",
-    "text": "Warmup\nDatenexploration in Superset\n\nFragen:\n\nWie viele Zeilen hat der Datensatz?\nWelche Genres und Artists gibt es?\nWie viele Songs gibt es pro Genre?\nWie viele verschiedene Artists gibt es pro Genre?\nWelches ist das beliebteste Genre?\nWann ist das aktuellste (älteste) Album erschienen?"
+    "text": "Warmup\nDatenexploration in Superset"
   },
   {
     "objectID": "01_VL_D.html#warmup-3",
     "href": "01_VL_D.html#warmup-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Warmup",
+    "text": "Warmup\nDatenexploration in Superset\n\nFragen:\n\nWas ist die durchschnittliche Beliebtheit pro Genre?\nWie viele Zeilen hat der Datensatz?\nWelche Genres und Artists gibt es?\nWie viele Songs gibt es pro Genre?\nWie viele verschiedene Artists gibt es pro Genre?\nWann ist das aktuellste (älteste) Album erschienen?"
+  },
+  {
+    "objectID": "01_VL_D.html#warmup-4",
+    "href": "01_VL_D.html#warmup-4",
     "title": "Business Intelligence & Data Science",
     "section": "Warmup",
     "text": "Warmup\nDatenexploration in Superset mit SQL Lab (Alternative)"

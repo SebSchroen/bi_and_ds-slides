@@ -3,7 +3,7 @@ title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 1"
 format:
   revealjs:
-    incremental: false  
+    incremental: true  
 ---
 
 ```{r}
@@ -193,6 +193,12 @@ Es ermöglicht Anwendenden, informierte Entscheidungen auf der Grundlage von Dat
     * Umfangreiche Analyse- und Reportingmöglichkeiten mit Self-Service Tools für Fachbereiche
 :::
 
+
+::: {.notes}
+* Punkt 1 und 3 der Definition von Gartner auf den ersten Blick identisch
+* Aber: Punkt 3 geht einen Schritt weiter, nämlich dass moderne Self-Service BI Tools mehr könnnen als früher und Fachbereichen ermöglichen, viele der Aufgaben selbst zu übernehmen, die früher durch die IT ausgeführt wurden, wie Drill-Downs, Erstellung eigener Visualisierungen und Dashbboards 
+:::
+
 ## Business Intelligence
 ### Betriebliche Dimensionen
 
@@ -312,7 +318,8 @@ Dispositive Daten
 ::: {.column width="50%"}
 Operative Daten
 
-* Dienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen^[Atomare und logisch untrennbare Datenbankvorgänge] erzeugt
+* Dienen der Abwicklung von Geschäftsprozessen und werden im Rahmen von Transaktionen erzeugt
+* Transaktionen: Atomare und logisch untrennbare Datenbankvorgänge 
 * Sehr granular und mit hoher Änderungsrate
 * Beispiele sind Bestellungen, Aufträge und Lagerbestände oder Stammdaten
 :::
@@ -435,7 +442,7 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 ### Terminologie
 ::: {style="font-size: 0.90em"}
 * Dimensions:
-  * Dimensionen sind die Kategorien, nach denen Daten gruppiert
+  * Dimensionen sind die Kategorien, nach denen Daten gruppiert werden
   * Idealerweise kategoriale Variablen, die nicht aggregiert werden
   * Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar
   * Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain
@@ -456,7 +463,7 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
   * Besonderheit Count und Count Distinct:
     * Count zählt die Anzahl der Datenpunkte,
     * Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)
-  * Semantisches Wissen und Fragestellung  sind für die Wahl der Aggregation
+  * Semantisches Wissen und Fragestellung  sind für die Wahl der Aggregation entscheidend
 
 :::
 
@@ -490,18 +497,21 @@ read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>%
 
 ![](img/Superset_Explorer-1.jpg){width="800" height="500"}
 
+## Warmup
+### Datenexploration in Superset
 
+![](img/Superset_Explorer-2.jpg){width="800" height="500"}
 
 
 ## Warmup
 ### Datenexploration in Superset
 
 * Fragen:
+  * Was ist die durchschnittliche Beliebtheit pro Genre?
   * Wie viele Zeilen hat der Datensatz?
   * Welche Genres und Artists gibt es?
   * Wie viele Songs gibt es pro Genre?
   * Wie viele verschiedene Artists gibt es pro Genre?
-  * Welches ist das beliebteste Genre?
   * Wann ist das aktuellste (älteste) Album erschienen?
 
 

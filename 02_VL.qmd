@@ -1,6 +1,7 @@
 ---
 title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 2"
+
 ---
 
 
@@ -485,7 +486,7 @@ da [label = 'Data & \n Analytics', width = 1, height = 0.7]
 ### Datensatz
 
 1. *Überblick über den Streamingmarkt*:
-    * Tabelle "market_share"
+    * Dataset "market_share"
     * Anzahl der Nutzer pro Plattform in Mio
     * Daten von 2016 bis 2024
     * Die Daten für 2024 sind eine Hochrechnung für das laufende Jahr
