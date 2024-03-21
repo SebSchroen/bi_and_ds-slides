@@ -20,6 +20,14 @@ subtitle: "Vorlesung 2"
 ### Datenbereitstellung
 ![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio.png){width="700" height="500"}
 
+::: {.notes}
+* Für den Moment nehmen wir erst einmal an, die Daten befänden sich bereits in unserem Zugriff in unserer unternehmenseigenen IT-Infrastuktur
+* Der eigentliche Weg dahin, der ETL Prozess: Extract, Transform, Load oder auf Deutsch Extraktion, Transformation, Laden, kommt dann in der nächsten Woche
+* Heute schauen wir uns den rechten Teil in der Datenbereitstellung an, den ersten Schritt auf dem Weg von operativen Rohdaten hin zu informationsgetriebenen Entscheidungen
+* Wir schauen uns an, wie Daten in einem Data Warehouse und Data Marts aufbereitet und bereitgestellt werden, welche Architekturkonzepte es gibt, was deren Vor- und Nachteile sind
+
+:::
+
 ## Data Warehouse
 ### Begriff
 
@@ -49,6 +57,13 @@ subtitle: "Vorlesung 2"
     * Zusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”
 :::    
 :::
+
+::: {.notes}
+* Themenorientierung bedeutet vor allem auch, dass die Quellsystelogik aufgebrochen wird, es also egal ist, aus welchen Systemen die Daten ursprünglich mal gekommen
+* Auch liegen hier nicht die Rohdaten, vielmehr haben schon Tranformationen stattgefunden, beispielsweise eine Harmonisierung und Aggregation
+* Diese Themen wirken relativ abstrakt, aber Beispiele sind Umsätze pro Produkthierarchieebene im aktuellen Jahr, oder der DB1 in den letzten Jahren 
+:::
+
 ## Data Warehouse
 ### Eigenschaften
 
@@ -62,6 +77,13 @@ subtitle: "Vorlesung 2"
     * DWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt
 :::
 
+::: {.notes}
+* Operative Daten sind immer ein Snapshot, der einen bestimmten Zeitpunkt abbildet. 
+* Beispielsweise durchläuft eine Order verschiedene Zustände und ein operatives System zeigt üblicherweise nur den Ist-Zustand. Beispiel: Bestellstatus bei einem Online-Händler
+* Im DWH wiederum wird eine Historie gebildet, die aggregiert wird, beispielsweise die Zustände der Orders pro Tag
+
+:::
+
 ## Data Warehouse 
 ### Komponenten des Data Warehouse
 ::: {.incremental}
@@ -72,7 +94,7 @@ Data Mart
 
 * Separater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen
 * Nur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen
-* Häufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen
+* Häufig mit Reporting und OLAP assoziiert, zunehmend aber auch für Analysen
 :::
 ::: {.column width="50%"}
 
@@ -108,6 +130,12 @@ Core Data Warehouse
 :::
 
 
+::: {.notes}
+* Jemand eine Idee was das bedeutet, syntaktisch und semantische Stimmigkeit?
+* Syntaktisch: Die Daten sind in der richtigen Form, also beispielsweise die richtigen Datentypen, die richtigen Werte
+* Semantisch: Die Daten haben die richtige Bedeutung, also beispielsweise die richtigen Bezeichnungen, die richtigen Einheiten, Währungen, Periodenzuordnungen
+:::
+
 ## Data Warehouse 
 ### Data Mart vs. CDWH
 ::: {.incremental}
@@ -123,6 +151,10 @@ Core Data Warehouse
 
 : Charakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an  @baars_business_2021 {tbl-colwidths="[20,40,40]"}
 :::
+:::
+
+::: {.notes}
+Beispiel: Tages und Wochendaten Fabrikläden vs. DSP wegen unterschiedlicher Planungszeiträume
 :::
 ## DWH Architekturen
 ### Unabhängige Data Marts
@@ -175,6 +207,9 @@ sales [label = 'Sales', width = 1]
 ::::
 
 ::: {.notes}
+* Kurz Formen besprechen und was sie darstellen:
+  * Zylinder sind Datenbanken und Systeme, hier MES, PDM und SAP
+  * Würfel sind mehrdimensinale Tabellen, unsere Data Marts
 * Stove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel
 :::
 
@@ -205,6 +240,13 @@ Nachteile:
 :::
 ::::
 :::
+
+::: {.notes}
+* Governance ist hier eine Art Regelwerk, das die Datenqualität und -sicherheit sicherstellt und gemeinsame Datenmodelle definiert
+* Im Extremfall haben die Marts dann inkompatible Datenmodelle, beispielsweise heißt die Datumsspalte in einem Mart DATE und im anderen YMD oder die Aggregationslevel weichen ab, sodass keine gemeinsame Analyse der Marts mehr möglich ist.
+
+:::
+
 ## DWH Architekturen
 ### Abgestimmte Data Marts
 
@@ -259,6 +301,9 @@ procurement [label= 'Procurement', width = 1]
 
 ::::
 
+::: {.notes}
+Frage: Was bedeutet hier inhaltliche und zeitliche Übereinstimmung und warum ist das wichtig?
+:::
 
 ## DWH Architekturen
 ### Abgestimmte Data Marts

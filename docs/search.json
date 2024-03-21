@@ -704,7 +704,7 @@
     "href": "02_VL_D.html#überblick-zum-bia-gesamteinsatz",
     "title": "Business Intelligence & Data Science",
     "section": "Überblick zum BIA Gesamteinsatz",
-    "text": "Überblick zum BIA Gesamteinsatz\nDatenbereitstellung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+    "text": "Überblick zum BIA Gesamteinsatz\nDatenbereitstellung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021).\n\n\n\n\nFür den Moment nehmen wir erst einmal an, die Daten befänden sich bereits in unserem Zugriff in unserer unternehmenseigenen IT-Infrastuktur\nDer eigentliche Weg dahin, der ETL Prozess: Extract, Transform, Load oder auf Deutsch Extraktion, Transformation, Laden, kommt dann in der nächsten Woche\nHeute schauen wir uns den rechten Teil in der Datenbereitstellung an, den ersten Schritt auf dem Weg von operativen Rohdaten hin zu informationsgetriebenen Entscheidungen\nWir schauen uns an, wie Daten in einem Data Warehouse und Data Marts aufbereitet und bereitgestellt werden, welche Architekturkonzepte es gibt, was deren Vor- und Nachteile sind"
   },
   {
     "objectID": "02_VL_D.html#data-warehouse",
@@ -718,56 +718,56 @@
     "href": "02_VL_D.html#data-warehouse-1",
     "title": "Business Intelligence & Data Science",
     "section": "Data Warehouse",
-    "text": "Data Warehouse\nEigenschaften\n\n\n\nThemenorientierung:\n\nDispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet\nDie operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert\nThemen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1\n\nIntegration:\n\nDaten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert\nZusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”"
+    "text": "Data Warehouse\nEigenschaften\n\n\n\nThemenorientierung:\n\nDispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet\nDie operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert\nThemen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1\n\nIntegration:\n\nDaten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert\nZusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”\n\n\n\n\n\n\nThemenorientierung bedeutet vor allem auch, dass die Quellsystelogik aufgebrochen wird, es also egal ist, aus welchen Systemen die Daten ursprünglich mal gekommen\nAuch liegen hier nicht die Rohdaten, vielmehr haben schon Tranformationen stattgefunden, beispielsweise eine Harmonisierung und Aggregation\nDiese Themen wirken relativ abstrakt, aber Beispiele sind Umsätze pro Produkthierarchieebene im aktuellen Jahr, oder der DB1 in den letzten Jahren"
   },
   {
     "objectID": "02_VL_D.html#data-warehouse-2",
     "href": "02_VL_D.html#data-warehouse-2",
     "title": "Business Intelligence & Data Science",
     "section": "Data Warehouse",
-    "text": "Data Warehouse\nEigenschaften\n\n\nZeitraumbezug:\n\nOperative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab\nDaten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr\n\nNicht-Volatilität:\n\nDaten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt\nDWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt"
+    "text": "Data Warehouse\nEigenschaften\n\n\nZeitraumbezug:\n\nOperative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab\nDaten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr\n\nNicht-Volatilität:\n\nDaten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt\nDWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt\n\n\n\n\n\nOperative Daten sind immer ein Snapshot, der einen bestimmten Zeitpunkt abbildet.\nBeispielsweise durchläuft eine Order verschiedene Zustände und ein operatives System zeigt üblicherweise nur den Ist-Zustand. Beispiel: Bestellstatus bei einem Online-Händler\nIm DWH wiederum wird eine Historie gebildet, die aggregiert wird, beispielsweise die Zustände der Orders pro Tag"
   },
   {
     "objectID": "02_VL_D.html#data-warehouse-3",
     "href": "02_VL_D.html#data-warehouse-3",
     "title": "Business Intelligence & Data Science",
     "section": "Data Warehouse",
-    "text": "Data Warehouse\nKomponenten des Data Warehouse\n\n\n\nData Mart\n\nSeparater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen\nNur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen\nHäufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen\n\n\nCore Data Warehouse\n\nRückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet\nBefüllung über ETL-Prozesse aus operativen Quellsystemen\nMeist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)\nApplikationsneutral modelliert"
+    "text": "Data Warehouse\nKomponenten des Data Warehouse\n\n\n\nData Mart\n\nSeparater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen\nNur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen\nHäufig mit Reporting und OLAP assoziiert, zunehmend aber auch für Analysen\n\n\nCore Data Warehouse\n\nRückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet\nBefüllung über ETL-Prozesse aus operativen Quellsystemen\nMeist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)\nApplikationsneutral modelliert"
   },
   {
     "objectID": "02_VL_D.html#data-warehouse-4",
     "href": "02_VL_D.html#data-warehouse-4",
     "title": "Business Intelligence & Data Science",
     "section": "Data Warehouse",
-    "text": "Data Warehouse\nFunktionen des CDWH\n\nSammel- und Integrationsfunktion:\n\n\n\nAufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers\n\n\n\nDistributionsfunktion:\n\n\n\nVersorgung aller nachgeschalteten Data Marts mit Daten\n\n\n\nQualitätssicherungsfunktion:\n\n\n\nDatentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis"
+    "text": "Data Warehouse\nFunktionen des CDWH\n\nSammel- und Integrationsfunktion:\n\n\n\nAufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers\n\n\n\nDistributionsfunktion:\n\n\n\nVersorgung aller nachgeschalteten Data Marts mit Daten\n\n\n\nQualitätssicherungsfunktion:\n\n\n\nDatentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis\n\n\n\n\nJemand eine Idee was das bedeutet, syntaktisch und semantische Stimmigkeit?\nSyntaktisch: Die Daten sind in der richtigen Form, also beispielsweise die richtigen Datentypen, die richtigen Werte\nSemantisch: Die Daten haben die richtige Bedeutung, also beispielsweise die richtigen Bezeichnungen, die richtigen Einheiten, Währungen, Periodenzuordnungen"
   },
   {
     "objectID": "02_VL_D.html#data-warehouse-5",
     "href": "02_VL_D.html#data-warehouse-5",
     "title": "Business Intelligence & Data Science",
     "section": "Data Warehouse",
-    "text": "Data Warehouse\nData Mart vs. CDWH\n\n\n\nCharakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an Baars und Kemper (2021)\n\n\n\n\n\n\n\n\nData Mart\nCore Data Warehouse\n\n\n\n\nZiel\nEntscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten\nEntscheidungsunterstützung für alle Bereiche in einem Unternehmen\n\n\nAusrichtung\nBereichsspezifisch oder Abteilungsbezogen\nZentral und unternehmensweit\n\n\nGranularität\nHöhere Aggregationen\nFeinste verfügbare Granularität\n\n\nVerfügbarkeit für Endanwendende\nIn der Regel möglich\nHäufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt\n\n\nFlexibilität der Analysen\nTendenziell gering und auf Anwendungsbereich beschränkt\nSehr flexibel\n\n\nVolumina\nGering bis moderat\nModerat bis umfangreich"
+    "text": "Data Warehouse\nData Mart vs. CDWH\n\n\n\nCharakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an Baars und Kemper (2021)\n\n\n\n\n\n\n\n\nData Mart\nCore Data Warehouse\n\n\n\n\nZiel\nEntscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten\nEntscheidungsunterstützung für alle Bereiche in einem Unternehmen\n\n\nAusrichtung\nBereichsspezifisch oder Abteilungsbezogen\nZentral und unternehmensweit\n\n\nGranularität\nHöhere Aggregationen\nFeinste verfügbare Granularität\n\n\nVerfügbarkeit für Endanwendende\nIn der Regel möglich\nHäufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt\n\n\nFlexibilität der Analysen\nTendenziell gering und auf Anwendungsbereich beschränkt\nSehr flexibel\n\n\nVolumina\nGering bis moderat\nModerat bis umfangreich\n\n\n\n\n\n\nBeispiel: Tages und Wochendaten Fabrikläden vs. DSP wegen unterschiedlicher Planungszeiträume"
   },
   {
     "objectID": "02_VL_D.html#dwh-architekturen",
     "href": "02_VL_D.html#dwh-architekturen",
     "title": "Business Intelligence & Data Science",
     "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\n\n\n\n\n\nUnabhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nAuch Stove-Pipe Ansatz\nBedienen sich direkt aus den operativen und externen Systemen\nBereiten die enthaltenen Daten für relevante Anwendungsfelder auf\nDaten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen\nVerschiedene Marts können unterschiedliche externe Datenquellen zusammenführen\n\n\n\n\n\n\nStove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel"
+    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\n\n\n\n\n\nUnabhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nAuch Stove-Pipe Ansatz\nBedienen sich direkt aus den operativen und externen Systemen\nBereiten die enthaltenen Daten für relevante Anwendungsfelder auf\nDaten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen\nVerschiedene Marts können unterschiedliche externe Datenquellen zusammenführen\n\n\n\n\n\n\nKurz Formen besprechen und was sie darstellen:\n\nZylinder sind Datenbanken und Systeme, hier MES, PDM und SAP\nWürfel sind mehrdimensinale Tabellen, unsere Data Marts\n\nStove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel"
   },
   {
     "objectID": "02_VL_D.html#dwh-architekturen-1",
     "href": "02_VL_D.html#dwh-architekturen-1",
     "title": "Business Intelligence & Data Science",
     "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\nVorteile:\n\nSchnelle und bereichsspezifische Informationsbereitstellung\nSinnvoll bei fehlender Governance Strategie\nErfüllung maßgeschneideter bereichsspezifischer Fragestellungen\n\n\nNachteile:\n\nHäufig historisch gewachsene Strukturen und damit geringe Governance\nMehrfache Aufbereitung der Quelldaten\nGefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts\nMangelnde Möglichkeit bereichsübergreifender Analysen"
+    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\nVorteile:\n\nSchnelle und bereichsspezifische Informationsbereitstellung\nSinnvoll bei fehlender Governance Strategie\nErfüllung maßgeschneideter bereichsspezifischer Fragestellungen\n\n\nNachteile:\n\nHäufig historisch gewachsene Strukturen und damit geringe Governance\nMehrfache Aufbereitung der Quelldaten\nGefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts\nMangelnde Möglichkeit bereichsübergreifender Analysen\n\n\n\n\n\n\nGovernance ist hier eine Art Regelwerk, das die Datenqualität und -sicherheit sicherstellt und gemeinsame Datenmodelle definiert\nIm Extremfall haben die Marts dann inkompatible Datenmodelle, beispielsweise heißt die Datumsspalte in einem Mart DATE und im anderen YMD oder die Aggregationslevel weichen ab, sodass keine gemeinsame Analyse der Marts mehr möglich ist."
   },
   {
     "objectID": "02_VL_D.html#dwh-architekturen-2",
     "href": "02_VL_D.html#dwh-architekturen-2",
     "title": "Business Intelligence & Data Science",
     "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nAbgestimmte Data Marts\n\n\n\n\n\n\n\nAbhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nKonzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten\nDas abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung\nInhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts"
+    "text": "DWH Architekturen\nAbgestimmte Data Marts\n\n\n\n\n\n\n\nAbhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nKonzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten\nDas abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung\nInhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts\n\n\n\n\n\nFrage: Was bedeutet hier inhaltliche und zeitliche Übereinstimmung und warum ist das wichtig?"
   },
   {
     "objectID": "02_VL_D.html#dwh-architekturen-3",

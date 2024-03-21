@@ -397,6 +397,24 @@ Dr.&nbsp;Sebastian Schrön
 <figcaption>BIA Gesamtansatz. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span>.</figcaption>
 </figure>
 </div>
+<aside class="notes">
+<ul>
+<li>Für den Moment nehmen wir erst einmal an, die Daten befänden sich bereits in unserem Zugriff in unserer unternehmenseigenen IT-Infrastuktur</li>
+<li>Der eigentliche Weg dahin, der ETL Prozess: Extract, Transform, Load oder auf Deutsch Extraktion, Transformation, Laden, kommt dann in der nächsten Woche</li>
+<li>Heute schauen wir uns den rechten Teil in der Datenbereitstellung an, den ersten Schritt auf dem Weg von operativen Rohdaten hin zu informationsgetriebenen Entscheidungen</li>
+<li>Wir schauen uns an, wie Daten in einem Data Warehouse und Data Marts aufbereitet und bereitgestellt werden, welche Architekturkonzepte es gibt, was deren Vor- und Nachteile sind</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-warehouse" class="slide level2">
 <h2>Data Warehouse</h2>
@@ -455,6 +473,23 @@ Dr.&nbsp;Sebastian Schrön
 </ol>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Themenorientierung bedeutet vor allem auch, dass die Quellsystelogik aufgebrochen wird, es also egal ist, aus welchen Systemen die Daten ursprünglich mal gekommen</li>
+<li>Auch liegen hier nicht die Rohdaten, vielmehr haben schon Tranformationen stattgefunden, beispielsweise eine Harmonisierung und Aggregation</li>
+<li>Diese Themen wirken relativ abstrakt, aber Beispiele sind Umsätze pro Produkthierarchieebene im aktuellen Jahr, oder der DB1 in den letzten Jahren</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-warehouse-2" class="slide level2">
 <h2>Data Warehouse</h2>
@@ -473,6 +508,23 @@ Dr.&nbsp;Sebastian Schrön
 </ul></li>
 </ol>
 </div>
+<aside class="notes">
+<ul>
+<li>Operative Daten sind immer ein Snapshot, der einen bestimmten Zeitpunkt abbildet.</li>
+<li>Beispielsweise durchläuft eine Order verschiedene Zustände und ein operatives System zeigt üblicherweise nur den Ist-Zustand. Beispiel: Bestellstatus bei einem Online-Händler</li>
+<li>Im DWH wiederum wird eine Historie gebildet, die aggregiert wird, beispielsweise die Zustände der Orders pro Tag</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-warehouse-3" class="slide level2">
 <h2>Data Warehouse</h2>
@@ -484,7 +536,7 @@ Dr.&nbsp;Sebastian Schrön
 <ul>
 <li class="fragment">Separater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen</li>
 <li class="fragment">Nur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen</li>
-<li class="fragment">Häufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen</li>
+<li class="fragment">Häufig mit Reporting und OLAP assoziiert, zunehmend aber auch für Analysen</li>
 </ul>
 </div><div class="column" style="width:50%;">
 <p>Core Data Warehouse</p>
@@ -525,6 +577,23 @@ Dr.&nbsp;Sebastian Schrön
 <li>Datentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis</li>
 </ul>
 </div>
+<aside class="notes">
+<ul>
+<li>Jemand eine Idee was das bedeutet, syntaktisch und semantische Stimmigkeit?</li>
+<li>Syntaktisch: Die Daten sind in der richtigen Form, also beispielsweise die richtigen Datentypen, die richtigen Werte</li>
+<li>Semantisch: Die Daten haben die richtige Bedeutung, also beispielsweise die richtigen Bezeichnungen, die richtigen Einheiten, Währungen, Periodenzuordnungen</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="data-warehouse-5" class="slide level2">
 <h2>Data Warehouse</h2>
@@ -580,6 +649,19 @@ Dr.&nbsp;Sebastian Schrön
 </table>
 </div>
 </div>
+<aside class="notes">
+<p>Beispiel: Tages und Wochendaten Fabrikläden vs.&nbsp;DSP wegen unterschiedlicher Planungszeiträume</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="dwh-architekturen" class="slide level2">
 <h2>DWH Architekturen</h2>
@@ -590,8 +672,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-01693ac2a562a3ffe204" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-01693ac2a562a3ffe204">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-bd7e572d5c5946a33a55" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-bd7e572d5c5946a33a55">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Unabhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -610,6 +692,11 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 <aside class="notes">
 <ul>
+<li>Kurz Formen besprechen und was sie darstellen:
+<ul>
+<li>Zylinder sind Datenbanken und Systeme, hier MES, PDM und SAP</li>
+<li>Würfel sind mehrdimensinale Tabellen, unsere Data Marts</li>
+</ul></li>
 <li>Stove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel</li>
 </ul>
 <style type="text/css">
@@ -647,6 +734,22 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 </div>
 </div>
+<aside class="notes">
+<ul>
+<li>Governance ist hier eine Art Regelwerk, das die Datenqualität und -sicherheit sicherstellt und gemeinsame Datenmodelle definiert</li>
+<li>Im Extremfall haben die Marts dann inkompatible Datenmodelle, beispielsweise heißt die Datumsspalte in einem Mart DATE und im anderen YMD oder die Aggregationslevel weichen ab, sodass keine gemeinsame Analyse der Marts mehr möglich ist.</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="dwh-architekturen-2" class="slide level2">
 <h2>DWH Architekturen</h2>
@@ -656,8 +759,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-dc74fa2ad491e23ff4bd" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dc74fa2ad491e23ff4bd">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4ca40140eeb29d0be477" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4ca40140eeb29d0be477">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Abhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -672,6 +775,19 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 </div>
 </div>
+<aside class="notes">
+<p>Frage: Was bedeutet hier inhaltliche und zeitliche Übereinstimmung und warum ist das wichtig?</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="dwh-architekturen-3" class="slide level2">
 <h2>DWH Architekturen</h2>
@@ -704,8 +820,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-e7c0a97a8e281d8607ce" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e7c0a97a8e281d8607ce">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cb3277849cef82efcfab" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cb3277849cef82efcfab">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Core Data Warehouse. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -760,8 +876,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-b8f552d8b2d09720f183" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b8f552d8b2d09720f183">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0196f9ec2ee1a9fbbf4b" style="width:400px;height:450px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0196f9ec2ee1a9fbbf4b">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Core Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
@@ -796,8 +912,8 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.70em">
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-f9ba513d3633a2deba38" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-f9ba513d3633a2deba38">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item" id="htmlwidget-43b55ec244126405719e" style="width:960px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-43b55ec244126405719e">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Architekturen-Mix. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
 </div>
 </div>
