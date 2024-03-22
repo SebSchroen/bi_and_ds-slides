@@ -63,6 +63,24 @@ library(dplyr)
 :::
 
 
+::: {.notes}
+Exkurs Bits und Bytes:
+
+1 Bit = Kleinste Informationseinheit, kann 0 oder 1 sein
+1 Byte = 8 Bit, entspricht einem Zeichen, bspw. einem Buchstaben und kann 256 verschiedene Kombinationen annehmen, nämlich 2^8.
+Warum 2^8? Weil 2 Zustände (0 oder 1) und 8 Stellen (Bit) = 2^8 = 256
+1 Byte ist auch die kleinste Speichereinheit in Computern
+1 Kilobyte (KB) = 1024 Byte
+1 Megabyte (MB) = 1024 KB
+1 Gigabyte (GB) = 1024 MB
+1 Terabyte (TB) = 1024 GB
+1 Petabyte (PB) = 1024 TB
+1 Exabyte (EB) = 1024 PB
+1 Zettabyte (ZB) = 1024 EB
+1 Yottabyte (YB) = 1024 ZB
+
+:::
+
 ::: {.column width="50%"}
 ![Quelle: [Siemens Stiftung 2019](https://medienportal.siemens-stiftung.org/de/big-data-111955)](img/3vs.png)
 :::
@@ -201,7 +219,7 @@ library(dplyr)
 | Data Warehouse | Data Lake |
 |---|---|
 | Optimiert für wiederholbare Prozesse | Originär eine Erweiterung der DWH Staging Area |
-| Unterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen | Optimiert Daten für Analystics-Lösungen |
+| Unterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen | Optimiert Daten für Analytics-Lösungen |
 | Fokus auf vergangenheitsbezogene Auswertungen | Fokus auf unbekannte explorative Datenanalyse und zukunftsorienterte Methoden |
 | Schema-on-Write mit harmonisiertem Datenmodell | Schema-on-Read mit Echtzeit Rohdaten Bewirtschaftung |
 
@@ -242,7 +260,7 @@ library(dplyr)
 ::: {style="font-size: 0.87em"}
 1. **Transient Zone**: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert
 2. **Raw Data Zone**: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten
-3. **Curated Zone**: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haen und von Mängeln befreit wurden
+3. **Curated Zone**: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haben und von Mängeln befreit wurden
 4. **Discovery Sandbox**: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt
 5. **Consumption Zone**: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung
 :::

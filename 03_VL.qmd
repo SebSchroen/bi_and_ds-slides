@@ -155,7 +155,7 @@ vertical <- market_share %>%
   group_by(Year) %>% 
   summarise(User = sum(User)) %>%
 ggplot(data = ., aes(x = Year, y = User)) +
-  geom_col(position = "dodge") +
+  geom_col(position = "identity", just = 1) +
   labs(title = "Vertikales Balkendiagramm",
        subtitle = "User in Mio insgesamt",
        x = "Jahr",
@@ -167,7 +167,7 @@ horizontal <- market_share %>%
   summarise(User = sum(User)) %>% 
   mutate(Year = year(Year)) %>% 
 ggplot(data = ., aes(x = reorder(Year, -User), y = User)) +
-  geom_col(position = "dodge") +
+  geom_col(position = "identity") +
   labs(title = "Horizontales Balkendiagramm",
        subtitle = "User in Mio insgesamt",
        x = "Jahr",
@@ -206,7 +206,7 @@ vertical/horizontal
 ```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
 
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
-  geom_col(position = "dodge") +
+  geom_col(position = "dodge", just = 1) +
   labs(title = "Gruppiertes Balkendiagramm",
        subtitle = "User in Mio pro Anbieter",
        x = "Jahr",
@@ -243,7 +243,7 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 ```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
 
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
-  geom_col(position = "stack") +
+  geom_col(position = "stack", just = 1) +
   labs(title = "Gruppiertes Balkendiagramm",
        subtitle = "User in Mio pro Anbieter",
        x = "Jahr",
@@ -280,7 +280,7 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 ```{r, echo = FALSE, fig.width= 6, fig.height= 5.5}
 
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
-  geom_col(position = "fill") +
+  geom_col(position = "fill", just = 1) +
   labs(title = "Gruppiertes Balkendiagramm",
        subtitle = "User in Mio pro Anbieter",
        x = "Jahr",
