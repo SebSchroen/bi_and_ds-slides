@@ -168,8 +168,11 @@ library(dplyr)
 :::
 :::
 
+
 ::: {.column width="45%"}
+::: {.fragment .fade-in}
 ![Graph Database, Quelle: [Data Engineering Wiki](https://dataengineering.wiki/Concepts/Graph+Database)](img/graph_database_example.png){width="400" height="400"} 
+:::
 :::
 ::::
 

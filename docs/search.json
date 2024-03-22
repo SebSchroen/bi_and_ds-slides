@@ -123,7 +123,7 @@
     "href": "03_VL.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-05\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-07\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-11\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-04\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-06\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-08\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-12\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-05\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",
@@ -998,7 +998,7 @@
     "href": "04_VL.html#nosql-datenbanken-2",
     "title": "Business Intelligence & Data Science",
     "section": "NoSQL Datenbanken",
-    "text": "NoSQL Datenbanken\nWide Column Stores und Graph-Databases\n\n\n\n\nWide Column Stores:\n\nDatenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können\nEinzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann\n\nGraph-Databases:\n\nSind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet.\nBasieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)\n\n\n\n\n\n\n\nGraph Database, Quelle: Data Engineering Wiki"
+    "text": "NoSQL Datenbanken\nWide Column Stores und Graph-Databases\n\n\n\n\nWide Column Stores:\n\nDatenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können\nEinzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann\n\nGraph-Databases:\n\nSind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet.\nBasieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)\n\n\n\n\n\n\n\n\nGraph Database, Quelle: Data Engineering Wiki"
   },
   {
     "objectID": "04_VL.html#data-lake-1",
