@@ -172,7 +172,7 @@
     "href": "03_VL.html#anreicherung-1",
     "title": "Business Intelligence & Data Science",
     "section": "Anreicherung",
-    "text": "Anreicherung\nKennzahlberechnung\n\nDiese Vorgehensweise hat mehrere Vorteile:\n\nKalkulierbare Reaktionszeigen bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.\nGarantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.\nEtablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes"
+    "text": "Anreicherung\nKennzahlberechnung\n\nDiese Vorgehensweise hat mehrere Vorteile:\n\nKalkulierbare Reaktionszeiten bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.\nGarantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.\nEtablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes"
   },
   {
     "objectID": "03_VL.html#business-case-1",

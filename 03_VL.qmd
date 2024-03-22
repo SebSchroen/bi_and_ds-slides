@@ -244,7 +244,7 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
   geom_col(position = "stack", just = 1) +
-  labs(title = "Gruppiertes Balkendiagramm",
+  labs(title = "Gestapeltes Balkendiagramm",
        subtitle = "User in Mio pro Anbieter",
        x = "Jahr",
        y = "User in Mio.",
@@ -281,7 +281,7 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
   geom_col(position = "fill", just = 1) +
-  labs(title = "Gruppiertes Balkendiagramm",
+  labs(title = "Gestapeltes Balkendiagramm",
        subtitle = "User in Mio pro Anbieter",
        x = "Jahr",
        y = "User in Mio.",
@@ -558,7 +558,7 @@ kable(user_data, digits = 0)
 ### Kennzahlberechnung
 
 * Diese Vorgehensweise hat mehrere Vorteile:
-    * Kalkulierbare Reaktionszeigen bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.
+    * Kalkulierbare Reaktionszeiten bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.
     * Garantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.
     * Etablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes
 
