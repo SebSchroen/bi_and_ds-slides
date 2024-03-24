@@ -196,7 +196,7 @@ vertical/horizontal
 ::: {style="font-size: 0.75em"}
 * Eignen sich für die Darstellung absoluter Häufigkeiten über mehrere Dimensionen
 * Bei zu großen Unterschieden zwischen Gruppen schwer lesbar
-* Auch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und* Zeitachse immer aufsteigend sortieren 
+* Auch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und Zeitachse immer aufsteigend sortieren 
 :::
 :::
 ::: {.column width="65%"}

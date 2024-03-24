@@ -53,7 +53,7 @@
     "href": "03_VL.html#visualisierung-1",
     "title": "Business Intelligence & Data Science",
     "section": "Visualisierung",
-    "text": "Visualisierung\nGruppiertes Balkendiagramm\n\n\n\n\nEignen sich für die Darstellung absoluter Häufigkeiten über mehrere Dimensionen\nBei zu großen Unterschieden zwischen Gruppen schwer lesbar\nAuch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und* Zeitachse immer aufsteigend sortieren"
+    "text": "Visualisierung\nGruppiertes Balkendiagramm\n\n\n\n\nEignen sich für die Darstellung absoluter Häufigkeiten über mehrere Dimensionen\nBei zu großen Unterschieden zwischen Gruppen schwer lesbar\nAuch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und Zeitachse immer aufsteigend sortieren"
   },
   {
     "objectID": "03_VL.html#visualisierung-2",
@@ -123,7 +123,7 @@
     "href": "03_VL.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-06\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-08\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-12\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-05\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-08\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-10\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-14\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-07\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",
@@ -376,6 +376,188 @@
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
     "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nHahne, Michael. 2016. „Architekturkonzepte und Modellierungsverfahren für BI-Systeme“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_8.\n\n\nKemper, Hans-Georg, und Xuanpu Sun. 2023. „Data Warehouse“. In Gabler Bankenlexikon. https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924."
+  },
+  {
+    "objectID": "05_VL.html#der-plan-für-heute",
+    "href": "05_VL.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung\n\n\nQuiz und Recap\nVisualisierung von Anteilen: Kreisdiagramme, Treemaps und Sankey Plots\nInformationsgenerierung\n\nWelche Formen von Berichten gibt es?\nWas ist OLAP?\nWo genau unterscheiden sich Self-Sevice BI und traditionelle BI?\n\nModellgestützte Analysen\n\nWie läuft ein Data Science Projekt ab?\nBegriffliche Grundlagen Data Science"
+  },
+  {
+    "objectID": "05_VL.html#kurzer-überblick-wo-gehts-weiter",
+    "href": "05_VL.html#kurzer-überblick-wo-gehts-weiter",
+    "title": "Business Intelligence & Data Science",
+    "section": "Kurzer Überblick: Wo geht’s weiter?",
+    "text": "Kurzer Überblick: Wo geht’s weiter?\nInformationsgenerierung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+  },
+  {
+    "objectID": "05_VL.html#berichtsorientierte-analyse",
+    "href": "05_VL.html#berichtsorientierte-analyse",
+    "title": "Business Intelligence & Data Science",
+    "section": "Berichtsorientierte Analyse",
+    "text": "Berichtsorientierte Analyse\nReporting\n\nEin Bericht oder Report gibt einen Überblick über betriebswirtschaftliche Sachverhalte eines abgegrenzten Verantwortungsbereichs\nIn der Regel durch Visualisierung von Zusammenhängen in grafischer Form\nBetriebliches Berichtswesen wird in interne und externe Berichterstattung unterteilt:\n\nInternes Berichtswesen: Informationen für das Management, bspw. internes Rechnungswesen\nExternes Berichtswesen: Informationen für externe Stakeholder, bspw. Jahresbericht"
+  },
+  {
+    "objectID": "05_VL.html#berichtsorientierte-analyse-1",
+    "href": "05_VL.html#berichtsorientierte-analyse-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Berichtsorientierte Analyse",
+    "text": "Berichtsorientierte Analyse\nReporting\n\nAktive Berichtskomponenten:\n\nWerden nach einmaliger Spezifikation der Inhalte und Formate regelmäßig erstellt und aktiv versandt, entweder:\n\nPeriodisch: In festen Zeitabständen (jede Woche, jedes Quartal)\nAperiodisch: Bei Überschreitung bestimmter Grenzwerte (z.B. Umsatzgrenze)\n\n\nPassive Berichtskomponenten:\n\nWerden nur auf konkrete Anforderungen der Anwendenden erstellt\nIndividuelle und bedarfsspezifische Berichte\nAuch Ad-hoc Berichtskomponente genannt, oft mit OLAP und Self-Service Tools umgesetzt"
+  },
+  {
+    "objectID": "05_VL.html#berichtsorientierte-analyse-2",
+    "href": "05_VL.html#berichtsorientierte-analyse-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Berichtsorientierte Analyse",
+    "text": "Berichtsorientierte Analyse\nOLAP\n\nOnline Analyitical Processing (OLAP) ermöglicht die Bereitstellung anwendungsfreundlicher und gleichermaßen flexibler Abfragen in multidimensionalen Datenräumen\nForm des Ad-hoc Reportings\nOLAP-Komponenten sind weitgehend mit Pivot Tabellen in Excel oder Google Sheets vergleichbar\nAber: Erweitert um ein zentrales Datenmodell (meist Data Mart basiert) und Rollenverwaltung"
+  },
+  {
+    "objectID": "05_VL.html#olap-1",
+    "href": "05_VL.html#olap-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nDatenmodell als Würfel\n\n\n\n\nBestehen konzeptionell aus Fakten, Dimensionen und Hierarchien\nDa oft mehrere Dimensionen vorliegen, spricht man von Cubes\nTheoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt\nBei mehr als 3 Dimensionen spricht man oft von Hypercube\nBei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen\n\n\n\n\n\n\nCube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: Wikipedia"
+  },
+  {
+    "objectID": "05_VL.html#olap-2",
+    "href": "05_VL.html#olap-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nSlicing\n\nSlicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird\nIm Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen\n\n\n\n\nOLAP Slicing. Quelle: Wikipedia"
+  },
+  {
+    "objectID": "05_VL.html#olap-3",
+    "href": "05_VL.html#olap-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nDicing\n\nDicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht\nIm Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert\n\n\n\n\nOLAP Dicing Quelle: Wikipedia"
+  },
+  {
+    "objectID": "05_VL.html#olap-4",
+    "href": "05_VL.html#olap-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nPivotierung\n\n\nAuswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr\nGrafisch entspricht eine solche Ansicht einer Seite des Würfels\nDurch Pivotierung wird der Würfel um eine Achse gedreht\nIm Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie\n\n\n\n\n\nOLAP Pivotierung/Rotation Quelle: Wikipedia"
+  },
+  {
+    "objectID": "05_VL.html#olap-5",
+    "href": "05_VL.html#olap-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nRoll-Up, Drill-Down & Drill-Through\n\nBeim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert\nBeim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004\nIn einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist\nDas geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen"
+  },
+  {
+    "objectID": "05_VL.html#olap-6",
+    "href": "05_VL.html#olap-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nPhysikalische Umsetzung und Anbindungsschnittstellen\n\nDie Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig\nOLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel\nEin bekanntes Beispiel ist SAP Analysis für Excel\nAndere gängige Praxis sind webbasierte Schnittstellen wie Cubeware Cockpit"
+  },
+  {
+    "objectID": "05_VL.html#self-service-bi",
+    "href": "05_VL.html#self-service-bi",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nDas Versprechen von Self-Service BI\n\nSelf Service BI setzt beim Versprechen an, die Anwendenden in die Lage zu versetzen eigenständig und flexibel den Datenbestand nach neuen Verknüpfungen zu untersuchen\nDas kann zudem weitgehend unabhängig von der Unternehmens-IT betrieben und bedient werden\nTraditionelle BI-Lösungen sind oft als zu starr angesehen, wenn es darum geht, neue Reporting Anforderungen rasch umzusetzen und damit innovative Analysen zu testen"
+  },
+  {
+    "objectID": "05_VL.html#self-service-bi-vs.-traditionelle-bi",
+    "href": "05_VL.html#self-service-bi-vs.-traditionelle-bi",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI vs. Traditionelle BI",
+    "text": "Self-Service BI vs. Traditionelle BI\nBlick auf die alte Welt\n\n\n\nTraditionelle BI, Quelle: Fidelity"
+  },
+  {
+    "objectID": "05_VL.html#self-service-bi-vs.-traditionelle-bi-1",
+    "href": "05_VL.html#self-service-bi-vs.-traditionelle-bi-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI vs. Traditionelle BI",
+    "text": "Self-Service BI vs. Traditionelle BI\nVersprechen der neuen Welt am Beispiel von Looker\n\n\n\nTraditionelle BI, Quelle: Fidelity"
+  },
+  {
+    "objectID": "05_VL.html#der-data-science-prozess",
+    "href": "05_VL.html#der-data-science-prozess",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Data Science Prozess",
+    "text": "Der Data Science Prozess\nAblauf von Data Science Use Cases\n\n\n\n\nData Science Projekte sind in der Praxis aufwendig und erfordern stets die Zusammenarbeit zwischen Fachabteilungen und Data Science Team\nDeshalb wurden feste Prozesse etabliert, bspw. der Cross Reference Industry Standard Process for Data Mining (CRISP-DM)\nCRISP-DM besteht aus 6 Phasen, die iterativ durchlaufen werden\nRückkopplungen zwischen den Phasen sind dabei oft notwendig\n\n\n\n\n\n\nCRISP-DM Prozess. Eigene Darstellung in Anlehnung an Meier (2021)."
+  },
+  {
+    "objectID": "05_VL.html#crisp-dm",
+    "href": "05_VL.html#crisp-dm",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nGeschäftsmodell\n\nVerständnis des Geschäftsmodells\n\nVerständnis des Geschäftsmodells und der Unternehmensziele\nBerücksichtigung von Chancen, Risiken und zeitlichen Aspekten\nDefinition des erwartbaren Nutzens und messbarer Erfolgskriterien"
+  },
+  {
+    "objectID": "05_VL.html#crisp-dm-1",
+    "href": "05_VL.html#crisp-dm-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nAnwendungs-/Datendomäne und Datenvorbereitung\n\nVerständnis der Anwendungs- und Datendomäne\n\nAnalyse der Unternehmensprozesse und Datenquellen\nZusammenführung, Beschreibung und Exploration der Zieldaten\nEruierung der Datenqualität\n\nDatenvorbereitung\n\nZusammenführung und Beschreibung polystrukturierter Daten\nBerechnung von Kennzahlen und Durchführung von Datentransformationen"
+  },
+  {
+    "objectID": "05_VL.html#crisp-dm-2",
+    "href": "05_VL.html#crisp-dm-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nModellierung, Evaluation und Bereitstellung\n\nModellierung\n\nModellauswahl und -erstellung\nIterativer Prozess zur Weiterentwicklung von Modellen\nMöglicher Einsatz vortrainierter Modelle für die Verfeinerung\n\nEvaluation\n\nBewertung der erstellten Modelle anhand definierter Erfolgskriterien\n\nEinsatz\n\nUmsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen",
+    "href": "05_VL.html#begriffliche-grundlagen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nEine Gleichung, viele Anwendungen\n\n\nDie Generierung von modellbasierten Erkenntnissen aus Daten erfordert eine Definition des Lernproblems, oft mit einer simplen Gleichung:\n\n\\[\ny = f(X) + \\epsilon\n\\]\n\n\\(y\\) ist ein \\(N \\times 1\\) Vektor mit einer Ergebnisvariablen\n\\(X\\) ist eine \\(N \\times P\\) Matrix mit Prädiktoren \\(X_1, X_2,..., X_P\\)\n\\(N\\) entspricht der Anzahl von Beobachtungen im vorliegenden Datensatz, \\(P\\) ist die Anzahl der Prädiktoren\nAnstelle von Prädiktoren werden oft die Begriffe erklärende oder unabhängige Variablen oder Features verwendet\n\\(f\\) beschreibt alle systematischen Zusammenhänge zwischen \\(X\\) und \\(y\\), während der Fehlerterm \\(\\epsilon\\) alle Variation in \\(X\\) aufnimmt, die nicht von \\(f\\) erklärbar sind"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-1",
+    "href": "05_VL.html#begriffliche-grundlagen-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nVorhersage vs. Inferenz\n\nAngenommen, wir haben eine Funktion \\(f\\) sowie einen Algorithmus gefunden, um \\(f\\) an unsere Variablen \\(y\\) und \\(X\\) anzupassen\nDie Modellschätzung wird auch als Modelltraining oder Modellanpassung bezeichnet und unser trainiertes Modell hat die Form:\n\n\\[\n\\hat{y} = \\hat{f}(X)\n\\]\n\nDas trainierte Modell hat keien Fehlerterm \\(\\epsilon\\), da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist\nGeschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-2",
+    "href": "05_VL.html#begriffliche-grundlagen-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nVorhersage vs. Inferenz\n\nDas Modell kann nun für zwei Zwecke verwendet werden:\n\nVorhersage: Schätzung von \\(y\\) für neue, nicht im Modell enthaltene Daten\nInferenz: Verständnis der Beziehungen und Muster in den Daten, die das Modell gelernt hat\n\nInferenz erfordert ein genaues Verständnis der Zusammenhänge\nBei Vorhersage kümmern wir uns nicht um seine genaue Struktur oder Parameter des Modells, sondern ausschließlich um die generierten Vorhersagen."
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-3",
+    "href": "05_VL.html#begriffliche-grundlagen-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nKlassifikation vs. Regression\n\nDie Art der Variablen \\(y\\) bestimmt die Art des Modells, das wir verwenden\nVariablen sind entweder kategorisch oder numerisch, oft auch als qualitativ und quantitativ bezeichnet\nWenn die abhängige Variable numerisch ist, ist es möglich, den exakten Wert der Variable vorherzusagen, dann liegt ein Regressionsproblem vor\nWenn die abhängige Variable kategorisch ist, lässt sich lediglich die erwartete Klasse vorhersagen, basierend auf einer Wahrscheinlichkeit, dann liegt ein Klassifikationsproblem vor\nWichtig: Hierbei ist nur die Art der abhängigen Variable entscheidend"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-4",
+    "href": "05_VL.html#begriffliche-grundlagen-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nKategoriale Daten\n\nKategoriale Daten umfassen verschiedene Kategorien oder Labels\nBei kategorialen Daten wird wiederum zwischen nominalen und ordinalen Variablen unterschieden\nNominaldaten repräsentieren Kategorien ohne eine inhärente Rangfolge:\n\nFarben (rot, blau, grün),\nFamilienstand (ledig, verheiratet, geschieden, …),\n\nOrdinaldaten weisen eine spezifische Reihenfolge oder Hierarchie auf, aber keine gleichmäßigen Abstände zwischen den Kategorien:\n\nSchärfe von Essen (mild, pikant, scharf),\nExpertise mit Programmiersprachen (keine, wenig, fortgeschritten, professionell)"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-5",
+    "href": "05_VL.html#begriffliche-grundlagen-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nNumerische Daten\n\n\n\nNumerische Daten reräsentieren Mengen, Messungen, und allgemein numerische Werte\nLassen sich mit mathematichen Operationen verarbeiten und manipulieren\nNumerische Daten können entweder diskret oder kontinuierlich sein, Beispiele:\n\nAlter,\nTemperatur,\nFinanzwerte ($ oder €)\n\n\n\n\n\n\nStetig vs. Diskret, Quelle: Allison Horst"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-6",
+    "href": "05_VL.html#begriffliche-grundlagen-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nÜberwachtes vs. Unüberwachtes Lernen\n\nÜberwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable \\(y_i, i = 1,2,...N\\) für jede Beobachtung \\(i\\) auf sowie eine oder mehrere Prädiktoren\nUnüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden\nDie Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von \\(y\\) basieren\nAuch wir konzentrieren uns bei der Klassifikation auf"
+  },
+  {
+    "objectID": "05_VL.html#quellen",
+    "href": "05_VL.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nMeier, Andreas. 2021. „Rundgang Big Data Analytics – Hard & Soft Data Mining“. In Big Data Analytics, herausgegeben von Sara D’Onofrio und Andreas Meier, 3–23. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-32236-6_1."
   },
   {
     "objectID": "01_VL_D.html#der-plan-für-heute",
@@ -915,6 +1097,244 @@
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
     "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nHahne, Michael. 2016. „Architekturkonzepte und Modellierungsverfahren für BI-Systeme“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_8.\n\n\nKemper, Hans-Georg, und Xuanpu Sun. 2023. „Data Warehouse“. In Gabler Bankenlexikon. https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924."
+  },
+  {
+    "objectID": "06_VL.html#der-plan-für-heute",
+    "href": "06_VL.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung"
+  },
+  {
+    "objectID": "06_VL.html#der-plan-für-heute-1",
+    "href": "06_VL.html#der-plan-für-heute-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung\n\nNeue Daten von Tofispy\nVisualisierung von Verteilungen\nModellgestützte Analysen\n\nEinfache Logistische Regression\nModellevaluation\n\nWie gut kann man Musik-Genres klassifizieren?"
+  },
+  {
+    "objectID": "06_VL.html#business-case",
+    "href": "06_VL.html#business-case",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nRecap Tofispy\n\nUnsere bisherigen Analysen haben gezeigt:\n\nTofispy verliert Marktanteile gegenüber der Konkurrenz, insbesondere gegenüber Youtube Music\nDer Grund ist vorallem ein stark ansteigender Trend bei den Kündigungen, während die Registrierungen linear wachsen\nEine Befragung nach der Kündigung hat ergeben:\n\nDie Mehrheit hört Musik über Playlists (55.8%)\nDer Großteil ist unzufrieden mit den Empfehlungen (69.2%)\n\n\nHandlungsempfehlung: Verbesserung der empfohlenen Playlists"
+  },
+  {
+    "objectID": "06_VL.html#business-case-1",
+    "href": "06_VL.html#business-case-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nNeue Daten von Tofispy\n\n\nZum Einstieg in die Empfehlungsverbesserung hat Tofispy neue Daten bereitgestellt\nDie Daten enthalten eine Auswahl an Songs aus den beiden Genres Klassik und Dance/Electronic (EDM)\nDie Daten enthalten:\n\nSong ID, Name und Artists,\nGenre als Label, manuell erstellt\nFeatures:\n\nTempo (BPM)\nDanceability (0-1), beschreibt wie gut der Song zum Tanzen geeignet ist\nEnergy (0-1), beschreibt wie energiegeladen der Song ist, wobei energiegeladene Songs schnell, intensiv und laut sind"
+  },
+  {
+    "objectID": "06_VL.html#business-case-2",
+    "href": "06_VL.html#business-case-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nNeue Daten von Tofispy\n\nDie Daten sind via Superset zur Verfügung gestellt und befinden sich im Schema “Classification” und Dataset “training_logistic”\nDie Daten sind bereits bereinigt und enthalten keine fehlenden Werte\nTofispy generiert jeden Freitag – pünktlich zum Wochenende – eine neue EDM Playlist mit den neuen Releases der Woche und bittet uns, die Klassifizierung für die nächste Playlist zu erstellen\nErste Frage: Wie gut sind die Daten geeignet, um zwischen den beiden Genres zu unterscheiden?"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen",
+    "href": "06_VL.html#visualisierung-von-verteilungen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nHistogramm\n\n\n\n\nEinfache Möglichkeit, die Verteilung einer numerischen Variable zu visualisieren\nDie einzelnen Werte der entsprechenden Variable werden in sogenannte Bins gruppiert\nDie Anzahl der Werte in jedem Bin wird gezählt und als Balken dargestellt\nDie Breite der Balken entspricht der Breite der Bins und die Höhe der Balken entspricht der Anzahl der Werte pro Bin\nDie Anzahl der Bins ist wichtig, zu wenige verschleiern den Detailgrad der Verteilung, zu viele Bins können zu zu granular sein\nViele Tools optimieren die Bin-Zahl, oft aber Trial & Error"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen-1",
+    "href": "06_VL.html#visualisierung-von-verteilungen-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nHistogramm bei mehreren Dimensionen\n\n\n\n\nHistogramme sind ideal, um einzelne Verteilung zu visualisieren\nBei mehreren Dimensionen und ähnlichen Verteilungen drohen sich die Verteilungen zu überlagern\nHistogramme sind nicht mehr aussagekräftig\nIn diesen Fällen sind mehrere Histogramme zu empfehlen\nHierbei auf passende X-Achsen achten, um Vergleiche zu erleichtern"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen-2",
+    "href": "06_VL.html#visualisierung-von-verteilungen-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nBox-Plot\n\nBox Plots sind eine weitere Möglichkeit, die Verteilung einer numerischen Variable über verschiedene Gruppen hinweg zu visualisieren\nErmöglichen es, viele Gruppen gleichzeitig zu visualisieren und zu vergleichen\nBox-Plots sind einfach, aber hochinformativ, wurden in den 1970er Jahren von John Tukey entwickelt und gewannen schnell an Popularität, da sie sich einfach per Hand zeichnen ließen\nBox-Plots werden oft auch als Box-and-Whisker-Plots bezeichnet"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen-3",
+    "href": "06_VL.html#visualisierung-von-verteilungen-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nBox-Plot\n\n\n\n\nDie Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten\nDie Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten\nDie Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil\nDie oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten\nAlternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)\n\nEinzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt\n\n\n\n\n\n\nAnatomie eines Boxplots Quelle: Wilke (2019)"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen-4",
+    "href": "06_VL.html#visualisierung-von-verteilungen-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nBox-Plot\n\n\n\n\nDie Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten\nDie Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten\nDie Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil\nDie oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten\nAlternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)\n\nEinzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen-5",
+    "href": "06_VL.html#visualisierung-von-verteilungen-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nViolin-Plot\n\n\n\n\nDa händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.\nStatt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse\nDer dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz\nViolins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind\n\n\n\n\n\n\nAnatomie eines Boxplots Quelle: Wilke (2019)"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen-6",
+    "href": "06_VL.html#visualisierung-von-verteilungen-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nViolin-Plot\n\n\n\n\nDa händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.\nStatt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse\nDer dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz\nViolins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen-7",
+    "href": "06_VL.html#visualisierung-von-verteilungen-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nBox-Plots mit Superset\n\nSuperset erlaubt es, Box-Plots direkt zu erstellen, Violin-Plots in der verfügbaren Version jedoch nicht\nHierzu wählen wir den üblichen Weg:\n\nAuf der Startseite oben rechts + Chart\nUnter Dataset wählen wir “training_logistic”\nAnschließend suchen wir nach “Box Plot” und wählen es aus"
+  },
+  {
+    "objectID": "06_VL.html#visualisierung-von-verteilungen-8",
+    "href": "06_VL.html#visualisierung-von-verteilungen-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Verteilungen",
+    "text": "Visualisierung von Verteilungen\nBox-Plots mit Superset"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression",
+    "href": "06_VL.html#logistische-regression",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nTrainings- und Testdaten\n\nBevor wir die von Tofispy bereitgestellten Daten analysieren, teilen wir die Daten in Trainings- und Testdaten auf\nDas ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfittung zu vermeiden\nDa der Trainingsdatensatz für das Modelltraining verwendet wird, wählt an oft einen Anteil von 70-80% der Daten für das Training und 20-30% für das Testen\nIn unserem Fall verwenden wir nur 300 Beobachtungen, um die Visualisierungen zum Einstieg nicht zu überfrachten\nNeben diesen einfachen Splits gibt es auch komplexere Verfahren wie Kreuzvalidierung"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-1",
+    "href": "06_VL.html#logistische-regression-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nZurück zu unserer Ausgangsgleichung\n\nAusgangspunkt für die logistische Regression ist erneut unsere Grundgleichung \\[\ny = f(X) + \\epsilon,\n\\]\nWie besprochen ist die Variable \\(y\\) bei Klassifikationsproblemen qualitativ oder kategorial\nFür die logistische Regression erfolgt eine Umkodierung in eine sog. Dummy-Variable, also 0 oder 1, im Sinne von Falsch und Richtig\nBeispiel bei zwei Genres in der Variable \\(y\\): \\[\\begin{equation}\ny =\n  \\begin{cases}\n    0 & \\text{Song $i$ Klassik,}\\\\\n    1 & \\text{Song $i$ EDM}\n  \\end{cases}       \n\\end{equation}\\]"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-2",
+    "href": "06_VL.html#logistische-regression-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nIntuition\n\n\n\n\nDie Wahl der Kodierung ist theoretisch willkürlich, aber aus praktischer Sicht ist es sinnvoll, die Kategorie, die interessante Kategorie als 1 zu kodieren\nAls erklärende Variable \\(X\\) können wir beliebig viele Features verwenden, wir beschränken uns aber zunächst auf eine, nämlich Energy\nNach der Umkodierung der abhängigen Variable \\(y\\) sehen unsere Daten aus wie der Auszug rechts\nUnser Ziel ist es, die Wahrscheinlichkeit zu berechnen, mit der ein Song EDM ist, gegeben die Energy\n\n\n\n\n\n\n\n\nedm\nenergy\n\n\n\n\n0\n0.1920\n\n\n1\n0.7250\n\n\n1\n0.9320\n\n\n1\n0.7470\n\n\n1\n0.9220\n\n\n0\n0.0741\n\n\n0\n0.0026\n\n\n0\n0.0592\n\n\n0\n0.0162\n\n\n0\n0.2510"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-3",
+    "href": "06_VL.html#logistische-regression-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nIntuition\n\nNoch intuitiver wird der Zusammenhang, wenn wir die Daten visualisieren mit der abhängigen Variable EDM auf der Y-Achse und der unabhängigen Variable Energy auf der X-Achse\n\n\n\n\n\n\nScatter Plot mit Dummy Variable als abhängiger Variable. Eigene Darstellung"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-4",
+    "href": "06_VL.html#logistische-regression-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nWarum nicht einfach lineare Regression?\n\n\nEine lineare Regression ist erste Option, den Zusammenhang zu modellieren\nWir erhalten folgende Koeffizienten:\n\n\n\n\\[\n\\operatorname{\\widehat{EDM}} = -0.1 + 1.24 \\cdot \\text{Energy}\n\\]"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-5",
+    "href": "06_VL.html#logistische-regression-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nWarum nicht einfach lineare Regression?\n\nDas lineare Modell erstellt auf der blauen Geraden nun eine Prognose für die Wahrscheinlichkeit, dass ein Song EDM ist und modelliert den Zusammenhang zwischen \\(y\\) und \\(X\\) mit \\[\ny = \\beta_0 + \\beta_1 \\cdot X\n\\]\nDiese Prognose ist aus mehreren Gründen nicht sinnvoll:\n\nDie Prognose kann Werte außerhalb des Intervalls \\([0,1]\\) annehmen\nWie kann man ein Modell mit mehr als 2 Klassen darstellen, bei denen es keine natürliche Ordnung gibt?"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-6",
+    "href": "06_VL.html#logistische-regression-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nDie Logistische Funktion\n\n\nDie logistische Funktion ist eine Sigmoid-Funktion, die Werte zwischen 0 und 1 annimmt und eine S-Form aufweist und damit das erste Problem behebt\nSigmoid Funktionen garantieren, dass alle vorgehersagten Wahrscheinlichkeiten zwischen 0 und 1 liegen, auch wenn die unabhängige Variable \\(X\\) sehr groß oder sehr klein ist"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-7",
+    "href": "06_VL.html#logistische-regression-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nDie Logistische Funktion\n\nDie logistische Regression modelliert stattdessen die Wahrscheinlichkeit, dass \\(y\\) eine bestimmte Kategorie annimmt: \\[\nP(y = 1|X) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot X)}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot X)}}\n\\]\nwobei \\(P(y = 1|X)\\) die Wahrscheinlichkeit ist, dass \\(y\\) die Kategorie 1 annimmt, also EDM ist, gegeben einen Wert für \\(X\\), in unserem Fall Energy\nDas finale Modell sieht dann aus wie folgt: \\[\nP(EDM = 1|Energy) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy})}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy})}}\n\\]"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-8",
+    "href": "06_VL.html#logistische-regression-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nErgebnis der logistischen Regression\n\nWenn wir statt des linearen Modells ein logistisches Modell verwenden, erhalten wir folgenden Zusammenhang zwischen Energy und der Wahrscheinlichkeit, dass ein Song zum Genre EDM gehört:"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-9",
+    "href": "06_VL.html#logistische-regression-9",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nGenerierung von Prognosen\n\nAus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten \\(\\beta_0\\) und \\(\\beta_1\\)\nDas gefittete Modell hat folgende Koeffizienten:\n\n\\[\n\\hat{P}(EDM = 1|Energy) = \\frac{ e^{(-9.89 + 21.34 \\cdot \\text{Energy})}}{1 + e^{(-9.89 +  21.34\\cdot \\text{Energy})}}\n\\]\n\nDurch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-10",
+    "href": "06_VL.html#logistische-regression-10",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nErgebnis der logistischen Regression\n\n\n\n\nAus dem Modell erhalten für für jeden Wert von Energy eine Wahrscheinlichkeit, dass ein Song EDM ist\nDie Wahrscheinlichkeit steigt (sinkt) mit steigender Energy und nähert sich 1 (0) an\nDie Steigung der Kurve ist in der Mitte am größten und nimmt zu den Rändern hin ab und die Kurve hat die typische S-Form\nDie Tabelle rechts zeigt die Wahrscheinlichkeiten für 10 zufällig ausgewählte Songs, sortiert nach der Wahrscheinlichkeit\n\n\n\n\n\n\n\n\n\nenergy\ntrack.name\ntrack.artist\ncategory\np_edm\n\n\n\n\n0.255\nNaruto: Alone Theme\nToshio Masuda\nKlassik\n0.012\n\n\n0.285\nThe Wife\nJocelyn Pook\nKlassik\n0.022\n\n\n0.323\nbad guy\nVitamin String Quartet\nKlassik\n0.048\n\n\n0.433\nMIDNIGHT\nPLAYAMANE\nEDM\n0.343\n\n\n0.570\nCNTRTE\nAQUIHAYAQUIHAY\nEDM\n0.907\n\n\n0.628\nI'll Take That Back\nAvangart Tabldot\nEDM\n0.971\n\n\n0.629\nOneHundred\nHEDEGAARD\nEDM\n0.972\n\n\n0.636\nEtude No. 9\nKummerspeck\nKlassik\n0.975\n\n\n0.680\nNow\nNiklas Dee\nEDM\n0.990\n\n\n0.690\nMe Provocas\nFumaratto\nEDM\n0.992"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-11",
+    "href": "06_VL.html#logistische-regression-11",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nVon Wahrscheinlichkeiten zu Klassifikationen\n\n\nBisher haben wir nur eine Wahrscheinlichkeit für die Klassenzugehörigkeit von Song \\(i\\) berechnet, gegeben den Wert für Energy, also\n\n\n\\[\nP(\\text{EDM}_i = 1|\\text{X = Energy}_i)\n\\]\n\n\nIm binären Klassifikationsmodell wird ein Schwellenwert oder Cut-Off Point \\(C\\) festgelegt, der bestimmt, ob ein Song als EDM klassifiziert wird oder nicht\nDie Zuordnung folgt dann allgemein nach der Form:\n\n\n\\[\\begin{equation}\n  \\text{Klasse} =\n    \\begin{cases}\n      0 & \\text{wenn } P(y_i = 1|X= x_i) \\leq C \\\\\n      1 & \\text{wenn } P(y_i = 1|X= x_i) &gt; C\n    \\end{cases}       \n\\end{equation}\\]\n\n\nEin häufig anzutreffender Default-Wert ist \\(C=0.5\\)"
+  },
+  {
+    "objectID": "06_VL.html#logistische-regression-12",
+    "href": "06_VL.html#logistische-regression-12",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nErgebnis und Evaluation\n\n\n\n\nMit dem Default-Wert \\(C=0.5\\) erhalten wir die rechts dargestellten Klassifikationen für die 10 Beispiel-Songs\nMit den generierten Klassifikationen lassen sich nun verschiedene Metriken berechnen, um die Qualität des Modells zu bewerten\nDie einfachste Metrik ist die Accuracy, die den Anteil der korrekt klassifizierten Songs angibt\n\n\n\n\n\n\n\n\n\nenergy\ntrack.name\ntrack.artist\nedm_factor\np_edm\n.pred_class\n\n\n\n\n0.255\nNaruto: Alone Theme\nToshio Masuda\n0\n0.012\n0\n\n\n0.285\nThe Wife\nJocelyn Pook\n0\n0.022\n0\n\n\n0.323\nbad guy\nVitamin String Quartet\n0\n0.048\n0\n\n\n0.433\nMIDNIGHT\nPLAYAMANE\n1\n0.343\n0\n\n\n0.570\nCNTRTE\nAQUIHAYAQUIHAY\n1\n0.907\n1\n\n\n0.628\nI'll Take That Back\nAvangart Tabldot\n1\n0.971\n1\n\n\n0.629\nOneHundred\nHEDEGAARD\n1\n0.972\n1\n\n\n0.636\nEtude No. 9\nKummerspeck\n0\n0.975\n1\n\n\n0.680\nNow\nNiklas Dee\n1\n0.990\n1\n\n\n0.690\nMe Provocas\nFumaratto\n1\n0.992\n1"
+  },
+  {
+    "objectID": "06_VL.html#modellevaluation",
+    "href": "06_VL.html#modellevaluation",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nKonfusionsmatrix\n\n\nZur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst.\nIm binären Modell bedeutet positiv, dass die Beobachtung zur interessanten Klasse (in unserem Fall EDM) gehört, negativ, dass sie nicht dazu gehört\n\n\n\n\n\n\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\nSumme Vorhersage\n\n\n\n\nVorhergesagt Positiv\nTrue Positive (TP)\nFalse Positive (FP)\nSumme Positiv\n\n\nVorhergesagt Negativ\nFalse Negative (FN)\nTrue Negative (TN)\nSumme Negativ\n\n\nSumme Tatsächlich\nSumme Positiv Tats.\nSumme Negativ Tats.\nGesamtsumme"
+  },
+  {
+    "objectID": "06_VL.html#modellevaluation-1",
+    "href": "06_VL.html#modellevaluation-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nKonfusionsmatrix\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\n\n\n\n\nVorhergesagt Positiv\nTrue Positive (TP)\nFalse Positive (FP)\n\n\nVorhergesagt Negativ\nFalse Negative (FN)\nTrue Negative (TN)\n\n\n\n\nTrue Positive (TP): Ein TP liegt vor, wenn das Modell ein Objekt korrekt der relevanten Klasse zuordnet. Beispiele hierfür sind die korrekte Identifikation eines Schadens, die richtige Diagnose einer Krankheit oder die richtige Erkennung von Spam.\nFalse Positive (FP): Ein FP liegt vor, wenn das Modell ein Objekt fälschlicherweise als positiv bzw. relevant klassifiziert, obwohl es tatsächlich negativ ist. Beispiele hierfür sind die ausbleibende Meldung eines Schadens oder die Diagnose einer nicht existierenden Krankheit. FP wird auch als Typ-I Fehler oder Alpha-Fehler bezeichnet."
+  },
+  {
+    "objectID": "06_VL.html#modellevaluation-2",
+    "href": "06_VL.html#modellevaluation-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nKonfusionsmatrix\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\n\n\n\n\nVorhergesagt Positiv\nTrue Positive (TP)\nFalse Positive (FP)\n\n\nVorhergesagt Negativ\nFalse Negative (FN)\nTrue Negative (TN)\n\n\n\n\nTrue Negative (TN): Ein TN liegt vor, wenn das Modell ein Objekt korrekt als negativ, also nicht der relevanten Klasse zugehörig klassifiziert, obwohl es tatsächlich positiv ist. Beispiele hierfür sind die korrekte Identifikation eines funktionsfähigen Teils oder die richtige Klassifizierung einer Person als gesund.\nFalse Negative (FN): Ein FN liegt vor, wenn das Modell ein Objekt falsch als negativ klassifiziert, obwohl es tatsächlich positiv – also relevant – ist. Synonyme hierfür sind Typ-II Fehler oder Beta-Fehler. Beispiele: die ausbleibende Meldung eines aufgetretenen Schadens oder die falsche Nicht-Diagnose einer existierenden Krankheit"
+  },
+  {
+    "objectID": "06_VL.html#modellevaluation-3",
+    "href": "06_VL.html#modellevaluation-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nKonfusionsmatrix im Beispiel und Berechnung der Accuracy\n\n\n\nUnser einfaches Modell zeigt die rechts dargestellte Konfusionsmatrix\nAus den vier Quadranten lässt sich dann die Accuracy berechnen:\n\n\n\\[\n\\text{Accuracy} = \\frac{TP + TN}{TP + TN + FP + FN}\n\\] \\[\n= \\frac{156 + 140}{156 + 140 + 2 + 2} = 0.987\n\\]"
+  },
+  {
+    "objectID": "06_VL.html#modellevaluation-4",
+    "href": "06_VL.html#modellevaluation-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nVor- und Nachteile der Accuracy\n\nDie Accuracy ist eine einfache und intuitive Metrik, die den Anteil der korrekt klassifizierten Beobachtungen angibt\nAllerdings sollte die Accuracy nur bei einem ausgewogenen Datensatz verwendet werden\nAusgewogen oder balanciert bedeutet hier, dass die Anzahl der Beobachtungen in den Klassen ungefähr gleich ist\nIm einfachen Beispiel hier ist das der Fall, weshalb die Accuracy ausreichend ist"
+  },
+  {
+    "objectID": "06_VL.html#modellevaluation-5",
+    "href": "06_VL.html#modellevaluation-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nAccuracy bei unbalancierten Datensätzen\n\n\n\nIn der Praxis liegen häufig unbalancierte Datensätze vor, sodass die Accuracy allein meist nur geringe Aussagekraft hat\nWir nehmen ein extremes Beispiel mit 1000 E-Mails, von denen 100 Spam-Mails sind\nUnser Modell zur Spam-Erkennung liefert die Konfusionsmatrix rechts\nDas Modell erkennt keine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%\n\n\n\n\n\n\n\n\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\nSumme Vorhersage\n\n\n\n\nVorhergesagt Positiv\n1\n0\n1\n\n\nVorhergesagt Negativ\n99\n900\n999\n\n\nSumme Tatsächlich\n100\n900\n1000"
+  },
+  {
+    "objectID": "06_VL.html#quelle",
+    "href": "06_VL.html#quelle",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quelle",
+    "text": "Quelle\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nWilke, C. 2019. Fundamentals of data visualization: a primer on making informative and compelling figures. First edition. Sebastopol, CA: O’Reilly Media. https://clauswilke.com/dataviz/."
   },
   {
     "objectID": "04_VL.html#der-plan-für-heute",

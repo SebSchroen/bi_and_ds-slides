@@ -1,0 +1,810 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung 6"
+format:
+  revealjs:
+    incremental: false  
+---
+  
+```{r}
+
+library(kableExtra)
+library(tidyverse)
+library(patchwork)
+library(tidymodels)
+library(plotly)
+data <- read_csv("data/songs_with_features.csv") %>% 
+  filter(category %in% c("Klassik", "Dance/Electronic")) %>% 
+  select(track.name, track.artist, category, energy, danceability) %>% 
+  mutate(category = case_when(
+    category == "Klassik" ~ "Klassik",
+    category == "Dance/Electronic" ~ "EDM"
+  ))
+
+set.seed(1)
+
+split <- initial_split(data, prop = 3*0.029156, strata = category)
+training <- 
+  training(split) %>% 
+  select(category, energy, track.name, track.artist) %>% 
+  mutate(edm = case_when(
+    category == "EDM" ~ 1,
+    category == "Klassik" ~ 0
+  )) %>% 
+  mutate(edm_factor = as.factor(edm))
+
+
+
+
+```
+
+
+
+
+## Der Plan für heute...
+### Vorlesung 
+
+
+## Der Plan für heute...
+### Vorlesung 
+
+* Neue Daten von Tofispy
+* Visualisierung von Verteilungen
+* Modellgestützte Analysen
+  * Einfache Logistische Regression
+  * Modellevaluation
+* Wie gut kann man Musik-Genres klassifizieren?
+
+## Business Case
+### Recap Tofispy
+
+* Unsere bisherigen Analysen haben gezeigt:
+  * Tofispy verliert Marktanteile gegenüber der Konkurrenz, insbesondere gegenüber Youtube Music
+  * Der Grund ist vorallem ein stark ansteigender Trend bei den Kündigungen, während die Registrierungen linear wachsen
+  * Eine Befragung nach der Kündigung hat ergeben:
+    * Die Mehrheit hört Musik über Playlists (55.8%)
+    * Der Großteil ist unzufrieden mit den Empfehlungen (69.2%) 
+* Handlungsempfehlung: Verbesserung der empfohlenen Playlists
+
+
+
+## Business Case
+### Neue Daten von Tofispy
+::: {style="font-size: 0.88em"}
+* Zum Einstieg in die Empfehlungsverbesserung hat Tofispy neue Daten bereitgestellt
+* Die Daten enthalten eine Auswahl an Songs aus den beiden Genres Klassik und Dance/Electronic (EDM)
+* Die Daten enthalten:
+  * Song ID, Name und Artists,
+  * Genre als Label, manuell erstellt
+  * Features:
+    * Tempo (BPM)
+    * Danceability (0-1), beschreibt wie gut der Song zum Tanzen geeignet ist
+    * Energy (0-1), beschreibt wie energiegeladen der Song ist, wobei energiegeladene Songs schnell, intensiv und laut sind
+
+:::
+
+## Business Case
+### Neue Daten von Tofispy
+
+* Die Daten sind via Superset zur Verfügung gestellt und befinden sich im Schema "Classification" und Dataset "training_logistic"
+* Die Daten sind bereits bereinigt und enthalten keine fehlenden Werte
+* Tofispy generiert jeden Freitag -- pünktlich zum Wochenende -- eine neue EDM Playlist mit den neuen Releases der Woche und bittet uns, die Klassifizierung für die nächste Playlist zu erstellen
+* Erste Frage: Wie gut sind die Daten geeignet, um zwischen den beiden Genres zu unterscheiden?
+
+
+
+
+## Visualisierung von Verteilungen
+### Histogramm
+
+:::: {.columns}
+::: {.column width=50%}
+::: {style="font-size: 0.8em"}
+* Einfache Möglichkeit, die Verteilung einer numerischen Variable zu visualisieren 
+* Die einzelnen Werte der entsprechenden Variable werden in sogenannte Bins gruppiert 
+* Die Anzahl der Werte in jedem Bin wird gezählt und als Balken dargestellt
+* Die Breite der Balken entspricht der Breite der Bins und die Höhe der Balken entspricht der Anzahl der Werte pro Bin
+* Die Anzahl der Bins ist wichtig, zu wenige verschleiern den Detailgrad der Verteilung, zu viele Bins können zu zu granular sein
+* Viele Tools optimieren die Bin-Zahl, oft aber Trial & Error
+
+::: 
+:::
+
+
+::: {.column width=50%}
+```{r, fig.width = 5, fig.height = 5.5}
+bins_5 <- data %>% 
+  filter(category == "Klassik") %>%
+  ggplot(data = ., aes(x = danceability)) + 
+  geom_histogram(bins = 10, fill = "steelblue", color = "black") +
+  labs(title = "Danceability-Werte für Klassik mit 10 Bins", x = element_blank()) + 
+  theme_minimal()
+
+bins_10 <- data %>% 
+  filter(category == "Klassik") %>%
+  ggplot(data = ., aes(x = danceability)) + 
+  geom_histogram(bins = 30, fill = "steelblue", color = "black") +
+  labs(title = "Danceability-Werte für Klassik mit 30 Bins", x = "Danceability") + 
+  theme_minimal()
+
+
+bins_5/bins_10
+```
+
+:::
+::::
+
+
+## Visualisierung von Verteilungen
+### Histogramm bei mehreren Dimensionen
+
+:::: {.columns}
+::: {.column width=45%}
+::: {style="font-size: 0.8em"}
+* Histogramme sind ideal, um einzelne Verteilung zu visualisieren
+* Bei mehreren Dimensionen und ähnlichen Verteilungen drohen sich die Verteilungen zu überlagern
+* Histogramme sind nicht mehr aussagekräftig
+* In diesen Fällen sind mehrere Histogramme zu empfehlen 
+* Hierbei auf passende X-Achsen achten, um Vergleiche zu erleichtern
+
+::: 
+:::
+
+
+::: {.column width=55%}
+```{r, fig.width = 5, fig.height = 5.5}
+schlecht <-  data %>% 
+  ggplot(data = ., aes(x = danceability, fill = category)) + 
+  geom_histogram(bins = 30,  color = "black") +
+  labs(title = "Danceability, Klassik vs. EDM", x = element_blank()) + 
+  theme_minimal() + 
+  labs(fill = element_blank()) + 
+  theme(legend.position = "none")
+
+besser <- data %>% 
+  ggplot(data = ., aes(x = danceability, fill = category)) + 
+  geom_histogram(bins = 30,  color = "black") +
+  labs(x = element_blank(), fill = element_blank()) + 
+  theme_minimal() + 
+  theme(legend.position = "bottom") + 
+  facet_grid(rows = vars(category))
+
+
+schlecht/besser
+
+```
+
+:::
+::::
+
+## Visualisierung von Verteilungen
+### Box-Plot
+
+
+* Box Plots sind eine weitere Möglichkeit, die Verteilung einer numerischen Variable über verschiedene Gruppen hinweg zu visualisieren 
+* Ermöglichen es, viele Gruppen gleichzeitig zu visualisieren und zu vergleichen
+* Box-Plots sind einfach, aber hochinformativ, wurden in den 1970er Jahren von John Tukey entwickelt und gewannen schnell an Popularität, da sie sich einfach per Hand zeichnen ließen
+* Box-Plots werden oft auch als Box-and-Whisker-Plots bezeichnet
+
+## Visualisierung von Verteilungen
+### Box-Plot
+
+:::: {.columns}
+::: {.column width=55%}
+
+::: {style="font-size: 0.80em"}
+* Die Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten
+* Die Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten
+* Die Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil
+* Die oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten 
+* Alternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)  
+* Einzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt
+  
+:::
+
+:::
+
+::: {.column width=45%}
+
+
+
+![Anatomie eines Boxplots Quelle: @wilke_fundamentals_2019](img/boxplot-schematic-1.png){width=100%}
+
+:::
+
+::::
+
+
+## Visualisierung von Verteilungen
+### Box-Plot
+
+:::: {.columns}
+::: {.column width=55%}
+
+::: {style="font-size: 0.80em"}
+* Die Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten
+* Die Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten
+* Die Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil
+* Die oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten 
+* Alternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)  
+* Einzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt
+  
+:::
+
+:::
+
+::: {.column width=45%}
+
+
+```{r, fig.width = 5, fig.height = 5.5}
+boxplot <- data %>% 
+  ggplot(data = ., aes(x = category, y = danceability, fill = category)) + 
+  geom_boxplot() + 
+  labs(title = "Danceability, Klassik vs. EDM", x = element_blank(), y = "Danceability") + 
+  theme_minimal() + 
+  labs(fill = element_blank()) + 
+  theme(legend.position = "none")
+
+boxplot
+```
+
+:::
+
+::::
+
+
+
+
+## Visualisierung von Verteilungen
+### Violin-Plot
+
+:::: {.columns}
+::: {.column width=55%}
+
+
+::: {style="font-size: 0.87em"}
+* Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.
+* Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse
+* Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz
+* Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind
+:::
+
+:::
+
+::: {.column width=45%}
+
+
+
+![Anatomie eines Boxplots Quelle: @wilke_fundamentals_2019](img/violin-schematic-1.png){width=100%}
+
+:::
+
+::::
+
+
+
+## Visualisierung von Verteilungen
+### Violin-Plot
+
+:::: {.columns}
+::: {.column width=55%}
+
+
+::: {style="font-size: 0.87em"}
+* Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.
+* Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse
+* Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz
+* Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind
+:::
+
+:::
+
+::: {.column width=45%}
+
+
+```{r, fig.width = 5, fig.height = 5.5}
+violin <- data %>% 
+  ggplot(data = ., aes(x = category, y = danceability, fill = category)) + 
+  geom_violin(draw_quantiles =  TRUE) + 
+  labs(title = "Danceability, Klassik vs. EDM", x = element_blank(), y = "Danceability") + 
+  theme_minimal() + 
+  labs(fill = element_blank()) + 
+  theme(legend.position = "none")
+
+
+violin
+```
+
+
+:::
+
+::::
+
+## Visualisierung von Verteilungen
+### Box-Plots mit Superset
+
+* Superset erlaubt es, Box-Plots direkt zu erstellen, Violin-Plots in der verfügbaren Version jedoch nicht
+* Hierzu wählen wir den üblichen Weg:
+  * Auf der Startseite oben rechts + Chart
+  * Unter Dataset wählen wir "training_logistic"
+  * Anschließend suchen wir nach "Box Plot" und wählen es aus
+  
+
+## Visualisierung von Verteilungen
+### Box-Plots mit Superset
+
+![](img/Superset-Boxplot.png){width="800" height="500"}
+
+## Logistische Regression
+### Trainings- und Testdaten
+
+* Bevor wir die von Tofispy bereitgestellten Daten analysieren, teilen wir die Daten in Trainings- und Testdaten auf
+* Das ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfittung zu vermeiden
+* Da der Trainingsdatensatz für das Modelltraining verwendet wird, wählt an oft einen Anteil von 70-80% der Daten für das Training und 20-30% für das Testen
+* In unserem Fall verwenden wir nur 300 Beobachtungen, um die Visualisierungen zum Einstieg nicht zu überfrachten
+* Neben diesen einfachen Splits gibt es auch komplexere Verfahren wie Kreuzvalidierung
+
+
+
+
+
+## Logistische Regression
+### Zurück zu unserer Ausgangsgleichung
+
+
+* Ausgangspunkt für die logistische Regression ist erneut unsere Grundgleichung
+$$
+y = f(X) + \epsilon,
+$$
+* Wie besprochen ist die Variable $y$ bei Klassifikationsproblemen qualitativ oder kategorial
+* Für die logistische Regression erfolgt eine Umkodierung in eine sog. Dummy-Variable, also 0 oder 1, im Sinne von *Falsch* und *Richtig*
+* Beispiel bei zwei Genres in der Variable $y$:
+\begin{equation}
+  y =
+    \begin{cases}
+      0 & \text{Song $i$ Klassik,}\\
+      1 & \text{Song $i$ EDM}
+    \end{cases}       
+\end{equation}
+
+
+
+## Logistische Regression
+### Intuition
+:::: {.columns}
+::: {.column width=55%}
+
+
+::: {style="font-size: 0.87em"}
+* Die Wahl der Kodierung ist theoretisch willkürlich, aber aus praktischer Sicht ist es sinnvoll, die Kategorie, die interessante Kategorie als 1 zu kodieren
+* Als erklärende Variable $X$ können wir beliebig viele Features verwenden, wir beschränken uns aber zunächst auf eine, nämlich *Energy*
+* Nach der Umkodierung der abhängigen Variable $y$ sehen unsere Daten aus wie der Auszug rechts
+* Unser Ziel ist es, die **Wahrscheinlichkeit** zu berechnen, mit der ein Song EDM ist, gegeben die Energy
+
+:::
+:::
+
+::: {.column width=45%}
+
+```{r}
+training %>%  
+  sample_n(10) %>% 
+  select(edm, energy) %>% 
+  kable()
+
+
+
+```
+
+:::
+
+::::
+
+## Logistische Regression
+### Intuition
+
+* Noch intuitiver wird der Zusammenhang, wenn wir die Daten visualisieren mit der abhängigen Variable *EDM*  auf der Y-Achse und der unabhängigen Variable *Energy* auf der X-Achse
+
+```{r, fig.cap = "Scatter Plot mit Dummy Variable als abhängiger Variable. Eigene Darstellung", message = FALSE, fig.height = 3.5, fig.width = 8}
+
+ggplot(data= training, aes(x=energy, y = edm)) + 
+  labs(title = "Energy vs. EDM", x = "Energy", y = "EDM") +
+ geom_point() +
+  theme_minimal()
+
+
+```
+
+
+## Logistische Regression
+### Warum nicht einfach lineare Regression?
+
+::: {style="font-size: 0.80em"}
+* Eine lineare Regression ist erste Option, den Zusammenhang zu modellieren
+* Wir erhalten folgende Koeffizienten:
+```{r}
+lm_rap <- linear_reg() %>% 
+  set_engine("lm") %>% 
+  fit(edm ~ energy, data = training)
+
+intercept <- tidy(lm_rap)$estimate[1]
+slope <- tidy(lm_rap)$estimate[2]
+
+
+```
+:::
+::: {style="font-size: 0.8em"}
+$$
+\operatorname{\widehat{EDM}} = `r round(intercept,2)` + `r round(slope,2)` \cdot \text{Energy}
+$$
+:::
+```{r,  message = FALSE, fig.height = 3.5, fig.width = 10}
+ggplot(data= training, aes(x=energy, y =edm )) + 
+  labs(title = "Energy vs. EDM", x = "Energy", y = "EDM") +
+ geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "steelblue") +
+  theme_minimal()
+```
+
+
+
+
+## Logistische Regression
+### Warum nicht einfach lineare Regression?
+
+* Das lineare Modell erstellt auf der blauen Geraden nun eine Prognose für die Wahrscheinlichkeit, dass ein Song EDM ist und modelliert den Zusammenhang zwischen $y$ und $X$ mit
+$$
+y = \beta_0 + \beta_1 \cdot X
+$$
+* Diese Prognose ist aus mehreren Gründen nicht sinnvoll:
+  * Die Prognose kann Werte außerhalb des Intervalls $[0,1]$ annehmen
+  * Wie kann man ein Modell mit mehr als 2 Klassen darstellen, bei denen es keine natürliche Ordnung gibt?
+
+
+## Logistische Regression
+### Die Logistische Funktion
+::: {style="font-size: 0.8em"}
+* Die logistische Funktion ist eine Sigmoid-Funktion, die Werte zwischen 0 und 1 annimmt und eine S-Form aufweist und damit das erste Problem behebt
+* Sigmoid Funktionen garantieren, dass alle vorgehersagten Wahrscheinlichkeiten zwischen 0 und 1 liegen, auch wenn die unabhängige Variable $X$ sehr groß oder sehr klein ist
+:::
+
+```{r,  message = FALSE, fig.height = 3.5, fig.width = 10}
+logistic <- function(x){
+  
+  exp(0.01*x)/(1+exp(0.01*x))
+}
+
+
+x <- (-1000):(1000)
+y = logistic(x)
+
+
+ggplot(data.frame(x, y), aes(x=x, y = y)) + geom_line(linewidth = 1) + 
+  labs(x = "X", y = "p(X)") + theme_bw()
+```
+
+
+  
+## Logistische Regression
+### Die Logistische Funktion
+
+
+* Die logistische Regression modelliert stattdessen die Wahrscheinlichkeit, dass $y$ eine bestimmte Kategorie annimmt:
+$$
+P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X)}}{1 + e^{(\beta_0 + \beta_1 \cdot X)}}
+$$
+* wobei $P(y = 1|X)$ die Wahrscheinlichkeit ist, dass $y$ die Kategorie 1 annimmt, also EDM ist, gegeben einen Wert für $X$, in unserem Fall *Energy*
+* Das finale Modell sieht dann aus wie folgt:
+$$
+P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}
+$$
+
+
+
+
+
+
+
+
+## Logistische Regression
+### Ergebnis der logistischen Regression
+
+* Wenn wir statt des linearen Modells ein logistisches Modell verwenden, erhalten wir folgenden Zusammenhang zwischen Energy und der Wahrscheinlichkeit, dass ein Song zum Genre EDM gehört:
+
+```{r,  message = FALSE, fig.height = 3.5, fig.width = 10}
+
+binomial_smooth <- function(...) {
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), ...)
+}
+
+ggplot(data= training, aes(x=energy, y = edm)) + 
+ geom_point() +
+  binomial_smooth(se= FALSE, color = "steelblue") + 
+  theme_minimal() + 
+  labs(x = "Energy", y = "EDM")
+
+
+
+
+```
+
+## Logistische Regression
+### Generierung von Prognosen
+
+```{r}
+
+logistic <- logistic_reg() %>% 
+  set_engine("glm") %>% 
+  fit(edm_factor ~ energy, data = training)
+
+
+coefficients_logistic <- tidy(logistic)
+
+beta_0 <- round(coefficients_logistic$estimate[1],2)
+beta_1 <- round(coefficients_logistic$estimate[2],2)
+
+```
+
+
+* Aus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten $\beta_0$ und $\beta_1$
+* Das gefittete Modell hat folgende Koeffizienten:
+
+
+$$
+\hat{P}(EDM = 1|Energy) = \frac{ e^{(`r beta_0` + `r beta_1` \cdot \text{Energy})}}{1 + e^{(`r beta_0` +  `r beta_1`\cdot \text{Energy})}}
+$$
+
+
+* Durch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus
+
+
+## Logistische Regression
+### Ergebnis der logistischen Regression
+:::: {.columns}
+::: {.column width=50%}
+::: {style="font-size: 0.85em"}
+
+* Aus dem Modell erhalten für für jeden Wert von Energy eine Wahrscheinlichkeit, dass ein Song EDM ist
+* Die Wahrscheinlichkeit steigt (sinkt) mit steigender Energy und nähert sich 1 (0) an
+* Die Steigung der Kurve ist in der Mitte am größten und nimmt zu den Rändern hin ab und die Kurve hat die typische S-Form
+* Die Tabelle rechts zeigt die Wahrscheinlichkeiten für 10 zufällig ausgewählte Songs, sortiert nach der Wahrscheinlichkeit
+:::
+:::
+
+::: {.column width=50%}
+
+::: {style="font-size: 0.45em"}
+
+```{r}
+logistic <- logistic_reg() %>% 
+  set_engine("glm") %>% 
+  fit(edm_factor ~ energy, data = training)
+
+predictions <- augment(logistic, new_data = training, .predict = "response")
+
+accuracy <- yardstick::accuracy(predictions, truth = edm_factor, estimate = .pred_class)
+
+sample <-  predictions %>%   mutate(n_letters = str_length(track.name)) %>% 
+    filter(energy > 0.25 & energy < 0.7 & n_letters < 20) %>%
+  sample_n(11)  %>% 
+  rename(p_edm = .pred_1) %>% 
+    filter(track.artist != "Britta Arnold")
+
+sample %>% 
+
+  select(energy, track.name, track.artist, category, p_edm) %>% 
+  arrange(p_edm) %>% 
+  kable(digits = 3) 
+
+  
+```
+
+:::
+
+:::
+
+
+
+::::
+
+## Logistische Regression
+### Von Wahrscheinlichkeiten zu Klassifikationen
+::: {style="font-size: 0.95em"}
+* Bisher haben wir nur eine Wahrscheinlichkeit für die Klassenzugehörigkeit von Song $i$ berechnet, gegeben den Wert für Energy, also
+
+::: {style="font-size: 0.75em"}
+$$
+P(\text{EDM}_i = 1|\text{X = Energy}_i)
+$$
+:::
+
+* Im binären Klassifikationsmodell wird ein Schwellenwert oder Cut-Off Point $C$ festgelegt, der bestimmt, ob ein Song als EDM klassifiziert wird oder nicht
+* Die Zuordnung folgt dann allgemein nach der Form:
+
+::: {style="font-size: 0.75em"}
+\begin{equation}
+  \text{Klasse} =
+    \begin{cases}
+      0 & \text{wenn } P(y_i = 1|X= x_i) \leq C \\
+      1 & \text{wenn } P(y_i = 1|X= x_i) > C
+    \end{cases}       
+\end{equation}
+:::
+* Ein häufig anzutreffender Default-Wert ist $C=0.5$
+
+:::
+## Logistische Regression
+### Ergebnis und Evaluation
+
+:::: {.columns}
+
+::: {.column width=50%}
+::: {style="font-size: 0.90em"}
+* Mit dem Default-Wert $C=0.5$ erhalten wir die rechts dargestellten Klassifikationen für die 10 Beispiel-Songs
+* Mit den generierten Klassifikationen lassen sich nun verschiedene Metriken berechnen, um die Qualität des Modells zu bewerten
+* Die einfachste Metrik ist die **Accuracy**, die den Anteil der korrekt klassifizierten Songs angibt
+
+
+
+:::
+:::
+::: {.column width=50%}
+
+::: {style="font-size: 0.45em"}
+
+```{r}
+sample %>% 
+  select(energy, track.name, track.artist, edm_factor, p_edm, .pred_class) %>% 
+  arrange(p_edm) %>%
+   kable(digits = 3) 
+
+  
+
+
+
+```
+:::
+:::
+::::
+
+
+## Modellevaluation
+### Konfusionsmatrix
+
+::: {style="font-size: 0.8em"}
+
+* Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst.
+* Im binären Modell bedeutet positiv, dass die Beobachtung zur interessanten Klasse (in unserem Fall EDM) gehört, negativ, dass sie nicht dazu gehört
+
+
+
+|                    | Tatsächlich Positiv | Tatsächlich Negativ | Summe Vorhersage |
+|--------------------|---------------------|---------------------|------------------|
+| **Vorhergesagt Positiv**| True Positive (TP)  | False Positive (FP) | Summe Positiv    |
+| **Vorhergesagt Negativ**| False Negative (FN) | True Negative (TN)  | Summe Negativ    |
+| **Summe Tatsächlich**   | Summe Positiv Tats. | Summe Negativ Tats. | Gesamtsumme      |
+
+
+
+:::
+
+## Modellevaluation
+### Konfusionsmatrix
+
+
+::: {style="font-size: 0.8em"}
+
+|                    | Tatsächlich Positiv | Tatsächlich Negativ | 
+|--------------------|---------------------|---------------------|
+| **Vorhergesagt Positiv**| True Positive (TP)  | False Positive (FP) | 
+| **Vorhergesagt Negativ**| False Negative (FN) | True Negative (TN)  | 
+
+
+
+
+
+* **True Positive (TP)**: Ein TP liegt vor, wenn das Modell ein Objekt korrekt der relevanten Klasse zuordnet. Beispiele hierfür sind die korrekte Identifikation eines Schadens, die richtige Diagnose einer Krankheit oder die richtige Erkennung von Spam. 
+* **False Positive (FP)**: Ein FP liegt vor, wenn das Modell ein Objekt fälschlicherweise als positiv bzw. relevant klassifiziert, obwohl es tatsächlich negativ ist. Beispiele hierfür sind die ausbleibende Meldung eines Schadens oder die Diagnose einer nicht existierenden Krankheit. FP wird auch als Typ-I Fehler oder Alpha-Fehler bezeichnet. 
+
+:::
+
+## Modellevaluation
+### Konfusionsmatrix
+
+
+::: {style="font-size: 0.8em"}
+
+|                    | Tatsächlich Positiv | Tatsächlich Negativ | 
+|--------------------|---------------------|---------------------|
+| **Vorhergesagt Positiv**| True Positive (TP)  | False Positive (FP) | 
+| **Vorhergesagt Negativ**| False Negative (FN) | True Negative (TN)  | 
+
+
+
+
+
+* **True Negative (TN)**: Ein TN liegt vor, wenn das Modell ein Objekt korrekt als negativ, also nicht der relevanten Klasse zugehörig klassifiziert, obwohl es tatsächlich positiv ist. Beispiele hierfür sind die korrekte Identifikation eines funktionsfähigen Teils oder die richtige Klassifizierung einer Person als gesund. 
+* **False Negative (FN)**: Ein FN liegt vor, wenn das Modell ein Objekt falsch als negativ klassifiziert, obwohl es tatsächlich positiv -- also relevant -- ist. Synonyme hierfür sind Typ-II Fehler oder Beta-Fehler. 
+Beispiele: die ausbleibende Meldung eines aufgetretenen Schadens oder die falsche Nicht-Diagnose einer existierenden Krankheit
+:::
+
+## Modellevaluation
+### Konfusionsmatrix im Beispiel und Berechnung der Accuracy
+
+:::: {.columns}
+::: {.column width=50%}
+
+* Unser einfaches Modell zeigt die rechts dargestellte Konfusionsmatrix
+* Aus den vier Quadranten lässt sich dann die Accuracy berechnen:
+
+
+::: {style="font-size: 0.8em"}
+
+$$
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} 
+$$
+$$
+= \frac{156 + 140}{156 + 140 + 2 + 2} = 0.987
+$$
+
+::: 
+:::
+
+::: {.column width=50%}
+
+
+
+```{r, fig.height = 4, fig.width = 4}
+
+yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>% 
+  autoplot(type = "heatmap") +
+  labs(x = "Wahrheit", y = "Vorhersage")
+
+```
+:::
+::::
+
+## Modellevaluation
+### Vor- und Nachteile der Accuracy
+
+* Die Accuracy ist eine einfache und intuitive Metrik, die den Anteil der korrekt klassifizierten Beobachtungen angibt
+* Allerdings sollte die Accuracy nur bei einem ausgewogenen Datensatz verwendet werden
+* Ausgewogen oder balanciert bedeutet hier, dass die Anzahl der Beobachtungen in den Klassen ungefähr gleich ist
+* Im einfachen Beispiel hier ist das der Fall, weshalb die Accuracy ausreichend ist
+
+
+## Modellevaluation
+### Accuracy bei unbalancierten Datensätzen
+
+:::: {.columns}
+
+
+::: {.column width=55%}
+
+* In der Praxis liegen häufig unbalancierte Datensätze vor, sodass die Accuracy allein meist nur geringe Aussagekraft hat
+* Wir nehmen ein extremes Beispiel mit 1000 E-Mails, von denen 100 Spam-Mails sind
+* Unser Modell zur Spam-Erkennung liefert die Konfusionsmatrix rechts 
+* Das Modell erkennt keine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%
+
+:::
+
+::: {.column width=45%}
+
+::: {style="font-size: 0.6em"}
+
+|                    | Tatsächlich Positiv | Tatsächlich Negativ | Summe Vorhersage |
+|--------------------|---------------------|---------------------|------------------|
+| **Vorhergesagt Positiv**| 1 |0 | 1   |
+| **Vorhergesagt Negativ**| 99 | 900  | 999     |
+| **Summe Tatsächlich**   | 100 | 900 | 1000      |
+
+:::
+:::
+
+::::
+
+
+
+## Quelle
+
+

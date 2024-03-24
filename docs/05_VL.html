@@ -338,10 +338,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-  <script src="site_libs/viz-1.8.2/viz.js"></script>
-  <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-  <script src="site_libs/grViz-binding-1.0.10/grViz.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -349,7 +345,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Business Intelligence &amp; Data Science</h1>
-  <p class="subtitle">Vorlesung 2</p>
+  <p class="subtitle">Vorlesung 5</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -371,26 +367,28 @@ Dr.&nbsp;Sebastian Schrön
 </section>
 <section id="der-plan-für-heute" class="slide level2">
 <h2>Der Plan für heute…</h2>
-<h3 id="vorlesung-2">Vorlesung 2</h3>
+<h3 id="vorlesung">Vorlesung</h3>
+<div style="font-size: 0.9em">
 <ul>
-<li>Datenbereitstellung:
+<li>Quiz und Recap</li>
+<li>Visualisierung von Anteilen: Kreisdiagramme, Treemaps und Sankey Plots</li>
+<li>Informationsgenerierung
 <ul>
-<li>Data Warehouse</li>
-<li>Data Mart</li>
-<li>Architekturkonzepte</li>
+<li>Welche Formen von Berichten gibt es?</li>
+<li>Was ist OLAP?</li>
+<li>Wo genau unterscheiden sich Self-Sevice BI und traditionelle BI?</li>
 </ul></li>
-<li>Business Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe</li>
-<li>Verknüpfung eines ersten Data Marts mit Superset oder Datenanalyse mit Excel</li>
+<li>Modellgestützte Analysen
+<ul>
+<li>Wie läuft ein Data Science Projekt ab?</li>
+<li>Begriffliche Grundlagen Data Science</li>
+</ul></li>
 </ul>
+</div>
 </section>
-<section>
-<section id="datenbereitstellung" class="title-slide slide level1 center">
-<h1>Datenbereitstellung</h1>
-
-</section>
-<section id="überblick-zum-bia-gesamteinsatz" class="slide level2">
-<h2>Überblick zum BIA Gesamteinsatz</h2>
-<h3 id="datenbereitstellung-1">Datenbereitstellung</h3>
+<section id="kurzer-überblick-wo-gehts-weiter" class="slide level2">
+<h2>Kurzer Überblick: Wo geht’s weiter?</h2>
+<h3 id="informationsgenerierung">Informationsgenerierung</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/bia_ordnungsrahmen.drawio.png" width="700" height="500"></p>
@@ -398,483 +396,362 @@ Dr.&nbsp;Sebastian Schrön
 </figure>
 </div>
 </section>
-<section id="data-warehouse" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="begriff">Begriff</h3>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Definition</strong></p>
-</div>
-<div class="callout-content">
-<p>Ein Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung <span class="citation" data-cites="kemper_data_2023">(siehe <a href="#/quellen" role="doc-biblioref" onclick="">Kemper und Sun 2023</a>)</span>.</p>
-</div>
-</div>
-</div>
-<aside class="notes">
+<section>
+<section id="informationsgenerierung-1" class="title-slide slide level1 center">
+<h1>Informationsgenerierung</h1>
+
+</section>
+<section id="berichtsorientierte-analyse" class="slide level2">
+<h2>Berichtsorientierte Analyse</h2>
+<h3 id="reporting">Reporting</h3>
 <ul>
-<li>Die entscheidenden Punkte sind hier:
+<li>Ein Bericht oder Report gibt einen Überblick über betriebswirtschaftliche Sachverhalte eines abgegrenzten Verantwortungsbereichs</li>
+<li>In der Regel durch Visualisierung von Zusammenhängen in grafischer Form</li>
+<li>Betriebliches Berichtswesen wird in interne und externe Berichterstattung unterteilt:
 <ul>
-<li>Trennung von operativen und dispositiven Daten</li>
-<li>Integration von Datenbeständen aus verschiedenen und oftmals sehr heterogenen Quellen</li>
-<li>Einheitliche und konsistente Datenbasis für das gesamte Unternehmen</li>
+<li>Internes Berichtswesen: Informationen für das Management, bspw. internes Rechnungswesen</li>
+<li>Externes Berichtswesen: Informationen für externe Stakeholder, bspw. Jahresbericht</li>
 </ul></li>
 </ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="data-warehouse-1" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="eigenschaften">Eigenschaften</h3>
-<div style="font-size: 0.95em">
-<div>
-<ol type="1">
-<li class="fragment">Themenorientierung:
+<section id="berichtsorientierte-analyse-1" class="slide level2">
+<h2>Berichtsorientierte Analyse</h2>
+<h3 id="reporting-1">Reporting</h3>
 <ul>
-<li class="fragment">Dispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet</li>
-<li class="fragment">Die operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert</li>
-<li class="fragment">Themen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1</li>
-</ul></li>
-<li class="fragment">Integration:
+<li>Aktive Berichtskomponenten:
 <ul>
-<li class="fragment">Daten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert</li>
-<li class="fragment">Zusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”</li>
+<li>Werden nach einmaliger Spezifikation der Inhalte und Formate regelmäßig erstellt und aktiv versandt, entweder:
+<ul>
+<li>Periodisch: In festen Zeitabständen (jede Woche, jedes Quartal)</li>
+<li>Aperiodisch: Bei Überschreitung bestimmter Grenzwerte (z.B. Umsatzgrenze)</li>
 </ul></li>
-</ol>
-</div>
-</div>
+</ul></li>
+<li>Passive Berichtskomponenten:
+<ul>
+<li>Werden nur auf konkrete Anforderungen der Anwendenden erstellt</li>
+<li>Individuelle und bedarfsspezifische Berichte</li>
+<li>Auch Ad-hoc Berichtskomponente genannt, oft mit OLAP und Self-Service Tools umgesetzt</li>
+</ul></li>
+</ul>
 </section>
-<section id="data-warehouse-2" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="eigenschaften-1">Eigenschaften</h3>
-<div>
-<ol start="3" type="1">
-<li class="fragment">Zeitraumbezug:
+<section id="berichtsorientierte-analyse-2" class="slide level2">
+<h2>Berichtsorientierte Analyse</h2>
+<h3 id="olap">OLAP</h3>
 <ul>
-<li class="fragment">Operative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab</li>
-<li class="fragment">Daten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr</li>
-</ul></li>
-<li class="fragment">Nicht-Volatilität:
-<ul>
-<li class="fragment">Daten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt</li>
-<li class="fragment">DWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt</li>
-</ul></li>
-</ol>
-</div>
+<li>Online Analyitical Processing (OLAP) ermöglicht die Bereitstellung anwendungsfreundlicher und gleichermaßen flexibler Abfragen in multidimensionalen Datenräumen</li>
+<li>Form des Ad-hoc Reportings</li>
+<li>OLAP-Komponenten sind weitgehend mit Pivot Tabellen in Excel oder Google Sheets vergleichbar</li>
+<li>Aber: Erweitert um ein zentrales Datenmodell (meist Data Mart basiert) und Rollenverwaltung</li>
+</ul>
 </section>
-<section id="data-warehouse-3" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="komponenten-des-data-warehouse">Komponenten des Data Warehouse</h3>
-<div>
+<section id="olap-1" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="datenmodell-als-würfel">Datenmodell als Würfel</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Data Mart</p>
+<div style="font-size: 0.9em">
 <ul>
-<li class="fragment">Separater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen</li>
-<li class="fragment">Nur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen</li>
-<li class="fragment">Häufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen</li>
+<li>Bestehen konzeptionell aus Fakten, Dimensionen und Hierarchien</li>
+<li>Da oft mehrere Dimensionen vorliegen, spricht man von Cubes</li>
+<li>Theoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt</li>
+<li>Bei mehr als 3 Dimensionen spricht man oft von Hypercube</li>
+<li>Bei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p>Core Data Warehouse</p>
-<ul>
-<li class="fragment">Rückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet</li>
-<li class="fragment">Befüllung über ETL-Prozesse aus operativen Quellsystemen</li>
-<li class="fragment">Meist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)</li>
-<li class="fragment">Applikationsneutral modelliert</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="data-warehouse-4" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="funktionen-des-cdwh">Funktionen des CDWH</h3>
-<ol type="1">
-<li>Sammel- und Integrationsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
-<ul>
-<li>Aufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers</li>
-</ul>
-</div>
-<ol start="2" type="1">
-<li>Distributionsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
-<ul>
-<li>Versorgung aller nachgeschalteten Data Marts mit Daten</li>
-</ul>
-</div>
-<ol start="3" type="1">
-<li>Qualitätssicherungsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
-<ul>
-<li>Datentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis</li>
-</ul>
-</div>
-</section>
-<section id="data-warehouse-5" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="data-mart-vs.-cdwh">Data Mart vs.&nbsp;CDWH</h3>
-<div>
-<div style="font-size: 0.70em">
-<table>
-<caption>Charakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></caption>
-<colgroup>
-<col style="width: 20%">
-<col style="width: 40%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Data Mart</th>
-<th>Core Data Warehouse</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ziel</td>
-<td>Entscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten</td>
-<td>Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</td>
-</tr>
-<tr class="even">
-<td>Ausrichtung</td>
-<td>Bereichsspezifisch oder Abteilungsbezogen</td>
-<td>Zentral und unternehmensweit</td>
-</tr>
-<tr class="odd">
-<td>Granularität</td>
-<td>Höhere Aggregationen</td>
-<td>Feinste verfügbare Granularität</td>
-</tr>
-<tr class="even">
-<td>Verfügbarkeit für Endanwendende</td>
-<td>In der Regel möglich</td>
-<td>Häufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt</td>
-</tr>
-<tr class="odd">
-<td>Flexibilität der Analysen</td>
-<td>Tendenziell gering und auf Anwendungsbereich beschränkt</td>
-<td>Sehr flexibel</td>
-</tr>
-<tr class="even">
-<td>Volumina</td>
-<td>Gering bis moderat</td>
-<td>Moderat bis umfangreich</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="unabhängige-data-marts">Unabhängige Data Marts</h3>
-<div class="columns">
-<div class="column" style="width:45%;">
-<!-- ![Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016](img/plot_marts.png){width="100%"} -->
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-39e487ddd59c9e78faf9" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-39e487ddd59c9e78faf9">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Unabhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div>
-<ul>
-<li class="fragment">Auch Stove-Pipe Ansatz</li>
-<li class="fragment">Bedienen sich direkt aus den operativen und externen Systemen</li>
-<li class="fragment">Bereiten die enthaltenen Daten für relevante Anwendungsfelder auf</li>
-<li class="fragment">Daten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen</li>
-<li class="fragment">Verschiedene Marts können unterschiedliche externe Datenquellen zusammenführen</li>
-</ul>
-</div>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Stove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="dwh-architekturen-1" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="unabhängige-data-marts-1">Unabhängige Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Schnelle und bereichsspezifische Informationsbereitstellung</li>
-<li class="fragment">Sinnvoll bei fehlender Governance Strategie</li>
-<li class="fragment">Erfüllung maßgeschneideter bereichsspezifischer Fragestellungen</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Häufig historisch gewachsene Strukturen und damit geringe Governance</li>
-<li class="fragment">Mehrfache Aufbereitung der Quelldaten</li>
-<li class="fragment">Gefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts</li>
-<li class="fragment">Mangelnde Möglichkeit bereichsübergreifender Analysen</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-2" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="abgestimmte-data-marts">Abgestimmte Data Marts</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-165887002df3daeb563c" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-165887002df3daeb563c">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Abhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
 </div>
 </div><div class="column" style="width:50%;">
-<div>
-<ul>
-<li class="fragment">Konzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten</li>
-<li class="fragment">Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung</li>
-<li class="fragment">Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts</li>
-</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/plot-cube.PNG" style="width:100.0%"></p>
+<figcaption>Cube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
 </div>
 </div>
 </div>
 </section>
-<section id="dwh-architekturen-3" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="abgestimmte-data-marts-1">Abgestimmte Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:47%;">
-<p>Vorteile:</p>
+<section id="olap-2" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="slicing">Slicing</h3>
 <ul>
-<li class="fragment">Integrität des Datenmodells wird gewährleistet</li>
-<li class="fragment">Möglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche</li>
-<li class="fragment">Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</li>
+<li>Slicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird</li>
+<li>Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen</li>
 </ul>
-</div><div class="column" style="width:53%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Durch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts</li>
-<li class="fragment">Möglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition</li>
-<li class="fragment">Informationsverlust bei übergreifenden Analysen</li>
-</ul>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/OLAP_slicing.png" style="width:60.0%"></p>
+<figcaption>OLAP Slicing. Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
 </div>
 </section>
-<section id="dwh-architekturen-4" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse">Core Data Warehouse</h3>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-5d3d462c80d4771cee1f" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5d3d462c80d4771cee1f">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Core Data Warehouse. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div>
+<section id="olap-3" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="dicing">Dicing</h3>
 <ul>
-<li class="fragment">Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank</li>
-<li class="fragment">Dieser Ansatz wird oft als Monolith bezeichnet</li>
-<li class="fragment">Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos</li>
+<li>Dicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht</li>
+<li>Im Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert</li>
 </ul>
-</div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/OLAP_dicing.png" style="width:60.0%"></p>
+<figcaption>OLAP Dicing Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
 </div>
 </section>
-<section id="dwh-architekturen-5" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-1">Core Data Warehouse</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
+<section id="olap-4" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="pivotierung">Pivotierung</h3>
+<div style="font-size: 0.78em">
 <ul>
-<li class="fragment">Hoher Grad an Mehrfachverwendbarkeit der Daten</li>
-<li class="fragment">Hoher Detailgrad möglich</li>
-<li class="fragment">Bei kleineren Anwendungsfällen oft ausreichend</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Berechtigungsmanagement und Performance stoßen bei komplexen Anwendungsfällen schnell an Grenzen</li>
-<li class="fragment">Bei größeren Einheiten mit eigenen Geschäftsprozessen und stark abweichenden Hierarchiestrukturen sehr komplex, hier bietet sich der Einsatz mehrerer CDWH an</li>
+<li>Auswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr</li>
+<li>Grafisch entspricht eine solche Ansicht einer Seite des Würfels</li>
+<li>Durch Pivotierung wird der Würfel um eine Achse gedreht</li>
+<li>Im Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie</li>
 </ul>
 </div>
-</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/OLAP_pivoting.png" style="width:55.0%"></p>
+<figcaption>OLAP Pivotierung/Rotation Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
 </div>
 </section>
-<section id="dwh-architekturen-6" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-mit-abhängigen-data-marts">Core Data Warehouse mit abhängigen Data Marts</h3>
+<section id="olap-5" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="roll-up-drill-down-drill-through">Roll-Up, Drill-Down &amp; Drill-Through</h3>
+<ul>
+<li>Beim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert</li>
+<li>Beim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004</li>
+<li>In einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist</li>
+<li>Das geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen</li>
+</ul>
+</section>
+<section id="olap-6" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="physikalische-umsetzung-und-anbindungsschnittstellen">Physikalische Umsetzung und Anbindungsschnittstellen</h3>
+<ul>
+<li>Die Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig</li>
+<li>OLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel</li>
+<li>Ein bekanntes Beispiel ist <a href="https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html?version=2.8.19.0">SAP Analysis</a> für Excel</li>
+<li>Andere gängige Praxis sind webbasierte Schnittstellen wie <a href="https://www.cubeware.com/content/Produkte/C8_Cockpit/C8-Cockpit-Viewer_DE.pdf">Cubeware Cockpit</a></li>
+</ul>
+</section>
+<section id="self-service-bi" class="slide level2">
+<h2>Self-Service BI</h2>
+<h3 id="das-versprechen-von-self-service-bi">Das Versprechen von Self-Service BI</h3>
+<ul>
+<li>Self Service BI setzt beim Versprechen an, die Anwendenden in die Lage zu versetzen eigenständig und flexibel den Datenbestand nach neuen Verknüpfungen zu untersuchen</li>
+<li>Das kann zudem weitgehend unabhängig von der Unternehmens-IT betrieben und bedient werden</li>
+<li>Traditionelle BI-Lösungen sind oft als zu starr angesehen, wenn es darum geht, neue Reporting Anforderungen rasch umzusetzen und damit innovative Analysen zu testen</li>
+</ul>
+</section>
+<section id="self-service-bi-vs.-traditionelle-bi" class="slide level2">
+<h2>Self-Service BI vs.&nbsp;Traditionelle BI</h2>
+<h3 id="blick-auf-die-alte-welt">Blick auf die alte Welt</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Traditional-Approach-1.png" style="width:80.0%"></p>
+<figcaption>Traditionelle BI, Quelle: <a href="https://datafidelity.io/business-intelligence-solutions/">Fidelity</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="self-service-bi-vs.-traditionelle-bi-1" class="slide level2">
+<h2>Self-Service BI vs.&nbsp;Traditionelle BI</h2>
+<h3 id="versprechen-der-neuen-welt-am-beispiel-von-looker">Versprechen der neuen Welt am Beispiel von Looker</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/modern-approach-scaled.jpg" style="width:80.0%"></p>
+<figcaption>Traditionelle BI, Quelle: <a href="https://datafidelity.io/business-intelligence-solutions/">Fidelity</a></figcaption>
+</figure>
+</div>
+</section></section>
+<section>
+<section id="modellgestützte-analysen" class="title-slide slide level1 center">
+<h1>Modellgestützte Analysen</h1>
+
+</section>
+<section id="der-data-science-prozess" class="slide level2">
+<h2>Der Data Science Prozess</h2>
+<h3 id="ablauf-von-data-science-use-cases">Ablauf von Data Science Use Cases</h3>
 <div class="columns">
 <div class="column" style="width:55%;">
-<div>
+<div style="font-size: 0.95em">
 <ul>
-<li class="fragment">Auch Hub-and-Spoke Ansatz genannt</li>
-<li class="fragment">CDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts</li>
-<li class="fragment">Marts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf</li>
-<li class="fragment">CDWH als Hub erfüllt Aufgaben der Integration, Qualitätssicherung und Datenverteilung an die Marts</li>
+<li>Data Science Projekte sind in der Praxis aufwendig und erfordern stets die Zusammenarbeit zwischen Fachabteilungen und Data Science Team</li>
+<li>Deshalb wurden feste Prozesse etabliert, bspw. der Cross Reference Industry Standard Process for Data Mining (CRISP-DM)</li>
+<li>CRISP-DM besteht aus 6 Phasen, die iterativ durchlaufen werden</li>
+<li>Rückkopplungen zwischen den Phasen sind dabei oft notwendig</li>
 </ul>
 </div>
 </div><div class="column" style="width:45%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-1214f6f37c2920228c65" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1214f6f37c2920228c65">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Core Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-7" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-mit-abhängigen-data-marts-1">Core Data Warehouse mit abhängigen Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Einmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik</li>
-<li class="fragment">Geringere Anzahl an Extraktionsprozessen</li>
-<li class="fragment">Reduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Nach wie vor eher traditionelle BI-Sicht</li>
-</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/CRISP_DM.drawio.png" style="width:70.0%"></p>
+<figcaption>CRISP-DM Prozess. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="donofrio_rundgang_2021">Meier (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span>.</figcaption>
+</figure>
 </div>
 </div>
 </div>
 </section>
-<section id="dwh-architekturen-8" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="architekturen-mix">Architekturen-Mix</h3>
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-8ee2eb9cdcadc4cfa3d6" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-8ee2eb9cdcadc4cfa3d6">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Architekturen-Mix. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="business-case" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="das-wachstum-bei-tofispy-stagniert">Das Wachstum bei Tofispy stagniert</h3>
-<div>
-<p><img data-src="img/fotispy.png" class="absolute" style="bottom: 550px; right: 50px; width: 125px; height: 125px; "></p>
-<ul>
-<li class="fragment">Tofispy ist ein Musikstreaming Anbieter aus Deutschland</li>
-<li class="fragment">Das Unternehmen kämpft mit stagnierendem Wachstum</li>
-<li class="fragment">Wir – die Unternehmensberatung LeinbizConsult – wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln</li>
-<li class="fragment">Die Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben</li>
-</ul>
-</div>
-</section>
-<section id="business-case-1" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="datensatz">Datensatz</h3>
+<section id="crisp-dm" class="slide level2">
+<h2>CRISP-DM</h2>
+<h3 id="geschäftsmodell">Geschäftsmodell</h3>
 <ol type="1">
-<li><em>Überblick über den Streamingmarkt</em>:
+<li>Verständnis des Geschäftsmodells
 <ul>
-<li>Dataset “market_share”</li>
-<li>Anzahl der Nutzer pro Plattform in Mio</li>
-<li>Daten von 2016 bis 2024</li>
-<li>Die Daten für 2024 sind eine Hochrechnung für das laufende Jahr</li>
+<li>Verständnis des Geschäftsmodells und der Unternehmensziele</li>
+<li>Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten</li>
+<li>Definition des erwartbaren Nutzens und messbarer Erfolgskriterien</li>
 </ul></li>
 </ol>
 </section>
-<section id="business-case-2" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="aufgabe">Aufgabe</h3>
-<div>
+<section id="crisp-dm-1" class="slide level2">
+<h2>CRISP-DM</h2>
+<h3 id="anwendungs-datendomäne-und-datenvorbereitung">Anwendungs-/Datendomäne und Datenvorbereitung</h3>
+<ol start="2" type="1">
+<li>Verständnis der Anwendungs- und Datendomäne
 <ul>
-<li class="fragment">Arbeit in 2er Teams mit mindestens einem Laptop oder Tablet (nicht ideal für Excel) pro Team</li>
-<li class="fragment">Jedes Team lädt die Daten bei StudIP herunter und diskutiert untereinander, wie die Daten strukturiert sind</li>
-<li class="fragment">Trial &amp; Error in Superset mit Hilfe der Dokumentation:
-<ul>
-<li class="fragment">Dokumentation unter <a href="https://docs.preset.io/docs/creating-a-chart">preset.io</a></li>
-<li class="fragment">Startpunkt: Creating a Chart (in der preset Doku)</li>
-<li class="fragment">Table als Ausgangspunkt für explorative Analyse</li>
+<li>Analyse der Unternehmensprozesse und Datenquellen</li>
+<li>Zusammenführung, Beschreibung und Exploration der Zieldaten</li>
+<li>Eruierung der Datenqualität</li>
 </ul></li>
-<li class="fragment">Anschließend Analyse in Excel + Superset und kritische Gegenüberstellung der beiden Ansätze</li>
+<li>Datenvorbereitung
+<ul>
+<li>Zusammenführung und Beschreibung polystrukturierter Daten</li>
+<li>Berechnung von Kennzahlen und Durchführung von Datentransformationen</li>
+</ul></li>
+</ol>
+</section>
+<section id="crisp-dm-2" class="slide level2">
+<h2>CRISP-DM</h2>
+<h3 id="modellierung-evaluation-und-bereitstellung">Modellierung, Evaluation und Bereitstellung</h3>
+<ol start="4" type="1">
+<li>Modellierung
+<ul>
+<li>Modellauswahl und -erstellung</li>
+<li>Iterativer Prozess zur Weiterentwicklung von Modellen</li>
+<li>Möglicher Einsatz vortrainierter Modelle für die Verfeinerung</li>
+</ul></li>
+<li>Evaluation
+<ul>
+<li>Bewertung der erstellten Modelle anhand definierter Erfolgskriterien</li>
+</ul></li>
+<li>Einsatz
+<ul>
+<li>Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse</li>
+</ul></li>
+</ol>
+</section>
+<section id="begriffliche-grundlagen" class="slide level2">
+<h2>Begriffliche Grundlagen</h2>
+<h3 id="eine-gleichung-viele-anwendungen">Eine Gleichung, viele Anwendungen</h3>
+<div style="font-size: 0.89em">
+<ul>
+<li>Die Generierung von modellbasierten Erkenntnissen aus Daten erfordert eine Definition des Lernproblems, oft mit einer simplen Gleichung:</li>
+</ul>
+<p><span class="math display">\[
+y = f(X) + \epsilon
+\]</span></p>
+<ul>
+<li><span class="math inline">\(y\)</span> ist ein <span class="math inline">\(N \times 1\)</span> Vektor mit einer Ergebnisvariablen</li>
+<li><span class="math inline">\(X\)</span> ist eine <span class="math inline">\(N \times P\)</span> Matrix mit Prädiktoren <span class="math inline">\(X_1, X_2,..., X_P\)</span></li>
+<li><span class="math inline">\(N\)</span> entspricht der Anzahl von Beobachtungen im vorliegenden Datensatz, <span class="math inline">\(P\)</span> ist die Anzahl der Prädiktoren</li>
+<li>Anstelle von Prädiktoren werden oft die Begriffe erklärende oder unabhängige Variablen oder Features verwendet</li>
+<li><span class="math inline">\(f\)</span> beschreibt alle systematischen Zusammenhänge zwischen <span class="math inline">\(X\)</span> und <span class="math inline">\(y\)</span>, während der Fehlerterm <span class="math inline">\(\epsilon\)</span> alle Variation in <span class="math inline">\(X\)</span> aufnimmt, die nicht von <span class="math inline">\(f\)</span> erklärbar sind</li>
 </ul>
 </div>
 </section>
-<section id="business-case-3" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="fragen">Fragen</h3>
-<div>
+<section id="begriffliche-grundlagen-1" class="slide level2">
+<h2>Begriffliche Grundlagen</h2>
+<h3 id="vorhersage-vs.-inferenz">Vorhersage vs.&nbsp;Inferenz</h3>
 <ul>
-<li class="fragment">Was sind die Vorteile der beiden Ansätze?</li>
-<li class="fragment">Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?</li>
-<li class="fragment">Wie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?</li>
-<li class="fragment">Welcher Konkurrent wächst am stärksten?</li>
-<li class="fragment">Ist der Datensatz operativ oder dispositiv?</li>
-<li class="fragment">Welcher Reifegrad von Analytics liegt vor?</li>
+<li>Angenommen, wir haben eine Funktion <span class="math inline">\(f\)</span> sowie einen Algorithmus gefunden, um <span class="math inline">\(f\)</span> an unsere Variablen <span class="math inline">\(y\)</span> und <span class="math inline">\(X\)</span> anzupassen</li>
+<li>Die Modellschätzung wird auch als Modelltraining oder Modellanpassung bezeichnet und unser trainiertes Modell hat die Form:</li>
 </ul>
+<p><span class="math display">\[
+\hat{y} = \hat{f}(X)
+\]</span></p>
+<ul>
+<li>Das trainierte Modell hat keien Fehlerterm <span class="math inline">\(\epsilon\)</span>, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist</li>
+<li>Geschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet</li>
+</ul>
+</section>
+<section id="begriffliche-grundlagen-2" class="slide level2">
+<h2>Begriffliche Grundlagen</h2>
+<h3 id="vorhersage-vs.-inferenz-1">Vorhersage vs.&nbsp;Inferenz</h3>
+<ul>
+<li>Das Modell kann nun für zwei Zwecke verwendet werden:
+<ul>
+<li>Vorhersage: Schätzung von <span class="math inline">\(y\)</span> für neue, nicht im Modell enthaltene Daten</li>
+<li>Inferenz: Verständnis der Beziehungen und Muster in den Daten, die das Modell gelernt hat</li>
+</ul></li>
+<li>Inferenz erfordert ein genaues Verständnis der Zusammenhänge</li>
+<li>Bei Vorhersage kümmern wir uns nicht um seine genaue Struktur oder Parameter des Modells, sondern ausschließlich um die generierten Vorhersagen.</li>
+</ul>
+</section>
+<section id="begriffliche-grundlagen-3" class="slide level2">
+<h2>Begriffliche Grundlagen</h2>
+<h3 id="klassifikation-vs.-regression">Klassifikation vs.&nbsp;Regression</h3>
+<ul>
+<li>Die Art der Variablen <span class="math inline">\(y\)</span> bestimmt die Art des Modells, das wir verwenden</li>
+<li>Variablen sind entweder <em>kategorisch</em> oder <em>numerisch</em>, oft auch als <em>qualitativ</em> und <em>quantitativ</em> bezeichnet</li>
+<li>Wenn die abhängige Variable numerisch ist, ist es möglich, den exakten Wert der Variable vorherzusagen, dann liegt ein Regressionsproblem vor</li>
+<li>Wenn die abhängige Variable kategorisch ist, lässt sich lediglich die erwartete Klasse vorhersagen, basierend auf einer Wahrscheinlichkeit, dann liegt ein Klassifikationsproblem vor</li>
+<li>Wichtig: Hierbei ist nur die Art der abhängigen Variable entscheidend</li>
+</ul>
+</section>
+<section id="begriffliche-grundlagen-4" class="slide level2">
+<h2>Begriffliche Grundlagen</h2>
+<h3 id="kategoriale-daten">Kategoriale Daten</h3>
+<ul>
+<li>Kategoriale Daten umfassen verschiedene Kategorien oder Labels</li>
+<li>Bei kategorialen Daten wird wiederum zwischen nominalen und ordinalen Variablen unterschieden</li>
+<li>Nominaldaten repräsentieren Kategorien ohne eine inhärente Rangfolge:
+<ul>
+<li>Farben (rot, blau, grün),</li>
+<li>Familienstand (ledig, verheiratet, geschieden, …),</li>
+</ul></li>
+<li>Ordinaldaten weisen eine spezifische Reihenfolge oder Hierarchie auf, aber keine gleichmäßigen Abstände zwischen den Kategorien:
+<ul>
+<li>Schärfe von Essen (mild, pikant, scharf),</li>
+<li>Expertise mit Programmiersprachen (keine, wenig, fortgeschritten, professionell)</li>
+</ul></li>
+</ul>
+</section>
+<section id="begriffliche-grundlagen-5" class="slide level2">
+<h2>Begriffliche Grundlagen</h2>
+<h3 id="numerische-daten">Numerische Daten</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><em>Numerische</em> Daten reräsentieren Mengen, Messungen, und allgemein numerische Werte</li>
+<li>Lassen sich mit mathematichen Operationen verarbeiten und manipulieren</li>
+<li>Numerische Daten können entweder <em>diskret</em> oder <em>kontinuierlich</em> sein, Beispiele:
+<ul>
+<li>Alter,</li>
+<li>Temperatur,</li>
+<li>Finanzwerte ($ oder €)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/discrete_vs_continuous.png"></p>
+<figcaption>Stetig vs.&nbsp;Diskret, Quelle: <a href="https://twitter.com/allison_horst">Allison Horst</a></figcaption>
+</figure>
+</div>
+</div>
 </div>
 </section>
-<section id="hausaufgabe" class="slide level2">
-<h2>Hausaufgabe</h2>
-<h3 id="video-anschauen">Video anschauen</h3>
-<iframe data-external="1" src="https://player.vimeo.com/video/770676371" width="60%" height="60%" frameborder="0" allow="autoplay; title=" "="" fullscreen;="" picture-in-picture"="" allowfullscreen=""></iframe>
-<p><a href="https://vimeo.com/770676371">Link zum Video</a></p>
-</section>
-<section id="hausaufgabe-1" class="slide level2">
-<h2>Hausaufgabe</h2>
-<h3 id="fragen-zu-superset">Fragen zu Superset</h3>
+<section id="begriffliche-grundlagen-6" class="slide level2">
+<h2>Begriffliche Grundlagen</h2>
+<h3 id="überwachtes-vs.-unüberwachtes-lernen">Überwachtes vs.&nbsp;Unüberwachtes Lernen</h3>
 <ul>
-<li>Was sind Dimensions und Metrics? Welchen Zweck haben sie?</li>
-<li>Was ist der Unterschied zwischen einem Dataset und einer Database?</li>
-<li>Was ist der Unterschied zwischen Superset und Preset?</li>
+<li>Überwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable <span class="math inline">\(y_i, i = 1,2,...N\)</span> für jede Beobachtung <span class="math inline">\(i\)</span> auf sowie eine oder mehrere Prädiktoren</li>
+<li>Unüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden</li>
+<li>Die Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von <span class="math inline">\(y\)</span> basieren</li>
+<li>Auch wir konzentrieren uns bei der Klassifikation auf</li>
 </ul>
 </section>
+
 <section id="quellen" class="slide level2 smaller scrollable">
 <h2>Quellen</h2>
 
@@ -885,11 +762,8 @@ Dr.&nbsp;Sebastian Schrön
 <div id="ref-baars_business_2021" class="csl-entry" role="listitem">
 Baars, Henning, und Hans-Georg Kemper. 2021. <em>Business Intelligence &amp; Analytics: Grundlagen und praktische Anwendungen: Ansätze der <span>IT</span>-basierten Entscheidungsunterstützung</em>. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.
 </div>
-<div id="ref-gluchowski_architekturkonzepte_2016" class="csl-entry" role="listitem">
-Hahne, Michael. 2016. <span>„Architekturkonzepte und Modellierungsverfahren für <span>BI</span>-Systeme“</span>. In <em>Analytische Informationssysteme</em>, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-47763-2_8">https://doi.org/10.1007/978-3-662-47763-2_8</a>.
-</div>
-<div id="ref-kemper_data_2023" class="csl-entry" role="listitem">
-Kemper, Hans-Georg, und Xuanpu Sun. 2023. <span>„Data Warehouse“</span>. In <em>Gabler Bankenlexikon</em>. <a href="https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924">https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924</a>.
+<div id="ref-donofrio_rundgang_2021" class="csl-entry" role="listitem">
+Meier, Andreas. 2021. <span>„Rundgang Big Data Analytics – Hard &amp; Soft Data Mining“</span>. In <em>Big Data Analytics</em>, herausgegeben von Sara D’Onofrio und Andreas Meier, 3–23. Wiesbaden: Springer Fachmedien Wiesbaden. <a href="https://doi.org/10.1007/978-3-658-32236-6_1">https://doi.org/10.1007/978-3-658-32236-6_1</a>.
 </div>
 </div>
 </section></section>
