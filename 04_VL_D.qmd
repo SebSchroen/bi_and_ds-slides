@@ -1,0 +1,455 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung 4"
+format:
+  revealjs:
+    incremental: true  
+---
+  
+```{r}
+
+library(kableExtra)
+library(tidyverse)
+library(ggthemes)
+questionnaire <- read_csv("data/questionnaire.csv")
+```
+
+
+
+
+## Der Plan für heute...
+### Vorlesung 4
+::: {style="font-size: 0.85em"}
+* Big Data:
+  * Was ist Big Data?
+  * Definitionen und Eigenschaften
+  * Technologien und Werkzeuge
+* Data Lake:
+  * Was ist der Data Lake?
+  * Braucht man das?
+  * Was sind die Unterschiede zum Data Warehouse?
+* Weitere Ursachenforschung für den Wachstumsschwund bei Tofispy
+* Visualisierung von Anteilen: Kreisdiagramm und Treemap
+* Informationsgenerierung:
+  * Berichtsorienterte Analyse
+
+:::
+## Einordnung in den Gesamtkontext
+### Der Data Lake & Big Data
+![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio.png){width="700" height="500"}
+
+# Big Data
+
+## Big Data
+### Was ist Big Data?
+
+![Quelle: [Siemens Stiftung 2019](https://medienportal.siemens-stiftung.org/de/big-data-einfuehrung-111982)](img/big_data.png){width="700" height="500"}
+
+
+## Big Data
+### Die 3Vs
+
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size: 0.65em"}
+1. Volume: 
+    * Die erhebliche Menge an Daten, die erfasst oder generiert wird und die vorgehalten sowie gespeichert werden muss
+    * @donofrio_big_2021 sprechen im Petabyte bis Zettabyte-Bereich von Big Data
+2. Variety:
+    *  Meint die unterschiedlichen Arten von Daten in Big Data-Szenarien 
+    * Neben strukturierte Daten in Tabellenform auch um unstrukturierte Daten wie Texte, Bilder, Videos, Audios sowie semi-strukturierte Daten
+3. Velocity:
+    * Die Rate, mit der Daten erzeugt, gesammelt und verarbeitet werden. 
+    * Im Extremfall müssen Daten in Echtzeit analysiert werden, um sofortige Erkenntnisse zu gewinnen.
+:::
+:::
+
+
+::: {.notes}
+Exkurs Bits und Bytes:
+
+1 Bit = Kleinste Informationseinheit, kann 0 oder 1 sein
+1 Byte = 8 Bit, entspricht einem Zeichen, bspw. einem Buchstaben und kann 256 verschiedene Kombinationen annehmen, nämlich 2^8.
+Warum 2^8? Weil 2 Zustände (0 oder 1) und 8 Stellen (Bit) = 2^8 = 256
+1 Byte ist auch die kleinste Speichereinheit in Computern
+1 Kilobyte (KB) = 1024 Byte
+1 Megabyte (MB) = 1024 KB
+1 Gigabyte (GB) = 1024 MB
+1 Terabyte (TB) = 1024 GB
+1 Petabyte (PB) = 1024 TB
+1 Exabyte (EB) = 1024 PB
+1 Zettabyte (ZB) = 1024 EB
+1 Yottabyte (YB) = 1024 ZB
+
+:::
+
+::: {.column width="50%"}
+![Quelle: [Siemens Stiftung 2019](https://medienportal.siemens-stiftung.org/de/big-data-111955)](img/3vs.png)
+:::
+
+::::
+
+
+## Big Data
+### ...und noch mehr Vs
+
+* Weitere Vs in der Literatur zielen auf die Verwendung der Daten ab und weniger auf die technischen Eigenschaften der 3 Vs
+4. Value (Wert)
+    * Der Wert, den Unternehmen aus den gesammelten und analysierten Daten ziehen können
+    * Das Hauptziel von Big Data ist es, nutzbare Erkenntnisse zu gewinnen und daraus einen Mehrwert zu generieren
+
+
+## Big Data
+### ...und noch mehr Vs
+
+5. Veracity (Genauigkeit)
+    * Die Qualität der Daten, besonders Präzision und Zuverlässigkeit, da große Daten oft Rauschen und ungenaue Informationen enthalten
+    * @baars_business_2021 betonen, dass Genauigkeit auf die durch Big Data erzielten Ergebnisse abzielt und weniger auf die Daten
+6. Validity (Validität)
+    * Die Gültigkeit der Datenanalyse, inwiefern die durchgeführten Analysen tatsächlich die gewünschten Erkenntnisse liefern
+7. Output Velocity (Analyse-Geschwindigkeit)
+    * Die Bereitstellung von relevanten Ergebnissen mit geringer Latenz, idealerweise nahezu in Echtzeit
+
+## Big Data
+### Technologien und Werkzeuge
+
+* Big Data Technologien müssen hohe Datenvolumina im mehrstelligen Petabyte-Bereich handhaben, um hierauf  Analysen durchzuführen
+* Die Ergebnisse dieser Analysen gilt es hiernach im IT-Entscheidungsunterstützungssystem zu integrieren
+* Dies ist mit den bisher vorgestellten relationalen CDWH-Lösungen nicht ohne Weiteres möglich
+* Die aus den 3 Vs resultierenden Anforderungen erfordern hohe Rechen- und Speicherkapazitäten, die oft durch parallele Infrastruktur realisiert werden.
+
+## Big Data
+### Technologien und Werkzeuge
+
+* Allgemein werden zwei Formen der Parallelisierung unterschieden:
+  * Vertikale Skalierung:
+    * Auch Scale Up genannt
+    * Nutzung von leistungsstärkeren Rechnern
+  * Horizontale Skalierung:
+    * Auch Scale Out genannt
+    * Nutzung von vielen günstigen Standard-Servern oder Cloud Infrastruktur bei modernen Cloud Hyper Scalern, um Lasten zu verteilen
+* Vertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen
+
+## Big Data
+### Technologien und Werkzeuge
+
+* Vertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen
+* Die Datenhaltung in Big Data-Szenarien erfolgt in der Regel in NoSQL-Datenbanken (Not Only SQL)
+* Dies dient primär der Parallelisierung der Datenhaltung und -verarbeitung
+* Gleichzeitig ermöglichen diese Datenbanken die Speicherung von unstrukturierten Daten
+
+## NoSQL Datenbanken
+### Key-Value Stores
+
+
+:::: {.columns}
+::: {.column width="50%"}
+  * Datenbanken, die paarweise einen (einmaligen) Schlüssel mit einem zugehörigen Wert ablegen
+  * Diese Werte können beliebige Datenstrukturen sein, wie z.B. Texte, Bilder, Videos, Audios, JSON-Objekte, XML-Dateien, etc.
+  * Key-Value Stores sind optimiert für schnelle Lese- und Schreibzugriffe auf Basis von Keys
+
+:::
+
+::: {.column width="50%"}
+![Key Value Store, Quelle: [Data Engineering Wiki](https://dataengineering.wiki/Concepts/Key-Value+Database)](img/key_value_database_example.png){width="250" height="250"} 
+:::
+::::
+
+
+## NoSQL Datenbanken
+### Document Stores
+
+
+:::: {.columns}
+::: {.column width="50%"}
+  *  Enthalten poly-strukturierte Dokumente beliebiger Länge, die auf Basis von Dokumenteninhalten recherchiert werden können. 
+  * Häufig in Form von JSON oder XML Files abgelegt, da diese die Möglichkeit bieten, unstrukturierte Attribute zu hinterlegen und flexible Schemata zu definiere.
+  * Das Beispiel rechts entspricht dem JavaScript Object Notation JSON
+
+:::
+
+::: {.column width="50%"}
+![Document Data Base, Quelle: [Data Engineering Wiki](https://dataengineering.wiki/Concepts/Document+Database)](img/document_database_example.png){width="250" height="400"} 
+:::
+::::
+
+## NoSQL Datenbanken
+### Wide Column Stores und Graph-Databases
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {style="font-size: 0.75em"}
+* Wide Column Stores:
+  * Datenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können 
+  * Einzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann
+* Graph-Databases:
+  * Sind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet. 
+  * Basieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)
+:::
+:::
+
+
+::: {.column width="45%"}
+::: {.fragment .fade-in}
+![Graph Database, Quelle: [Data Engineering Wiki](https://dataengineering.wiki/Concepts/Graph+Database)](img/graph_database_example.png){width="400" height="400"} 
+:::
+:::
+::::
+
+# Data Lake
+
+## Data Lake
+### Das Konzept des Data Lake
+
+* Das Data Warehouse galt lange Zeit als das zentrale Architekturkonzept für dispositive Reporting- und Analysezwecke
+* Big Data Technologien haben den Data Lake in den Fokus gerückt, der meist als eine ergänzende Komponente zu DWH dient
+* Ein Data Lake erhebt den Anspruch, alle Quelldaten in roher Form als Rohdaten zu persistieren und zur Verfügung zu stellen
+* Beim Data Lake steht der effiziente Umgang mit großen und polystrukturierten Datenmengen im Vordergrund, die es schnell zu verarbeiten gilt
+* Dies ermöglicht komplexe Analysen für neue Machine Learning Anwendungen, die verschiedene Datenquellen benötigen
+
+
+## Data Lake vs. Data Warehouse
+### Illustration
+
+
+![Data Lake versus Data Warehouse, Quelle: [Twitter](https://twitter.com/freest_man/status/1764664361581445546)](img/data_lake.jpeg){width="600" height="400"}
+
+
+## Data Lake vs. Data Warehouse
+### Charakteristika
+::: {style="font-size: 0.75em"}
+| Data Warehouse | Data Lake |
+|---|---|
+| Optimiert für wiederholbare Prozesse | Originär eine Erweiterung der DWH Staging Area |
+| Unterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen | Optimiert Daten für Analytics-Lösungen |
+| Fokus auf vergangenheitsbezogene Auswertungen | Fokus auf unbekannte explorative Datenanalyse und zukunftsorienterte Methoden |
+| Schema-on-Write mit harmonisiertem Datenmodell | Schema-on-Read mit Echtzeit Rohdaten Bewirtschaftung |
+
+: Wichtige Charakteristika von Data Lake und Data Warehouse im Vergleich. In Anlehnung an  @gillhuber_architekturen_2023, S. 159 {#tbl-lake_vs_dwh .striped .hover}
+:::
+
+## Data Lake vs. Data Warehouse
+### Anwendungsbereiche
+
+
+![Anwendungsfälle Data Lake und Data Warehouse, Quelle: [Twitter](https://twitter.com/freest_man/status/1764664361581445546)](img/use_cases.jpeg){width="700" height="500"}
+
+
+## Data Lake
+### Architekturprinzipien
+::: {style="font-size: 0.80em"}
+* Datenanbindung:
+  * Es werden ausschließlich primäre Datenquellen angebunden
+  * Die feinste Granularität der Datenquelle wird verwendet
+* Datenhaltung
+  * Eine Löschung der Rohdaten erfolgt nur aus regulatorischen Gründen (Datenschutz) 
+  * Ein Zonenkonzept ist zu empfehlen
+  * Eine Anonymisierung persönlicher Daten erfolgt während der Beladung
+* Datenplattform
+  * Infrastructure as Code wird angestrebt 
+  * Eine Portierbarkeit zur Vermeidung von Vendor-Lock-In wird angestrebt
+  * Ein zentrales Identity Management System steuert Zugriffe granular
+  * Ein Datenkatalog mit fachlicher und operativer Perspektive wird empfohlen
+
+
+:::
+
+## Data Lake
+### Zonen
+
+* Ähnlich wie im ETL Prozess umfasst auch der Data Lake verschiedene Zonen, in denen die Daten verschiedene Prozesse durchlaufen:
+
+::: {style="font-size: 0.87em"}
+1. **Transient Zone**: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert
+2. **Raw Data Zone**: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten
+3. **Curated Zone**: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haben und von Mängeln befreit wurden
+4. **Discovery Sandbox**: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt
+5. **Consumption Zone**: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung
+:::
+
+## Business Case
+### Tofispy User Events
+
+* Nachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen
+* Der Datensatz in Superset heißt nun "user_events_clean" und ist nach wie vor im Controlling Mart gespeichert.
+* Wie wäre es mit einem Line Chart?
+* Hierzu erneut in Superset:
+  * Oben auf "+Chart" klicken
+  * Das Dataset "user_events_clean" auswählen
+  * Anschließend "Time Series Line Chart" auswählen
+* Frage: Was ist der Hauptgrund für das schwindende Wachstum?
+
+## Business Case
+### Line Plot Starthilfe
+
+
+![](img/Superset_Line_Plot.png){width="800" height="500"}
+
+
+## Business Case
+### Warum kündigen User?
+
+* In Superset befindet sich ein weiterer Datensatz "cancellation_questionnaire", der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen
+* Der Datensatz enthält zwei Spalten:
+  * Question: Die gestellte Frage mit vier Ausprägungen
+  * Response: Die Antworten der User
+
+
+
+
+## Business Case
+### Warum kündigen User?
+
+* Ziel: Eine passende Visualisierung, die aufzeigt, wieso User hauptsächlich kündigen
+* Support durch Google und preset.io Dokumentation  
+* Starthilfe:
+  * Erneut gehen wir auf der Startseite oben rechts auf + Chart
+  * Wir wählen dann das Dataset "cancellation_questionnaire" aus
+  * Bei Chart Types gehen wir auf "Part of a Whole": Welche Optionen gibt es?
+    * Empfehlung:
+      * Pie Chart oder Treemap v2
+  * Welche Metric ist sinnvoll?
+  
+
+# Visualisierungen
+
+## Visualisierung von Anteilen
+### Kreisdiagramme
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: {style="font-size: 0.9em"}
+* Kreisdiagramme sind eine der häufigsten und umstrittensten Visualisierungen, um Anteile und Proportionen zu visualisieren
+* Nur bei einer geringen Anzahl von Kategorien (2-5) sinnvoll
+* Nicht sinnvoll, wenn die Anteile zwischen den Dimensionen sehr ähnlich sind
+* Auch bei negativen Werten oder Measures, die sich nicht zu 100% summieren nicht geeignet
+:::
+:::
+::: {.column width="50%"}
+
+```{r, fig.height= 4, fig.width=4}
+
+questionnaire %>%
+  filter(question == "Why do you unsubscribe?") %>%
+  ggplot(aes(x = "", fill = response)) +
+  geom_bar(width = 1, color = "white") +
+  coord_polar("y", start = 0) +
+  theme_void() +
+  theme(legend.position = "bottom") +
+  labs(title = "Was ist der häufigste Kündigungsgrund?",
+       fill = element_blank(),
+       x = NULL,
+       y = NULL) + 
+    scale_fill_tableau(palette = "Color Blind")
+
+
+```
+
+::: 
+::::
+
+## Visualisierung von Anteilen
+### Treemap
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: {style="font-size: 0.76em"}
+* Bei hierarchischen Datenstrukturen, die in Kategorien und Subkategorien unterteilt sind, eignet sich eine Treemap
+* Treemaps nutzen die Fläche der Rechtecke, um die Größe der Kategorien zu visualisieren und geben damit einen Eindruck über die relativen Anteile
+* Durch die Nutzung der Fläche statt des Winkels sind Treemaps leichter lesbar
+* Treemaps sind auch in der Lage, mehrere Dimensionen gleichzeitig darzustellen
+* Bei zu vielen Kategorien oder zu ähnlichen Anteilen ist von Treemaps abzuraten
+
+:::
+:::
+::: {.column width="50%"}
+
+```{r, fig.height= 5.5, fig.width=5}
+library(treemap)
+questionnaire %>%
+  group_by(question, response) %>% 
+  summarise(n = n()) %>% 
+  treemap(., index = c("question", "response"), vSize = "n", 
+          palette = "Set2",
+          type = "index",
+            bg.labels=c("transparent"),   
+          fontsize.labels = 10,    
+    align.labels=list(
+        c("left", "top"), 
+        c("center", "center")
+        ),    
+          title = "Treemap des Fragebogens")
+
+
+```
+
+:::
+::::
+
+
+# Informationsgenerierung
+
+## Berichtsorientierte Analyse
+### Reporting
+
+* Ein Bericht oder Report gibt einen Überblick über betriebswirtschaftliche Sachverhalte eines abgegrenzten Verantwortungsbereichs
+* In der Regel durch Visualisierung von Zusammenhängen in grafischer Form
+* Betriebliches Berichtswesen wird in interne und externe Berichterstattung unterteilt:
+  * Internes Berichtswesen: Informationen für das Management, bspw. internes Rechnungswesen
+  * Externes Berichtswesen: Informationen für externe Stakeholder, bspw. Jahresbericht
+
+## Berichtsorientierte Analyse
+### Reporting
+
+
+* Aktive Berichtskomponenten:
+  * Werden nach einmaliger Spezifikation der Inhalte und Formate regelmäßig erstellt und aktiv versandt, entweder:
+    * Periodisch: In festen Zeitabständen (jede Woche, jedes Quartal)
+    * Aperiodisch: Bei Überschreitung bestimmter Grenzwerte (z.B. Umsatzgrenze)
+* Passive Berichtskomponenten:
+  * Werden nur auf konkrete Anforderungen der Anwendenden erstellt
+  * Individuelle und bedarfsspezifische Berichte
+  * Auch Ad-hoc Berichtskomponente genannt, oft mit OLAP und Self-Service Tools umgesetzt
+
+
+## Berichtsorientierte Analyse
+### OLAP
+
+* Online Analyitical Processing (OLAP) ermöglicht die Bereitstellung anwendungsfreundlicher und gleichermaßen flexibler Abfragen in multidimensionalen Datenräumen
+* Form des Ad-hoc Reportings
+* OLAP-Komponenten sind weitgehend mit Pivot Tabellen in Excel oder Google Sheets vergleichbar
+* Aber: Erweitert um ein zentrales Datenmodell (meist Data Mart basiert) und Rollenverwaltung
+
+## OLAP
+### Datenmodell als Würfel
+
+:::: {.columns}
+::: {.column width="50%"}
+::: {style="font-size: 0.9em"}
+* Bestehen konzeptionell aus Fakten, Dimensionen und Hierarchien
+* Da oft mehrere Dimensionen vorliegen, spricht man von Cubes
+* Theoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt
+* Bei mehr als 3 Dimensionen spricht man oft von Hypercube
+* Bei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen 
+
+:::
+:::
+
+::: {.column width="50%"}
+
+![Cube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/plot-cube.PNG){width=100%}
+
+:::
+::::
+
+
+
+## Slide Title {visibility="hidden"}
+
+@frick_big-data-technologien_2021
+@gillhuber_architekturen_2023
+
+## Quellen

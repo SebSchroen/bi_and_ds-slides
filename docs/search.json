@@ -123,7 +123,7 @@
     "href": "03_VL.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-08\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-10\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-14\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-07\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-09\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-11\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-15\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-08\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",
@@ -210,354 +210,368 @@
     "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg."
   },
   {
-    "objectID": "02_VL.html#der-plan-für-heute",
-    "href": "02_VL.html#der-plan-für-heute",
+    "objectID": "99_VL.html#der-plan-für-heute",
+    "href": "99_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung 2\n\nDatenbereitstellung:\n\nData Warehouse\nData Mart\nArchitekturkonzepte\n\nBusiness Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe\nVerknüpfung eines ersten Data Marts mit Superset oder Datenanalyse mit Excel"
+    "text": "Der Plan für heute…\nVorlesung\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
   },
   {
-    "objectID": "02_VL.html#überblick-zum-bia-gesamteinsatz",
-    "href": "02_VL.html#überblick-zum-bia-gesamteinsatz",
+    "objectID": "04_VL.html#der-plan-für-heute",
+    "href": "04_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
-    "section": "Überblick zum BIA Gesamteinsatz",
-    "text": "Überblick zum BIA Gesamteinsatz\nDatenbereitstellung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung 4\n\nBig Data:\n\nWas ist Big Data?\nDefinitionen und Eigenschaften\nTechnologien und Werkzeuge\nAnwendungsfälle\n\nData Lake:\n\nWas ist der Data Lake?\nBraucht man das?\nWas sind die Unterschiede zum Data Warehouse?\n\nWeitere Ursachenforschung für den Wachstumsschwund bei Tofispy"
   },
   {
-    "objectID": "02_VL.html#data-warehouse",
-    "href": "02_VL.html#data-warehouse",
+    "objectID": "04_VL.html#einordnung-in-den-gesamtkontext",
+    "href": "04_VL.html#einordnung-in-den-gesamtkontext",
     "title": "Business Intelligence & Data Science",
-    "section": "Data Warehouse",
-    "text": "Data Warehouse\nBegriff\n\n\n\n\n\n\nDefinition\n\n\nEin Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung (siehe Kemper und Sun 2023).\n\n\n\n\n\nDie entscheidenden Punkte sind hier:\n\nTrennung von operativen und dispositiven Daten\nIntegration von Datenbeständen aus verschiedenen und oftmals sehr heterogenen Quellen\nEinheitliche und konsistente Datenbasis für das gesamte Unternehmen"
+    "section": "Einordnung in den Gesamtkontext",
+    "text": "Einordnung in den Gesamtkontext\nDer Data Lake & Big Data\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
   },
   {
-    "objectID": "02_VL.html#data-warehouse-1",
-    "href": "02_VL.html#data-warehouse-1",
+    "objectID": "04_VL.html#big-data-1",
+    "href": "04_VL.html#big-data-1",
     "title": "Business Intelligence & Data Science",
-    "section": "Data Warehouse",
-    "text": "Data Warehouse\nEigenschaften\n\n\n\nThemenorientierung:\n\nDispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet\nDie operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert\nThemen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1\n\nIntegration:\n\nDaten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert\nZusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”"
+    "section": "Big Data",
+    "text": "Big Data\nWas ist Big Data?\n\n\n\nQuelle: Siemens Stiftung 2019"
   },
   {
-    "objectID": "02_VL.html#data-warehouse-2",
-    "href": "02_VL.html#data-warehouse-2",
+    "objectID": "04_VL.html#big-data-2",
+    "href": "04_VL.html#big-data-2",
     "title": "Business Intelligence & Data Science",
-    "section": "Data Warehouse",
-    "text": "Data Warehouse\nEigenschaften\n\n\nZeitraumbezug:\n\nOperative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab\nDaten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr\n\nNicht-Volatilität:\n\nDaten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt\nDWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt"
+    "section": "Big Data",
+    "text": "Big Data\nDie 3Vs\n\n\n\n\nVolume:\n\nDie erhebliche Menge an Daten, die erfasst oder generiert wird und die vorgehalten sowie gespeichert werden muss\nD’Onofrio und Meier (2021) sprechen im Petabyte bis Zettabyte-Bereich von Big Data\n\nVariety:\n\nMeint die unterschiedlichen Arten von Daten in Big Data-Szenarien\nNeben strukturierte Daten in Tabellenform auch um unstrukturierte Daten wie Texte, Bilder, Videos, Audios sowie semi-strukturierte Daten\n\nVelocity:\n\nDie Rate, mit der Daten erzeugt, gesammelt und verarbeitet werden.\nIm Extremfall müssen Daten in Echtzeit analysiert werden, um sofortige Erkenntnisse zu gewinnen.\n\n\n\n\nExkurs Bits und Bytes:\n1 Bit = Kleinste Informationseinheit, kann 0 oder 1 sein 1 Byte = 8 Bit, entspricht einem Zeichen, bspw. einem Buchstaben und kann 256 verschiedene Kombinationen annehmen, nämlich 2^8. Warum 2^8? Weil 2 Zustände (0 oder 1) und 8 Stellen (Bit) = 2^8 = 256 1 Byte ist auch die kleinste Speichereinheit in Computern 1 Kilobyte (KB) = 1024 Byte 1 Megabyte (MB) = 1024 KB 1 Gigabyte (GB) = 1024 MB 1 Terabyte (TB) = 1024 GB 1 Petabyte (PB) = 1024 TB 1 Exabyte (EB) = 1024 PB 1 Zettabyte (ZB) = 1024 EB 1 Yottabyte (YB) = 1024 ZB\n\n\n\n\nQuelle: Siemens Stiftung 2019"
   },
   {
-    "objectID": "02_VL.html#data-warehouse-3",
-    "href": "02_VL.html#data-warehouse-3",
+    "objectID": "04_VL.html#big-data-3",
+    "href": "04_VL.html#big-data-3",
     "title": "Business Intelligence & Data Science",
-    "section": "Data Warehouse",
-    "text": "Data Warehouse\nKomponenten des Data Warehouse\n\n\n\nData Mart\n\nSeparater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen\nNur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen\nHäufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen\n\n\nCore Data Warehouse\n\nRückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet\nBefüllung über ETL-Prozesse aus operativen Quellsystemen\nMeist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)\nApplikationsneutral modelliert"
+    "section": "Big Data",
+    "text": "Big Data\n…und noch mehr Vs\n\nWeitere Vs in der Literatur zielen auf die Verwendung der Daten ab und weniger auf die technischen Eigenschaften der 3 Vs\n\n\nValue (Wert)\n\nDer Wert, den Unternehmen aus den gesammelten und analysierten Daten ziehen können\nDas Hauptziel von Big Data ist es, nutzbare Erkenntnisse zu gewinnen und daraus einen Mehrwert zu generieren"
   },
   {
-    "objectID": "02_VL.html#data-warehouse-4",
-    "href": "02_VL.html#data-warehouse-4",
+    "objectID": "04_VL.html#big-data-4",
+    "href": "04_VL.html#big-data-4",
     "title": "Business Intelligence & Data Science",
-    "section": "Data Warehouse",
-    "text": "Data Warehouse\nFunktionen des CDWH\n\nSammel- und Integrationsfunktion:\n\n\n\nAufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers\n\n\n\nDistributionsfunktion:\n\n\n\nVersorgung aller nachgeschalteten Data Marts mit Daten\n\n\n\nQualitätssicherungsfunktion:\n\n\n\nDatentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis"
+    "section": "Big Data",
+    "text": "Big Data\n…und noch mehr Vs\n\nVeracity (Genauigkeit)\n\nDie Qualität der Daten, besonders Präzision und Zuverlässigkeit, da große Daten oft Rauschen und ungenaue Informationen enthalten\nBaars und Kemper (2021) betonen, dass Genauigkeit auf die durch Big Data erzielten Ergebnisse abzielt und weniger auf die Daten\n\nValidity (Validität)\n\nDie Gültigkeit der Datenanalyse, inwiefern die durchgeführten Analysen tatsächlich die gewünschten Erkenntnisse liefern\n\nOutput Velocity (Analyse-Geschwindigkeit)\n\nDie Bereitstellung von relevanten Ergebnissen mit geringer Latenz, idealerweise nahezu in Echtzeit"
   },
   {
-    "objectID": "02_VL.html#data-warehouse-5",
-    "href": "02_VL.html#data-warehouse-5",
+    "objectID": "04_VL.html#big-data-5",
+    "href": "04_VL.html#big-data-5",
     "title": "Business Intelligence & Data Science",
-    "section": "Data Warehouse",
-    "text": "Data Warehouse\nData Mart vs. CDWH\n\n\n\nCharakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an Baars und Kemper (2021)\n\n\n\n\n\n\n\n\nData Mart\nCore Data Warehouse\n\n\n\n\nZiel\nEntscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten\nEntscheidungsunterstützung für alle Bereiche in einem Unternehmen\n\n\nAusrichtung\nBereichsspezifisch oder Abteilungsbezogen\nZentral und unternehmensweit\n\n\nGranularität\nHöhere Aggregationen\nFeinste verfügbare Granularität\n\n\nVerfügbarkeit für Endanwendende\nIn der Regel möglich\nHäufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt\n\n\nFlexibilität der Analysen\nTendenziell gering und auf Anwendungsbereich beschränkt\nSehr flexibel\n\n\nVolumina\nGering bis moderat\nModerat bis umfangreich"
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nBig Data Technologien müssen hohe Datenvolumina im mehrstelligen Petabyte-Bereich handhaben, um hierauf Analysen durchzuführen\nDie Ergebnisse dieser Analysen gilt es hiernach im IT-Entscheidungsunterstützungssystem zu integrieren\nDies ist mit den bisher vorgestellten relationalen CDWH-Lösungen nicht ohne Weiteres möglich\nDie aus den 3 Vs resultierenden Anforderungen erfordern hohe Rechen- und Speicherkapazitäten, die oft durch parallele Infrastruktur realisiert werden."
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen",
-    "href": "02_VL.html#dwh-architekturen",
+    "objectID": "04_VL.html#big-data-6",
+    "href": "04_VL.html#big-data-6",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\n\n\n\n\n\nUnabhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nAuch Stove-Pipe Ansatz\nBedienen sich direkt aus den operativen und externen Systemen\nBereiten die enthaltenen Daten für relevante Anwendungsfelder auf\nDaten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen\nVerschiedene Marts können unterschiedliche externe Datenquellen zusammenführen\n\n\n\n\n\n\nStove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel"
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nAllgemein werden zwei Formen der Parallelisierung unterschieden:\n\nVertikale Skalierung:\n\nAuch Scale Up genannt\nNutzung von leistungsstärkeren Rechnern\n\nHorizontale Skalierung:\n\nAuch Scale Out genannt\nNutzung von vielen günstigen Standard-Servern oder Cloud Infrastruktur bei modernen Cloud Hyper Scalern, um Lasten zu verteilen\n\n\nVertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen"
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen-1",
-    "href": "02_VL.html#dwh-architekturen-1",
+    "objectID": "04_VL.html#big-data-7",
+    "href": "04_VL.html#big-data-7",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\nVorteile:\n\nSchnelle und bereichsspezifische Informationsbereitstellung\nSinnvoll bei fehlender Governance Strategie\nErfüllung maßgeschneideter bereichsspezifischer Fragestellungen\n\n\nNachteile:\n\nHäufig historisch gewachsene Strukturen und damit geringe Governance\nMehrfache Aufbereitung der Quelldaten\nGefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts\nMangelnde Möglichkeit bereichsübergreifender Analysen"
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nVertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen\nDie Datenhaltung in Big Data-Szenarien erfolgt in der Regel in NoSQL-Datenbanken (Not Only SQL)\nDies dient primär der Parallelisierung der Datenhaltung und -verarbeitung\nGleichzeitig ermöglichen diese Datenbanken die Speicherung von unstrukturierten Daten"
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen-2",
-    "href": "02_VL.html#dwh-architekturen-2",
+    "objectID": "04_VL.html#nosql-datenbanken",
+    "href": "04_VL.html#nosql-datenbanken",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nAbgestimmte Data Marts\n\n\n\n\n\n\n\nAbhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nKonzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten\nDas abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung\nInhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts"
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nKey-Value Stores\n\n\n\nDatenbanken, die paarweise einen (einmaligen) Schlüssel mit einem zugehörigen Wert ablegen\nDiese Werte können beliebige Datenstrukturen sein, wie z.B. Texte, Bilder, Videos, Audios, JSON-Objekte, XML-Dateien, etc.\nKey-Value Stores sind optimiert für schnelle Lese- und Schreibzugriffe auf Basis von Keys\n\n\n\n\n\nKey Value Store, Quelle: Data Engineering Wiki"
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen-3",
-    "href": "02_VL.html#dwh-architekturen-3",
+    "objectID": "04_VL.html#nosql-datenbanken-1",
+    "href": "04_VL.html#nosql-datenbanken-1",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nAbgestimmte Data Marts\n\n\n\nVorteile:\n\nIntegrität des Datenmodells wird gewährleistet\nMöglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche\nEntscheidungsunterstützung für alle Bereiche in einem Unternehmen\n\n\nNachteile:\n\nDurch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts\nMöglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition\nInformationsverlust bei übergreifenden Analysen"
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nDocument Stores\n\n\n\nEnthalten poly-strukturierte Dokumente beliebiger Länge, die auf Basis von Dokumenteninhalten recherchiert werden können.\nHäufig in Form von JSON oder XML Files abgelegt, da diese die Möglichkeit bieten, unstrukturierte Attribute zu hinterlegen und flexible Schemata zu definiere.\nDas Beispiel rechts entspricht dem JavaScript Object Notation JSON\n\n\n\n\n\nDocument Data Base, Quelle: Data Engineering Wiki"
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen-4",
-    "href": "02_VL.html#dwh-architekturen-4",
+    "objectID": "04_VL.html#nosql-datenbanken-2",
+    "href": "04_VL.html#nosql-datenbanken-2",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nCore Data Warehouse\n\n\n\n\n\n\n\nCore Data Warehouse. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nDas CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank\nDieser Ansatz wird oft als Monolith bezeichnet\nDie Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos"
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nWide Column Stores und Graph-Databases\n\n\n\n\nWide Column Stores:\n\nDatenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können\nEinzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann\n\nGraph-Databases:\n\nSind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet.\nBasieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)\n\n\n\n\n\n\n\n\nGraph Database, Quelle: Data Engineering Wiki"
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen-5",
-    "href": "02_VL.html#dwh-architekturen-5",
+    "objectID": "04_VL.html#data-lake-1",
+    "href": "04_VL.html#data-lake-1",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nCore Data Warehouse\n\n\n\nVorteile:\n\nHoher Grad an Mehrfachverwendbarkeit der Daten\nHoher Detailgrad möglich\nBei kleineren Anwendungsfällen oft ausreichend\n\n\nNachteile:\n\nBerechtigungsmanagement und Performance stoßen bei komplexen Anwendungsfällen schnell an Grenzen\nBei größeren Einheiten mit eigenen Geschäftsprozessen und stark abweichenden Hierarchiestrukturen sehr komplex, hier bietet sich der Einsatz mehrerer CDWH an"
+    "section": "Data Lake",
+    "text": "Data Lake\nDas Konzept des Data Lake\n\nDas Data Warehouse galt lange Zeit als das zentrale Architekturkonzept für dispositive Reporting- und Analysezwecke\nBig Data Technologien haben den Data Lake in den Fokus gerückt, der meist als eine ergänzende Komponente zu DWH dient\nEin Data Lake erhebt den Anspruch, alle Quelldaten in roher Form als Rohdaten zu persistieren und zur Verfügung zu stellen\nBeim Data Lake steht der effiziente Umgang mit großen und polystrukturierten Datenmengen im Vordergrund, die es schnell zu verarbeiten gilt\nDies ermöglicht komplexe Analysen für neue Machine Learning Anwendungen, die verschiedene Datenquellen benötigen"
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen-6",
-    "href": "02_VL.html#dwh-architekturen-6",
+    "objectID": "04_VL.html#data-lake-vs.-data-warehouse",
+    "href": "04_VL.html#data-lake-vs.-data-warehouse",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nCore Data Warehouse mit abhängigen Data Marts\n\n\n\n\nAuch Hub-and-Spoke Ansatz genannt\nCDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts\nMarts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf\nCDWH als Hub erfüllt Aufgaben der Integration, Qualitätssicherung und Datenverteilung an die Marts\n\n\n\n\n\n\n\n\nCore Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)"
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nIllustration\n\n\n\nData Lake versus Data Warehouse, Quelle: Twitter"
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen-7",
-    "href": "02_VL.html#dwh-architekturen-7",
+    "objectID": "04_VL.html#data-lake-vs.-data-warehouse-1",
+    "href": "04_VL.html#data-lake-vs.-data-warehouse-1",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nCore Data Warehouse mit abhängigen Data Marts\n\n\n\nVorteile:\n\nEinmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik\nGeringere Anzahl an Extraktionsprozessen\nReduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten\n\n\nNachteile:\n\nNach wie vor eher traditionelle BI-Sicht"
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nCharakteristika\n\n\n\nTabelle 1: Wichtige Charakteristika von Data Lake und Data Warehouse im Vergleich. In Anlehnung an Dittmar und Schulz (2023), S. 159\n\n\n\n\n\n\nData Warehouse\nData Lake\n\n\n\n\nOptimiert für wiederholbare Prozesse\nOriginär eine Erweiterung der DWH Staging Area\n\n\nUnterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen\nOptimiert Daten für Analytics-Lösungen\n\n\nFokus auf vergangenheitsbezogene Auswertungen\nFokus auf unbekannte explorative Datenanalyse und zukunftsorienterte Methoden\n\n\nSchema-on-Write mit harmonisiertem Datenmodell\nSchema-on-Read mit Echtzeit Rohdaten Bewirtschaftung"
   },
   {
-    "objectID": "02_VL.html#dwh-architekturen-8",
-    "href": "02_VL.html#dwh-architekturen-8",
+    "objectID": "04_VL.html#data-lake-vs.-data-warehouse-2",
+    "href": "04_VL.html#data-lake-vs.-data-warehouse-2",
     "title": "Business Intelligence & Data Science",
-    "section": "DWH Architekturen",
-    "text": "DWH Architekturen\nArchitekturen-Mix\n\n\n\n\n\nArchitekturen-Mix. Eigene Darstellung in Anlehnung an Hahne (2016)"
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nAnwendungsbereiche\n\n\n\nAnwendungsfälle Data Lake und Data Warehouse, Quelle: Twitter"
   },
   {
-    "objectID": "02_VL.html#business-case",
-    "href": "02_VL.html#business-case",
+    "objectID": "04_VL.html#data-lake-2",
+    "href": "04_VL.html#data-lake-2",
     "title": "Business Intelligence & Data Science",
-    "section": "Business Case",
-    "text": "Business Case\nDas Wachstum bei Tofispy stagniert\n\n\n\nTofispy ist ein Musikstreaming Anbieter aus Deutschland\nDas Unternehmen kämpft mit stagnierendem Wachstum\nWir – die Unternehmensberatung LeinbizConsult – wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln\nDie Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben"
+    "section": "Data Lake",
+    "text": "Data Lake\nArchitekturprinzipien\n\n\nDatenanbindung:\n\nEs werden ausschließlich primäre Datenquellen angebunden\nDie feinste Granularität der Datenquelle wird verwendet\n\nDatenhaltung\n\nEine Löschung der Rohdaten erfolgt nur aus regulatorischen Gründen (Datenschutz)\nEin Zonenkonzept ist zu empfehlen\nEine Anonymisierung persönlicher Daten erfolgt während der Beladung\n\nDatenplattform\n\nInfrastructure as Code wird angestrebt\nEine Portierbarkeit zur Vermeidung von Vendor-Lock-In wird angestrebt\nEin zentrales Identity Management System steuert Zugriffe granular\nEin Datenkatalog mit fachlicher und operativer Perspektive wird empfohlen"
   },
   {
-    "objectID": "02_VL.html#business-case-1",
-    "href": "02_VL.html#business-case-1",
+    "objectID": "04_VL.html#data-lake-3",
+    "href": "04_VL.html#data-lake-3",
     "title": "Business Intelligence & Data Science",
-    "section": "Business Case",
-    "text": "Business Case\nDatensatz\n\nÜberblick über den Streamingmarkt:\n\nDataset “market_share”\nAnzahl der Nutzer pro Plattform in Mio\nDaten von 2016 bis 2024\nDie Daten für 2024 sind eine Hochrechnung für das laufende Jahr"
+    "section": "Data Lake",
+    "text": "Data Lake\nZonen\n\nÄhnlich wie im ETL Prozess umfasst auch der Data Lake verschiedene Zonen, in denen die Daten verschiedene Prozesse durchlaufen:\n\n\n\nTransient Zone: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert\nRaw Data Zone: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten\nCurated Zone: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haben und von Mängeln befreit wurden\nDiscovery Sandbox: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt\nConsumption Zone: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung"
   },
   {
-    "objectID": "02_VL.html#business-case-2",
-    "href": "02_VL.html#business-case-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "Business Case",
-    "text": "Business Case\nAufgabe\n\n\nArbeit in 2er Teams mit mindestens einem Laptop oder Tablet (nicht ideal für Excel) pro Team\nJedes Team lädt die Daten bei StudIP herunter und diskutiert untereinander, wie die Daten strukturiert sind\nTrial & Error in Superset mit Hilfe der Dokumentation:\n\nDokumentation unter preset.io\nStartpunkt: Creating a Chart (in der preset Doku)\nTable als Ausgangspunkt für explorative Analyse\n\nAnschließend Analyse in Excel + Superset und kritische Gegenüberstellung der beiden Ansätze"
-  },
-  {
-    "objectID": "02_VL.html#business-case-3",
-    "href": "02_VL.html#business-case-3",
+    "objectID": "04_VL.html#business-case",
+    "href": "04_VL.html#business-case",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
-    "text": "Business Case\nFragen\n\n\nWas sind die Vorteile der beiden Ansätze?\nWächst Tofispy schneller oder langsamer als der Gesamtmarkt?\nWie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?\nWelcher Konkurrent wächst am stärksten?\nIst der Datensatz operativ oder dispositiv?\nWelcher Reifegrad von Analytics liegt vor?"
+    "text": "Business Case\nTofispy User Events\n\nNachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen\nDer Datensatz in Superset heißt nun “user_events_clean” und ist nach wie vor im Controlling Mart gespeichert.\nWie wäre es mit einem Line Chart?\nHierzu erneut in Superset:\n\nOben auf “+Chart” klicken\nDas Dataset “user_events_clean” auswählen\nAnschließend “Time Series Line Chart” auswählen\n\nFrage: Was ist der Hauptgrund für das schwindende Wachstum?"
   },
   {
-    "objectID": "02_VL.html#hausaufgabe",
-    "href": "02_VL.html#hausaufgabe",
+    "objectID": "04_VL.html#business-case-1",
+    "href": "04_VL.html#business-case-1",
     "title": "Business Intelligence & Data Science",
-    "section": "Hausaufgabe",
-    "text": "Hausaufgabe\nVideo anschauen\n\nLink zum Video"
+    "section": "Business Case",
+    "text": "Business Case\nLine Plot Starthilfe"
   },
   {
-    "objectID": "02_VL.html#hausaufgabe-1",
-    "href": "02_VL.html#hausaufgabe-1",
+    "objectID": "04_VL.html#business-case-2",
+    "href": "04_VL.html#business-case-2",
     "title": "Business Intelligence & Data Science",
-    "section": "Hausaufgabe",
-    "text": "Hausaufgabe\nFragen zu Superset\n\nWas sind Dimensions und Metrics? Welchen Zweck haben sie?\nWas ist der Unterschied zwischen einem Dataset und einer Database?\nWas ist der Unterschied zwischen Superset und Preset?"
+    "section": "Business Case",
+    "text": "Business Case\nHausaufgabe\n\nIn Superset befindet sich ein weiterer Datensatz “cancellation_questionnaire”, der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen\nDer Datensatz enthält zwei Spalten:\n\nQuestion: Die gestellte Frage mit vier Ausprägungen\nResponse: Die Antworten der User\n\nZiel: Eine passende Visualisierung, die aufzeigt, wieso User hauptsächlich kündigen\nSupport durch Google und preset.io Dokumentation"
   },
   {
-    "objectID": "02_VL.html#quellen",
-    "href": "02_VL.html#quellen",
+    "objectID": "04_VL.html#quellen",
+    "href": "04_VL.html#quellen",
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
-    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nHahne, Michael. 2016. „Architekturkonzepte und Modellierungsverfahren für BI-Systeme“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_8.\n\n\nKemper, Hans-Georg, und Xuanpu Sun. 2023. „Data Warehouse“. In Gabler Bankenlexikon. https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924."
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nD’Onofrio, Sara, und Andreas Meier, Hrsg. 2021. Big Data Analytics: Grundlagen, Fallbeispiele und Nutzungspotenziale. Edition HMD. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-32236-6.\n\n\nDittmar, Carsten, und Peter Schulz. 2023. „Architekturen und Technologien für den Data Lake“. In Künstliche Intelligenz und Data Science in Theorie und Praxis, herausgegeben von Andreas Gillhuber, Göran Kauermann, und Wolfgang Hauner, 157–66. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-66278-6_12.\n\n\nQuix, Christoph. 2021. „Big-Data-Technologien“. In Data Science, herausgegeben von Detlev Frick, Andreas Gadatsch, Jens Kaufmann, Birgit Lankes, Christoph Quix, Andreas Schmidt, und Uwe Schmitz, 133–48. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-33403-1_8."
   },
   {
-    "objectID": "05_VL.html#der-plan-für-heute",
-    "href": "05_VL.html#der-plan-für-heute",
+    "objectID": "04_VL_D.html#der-plan-für-heute",
+    "href": "04_VL_D.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung\n\n\nQuiz und Recap\nVisualisierung von Anteilen: Kreisdiagramme, Treemaps und Sankey Plots\nInformationsgenerierung\n\nWelche Formen von Berichten gibt es?\nWas ist OLAP?\nWo genau unterscheiden sich Self-Sevice BI und traditionelle BI?\n\nModellgestützte Analysen\n\nWie läuft ein Data Science Projekt ab?\nBegriffliche Grundlagen Data Science"
+    "text": "Der Plan für heute…\nVorlesung 4\n\n\nBig Data:\n\nWas ist Big Data?\nDefinitionen und Eigenschaften\nTechnologien und Werkzeuge\n\nData Lake:\n\nWas ist der Data Lake?\nBraucht man das?\nWas sind die Unterschiede zum Data Warehouse?\n\nWeitere Ursachenforschung für den Wachstumsschwund bei Tofispy\nVisualisierung von Anteilen: Kreisdiagramm und Treemap\nInformationsgenerierung:\n\nBerichtsorienterte Analyse"
   },
   {
-    "objectID": "05_VL.html#kurzer-überblick-wo-gehts-weiter",
-    "href": "05_VL.html#kurzer-überblick-wo-gehts-weiter",
+    "objectID": "04_VL_D.html#einordnung-in-den-gesamtkontext",
+    "href": "04_VL_D.html#einordnung-in-den-gesamtkontext",
     "title": "Business Intelligence & Data Science",
-    "section": "Kurzer Überblick: Wo geht’s weiter?",
-    "text": "Kurzer Überblick: Wo geht’s weiter?\nInformationsgenerierung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+    "section": "Einordnung in den Gesamtkontext",
+    "text": "Einordnung in den Gesamtkontext\nDer Data Lake & Big Data\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
   },
   {
-    "objectID": "05_VL.html#berichtsorientierte-analyse",
-    "href": "05_VL.html#berichtsorientierte-analyse",
+    "objectID": "04_VL_D.html#big-data-1",
+    "href": "04_VL_D.html#big-data-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nWas ist Big Data?\n\n\n\nQuelle: Siemens Stiftung 2019"
+  },
+  {
+    "objectID": "04_VL_D.html#big-data-2",
+    "href": "04_VL_D.html#big-data-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nDie 3Vs\n\n\n\n\nVolume:\n\nDie erhebliche Menge an Daten, die erfasst oder generiert wird und die vorgehalten sowie gespeichert werden muss\nD’Onofrio und Meier (2021) sprechen im Petabyte bis Zettabyte-Bereich von Big Data\n\nVariety:\n\nMeint die unterschiedlichen Arten von Daten in Big Data-Szenarien\nNeben strukturierte Daten in Tabellenform auch um unstrukturierte Daten wie Texte, Bilder, Videos, Audios sowie semi-strukturierte Daten\n\nVelocity:\n\nDie Rate, mit der Daten erzeugt, gesammelt und verarbeitet werden.\nIm Extremfall müssen Daten in Echtzeit analysiert werden, um sofortige Erkenntnisse zu gewinnen.\n\n\n\n\nExkurs Bits und Bytes:\n1 Bit = Kleinste Informationseinheit, kann 0 oder 1 sein 1 Byte = 8 Bit, entspricht einem Zeichen, bspw. einem Buchstaben und kann 256 verschiedene Kombinationen annehmen, nämlich 2^8. Warum 2^8? Weil 2 Zustände (0 oder 1) und 8 Stellen (Bit) = 2^8 = 256 1 Byte ist auch die kleinste Speichereinheit in Computern 1 Kilobyte (KB) = 1024 Byte 1 Megabyte (MB) = 1024 KB 1 Gigabyte (GB) = 1024 MB 1 Terabyte (TB) = 1024 GB 1 Petabyte (PB) = 1024 TB 1 Exabyte (EB) = 1024 PB 1 Zettabyte (ZB) = 1024 EB 1 Yottabyte (YB) = 1024 ZB\n\n\n\n\nQuelle: Siemens Stiftung 2019"
+  },
+  {
+    "objectID": "04_VL_D.html#big-data-3",
+    "href": "04_VL_D.html#big-data-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\n…und noch mehr Vs\n\nWeitere Vs in der Literatur zielen auf die Verwendung der Daten ab und weniger auf die technischen Eigenschaften der 3 Vs\n\n\nValue (Wert)\n\nDer Wert, den Unternehmen aus den gesammelten und analysierten Daten ziehen können\nDas Hauptziel von Big Data ist es, nutzbare Erkenntnisse zu gewinnen und daraus einen Mehrwert zu generieren"
+  },
+  {
+    "objectID": "04_VL_D.html#big-data-4",
+    "href": "04_VL_D.html#big-data-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\n…und noch mehr Vs\n\nVeracity (Genauigkeit)\n\nDie Qualität der Daten, besonders Präzision und Zuverlässigkeit, da große Daten oft Rauschen und ungenaue Informationen enthalten\nBaars und Kemper (2021) betonen, dass Genauigkeit auf die durch Big Data erzielten Ergebnisse abzielt und weniger auf die Daten\n\nValidity (Validität)\n\nDie Gültigkeit der Datenanalyse, inwiefern die durchgeführten Analysen tatsächlich die gewünschten Erkenntnisse liefern\n\nOutput Velocity (Analyse-Geschwindigkeit)\n\nDie Bereitstellung von relevanten Ergebnissen mit geringer Latenz, idealerweise nahezu in Echtzeit"
+  },
+  {
+    "objectID": "04_VL_D.html#big-data-5",
+    "href": "04_VL_D.html#big-data-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nBig Data Technologien müssen hohe Datenvolumina im mehrstelligen Petabyte-Bereich handhaben, um hierauf Analysen durchzuführen\nDie Ergebnisse dieser Analysen gilt es hiernach im IT-Entscheidungsunterstützungssystem zu integrieren\nDies ist mit den bisher vorgestellten relationalen CDWH-Lösungen nicht ohne Weiteres möglich\nDie aus den 3 Vs resultierenden Anforderungen erfordern hohe Rechen- und Speicherkapazitäten, die oft durch parallele Infrastruktur realisiert werden."
+  },
+  {
+    "objectID": "04_VL_D.html#big-data-6",
+    "href": "04_VL_D.html#big-data-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nAllgemein werden zwei Formen der Parallelisierung unterschieden:\n\nVertikale Skalierung:\n\nAuch Scale Up genannt\nNutzung von leistungsstärkeren Rechnern\n\nHorizontale Skalierung:\n\nAuch Scale Out genannt\nNutzung von vielen günstigen Standard-Servern oder Cloud Infrastruktur bei modernen Cloud Hyper Scalern, um Lasten zu verteilen\n\n\nVertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen"
+  },
+  {
+    "objectID": "04_VL_D.html#big-data-7",
+    "href": "04_VL_D.html#big-data-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Big Data",
+    "text": "Big Data\nTechnologien und Werkzeuge\n\nVertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen\nDie Datenhaltung in Big Data-Szenarien erfolgt in der Regel in NoSQL-Datenbanken (Not Only SQL)\nDies dient primär der Parallelisierung der Datenhaltung und -verarbeitung\nGleichzeitig ermöglichen diese Datenbanken die Speicherung von unstrukturierten Daten"
+  },
+  {
+    "objectID": "04_VL_D.html#nosql-datenbanken",
+    "href": "04_VL_D.html#nosql-datenbanken",
+    "title": "Business Intelligence & Data Science",
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nKey-Value Stores\n\n\n\nDatenbanken, die paarweise einen (einmaligen) Schlüssel mit einem zugehörigen Wert ablegen\nDiese Werte können beliebige Datenstrukturen sein, wie z.B. Texte, Bilder, Videos, Audios, JSON-Objekte, XML-Dateien, etc.\nKey-Value Stores sind optimiert für schnelle Lese- und Schreibzugriffe auf Basis von Keys\n\n\n\n\n\nKey Value Store, Quelle: Data Engineering Wiki"
+  },
+  {
+    "objectID": "04_VL_D.html#nosql-datenbanken-1",
+    "href": "04_VL_D.html#nosql-datenbanken-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nDocument Stores\n\n\n\nEnthalten poly-strukturierte Dokumente beliebiger Länge, die auf Basis von Dokumenteninhalten recherchiert werden können.\nHäufig in Form von JSON oder XML Files abgelegt, da diese die Möglichkeit bieten, unstrukturierte Attribute zu hinterlegen und flexible Schemata zu definiere.\nDas Beispiel rechts entspricht dem JavaScript Object Notation JSON\n\n\n\n\n\nDocument Data Base, Quelle: Data Engineering Wiki"
+  },
+  {
+    "objectID": "04_VL_D.html#nosql-datenbanken-2",
+    "href": "04_VL_D.html#nosql-datenbanken-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "NoSQL Datenbanken",
+    "text": "NoSQL Datenbanken\nWide Column Stores und Graph-Databases\n\n\n\n\nWide Column Stores:\n\nDatenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können\nEinzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann\n\nGraph-Databases:\n\nSind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet.\nBasieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)\n\n\n\n\n\n\n\n\nGraph Database, Quelle: Data Engineering Wiki"
+  },
+  {
+    "objectID": "04_VL_D.html#data-lake-1",
+    "href": "04_VL_D.html#data-lake-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake",
+    "text": "Data Lake\nDas Konzept des Data Lake\n\nDas Data Warehouse galt lange Zeit als das zentrale Architekturkonzept für dispositive Reporting- und Analysezwecke\nBig Data Technologien haben den Data Lake in den Fokus gerückt, der meist als eine ergänzende Komponente zu DWH dient\nEin Data Lake erhebt den Anspruch, alle Quelldaten in roher Form als Rohdaten zu persistieren und zur Verfügung zu stellen\nBeim Data Lake steht der effiziente Umgang mit großen und polystrukturierten Datenmengen im Vordergrund, die es schnell zu verarbeiten gilt\nDies ermöglicht komplexe Analysen für neue Machine Learning Anwendungen, die verschiedene Datenquellen benötigen"
+  },
+  {
+    "objectID": "04_VL_D.html#data-lake-vs.-data-warehouse",
+    "href": "04_VL_D.html#data-lake-vs.-data-warehouse",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nIllustration\n\n\n\nData Lake versus Data Warehouse, Quelle: Twitter"
+  },
+  {
+    "objectID": "04_VL_D.html#data-lake-vs.-data-warehouse-1",
+    "href": "04_VL_D.html#data-lake-vs.-data-warehouse-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nCharakteristika\n\n\n\nTabelle 1: Wichtige Charakteristika von Data Lake und Data Warehouse im Vergleich. In Anlehnung an Dittmar und Schulz (2023), S. 159\n\n\n\n\n\n\nData Warehouse\nData Lake\n\n\n\n\nOptimiert für wiederholbare Prozesse\nOriginär eine Erweiterung der DWH Staging Area\n\n\nUnterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen\nOptimiert Daten für Analytics-Lösungen\n\n\nFokus auf vergangenheitsbezogene Auswertungen\nFokus auf unbekannte explorative Datenanalyse und zukunftsorienterte Methoden\n\n\nSchema-on-Write mit harmonisiertem Datenmodell\nSchema-on-Read mit Echtzeit Rohdaten Bewirtschaftung"
+  },
+  {
+    "objectID": "04_VL_D.html#data-lake-vs.-data-warehouse-2",
+    "href": "04_VL_D.html#data-lake-vs.-data-warehouse-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake vs. Data Warehouse",
+    "text": "Data Lake vs. Data Warehouse\nAnwendungsbereiche\n\n\n\nAnwendungsfälle Data Lake und Data Warehouse, Quelle: Twitter"
+  },
+  {
+    "objectID": "04_VL_D.html#data-lake-2",
+    "href": "04_VL_D.html#data-lake-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake",
+    "text": "Data Lake\nArchitekturprinzipien\n\n\nDatenanbindung:\n\nEs werden ausschließlich primäre Datenquellen angebunden\nDie feinste Granularität der Datenquelle wird verwendet\n\nDatenhaltung\n\nEine Löschung der Rohdaten erfolgt nur aus regulatorischen Gründen (Datenschutz)\nEin Zonenkonzept ist zu empfehlen\nEine Anonymisierung persönlicher Daten erfolgt während der Beladung\n\nDatenplattform\n\nInfrastructure as Code wird angestrebt\nEine Portierbarkeit zur Vermeidung von Vendor-Lock-In wird angestrebt\nEin zentrales Identity Management System steuert Zugriffe granular\nEin Datenkatalog mit fachlicher und operativer Perspektive wird empfohlen"
+  },
+  {
+    "objectID": "04_VL_D.html#data-lake-3",
+    "href": "04_VL_D.html#data-lake-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Lake",
+    "text": "Data Lake\nZonen\n\nÄhnlich wie im ETL Prozess umfasst auch der Data Lake verschiedene Zonen, in denen die Daten verschiedene Prozesse durchlaufen:\n\n\n\nTransient Zone: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert\nRaw Data Zone: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten\nCurated Zone: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haben und von Mängeln befreit wurden\nDiscovery Sandbox: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt\nConsumption Zone: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung"
+  },
+  {
+    "objectID": "04_VL_D.html#business-case",
+    "href": "04_VL_D.html#business-case",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nTofispy User Events\n\nNachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen\nDer Datensatz in Superset heißt nun “user_events_clean” und ist nach wie vor im Controlling Mart gespeichert.\nWie wäre es mit einem Line Chart?\nHierzu erneut in Superset:\n\nOben auf “+Chart” klicken\nDas Dataset “user_events_clean” auswählen\nAnschließend “Time Series Line Chart” auswählen\n\nFrage: Was ist der Hauptgrund für das schwindende Wachstum?"
+  },
+  {
+    "objectID": "04_VL_D.html#business-case-1",
+    "href": "04_VL_D.html#business-case-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nLine Plot Starthilfe"
+  },
+  {
+    "objectID": "04_VL_D.html#business-case-2",
+    "href": "04_VL_D.html#business-case-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nWarum kündigen User?\n\nIn Superset befindet sich ein weiterer Datensatz “cancellation_questionnaire”, der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen\nDer Datensatz enthält zwei Spalten:\n\nQuestion: Die gestellte Frage mit vier Ausprägungen\nResponse: Die Antworten der User"
+  },
+  {
+    "objectID": "04_VL_D.html#business-case-3",
+    "href": "04_VL_D.html#business-case-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nWarum kündigen User?\n\nZiel: Eine passende Visualisierung, die aufzeigt, wieso User hauptsächlich kündigen\nSupport durch Google und preset.io Dokumentation\n\nStarthilfe:\n\nErneut gehen wir auf der Startseite oben rechts auf + Chart\nWir wählen dann das Dataset “cancellation_questionnaire” aus\nBei Chart Types gehen wir auf “Part of a Whole”: Welche Optionen gibt es?\n\nEmpfehlung:\n\nPie Chart oder Treemap v2\n\n\nWelche Metric ist sinnvoll?"
+  },
+  {
+    "objectID": "04_VL_D.html#visualisierung-von-anteilen",
+    "href": "04_VL_D.html#visualisierung-von-anteilen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Anteilen",
+    "text": "Visualisierung von Anteilen\nKreisdiagramme\n\n\n\n\nKreisdiagramme sind eine der häufigsten und umstrittensten Visualisierungen, um Anteile und Proportionen zu visualisieren\nNur bei einer geringen Anzahl von Kategorien (2-5) sinnvoll\nNicht sinnvoll, wenn die Anteile zwischen den Dimensionen sehr ähnlich sind\nAuch bei negativen Werten oder Measures, die sich nicht zu 100% summieren nicht geeignet"
+  },
+  {
+    "objectID": "04_VL_D.html#visualisierung-von-anteilen-1",
+    "href": "04_VL_D.html#visualisierung-von-anteilen-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Anteilen",
+    "text": "Visualisierung von Anteilen\nTreemap\n\n\n\n\nBei hierarchischen Datenstrukturen, die in Kategorien und Subkategorien unterteilt sind, eignet sich eine Treemap\nTreemaps nutzen die Fläche der Rechtecke, um die Größe der Kategorien zu visualisieren und geben damit einen Eindruck über die relativen Anteile\nDurch die Nutzung der Fläche statt des Winkels sind Treemaps leichter lesbar\nTreemaps sind auch in der Lage, mehrere Dimensionen gleichzeitig darzustellen\nBei zu vielen Kategorien oder zu ähnlichen Anteilen ist von Treemaps abzuraten"
+  },
+  {
+    "objectID": "04_VL_D.html#berichtsorientierte-analyse",
+    "href": "04_VL_D.html#berichtsorientierte-analyse",
     "title": "Business Intelligence & Data Science",
     "section": "Berichtsorientierte Analyse",
     "text": "Berichtsorientierte Analyse\nReporting\n\nEin Bericht oder Report gibt einen Überblick über betriebswirtschaftliche Sachverhalte eines abgegrenzten Verantwortungsbereichs\nIn der Regel durch Visualisierung von Zusammenhängen in grafischer Form\nBetriebliches Berichtswesen wird in interne und externe Berichterstattung unterteilt:\n\nInternes Berichtswesen: Informationen für das Management, bspw. internes Rechnungswesen\nExternes Berichtswesen: Informationen für externe Stakeholder, bspw. Jahresbericht"
   },
   {
-    "objectID": "05_VL.html#berichtsorientierte-analyse-1",
-    "href": "05_VL.html#berichtsorientierte-analyse-1",
+    "objectID": "04_VL_D.html#berichtsorientierte-analyse-1",
+    "href": "04_VL_D.html#berichtsorientierte-analyse-1",
     "title": "Business Intelligence & Data Science",
     "section": "Berichtsorientierte Analyse",
     "text": "Berichtsorientierte Analyse\nReporting\n\nAktive Berichtskomponenten:\n\nWerden nach einmaliger Spezifikation der Inhalte und Formate regelmäßig erstellt und aktiv versandt, entweder:\n\nPeriodisch: In festen Zeitabständen (jede Woche, jedes Quartal)\nAperiodisch: Bei Überschreitung bestimmter Grenzwerte (z.B. Umsatzgrenze)\n\n\nPassive Berichtskomponenten:\n\nWerden nur auf konkrete Anforderungen der Anwendenden erstellt\nIndividuelle und bedarfsspezifische Berichte\nAuch Ad-hoc Berichtskomponente genannt, oft mit OLAP und Self-Service Tools umgesetzt"
   },
   {
-    "objectID": "05_VL.html#berichtsorientierte-analyse-2",
-    "href": "05_VL.html#berichtsorientierte-analyse-2",
+    "objectID": "04_VL_D.html#berichtsorientierte-analyse-2",
+    "href": "04_VL_D.html#berichtsorientierte-analyse-2",
     "title": "Business Intelligence & Data Science",
     "section": "Berichtsorientierte Analyse",
     "text": "Berichtsorientierte Analyse\nOLAP\n\nOnline Analyitical Processing (OLAP) ermöglicht die Bereitstellung anwendungsfreundlicher und gleichermaßen flexibler Abfragen in multidimensionalen Datenräumen\nForm des Ad-hoc Reportings\nOLAP-Komponenten sind weitgehend mit Pivot Tabellen in Excel oder Google Sheets vergleichbar\nAber: Erweitert um ein zentrales Datenmodell (meist Data Mart basiert) und Rollenverwaltung"
   },
   {
-    "objectID": "05_VL.html#olap-1",
-    "href": "05_VL.html#olap-1",
+    "objectID": "04_VL_D.html#olap-1",
+    "href": "04_VL_D.html#olap-1",
     "title": "Business Intelligence & Data Science",
     "section": "OLAP",
     "text": "OLAP\nDatenmodell als Würfel\n\n\n\n\nBestehen konzeptionell aus Fakten, Dimensionen und Hierarchien\nDa oft mehrere Dimensionen vorliegen, spricht man von Cubes\nTheoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt\nBei mehr als 3 Dimensionen spricht man oft von Hypercube\nBei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen\n\n\n\n\n\n\nCube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: Wikipedia"
   },
   {
-    "objectID": "05_VL.html#olap-2",
-    "href": "05_VL.html#olap-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "OLAP",
-    "text": "OLAP\nSlicing\n\nSlicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird\nIm Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen\n\n\n\n\nOLAP Slicing. Quelle: Wikipedia"
-  },
-  {
-    "objectID": "05_VL.html#olap-3",
-    "href": "05_VL.html#olap-3",
-    "title": "Business Intelligence & Data Science",
-    "section": "OLAP",
-    "text": "OLAP\nDicing\n\nDicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht\nIm Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert\n\n\n\n\nOLAP Dicing Quelle: Wikipedia"
-  },
-  {
-    "objectID": "05_VL.html#olap-4",
-    "href": "05_VL.html#olap-4",
-    "title": "Business Intelligence & Data Science",
-    "section": "OLAP",
-    "text": "OLAP\nPivotierung\n\n\nAuswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr\nGrafisch entspricht eine solche Ansicht einer Seite des Würfels\nDurch Pivotierung wird der Würfel um eine Achse gedreht\nIm Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie\n\n\n\n\n\nOLAP Pivotierung/Rotation Quelle: Wikipedia"
-  },
-  {
-    "objectID": "05_VL.html#olap-5",
-    "href": "05_VL.html#olap-5",
-    "title": "Business Intelligence & Data Science",
-    "section": "OLAP",
-    "text": "OLAP\nRoll-Up, Drill-Down & Drill-Through\n\nBeim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert\nBeim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004\nIn einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist\nDas geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen"
-  },
-  {
-    "objectID": "05_VL.html#olap-6",
-    "href": "05_VL.html#olap-6",
-    "title": "Business Intelligence & Data Science",
-    "section": "OLAP",
-    "text": "OLAP\nPhysikalische Umsetzung und Anbindungsschnittstellen\n\nDie Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig\nOLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel\nEin bekanntes Beispiel ist SAP Analysis für Excel\nAndere gängige Praxis sind webbasierte Schnittstellen wie Cubeware Cockpit"
-  },
-  {
-    "objectID": "05_VL.html#self-service-bi",
-    "href": "05_VL.html#self-service-bi",
-    "title": "Business Intelligence & Data Science",
-    "section": "Self-Service BI",
-    "text": "Self-Service BI\nDas Versprechen von Self-Service BI\n\nSelf Service BI setzt beim Versprechen an, die Anwendenden in die Lage zu versetzen eigenständig und flexibel den Datenbestand nach neuen Verknüpfungen zu untersuchen\nDas kann zudem weitgehend unabhängig von der Unternehmens-IT betrieben und bedient werden\nTraditionelle BI-Lösungen sind oft als zu starr angesehen, wenn es darum geht, neue Reporting Anforderungen rasch umzusetzen und damit innovative Analysen zu testen"
-  },
-  {
-    "objectID": "05_VL.html#self-service-bi-vs.-traditionelle-bi",
-    "href": "05_VL.html#self-service-bi-vs.-traditionelle-bi",
-    "title": "Business Intelligence & Data Science",
-    "section": "Self-Service BI vs. Traditionelle BI",
-    "text": "Self-Service BI vs. Traditionelle BI\nBlick auf die alte Welt\n\n\n\nTraditionelle BI, Quelle: Fidelity"
-  },
-  {
-    "objectID": "05_VL.html#self-service-bi-vs.-traditionelle-bi-1",
-    "href": "05_VL.html#self-service-bi-vs.-traditionelle-bi-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Self-Service BI vs. Traditionelle BI",
-    "text": "Self-Service BI vs. Traditionelle BI\nVersprechen der neuen Welt am Beispiel von Looker\n\n\n\nTraditionelle BI, Quelle: Fidelity"
-  },
-  {
-    "objectID": "05_VL.html#der-data-science-prozess",
-    "href": "05_VL.html#der-data-science-prozess",
-    "title": "Business Intelligence & Data Science",
-    "section": "Der Data Science Prozess",
-    "text": "Der Data Science Prozess\nAblauf von Data Science Use Cases\n\n\n\n\nData Science Projekte sind in der Praxis aufwendig und erfordern stets die Zusammenarbeit zwischen Fachabteilungen und Data Science Team\nDeshalb wurden feste Prozesse etabliert, bspw. der Cross Reference Industry Standard Process for Data Mining (CRISP-DM)\nCRISP-DM besteht aus 6 Phasen, die iterativ durchlaufen werden\nRückkopplungen zwischen den Phasen sind dabei oft notwendig\n\n\n\n\n\n\nCRISP-DM Prozess. Eigene Darstellung in Anlehnung an Meier (2021)."
-  },
-  {
-    "objectID": "05_VL.html#crisp-dm",
-    "href": "05_VL.html#crisp-dm",
-    "title": "Business Intelligence & Data Science",
-    "section": "CRISP-DM",
-    "text": "CRISP-DM\nGeschäftsmodell\n\nVerständnis des Geschäftsmodells\n\nVerständnis des Geschäftsmodells und der Unternehmensziele\nBerücksichtigung von Chancen, Risiken und zeitlichen Aspekten\nDefinition des erwartbaren Nutzens und messbarer Erfolgskriterien"
-  },
-  {
-    "objectID": "05_VL.html#crisp-dm-1",
-    "href": "05_VL.html#crisp-dm-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "CRISP-DM",
-    "text": "CRISP-DM\nAnwendungs-/Datendomäne und Datenvorbereitung\n\nVerständnis der Anwendungs- und Datendomäne\n\nAnalyse der Unternehmensprozesse und Datenquellen\nZusammenführung, Beschreibung und Exploration der Zieldaten\nEruierung der Datenqualität\n\nDatenvorbereitung\n\nZusammenführung und Beschreibung polystrukturierter Daten\nBerechnung von Kennzahlen und Durchführung von Datentransformationen"
-  },
-  {
-    "objectID": "05_VL.html#crisp-dm-2",
-    "href": "05_VL.html#crisp-dm-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "CRISP-DM",
-    "text": "CRISP-DM\nModellierung, Evaluation und Bereitstellung\n\nModellierung\n\nModellauswahl und -erstellung\nIterativer Prozess zur Weiterentwicklung von Modellen\nMöglicher Einsatz vortrainierter Modelle für die Verfeinerung\n\nEvaluation\n\nBewertung der erstellten Modelle anhand definierter Erfolgskriterien\n\nEinsatz\n\nUmsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse"
-  },
-  {
-    "objectID": "05_VL.html#begriffliche-grundlagen",
-    "href": "05_VL.html#begriffliche-grundlagen",
-    "title": "Business Intelligence & Data Science",
-    "section": "Begriffliche Grundlagen",
-    "text": "Begriffliche Grundlagen\nEine Gleichung, viele Anwendungen\n\n\nDie Generierung von modellbasierten Erkenntnissen aus Daten erfordert eine Definition des Lernproblems, oft mit einer simplen Gleichung:\n\n\\[\ny = f(X) + \\epsilon\n\\]\n\n\\(y\\) ist ein \\(N \\times 1\\) Vektor mit einer Ergebnisvariablen\n\\(X\\) ist eine \\(N \\times P\\) Matrix mit Prädiktoren \\(X_1, X_2,..., X_P\\)\n\\(N\\) entspricht der Anzahl von Beobachtungen im vorliegenden Datensatz, \\(P\\) ist die Anzahl der Prädiktoren\nAnstelle von Prädiktoren werden oft die Begriffe erklärende oder unabhängige Variablen oder Features verwendet\n\\(f\\) beschreibt alle systematischen Zusammenhänge zwischen \\(X\\) und \\(y\\), während der Fehlerterm \\(\\epsilon\\) alle Variation in \\(X\\) aufnimmt, die nicht von \\(f\\) erklärbar sind"
-  },
-  {
-    "objectID": "05_VL.html#begriffliche-grundlagen-1",
-    "href": "05_VL.html#begriffliche-grundlagen-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Begriffliche Grundlagen",
-    "text": "Begriffliche Grundlagen\nVorhersage vs. Inferenz\n\nAngenommen, wir haben eine Funktion \\(f\\) sowie einen Algorithmus gefunden, um \\(f\\) an unsere Variablen \\(y\\) und \\(X\\) anzupassen\nDie Modellschätzung wird auch als Modelltraining oder Modellanpassung bezeichnet und unser trainiertes Modell hat die Form:\n\n\\[\n\\hat{y} = \\hat{f}(X)\n\\]\n\nDas trainierte Modell hat keien Fehlerterm \\(\\epsilon\\), da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist\nGeschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet"
-  },
-  {
-    "objectID": "05_VL.html#begriffliche-grundlagen-2",
-    "href": "05_VL.html#begriffliche-grundlagen-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "Begriffliche Grundlagen",
-    "text": "Begriffliche Grundlagen\nVorhersage vs. Inferenz\n\nDas Modell kann nun für zwei Zwecke verwendet werden:\n\nVorhersage: Schätzung von \\(y\\) für neue, nicht im Modell enthaltene Daten\nInferenz: Verständnis der Beziehungen und Muster in den Daten, die das Modell gelernt hat\n\nInferenz erfordert ein genaues Verständnis der Zusammenhänge\nBei Vorhersage kümmern wir uns nicht um seine genaue Struktur oder Parameter des Modells, sondern ausschließlich um die generierten Vorhersagen."
-  },
-  {
-    "objectID": "05_VL.html#begriffliche-grundlagen-3",
-    "href": "05_VL.html#begriffliche-grundlagen-3",
-    "title": "Business Intelligence & Data Science",
-    "section": "Begriffliche Grundlagen",
-    "text": "Begriffliche Grundlagen\nKlassifikation vs. Regression\n\nDie Art der Variablen \\(y\\) bestimmt die Art des Modells, das wir verwenden\nVariablen sind entweder kategorisch oder numerisch, oft auch als qualitativ und quantitativ bezeichnet\nWenn die abhängige Variable numerisch ist, ist es möglich, den exakten Wert der Variable vorherzusagen, dann liegt ein Regressionsproblem vor\nWenn die abhängige Variable kategorisch ist, lässt sich lediglich die erwartete Klasse vorhersagen, basierend auf einer Wahrscheinlichkeit, dann liegt ein Klassifikationsproblem vor\nWichtig: Hierbei ist nur die Art der abhängigen Variable entscheidend"
-  },
-  {
-    "objectID": "05_VL.html#begriffliche-grundlagen-4",
-    "href": "05_VL.html#begriffliche-grundlagen-4",
-    "title": "Business Intelligence & Data Science",
-    "section": "Begriffliche Grundlagen",
-    "text": "Begriffliche Grundlagen\nKategoriale Daten\n\nKategoriale Daten umfassen verschiedene Kategorien oder Labels\nBei kategorialen Daten wird wiederum zwischen nominalen und ordinalen Variablen unterschieden\nNominaldaten repräsentieren Kategorien ohne eine inhärente Rangfolge:\n\nFarben (rot, blau, grün),\nFamilienstand (ledig, verheiratet, geschieden, …),\n\nOrdinaldaten weisen eine spezifische Reihenfolge oder Hierarchie auf, aber keine gleichmäßigen Abstände zwischen den Kategorien:\n\nSchärfe von Essen (mild, pikant, scharf),\nExpertise mit Programmiersprachen (keine, wenig, fortgeschritten, professionell)"
-  },
-  {
-    "objectID": "05_VL.html#begriffliche-grundlagen-5",
-    "href": "05_VL.html#begriffliche-grundlagen-5",
-    "title": "Business Intelligence & Data Science",
-    "section": "Begriffliche Grundlagen",
-    "text": "Begriffliche Grundlagen\nNumerische Daten\n\n\n\nNumerische Daten reräsentieren Mengen, Messungen, und allgemein numerische Werte\nLassen sich mit mathematichen Operationen verarbeiten und manipulieren\nNumerische Daten können entweder diskret oder kontinuierlich sein, Beispiele:\n\nAlter,\nTemperatur,\nFinanzwerte ($ oder €)\n\n\n\n\n\n\nStetig vs. Diskret, Quelle: Allison Horst"
-  },
-  {
-    "objectID": "05_VL.html#begriffliche-grundlagen-6",
-    "href": "05_VL.html#begriffliche-grundlagen-6",
-    "title": "Business Intelligence & Data Science",
-    "section": "Begriffliche Grundlagen",
-    "text": "Begriffliche Grundlagen\nÜberwachtes vs. Unüberwachtes Lernen\n\nÜberwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable \\(y_i, i = 1,2,...N\\) für jede Beobachtung \\(i\\) auf sowie eine oder mehrere Prädiktoren\nUnüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden\nDie Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von \\(y\\) basieren\nAuch wir konzentrieren uns bei der Klassifikation auf"
-  },
-  {
-    "objectID": "05_VL.html#quellen",
-    "href": "05_VL.html#quellen",
+    "objectID": "04_VL_D.html#quellen",
+    "href": "04_VL_D.html#quellen",
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
-    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nMeier, Andreas. 2021. „Rundgang Big Data Analytics – Hard & Soft Data Mining“. In Big Data Analytics, herausgegeben von Sara D’Onofrio und Andreas Meier, 3–23. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-32236-6_1."
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nD’Onofrio, Sara, und Andreas Meier, Hrsg. 2021. Big Data Analytics: Grundlagen, Fallbeispiele und Nutzungspotenziale. Edition HMD. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-32236-6.\n\n\nDittmar, Carsten, und Peter Schulz. 2023. „Architekturen und Technologien für den Data Lake“. In Künstliche Intelligenz und Data Science in Theorie und Praxis, herausgegeben von Andreas Gillhuber, Göran Kauermann, und Wolfgang Hauner, 157–66. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-66278-6_12.\n\n\nQuix, Christoph. 2021. „Big-Data-Technologien“. In Data Science, herausgegeben von Detlev Frick, Andreas Gadatsch, Jens Kaufmann, Birgit Lankes, Christoph Quix, Andreas Schmidt, und Uwe Schmitz, 133–48. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-33403-1_8."
   },
   {
     "objectID": "01_VL_D.html#der-plan-für-heute",
@@ -1330,171 +1344,563 @@
     "text": "Modellevaluation\nAccuracy bei unbalancierten Datensätzen\n\n\n\nIn der Praxis liegen häufig unbalancierte Datensätze vor, sodass die Accuracy allein meist nur geringe Aussagekraft hat\nWir nehmen ein extremes Beispiel mit 1000 E-Mails, von denen 100 Spam-Mails sind\nUnser Modell zur Spam-Erkennung liefert die Konfusionsmatrix rechts\nDas Modell erkennt keine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%\n\n\n\n\n\n\n\n\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\nSumme Vorhersage\n\n\n\n\nVorhergesagt Positiv\n1\n0\n1\n\n\nVorhergesagt Negativ\n99\n900\n999\n\n\nSumme Tatsächlich\n100\n900\n1000"
   },
   {
-    "objectID": "06_VL.html#quelle",
-    "href": "06_VL.html#quelle",
-    "title": "Business Intelligence & Data Science",
-    "section": "Quelle",
-    "text": "Quelle\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nWilke, C. 2019. Fundamentals of data visualization: a primer on making informative and compelling figures. First edition. Sebastopol, CA: O’Reilly Media. https://clauswilke.com/dataviz/."
-  },
-  {
-    "objectID": "04_VL.html#der-plan-für-heute",
-    "href": "04_VL.html#der-plan-für-heute",
-    "title": "Business Intelligence & Data Science",
-    "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung 4\n\nBig Data:\n\nWas ist Big Data?\nDefinitionen und Eigenschaften\nTechnologien und Werkzeuge\nAnwendungsfälle\n\nData Lake:\n\nWas ist der Data Lake?\nBraucht man das?\nWas sind die Unterschiede zum Data Warehouse?\n\nWeitere Ursachenforschung für den Wachstumsschwund bei Tofispy"
-  },
-  {
-    "objectID": "04_VL.html#einordnung-in-den-gesamtkontext",
-    "href": "04_VL.html#einordnung-in-den-gesamtkontext",
-    "title": "Business Intelligence & Data Science",
-    "section": "Einordnung in den Gesamtkontext",
-    "text": "Einordnung in den Gesamtkontext\nDer Data Lake & Big Data\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
-  },
-  {
-    "objectID": "04_VL.html#big-data-1",
-    "href": "04_VL.html#big-data-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Big Data",
-    "text": "Big Data\nWas ist Big Data?\n\n\n\nQuelle: Siemens Stiftung 2019"
-  },
-  {
-    "objectID": "04_VL.html#big-data-2",
-    "href": "04_VL.html#big-data-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "Big Data",
-    "text": "Big Data\nDie 3Vs\n\n\n\n\nVolume:\n\nDie erhebliche Menge an Daten, die erfasst oder generiert wird und die vorgehalten sowie gespeichert werden muss\nD’Onofrio und Meier (2021) sprechen im Petabyte bis Zettabyte-Bereich von Big Data\n\nVariety:\n\nMeint die unterschiedlichen Arten von Daten in Big Data-Szenarien\nNeben strukturierte Daten in Tabellenform auch um unstrukturierte Daten wie Texte, Bilder, Videos, Audios sowie semi-strukturierte Daten\n\nVelocity:\n\nDie Rate, mit der Daten erzeugt, gesammelt und verarbeitet werden.\nIm Extremfall müssen Daten in Echtzeit analysiert werden, um sofortige Erkenntnisse zu gewinnen.\n\n\n\n\nExkurs Bits und Bytes:\n1 Bit = Kleinste Informationseinheit, kann 0 oder 1 sein 1 Byte = 8 Bit, entspricht einem Zeichen, bspw. einem Buchstaben und kann 256 verschiedene Kombinationen annehmen, nämlich 2^8. Warum 2^8? Weil 2 Zustände (0 oder 1) und 8 Stellen (Bit) = 2^8 = 256 1 Byte ist auch die kleinste Speichereinheit in Computern 1 Kilobyte (KB) = 1024 Byte 1 Megabyte (MB) = 1024 KB 1 Gigabyte (GB) = 1024 MB 1 Terabyte (TB) = 1024 GB 1 Petabyte (PB) = 1024 TB 1 Exabyte (EB) = 1024 PB 1 Zettabyte (ZB) = 1024 EB 1 Yottabyte (YB) = 1024 ZB\n\n\n\n\nQuelle: Siemens Stiftung 2019"
-  },
-  {
-    "objectID": "04_VL.html#big-data-3",
-    "href": "04_VL.html#big-data-3",
-    "title": "Business Intelligence & Data Science",
-    "section": "Big Data",
-    "text": "Big Data\n…und noch mehr Vs\n\nWeitere Vs in der Literatur zielen auf die Verwendung der Daten ab und weniger auf die technischen Eigenschaften der 3 Vs\n\n\nValue (Wert)\n\nDer Wert, den Unternehmen aus den gesammelten und analysierten Daten ziehen können\nDas Hauptziel von Big Data ist es, nutzbare Erkenntnisse zu gewinnen und daraus einen Mehrwert zu generieren"
-  },
-  {
-    "objectID": "04_VL.html#big-data-4",
-    "href": "04_VL.html#big-data-4",
-    "title": "Business Intelligence & Data Science",
-    "section": "Big Data",
-    "text": "Big Data\n…und noch mehr Vs\n\nVeracity (Genauigkeit)\n\nDie Qualität der Daten, besonders Präzision und Zuverlässigkeit, da große Daten oft Rauschen und ungenaue Informationen enthalten\nBaars und Kemper (2021) betonen, dass Genauigkeit auf die durch Big Data erzielten Ergebnisse abzielt und weniger auf die Daten\n\nValidity (Validität)\n\nDie Gültigkeit der Datenanalyse, inwiefern die durchgeführten Analysen tatsächlich die gewünschten Erkenntnisse liefern\n\nOutput Velocity (Analyse-Geschwindigkeit)\n\nDie Bereitstellung von relevanten Ergebnissen mit geringer Latenz, idealerweise nahezu in Echtzeit"
-  },
-  {
-    "objectID": "04_VL.html#big-data-5",
-    "href": "04_VL.html#big-data-5",
-    "title": "Business Intelligence & Data Science",
-    "section": "Big Data",
-    "text": "Big Data\nTechnologien und Werkzeuge\n\nBig Data Technologien müssen hohe Datenvolumina im mehrstelligen Petabyte-Bereich handhaben, um hierauf Analysen durchzuführen\nDie Ergebnisse dieser Analysen gilt es hiernach im IT-Entscheidungsunterstützungssystem zu integrieren\nDies ist mit den bisher vorgestellten relationalen CDWH-Lösungen nicht ohne Weiteres möglich\nDie aus den 3 Vs resultierenden Anforderungen erfordern hohe Rechen- und Speicherkapazitäten, die oft durch parallele Infrastruktur realisiert werden."
-  },
-  {
-    "objectID": "04_VL.html#big-data-6",
-    "href": "04_VL.html#big-data-6",
-    "title": "Business Intelligence & Data Science",
-    "section": "Big Data",
-    "text": "Big Data\nTechnologien und Werkzeuge\n\nAllgemein werden zwei Formen der Parallelisierung unterschieden:\n\nVertikale Skalierung:\n\nAuch Scale Up genannt\nNutzung von leistungsstärkeren Rechnern\n\nHorizontale Skalierung:\n\nAuch Scale Out genannt\nNutzung von vielen günstigen Standard-Servern oder Cloud Infrastruktur bei modernen Cloud Hyper Scalern, um Lasten zu verteilen\n\n\nVertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen"
-  },
-  {
-    "objectID": "04_VL.html#big-data-7",
-    "href": "04_VL.html#big-data-7",
-    "title": "Business Intelligence & Data Science",
-    "section": "Big Data",
-    "text": "Big Data\nTechnologien und Werkzeuge\n\nVertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen\nDie Datenhaltung in Big Data-Szenarien erfolgt in der Regel in NoSQL-Datenbanken (Not Only SQL)\nDies dient primär der Parallelisierung der Datenhaltung und -verarbeitung\nGleichzeitig ermöglichen diese Datenbanken die Speicherung von unstrukturierten Daten"
-  },
-  {
-    "objectID": "04_VL.html#nosql-datenbanken",
-    "href": "04_VL.html#nosql-datenbanken",
-    "title": "Business Intelligence & Data Science",
-    "section": "NoSQL Datenbanken",
-    "text": "NoSQL Datenbanken\nKey-Value Stores\n\n\n\nDatenbanken, die paarweise einen (einmaligen) Schlüssel mit einem zugehörigen Wert ablegen\nDiese Werte können beliebige Datenstrukturen sein, wie z.B. Texte, Bilder, Videos, Audios, JSON-Objekte, XML-Dateien, etc.\nKey-Value Stores sind optimiert für schnelle Lese- und Schreibzugriffe auf Basis von Keys\n\n\n\n\n\nKey Value Store, Quelle: Data Engineering Wiki"
-  },
-  {
-    "objectID": "04_VL.html#nosql-datenbanken-1",
-    "href": "04_VL.html#nosql-datenbanken-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "NoSQL Datenbanken",
-    "text": "NoSQL Datenbanken\nDocument Stores\n\n\n\nEnthalten poly-strukturierte Dokumente beliebiger Länge, die auf Basis von Dokumenteninhalten recherchiert werden können.\nHäufig in Form von JSON oder XML Files abgelegt, da diese die Möglichkeit bieten, unstrukturierte Attribute zu hinterlegen und flexible Schemata zu definiere.\nDas Beispiel rechts entspricht dem JavaScript Object Notation JSON\n\n\n\n\n\nDocument Data Base, Quelle: Data Engineering Wiki"
-  },
-  {
-    "objectID": "04_VL.html#nosql-datenbanken-2",
-    "href": "04_VL.html#nosql-datenbanken-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "NoSQL Datenbanken",
-    "text": "NoSQL Datenbanken\nWide Column Stores und Graph-Databases\n\n\n\n\nWide Column Stores:\n\nDatenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können\nEinzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann\n\nGraph-Databases:\n\nSind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet.\nBasieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)\n\n\n\n\n\n\n\n\nGraph Database, Quelle: Data Engineering Wiki"
-  },
-  {
-    "objectID": "04_VL.html#data-lake-1",
-    "href": "04_VL.html#data-lake-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Data Lake",
-    "text": "Data Lake\nDas Konzept des Data Lake\n\nDas Data Warehouse galt lange Zeit als das zentrale Architekturkonzept für dispositive Reporting- und Analysezwecke\nBig Data Technologien haben den Data Lake in den Fokus gerückt, der meist als eine ergänzende Komponente zu DWH dient\nEin Data Lake erhebt den Anspruch, alle Quelldaten in roher Form als Rohdaten zu persistieren und zur Verfügung zu stellen\nBeim Data Lake steht der effiziente Umgang mit großen und polystrukturierten Datenmengen im Vordergrund, die es schnell zu verarbeiten gilt\nDies ermöglicht komplexe Analysen für neue Machine Learning Anwendungen, die verschiedene Datenquellen benötigen"
-  },
-  {
-    "objectID": "04_VL.html#data-lake-vs.-data-warehouse",
-    "href": "04_VL.html#data-lake-vs.-data-warehouse",
-    "title": "Business Intelligence & Data Science",
-    "section": "Data Lake vs. Data Warehouse",
-    "text": "Data Lake vs. Data Warehouse\nIllustration\n\n\n\nData Lake versus Data Warehouse, Quelle: Twitter"
-  },
-  {
-    "objectID": "04_VL.html#data-lake-vs.-data-warehouse-1",
-    "href": "04_VL.html#data-lake-vs.-data-warehouse-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Data Lake vs. Data Warehouse",
-    "text": "Data Lake vs. Data Warehouse\nCharakteristika\n\n\n\nTabelle 1: Wichtige Charakteristika von Data Lake und Data Warehouse im Vergleich. In Anlehnung an Dittmar und Schulz (2023), S. 159\n\n\n\n\n\n\nData Warehouse\nData Lake\n\n\n\n\nOptimiert für wiederholbare Prozesse\nOriginär eine Erweiterung der DWH Staging Area\n\n\nUnterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen\nOptimiert Daten für Analytics-Lösungen\n\n\nFokus auf vergangenheitsbezogene Auswertungen\nFokus auf unbekannte explorative Datenanalyse und zukunftsorienterte Methoden\n\n\nSchema-on-Write mit harmonisiertem Datenmodell\nSchema-on-Read mit Echtzeit Rohdaten Bewirtschaftung"
-  },
-  {
-    "objectID": "04_VL.html#data-lake-vs.-data-warehouse-2",
-    "href": "04_VL.html#data-lake-vs.-data-warehouse-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "Data Lake vs. Data Warehouse",
-    "text": "Data Lake vs. Data Warehouse\nAnwendungsbereiche\n\n\n\nAnwendungsfälle Data Lake und Data Warehouse, Quelle: Twitter"
-  },
-  {
-    "objectID": "04_VL.html#data-lake-2",
-    "href": "04_VL.html#data-lake-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "Data Lake",
-    "text": "Data Lake\nArchitekturprinzipien\n\n\nDatenanbindung:\n\nEs werden ausschließlich primäre Datenquellen angebunden\nDie feinste Granularität der Datenquelle wird verwendet\n\nDatenhaltung\n\nEine Löschung der Rohdaten erfolgt nur aus regulatorischen Gründen (Datenschutz)\nEin Zonenkonzept ist zu empfehlen\nEine Anonymisierung persönlicher Daten erfolgt während der Beladung\n\nDatenplattform\n\nInfrastructure as Code wird angestrebt\nEine Portierbarkeit zur Vermeidung von Vendor-Lock-In wird angestrebt\nEin zentrales Identity Management System steuert Zugriffe granular\nEin Datenkatalog mit fachlicher und operativer Perspektive wird empfohlen"
-  },
-  {
-    "objectID": "04_VL.html#data-lake-3",
-    "href": "04_VL.html#data-lake-3",
-    "title": "Business Intelligence & Data Science",
-    "section": "Data Lake",
-    "text": "Data Lake\nZonen\n\nÄhnlich wie im ETL Prozess umfasst auch der Data Lake verschiedene Zonen, in denen die Daten verschiedene Prozesse durchlaufen:\n\n\n\nTransient Zone: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert\nRaw Data Zone: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten\nCurated Zone: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haben und von Mängeln befreit wurden\nDiscovery Sandbox: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt\nConsumption Zone: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung"
-  },
-  {
-    "objectID": "04_VL.html#business-case",
-    "href": "04_VL.html#business-case",
-    "title": "Business Intelligence & Data Science",
-    "section": "Business Case",
-    "text": "Business Case\nTofispy User Events\n\nNachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen\nDer Datensatz in Superset heißt nun “user_events_clean” und ist nach wie vor im Controlling Mart gespeichert.\nWie wäre es mit einem Line Chart?\nHierzu erneut in Superset:\n\nOben auf “+Chart” klicken\nDas Dataset “user_events_clean” auswählen\nAnschließend “Time Series Line Chart” auswählen\n\nFrage: Was ist der Hauptgrund für das schwindende Wachstum?"
-  },
-  {
-    "objectID": "04_VL.html#business-case-1",
-    "href": "04_VL.html#business-case-1",
-    "title": "Business Intelligence & Data Science",
-    "section": "Business Case",
-    "text": "Business Case\nLine Plot Starthilfe"
-  },
-  {
-    "objectID": "04_VL.html#business-case-2",
-    "href": "04_VL.html#business-case-2",
-    "title": "Business Intelligence & Data Science",
-    "section": "Business Case",
-    "text": "Business Case\nHausaufgabe\n\nIn Superset befindet sich ein weiterer Datensatz “cancellation_questionnaire”, der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen\nDer Datensatz enthält zwei Spalten:\n\nQuestion: Die gestellte Frage mit vier Ausprägungen\nResponse: Die Antworten der User\n\nZiel: Eine passende Visualisierung, die aufzeigt, wieso User hauptsächlich kündigen\nSupport durch Google und preset.io Dokumentation"
-  },
-  {
-    "objectID": "04_VL.html#quellen",
-    "href": "04_VL.html#quellen",
+    "objectID": "06_VL.html#quellen",
+    "href": "06_VL.html#quellen",
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
-    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nD’Onofrio, Sara, und Andreas Meier, Hrsg. 2021. Big Data Analytics: Grundlagen, Fallbeispiele und Nutzungspotenziale. Edition HMD. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-32236-6.\n\n\nDittmar, Carsten, und Peter Schulz. 2023. „Architekturen und Technologien für den Data Lake“. In Künstliche Intelligenz und Data Science in Theorie und Praxis, herausgegeben von Andreas Gillhuber, Göran Kauermann, und Wolfgang Hauner, 157–66. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-66278-6_12.\n\n\nQuix, Christoph. 2021. „Big-Data-Technologien“. In Data Science, herausgegeben von Detlev Frick, Andreas Gadatsch, Jens Kaufmann, Birgit Lankes, Christoph Quix, Andreas Schmidt, und Uwe Schmitz, 133–48. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-33403-1_8."
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. An Introduction to Statistical Learning: with Applications in R. Second edition. Springer texts in statistics. New York NY: Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nWilke, C. 2019. Fundamentals of data visualization: a primer on making informative and compelling figures. First edition. Sebastopol, CA: O’Reilly Media. https://clauswilke.com/dataviz/."
   },
   {
-    "objectID": "99_VL.html#der-plan-für-heute",
-    "href": "99_VL.html#der-plan-für-heute",
+    "objectID": "05_VL.html#der-plan-für-heute",
+    "href": "05_VL.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+    "text": "Der Plan für heute…\nVorlesung\n\n\nQuiz und Recap\nVisualisierung von Anteilen: Kreisdiagramme und Treemaps\nInformationsgenerierung\n\nWelche Formen von Berichten gibt es?\nWas ist OLAP?\nWo genau unterscheiden sich Self-Sevice BI und traditionelle BI?\n\nModellgestützte Analysen\n\nWie läuft ein Data Science Projekt ab?\nBegriffliche Grundlagen Data Science"
+  },
+  {
+    "objectID": "05_VL.html#business-case",
+    "href": "05_VL.html#business-case",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nErgebnisse von letzter Woche\n\n\n\nIn der letzten Woche haben wir festgestellt, dass der Hauptgrund für das schwindende Wachstum bei Tofispy ein stark steigender Trend bei den Kündigungen ist\nLaut einer Umfrage ist der Hauptgrund dafür eine Unzufriedenheit mit dem empfohlenen Content"
+  },
+  {
+    "objectID": "05_VL.html#visualisierung-von-anteilen",
+    "href": "05_VL.html#visualisierung-von-anteilen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Anteilen",
+    "text": "Visualisierung von Anteilen\nKreisdiagramme\n\n\n\n\nKreisdiagramme sind eine der häufigsten und umstrittensten Visualisierungen, um Anteile und Proportionen zu visualisieren\nNur bei einer geringen Anzahl von Kategorien (2-5) sinnvoll\nNicht sinnvoll, wenn die Anteile zwischen den Dimensionen sehr ähnlich sind\nAuch bei negativen Werten oder Measures, die sich nicht zu 100% summieren nicht geeignet"
+  },
+  {
+    "objectID": "05_VL.html#visualisierung-von-anteilen-1",
+    "href": "05_VL.html#visualisierung-von-anteilen-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung von Anteilen",
+    "text": "Visualisierung von Anteilen\nTreemap\n\n\n\n\nBei hierarchischen Datenstrukturen, die in Kategorien und Subkategorien unterteilt sind, eignet sich eine Treemap\nTreemaps nutzen die Fläche der Rechtecke, um die Größe der Kategorien zu visualisieren und geben damit einen Eindruck über die relativen Anteile\nDurch die Nutzung der Fläche statt des Winkels sind Treemaps leichter lesbar\nTreemaps sind auch in der Lage, mehrere Dimensionen gleichzeitig darzustellen\nBei zu vielen Kategorien oder zu ähnlichen Anteilen ist von Treemaps abzuraten"
+  },
+  {
+    "objectID": "05_VL.html#kurzer-überblick-wo-gehts-weiter",
+    "href": "05_VL.html#kurzer-überblick-wo-gehts-weiter",
+    "title": "Business Intelligence & Data Science",
+    "section": "Kurzer Überblick: Wo geht’s weiter?",
+    "text": "Kurzer Überblick: Wo geht’s weiter?\nInformationsgenerierung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+  },
+  {
+    "objectID": "05_VL.html#berichtsorientierte-analyse",
+    "href": "05_VL.html#berichtsorientierte-analyse",
+    "title": "Business Intelligence & Data Science",
+    "section": "Berichtsorientierte Analyse",
+    "text": "Berichtsorientierte Analyse\nReporting\n\nEin Bericht oder Report gibt einen Überblick über betriebswirtschaftliche Sachverhalte eines abgegrenzten Verantwortungsbereichs\nIn der Regel durch Visualisierung von Zusammenhängen in grafischer Form\nBetriebliches Berichtswesen wird in interne und externe Berichterstattung unterteilt:\n\nInternes Berichtswesen: Informationen für das Management, bspw. internes Rechnungswesen\nExternes Berichtswesen: Informationen für externe Stakeholder, bspw. Jahresbericht"
+  },
+  {
+    "objectID": "05_VL.html#berichtsorientierte-analyse-1",
+    "href": "05_VL.html#berichtsorientierte-analyse-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Berichtsorientierte Analyse",
+    "text": "Berichtsorientierte Analyse\nReporting\n\nAktive Berichtskomponenten:\n\nWerden nach einmaliger Spezifikation der Inhalte und Formate regelmäßig erstellt und aktiv versandt, entweder:\n\nPeriodisch: In festen Zeitabständen (jede Woche, jedes Quartal)\nAperiodisch: Bei Überschreitung bestimmter Grenzwerte (z.B. Umsatzgrenze)\n\n\nPassive Berichtskomponenten:\n\nWerden nur auf konkrete Anforderungen der Anwendenden erstellt\nIndividuelle und bedarfsspezifische Berichte\nAuch Ad-hoc Berichtskomponente genannt, oft mit OLAP und Self-Service Tools umgesetzt"
+  },
+  {
+    "objectID": "05_VL.html#berichtsorientierte-analyse-2",
+    "href": "05_VL.html#berichtsorientierte-analyse-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Berichtsorientierte Analyse",
+    "text": "Berichtsorientierte Analyse\nOLAP\n\nOnline Analyitical Processing (OLAP) ermöglicht die Bereitstellung anwendungsfreundlicher und gleichermaßen flexibler Abfragen in multidimensionalen Datenräumen\nForm des Ad-hoc Reportings\nOLAP-Komponenten sind weitgehend mit Pivot Tabellen in Excel oder Google Sheets vergleichbar\nAber: Erweitert um ein zentrales Datenmodell (meist Data Mart basiert) und Rollenverwaltung"
+  },
+  {
+    "objectID": "05_VL.html#olap-1",
+    "href": "05_VL.html#olap-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nDatenmodell als Würfel\n\n\n\n\nBestehen konzeptionell aus Fakten, Dimensionen und Hierarchien\nDa oft mehrere Dimensionen vorliegen, spricht man von Cubes\nTheoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt\nBei mehr als 3 Dimensionen spricht man oft von Hypercube\nBei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen\n\n\n\n\n\n\n\nCube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: Wikipedia"
+  },
+  {
+    "objectID": "05_VL.html#olap-2",
+    "href": "05_VL.html#olap-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nSlicing\n\nSlicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird\nIm Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen ::: {.fragment .fade-in}  :::"
+  },
+  {
+    "objectID": "05_VL.html#olap-3",
+    "href": "05_VL.html#olap-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nDicing\n\nDicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht\nIm Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert\n\n\n\n\n\nOLAP Dicing Quelle: Wikipedia"
+  },
+  {
+    "objectID": "05_VL.html#olap-4",
+    "href": "05_VL.html#olap-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nPivotierung\n\n\nAuswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr\nGrafisch entspricht eine solche Ansicht einer Seite des Würfels\nDurch Pivotierung wird der Würfel um eine Achse gedreht\nIm Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie\n\n\n\n\n\n\nOLAP Pivotierung/Rotation Quelle: Wikipedia"
+  },
+  {
+    "objectID": "05_VL.html#olap-5",
+    "href": "05_VL.html#olap-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nRoll-Up, Drill-Down & Drill-Through\n\nBeim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert\nBeim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004\nIn einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist\nDas geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen"
+  },
+  {
+    "objectID": "05_VL.html#olap-6",
+    "href": "05_VL.html#olap-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nPhysikalische Umsetzung und Anbindungsschnittstellen\n\nDie Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig\nOLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel\nEin bekanntes Beispiel ist SAP Analysis für Excel\nAndere gängige Praxis sind webbasierte Schnittstellen wie Cubeware Cockpit"
+  },
+  {
+    "objectID": "05_VL.html#self-service-bi",
+    "href": "05_VL.html#self-service-bi",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI",
+    "text": "Self-Service BI\nDas Versprechen von Self-Service BI\n\nSelf Service BI setzt beim Versprechen an, die Anwendenden in die Lage zu versetzen eigenständig und flexibel den Datenbestand nach neuen Verknüpfungen zu untersuchen\nDas kann zudem weitgehend unabhängig von der Unternehmens-IT betrieben und bedient werden\nTraditionelle BI-Lösungen sind oft als zu starr angesehen, wenn es darum geht, neue Reporting Anforderungen rasch umzusetzen und damit innovative Analysen zu testen"
+  },
+  {
+    "objectID": "05_VL.html#self-service-bi-vs.-traditionelle-bi",
+    "href": "05_VL.html#self-service-bi-vs.-traditionelle-bi",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI vs. Traditionelle BI",
+    "text": "Self-Service BI vs. Traditionelle BI\nBlick auf die alte Welt\n\n\n\nTraditionelle BI, Quelle: Fidelity"
+  },
+  {
+    "objectID": "05_VL.html#self-service-bi-vs.-traditionelle-bi-1",
+    "href": "05_VL.html#self-service-bi-vs.-traditionelle-bi-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Self-Service BI vs. Traditionelle BI",
+    "text": "Self-Service BI vs. Traditionelle BI\nVersprechen der neuen Welt am Beispiel von Looker\n\n\n\nTraditionelle BI, Quelle: Fidelity"
+  },
+  {
+    "objectID": "05_VL.html#der-data-science-prozess",
+    "href": "05_VL.html#der-data-science-prozess",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Data Science Prozess",
+    "text": "Der Data Science Prozess\nAblauf von Data Science Use Cases\n\n\n\n\nData Science Projekte sind in der Praxis aufwendig und erfordern stets die Zusammenarbeit zwischen Fachabteilungen und Data Science Team\nDeshalb wurden feste Prozesse etabliert, bspw. der Cross Reference Industry Standard Process for Data Mining (CRISP-DM)\nCRISP-DM besteht aus 6 Phasen, die iterativ durchlaufen werden\nRückkopplungen zwischen den Phasen sind dabei oft notwendig\n\n\n\n\n\n\nCRISP-DM Prozess. Eigene Darstellung in Anlehnung an Meier (2021)."
+  },
+  {
+    "objectID": "05_VL.html#crisp-dm",
+    "href": "05_VL.html#crisp-dm",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nGeschäftsmodell\n\nVerständnis des Geschäftsmodells\n\nVerständnis des Geschäftsmodells und der Unternehmensziele\nBerücksichtigung von Chancen, Risiken und zeitlichen Aspekten\nDefinition des erwartbaren Nutzens und messbarer Erfolgskriterien"
+  },
+  {
+    "objectID": "05_VL.html#crisp-dm-1",
+    "href": "05_VL.html#crisp-dm-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nAnwendungs-/Datendomäne und Datenvorbereitung\n\nVerständnis der Anwendungs- und Datendomäne\n\nAnalyse der Unternehmensprozesse und Datenquellen\nZusammenführung, Beschreibung und Exploration der Zieldaten\nEruierung der Datenqualität\n\nDatenvorbereitung\n\nZusammenführung und Beschreibung polystrukturierter Daten\nBerechnung von Kennzahlen und Durchführung von Datentransformationen"
+  },
+  {
+    "objectID": "05_VL.html#crisp-dm-2",
+    "href": "05_VL.html#crisp-dm-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "CRISP-DM",
+    "text": "CRISP-DM\nModellierung, Evaluation und Bereitstellung\n\nModellierung\n\nModellauswahl und -erstellung\nIterativer Prozess zur Weiterentwicklung von Modellen\nMöglicher Einsatz vortrainierter Modelle für die Verfeinerung\n\nEvaluation\n\nBewertung der erstellten Modelle anhand definierter Erfolgskriterien\n\nEinsatz\n\nUmsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen",
+    "href": "05_VL.html#begriffliche-grundlagen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nEine Gleichung, viele Anwendungen\n\n\nDie Generierung von modellbasierten Erkenntnissen aus Daten erfordert eine Definition des Lernproblems, oft mit einer simplen Gleichung:\n\n\n\\[\ny = f(X) + \\epsilon\n\\]\n\n\n\\(y\\) ist ein \\(N \\times 1\\) Vektor mit einer Ergebnisvariablen\n\\(X\\) ist eine \\(N \\times P\\) Matrix mit Prädiktoren \\(X_1, X_2,..., X_P\\)\n\\(N\\) entspricht der Anzahl von Beobachtungen im vorliegenden Datensatz, \\(P\\) ist die Anzahl der Prädiktoren\nAnstelle von Prädiktoren werden oft die Begriffe erklärende oder unabhängige Variablen oder Features verwendet\n\\(f\\) beschreibt alle systematischen Zusammenhänge zwischen \\(X\\) und \\(y\\), während der Fehlerterm \\(\\epsilon\\) alle Variation in \\(X\\) aufnimmt, die nicht von \\(f\\) erklärbar sind"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-1",
+    "href": "05_VL.html#begriffliche-grundlagen-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nVorhersage vs. Inferenz\n\nAngenommen, wir haben eine Funktion \\(f\\) sowie einen Algorithmus gefunden, um \\(f\\) an unsere Variablen \\(y\\) und \\(X\\) anzupassen\nDie Modellschätzung wird auch als Modelltraining oder Modellanpassung bezeichnet und unser trainiertes Modell hat die Form:\n\n\n\\[\n\\hat{y} = \\hat{f}(X)\n\\]\n\n\nDas trainierte Modell hat keien Fehlerterm \\(\\epsilon\\), da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist\nGeschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-2",
+    "href": "05_VL.html#begriffliche-grundlagen-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nVorhersage vs. Inferenz\n\nDas Modell kann nun für zwei Zwecke verwendet werden:\n\nVorhersage: Schätzung von \\(y\\) für neue, nicht im Modell enthaltene Daten\nInferenz: Verständnis der Beziehungen und Muster in den Daten, die das Modell gelernt hat\n\nInferenz erfordert ein genaues Verständnis der Zusammenhänge\nBei Vorhersage kümmern wir uns nicht um seine genaue Struktur oder Parameter des Modells, sondern ausschließlich um die generierten Vorhersagen."
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-3",
+    "href": "05_VL.html#begriffliche-grundlagen-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nKlassifikation vs. Regression\n\nDie Art der Variablen \\(y\\) bestimmt die Art des Modells, das wir verwenden\nVariablen sind entweder kategorisch oder numerisch, oft auch als qualitativ und quantitativ bezeichnet\nWenn die abhängige Variable numerisch ist, ist es möglich, den exakten Wert der Variable vorherzusagen, dann liegt ein Regressionsproblem vor\nWenn die abhängige Variable kategorisch ist, lässt sich lediglich die erwartete Klasse vorhersagen, basierend auf einer Wahrscheinlichkeit, dann liegt ein Klassifikationsproblem vor\nWichtig: Hierbei ist nur die Art der abhängigen Variable entscheidend"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-4",
+    "href": "05_VL.html#begriffliche-grundlagen-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nKategoriale Daten\n\nKategoriale Daten umfassen verschiedene Kategorien oder Labels\nBei kategorialen Daten wird wiederum zwischen nominalen und ordinalen Variablen unterschieden\nNominaldaten repräsentieren Kategorien ohne eine inhärente Rangfolge:\n\nFarben (rot, blau, grün),\nFamilienstand (ledig, verheiratet, geschieden, …),\n\nOrdinaldaten weisen eine spezifische Reihenfolge oder Hierarchie auf, aber keine gleichmäßigen Abstände zwischen den Kategorien:\n\nSchärfe von Essen (mild, pikant, scharf),\nExpertise mit Programmiersprachen (keine, wenig, fortgeschritten, professionell)"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-5",
+    "href": "05_VL.html#begriffliche-grundlagen-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nNumerische Daten\n\n\n\nNumerische Daten reräsentieren Mengen, Messungen, und allgemein numerische Werte\nLassen sich mit mathematichen Operationen verarbeiten und manipulieren\nNumerische Daten können entweder diskret oder kontinuierlich sein, Beispiele:\n\nAlter,\nTemperatur,\nFinanzwerte ($ oder €)\n\n\n\n\n\n\n\nStetig vs. Diskret, Quelle: Allison Horst"
+  },
+  {
+    "objectID": "05_VL.html#begriffliche-grundlagen-6",
+    "href": "05_VL.html#begriffliche-grundlagen-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Begriffliche Grundlagen",
+    "text": "Begriffliche Grundlagen\nÜberwachtes vs. Unüberwachtes Lernen\n\nÜberwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable \\(y_i, i = 1,2,...N\\) für jede Beobachtung \\(i\\) auf sowie eine oder mehrere Prädiktoren\nUnüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden\nDie Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von \\(y\\) basieren\nAuch wir konzentrieren uns bei der Klassifikation auf"
+  },
+  {
+    "objectID": "05_VL.html#quellen",
+    "href": "05_VL.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. An Introduction to Statistical Learning: with Applications in R. Second edition. Springer texts in statistics. New York NY: Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nMeier, Andreas. 2021. „Rundgang Big Data Analytics – Hard & Soft Data Mining“. In Big Data Analytics, herausgegeben von Sara D’Onofrio und Andreas Meier, 3–23. Wiesbaden: Springer Fachmedien Wiesbaden. https://doi.org/10.1007/978-3-658-32236-6_1."
+  },
+  {
+    "objectID": "02_VL.html#der-plan-für-heute",
+    "href": "02_VL.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung 2\n\nDatenbereitstellung:\n\nData Warehouse\nData Mart\nArchitekturkonzepte\n\nBusiness Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe\nVerknüpfung eines ersten Data Marts mit Superset oder Datenanalyse mit Excel"
+  },
+  {
+    "objectID": "02_VL.html#überblick-zum-bia-gesamteinsatz",
+    "href": "02_VL.html#überblick-zum-bia-gesamteinsatz",
+    "title": "Business Intelligence & Data Science",
+    "section": "Überblick zum BIA Gesamteinsatz",
+    "text": "Überblick zum BIA Gesamteinsatz\nDatenbereitstellung\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse",
+    "href": "02_VL.html#data-warehouse",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nBegriff\n\n\n\n\n\n\nDefinition\n\n\nEin Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung (siehe Kemper und Sun 2023).\n\n\n\n\n\nDie entscheidenden Punkte sind hier:\n\nTrennung von operativen und dispositiven Daten\nIntegration von Datenbeständen aus verschiedenen und oftmals sehr heterogenen Quellen\nEinheitliche und konsistente Datenbasis für das gesamte Unternehmen"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-1",
+    "href": "02_VL.html#data-warehouse-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nEigenschaften\n\n\n\nThemenorientierung:\n\nDispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet\nDie operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert\nThemen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1\n\nIntegration:\n\nDaten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert\nZusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-2",
+    "href": "02_VL.html#data-warehouse-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nEigenschaften\n\n\nZeitraumbezug:\n\nOperative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab\nDaten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr\n\nNicht-Volatilität:\n\nDaten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt\nDWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-3",
+    "href": "02_VL.html#data-warehouse-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nKomponenten des Data Warehouse\n\n\n\nData Mart\n\nSeparater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen\nNur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen\nHäufig mit Reporting- und OLAP assoziiert, zunehmend aber auch für Analysen\n\n\nCore Data Warehouse\n\nRückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet\nBefüllung über ETL-Prozesse aus operativen Quellsystemen\nMeist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)\nApplikationsneutral modelliert"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-4",
+    "href": "02_VL.html#data-warehouse-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nFunktionen des CDWH\n\nSammel- und Integrationsfunktion:\n\n\n\nAufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers\n\n\n\nDistributionsfunktion:\n\n\n\nVersorgung aller nachgeschalteten Data Marts mit Daten\n\n\n\nQualitätssicherungsfunktion:\n\n\n\nDatentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis"
+  },
+  {
+    "objectID": "02_VL.html#data-warehouse-5",
+    "href": "02_VL.html#data-warehouse-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Data Warehouse",
+    "text": "Data Warehouse\nData Mart vs. CDWH\n\n\n\nCharakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an Baars und Kemper (2021)\n\n\n\n\n\n\n\n\nData Mart\nCore Data Warehouse\n\n\n\n\nZiel\nEntscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten\nEntscheidungsunterstützung für alle Bereiche in einem Unternehmen\n\n\nAusrichtung\nBereichsspezifisch oder Abteilungsbezogen\nZentral und unternehmensweit\n\n\nGranularität\nHöhere Aggregationen\nFeinste verfügbare Granularität\n\n\nVerfügbarkeit für Endanwendende\nIn der Regel möglich\nHäufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt\n\n\nFlexibilität der Analysen\nTendenziell gering und auf Anwendungsbereich beschränkt\nSehr flexibel\n\n\nVolumina\nGering bis moderat\nModerat bis umfangreich"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen",
+    "href": "02_VL.html#dwh-architekturen",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\n\n\n\n\n\nUnabhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nAuch Stove-Pipe Ansatz\nBedienen sich direkt aus den operativen und externen Systemen\nBereiten die enthaltenen Daten für relevante Anwendungsfelder auf\nDaten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen\nVerschiedene Marts können unterschiedliche externe Datenquellen zusammenführen\n\n\n\n\n\n\nStove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-1",
+    "href": "02_VL.html#dwh-architekturen-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nUnabhängige Data Marts\n\n\n\nVorteile:\n\nSchnelle und bereichsspezifische Informationsbereitstellung\nSinnvoll bei fehlender Governance Strategie\nErfüllung maßgeschneideter bereichsspezifischer Fragestellungen\n\n\nNachteile:\n\nHäufig historisch gewachsene Strukturen und damit geringe Governance\nMehrfache Aufbereitung der Quelldaten\nGefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts\nMangelnde Möglichkeit bereichsübergreifender Analysen"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-2",
+    "href": "02_VL.html#dwh-architekturen-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nAbgestimmte Data Marts\n\n\n\n\n\n\n\nAbhängige Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nKonzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten\nDas abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung\nInhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-3",
+    "href": "02_VL.html#dwh-architekturen-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nAbgestimmte Data Marts\n\n\n\nVorteile:\n\nIntegrität des Datenmodells wird gewährleistet\nMöglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche\nEntscheidungsunterstützung für alle Bereiche in einem Unternehmen\n\n\nNachteile:\n\nDurch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts\nMöglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition\nInformationsverlust bei übergreifenden Analysen"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-4",
+    "href": "02_VL.html#dwh-architekturen-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nCore Data Warehouse\n\n\n\n\n\n\n\nCore Data Warehouse. Eigene Darstellung in Anlehnung an Hahne (2016)\n\n\n\n\n\n\nDas CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank\nDieser Ansatz wird oft als Monolith bezeichnet\nDie Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-5",
+    "href": "02_VL.html#dwh-architekturen-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nCore Data Warehouse\n\n\n\nVorteile:\n\nHoher Grad an Mehrfachverwendbarkeit der Daten\nHoher Detailgrad möglich\nBei kleineren Anwendungsfällen oft ausreichend\n\n\nNachteile:\n\nBerechtigungsmanagement und Performance stoßen bei komplexen Anwendungsfällen schnell an Grenzen\nBei größeren Einheiten mit eigenen Geschäftsprozessen und stark abweichenden Hierarchiestrukturen sehr komplex, hier bietet sich der Einsatz mehrerer CDWH an"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-6",
+    "href": "02_VL.html#dwh-architekturen-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nCore Data Warehouse mit abhängigen Data Marts\n\n\n\n\nAuch Hub-and-Spoke Ansatz genannt\nCDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts\nMarts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf\nCDWH als Hub erfüllt Aufgaben der Integration, Qualitätssicherung und Datenverteilung an die Marts\n\n\n\n\n\n\n\n\nCore Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an Hahne (2016)"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-7",
+    "href": "02_VL.html#dwh-architekturen-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nCore Data Warehouse mit abhängigen Data Marts\n\n\n\nVorteile:\n\nEinmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik\nGeringere Anzahl an Extraktionsprozessen\nReduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten\n\n\nNachteile:\n\nNach wie vor eher traditionelle BI-Sicht"
+  },
+  {
+    "objectID": "02_VL.html#dwh-architekturen-8",
+    "href": "02_VL.html#dwh-architekturen-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "DWH Architekturen",
+    "text": "DWH Architekturen\nArchitekturen-Mix\n\n\n\n\n\nArchitekturen-Mix. Eigene Darstellung in Anlehnung an Hahne (2016)"
+  },
+  {
+    "objectID": "02_VL.html#business-case",
+    "href": "02_VL.html#business-case",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nDas Wachstum bei Tofispy stagniert\n\n\n\nTofispy ist ein Musikstreaming Anbieter aus Deutschland\nDas Unternehmen kämpft mit stagnierendem Wachstum\nWir – die Unternehmensberatung LeinbizConsult – wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln\nDie Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben"
+  },
+  {
+    "objectID": "02_VL.html#business-case-1",
+    "href": "02_VL.html#business-case-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nDatensatz\n\nÜberblick über den Streamingmarkt:\n\nDataset “market_share”\nAnzahl der Nutzer pro Plattform in Mio\nDaten von 2016 bis 2024\nDie Daten für 2024 sind eine Hochrechnung für das laufende Jahr"
+  },
+  {
+    "objectID": "02_VL.html#business-case-2",
+    "href": "02_VL.html#business-case-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nAufgabe\n\n\nArbeit in 2er Teams mit mindestens einem Laptop oder Tablet (nicht ideal für Excel) pro Team\nJedes Team lädt die Daten bei StudIP herunter und diskutiert untereinander, wie die Daten strukturiert sind\nTrial & Error in Superset mit Hilfe der Dokumentation:\n\nDokumentation unter preset.io\nStartpunkt: Creating a Chart (in der preset Doku)\nTable als Ausgangspunkt für explorative Analyse\n\nAnschließend Analyse in Excel + Superset und kritische Gegenüberstellung der beiden Ansätze"
+  },
+  {
+    "objectID": "02_VL.html#business-case-3",
+    "href": "02_VL.html#business-case-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nFragen\n\n\nWas sind die Vorteile der beiden Ansätze?\nWächst Tofispy schneller oder langsamer als der Gesamtmarkt?\nWie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?\nWelcher Konkurrent wächst am stärksten?\nIst der Datensatz operativ oder dispositiv?\nWelcher Reifegrad von Analytics liegt vor?"
+  },
+  {
+    "objectID": "02_VL.html#hausaufgabe",
+    "href": "02_VL.html#hausaufgabe",
+    "title": "Business Intelligence & Data Science",
+    "section": "Hausaufgabe",
+    "text": "Hausaufgabe\nVideo anschauen\n\nLink zum Video"
+  },
+  {
+    "objectID": "02_VL.html#hausaufgabe-1",
+    "href": "02_VL.html#hausaufgabe-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Hausaufgabe",
+    "text": "Hausaufgabe\nFragen zu Superset\n\nWas sind Dimensions und Metrics? Welchen Zweck haben sie?\nWas ist der Unterschied zwischen einem Dataset und einer Database?\nWas ist der Unterschied zwischen Superset und Preset?"
+  },
+  {
+    "objectID": "02_VL.html#quellen",
+    "href": "02_VL.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nHahne, Michael. 2016. „Architekturkonzepte und Modellierungsverfahren für BI-Systeme“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_8.\n\n\nKemper, Hans-Georg, und Xuanpu Sun. 2023. „Data Warehouse“. In Gabler Bankenlexikon. https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924."
+  },
+  {
+    "objectID": "03_VL_D.html#der-plan-für-heute",
+    "href": "03_VL_D.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung 3\n\n\nQuiz\nRecap zur Aufgabe von letzter Woche\nVisualisierungstyp Balkendiagramm\nDatentransformation:\n\nWas heißt ETL?\nWelche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?\n\nGemeinsame Transformation eines Datensatzes mit User-Events"
+  },
+  {
+    "objectID": "03_VL_D.html#business-case",
+    "href": "03_VL_D.html#business-case",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nRecap zu den Fragen\n\n\n\n\nFragen zu Tofispy\n\nWächst Tofispy schneller oder langsamer als der Gesamtmarkt?\nWie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?\nWelcher Konkurrent wächst am stärksten?\nSind die Daten dispositiv oder operativ?\nWelcher Reifegrad von Analytics liegt vor?\n\n\n\n\n\n\nTofispy verliert Marktanteile, wächst also langsamer als der Markt\nDer Marktanteil liegt Ende 2024 bei 34%\nYoutubeMusic wächst am stärksten\nDer Datensatz ist dispositiv und der Reifegrad deskriptiv"
+  },
+  {
+    "objectID": "03_VL_D.html#visualisierung",
+    "href": "03_VL_D.html#visualisierung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung",
+    "text": "Visualisierung\nBalkendiagramm\n\n\n\n\nEinfache Balkendiagramme eignen sich besonders gut zur Visualisierung absoluter Häufigkeiten\nIdealerweise ist die Anzahl der Dimensionen entlang der X-Achse dabei begrenzt\nBei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen\nZeitachse immer aufsteigend sortieren"
+  },
+  {
+    "objectID": "03_VL_D.html#visualisierung-1",
+    "href": "03_VL_D.html#visualisierung-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung",
+    "text": "Visualisierung\nGruppiertes Balkendiagramm\n\n\n\n\nEignen sich für die Darstellung absoluter Häufigkeiten über mehrere Dimensionen\nBei zu großen Unterschieden zwischen Gruppen schwer lesbar\nAuch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und Zeitachse immer aufsteigend sortieren"
+  },
+  {
+    "objectID": "03_VL_D.html#visualisierung-2",
+    "href": "03_VL_D.html#visualisierung-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung",
+    "text": "Visualisierung\nGestapeltes Balkendiagramm\n\n\n\n\nStatt Darstellung nebeneinander, werden Balken gestapelt\nSinnvoll, wenn die Summe der Beträge, eine sinnvolle Botschaft vermittelt\nAber: Hierbei geht der Eindruck der Anteile der Dimensionen oft verloren, daher nicht ratsam, wenn die Anteile eigentlich von Interesse sind"
+  },
+  {
+    "objectID": "03_VL_D.html#visualisierung-3",
+    "href": "03_VL_D.html#visualisierung-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Visualisierung",
+    "text": "Visualisierung\nRelatives gestapeltes Balkendiagramm\n\n\n\n\nWenn die Anteile der Dimensionen wichtiger sind als die Summe bzw. die Summe keine sinnvolle Interpretation zulässt\nHinweise des einfachen Balkendiagramms gelten weiterhin, ggf. horizontal und Jahreszahlen aufsteigend sortieren"
+  },
+  {
+    "objectID": "03_VL_D.html#kurzer-überblick-wo-gehts-weiter",
+    "href": "03_VL_D.html#kurzer-überblick-wo-gehts-weiter",
+    "title": "Business Intelligence & Data Science",
+    "section": "Kurzer Überblick: Wo geht’s weiter?",
+    "text": "Kurzer Überblick: Wo geht’s weiter?\nDer ETL Prozess\n\n\n\nBIA Gesamtansatz. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)."
+  },
+  {
+    "objectID": "03_VL_D.html#etl-prozess",
+    "href": "03_VL_D.html#etl-prozess",
+    "title": "Business Intelligence & Data Science",
+    "section": "ETL Prozess",
+    "text": "ETL Prozess\nWas ist ETL?\n\n\nETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden\nExtraktion beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt\nHier erfolgt die Transformation, die wiederum aus vier Teilschritten besteht:\n\nFilterung\nHarmonisierung\nAggregation\nAnreicherung\n\nAnschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank geladen"
+  },
+  {
+    "objectID": "03_VL_D.html#etl-prozess-1",
+    "href": "03_VL_D.html#etl-prozess-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "ETL Prozess",
+    "text": "ETL Prozess\nTeilschritte der Transformation\n\n\n\n\nTeilprozesse im ETL-Prozess. Eigene Darstellung in Anlehnung an Baars und Kemper (2021)"
+  },
+  {
+    "objectID": "03_VL_D.html#filterung",
+    "href": "03_VL_D.html#filterung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nExtraktion und erste Bereinigung\n\nFilterung umfasst die Extraktion aus operativen Daten und die Bereinigung syntaktischer und semantischer Defekte in den Rohdaten\nDie Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen\nAus Performance-Erwägungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt\nBaars und Kemper (2021) ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten\nDiese Extrakte werden anschließend bereinigt"
+  },
+  {
+    "objectID": "03_VL_D.html#filterung-1",
+    "href": "03_VL_D.html#filterung-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nSyntaktische Mängel\n\nSyntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen\nSyntaktische Mängel sind in der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren\nBeispiele:\n\nFehlende Werte\nWidersprüchliche Datumsformate (2022-04-03 und 04.03.2022)\nLeere Primärschlüssel\nUnzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. “123a” statt “123”)"
+  },
+  {
+    "objectID": "03_VL_D.html#filterung-2",
+    "href": "03_VL_D.html#filterung-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nWas ist ein Primärschlüssel?\n\n\n\nEin Primärschlüssel ist ein Attribut oder eine Kombination von Attributen, die eindeutig ein Tupel in einer Tabelle identifizieren\nEin Primärschlüssel darf keine leeren Werte enthalten\nEin Primärschlüssel darf keine Duplikate enthalten\nHäufig wird ein ID-Feld als Primärschlüssel verwendet\nWie muss der Primärschlüssel in der Tabelle rechts aussehen?\n\n\n\n\n\n\n\nVorname\nNachname\n\n\n\n\nEclipse\nEnigma\n\n\nFantastic\nEnigma\n\n\nCrazy\nCommander\n\n\nCrazy\nCameleon\n\n\nHarmony\nHerald\n\n\nOmega\nOracle\n\n\nRadiant\nVoyager"
+  },
+  {
+    "objectID": "03_VL_D.html#filterung-3",
+    "href": "03_VL_D.html#filterung-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nSemantische Mängel\n\nSemantische Mängel beziehen sich auf Probleme in Bezug auf die Bedeutung und Interpretation der Daten\nDaten sind dann inkonsistent sind oder enthalten widersprüchliche Informationen, selbst wenn sie syntaktisch korrekt sind\nSemantische Mängel erfordern oft ein tieferes Verständnis der Domäne und der Daten, um sie zu identifizieren und zu beheben\nBeispiele:\n\nNegative oder unplausible Werte in Preis-, Alters- oder Umsatzfeldern\nNicht-zulässige Postleitzahlen\nUngültige IBAN"
+  },
+  {
+    "objectID": "03_VL_D.html#filterung-4",
+    "href": "03_VL_D.html#filterung-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Filterung",
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-09\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-11\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-15\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+  },
+  {
+    "objectID": "03_VL_D.html#harmonisierung",
+    "href": "03_VL_D.html#harmonisierung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Harmonisierung",
+    "text": "Harmonisierung\nHarmonisierung\n\nHarmonisierung ist die zweite Schicht der Datentransformation\nNach Abschluss der Filterungs- und der Harmonisierungsschicht liegt im DWH ein bereinigter und konsistenter Datenbestand auf der festgelegten Granularitätsebene vor\nDieser ist bereits direkt für Komponenten der Informationsgenerierung nutzbar\nAuch hier wird zwischen syntaktischer und semantischer Harmonisierung unterschieden"
+  },
+  {
+    "objectID": "03_VL_D.html#harmonisierung-2",
+    "href": "03_VL_D.html#harmonisierung-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Harmonisierung",
+    "text": "Harmonisierung\nSyntaktische Harmonisierung\n\nDie operativen Quelldatenbestände weisen meist eine hohe Heterogenität auf und müssen mit Hilfe von umfangreichen Transformationsregeln syntaktisch harmonisiert werden.\nHäufige Gründe sind:\n\n\nSchlüsseldisharmonien\n\nAufgrund verschiedener Primärschlüssel ist die Zusammenführung nicht möglich\nBeispiel: Kundennummer in System A weist eine führende 0 auf, in System B nicht\nOft durch Zuordnungstabellen oder die Generierung neuer Primärschlüssel gelöst"
+  },
+  {
+    "objectID": "03_VL_D.html#harmonisierung-3",
+    "href": "03_VL_D.html#harmonisierung-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Harmonisierung",
+    "text": "Harmonisierung\nSyntaktische Harmonisierung\n\nAbweichende Kodierung\n\nDie Systeme weisen identische Attributnamen auf, haben jedoch unterschiedliche Wertebereiche\nBeispiel: Geschlecht in System A: “männlich”, “weiblich”, “divers” und in System B: “m”, “w”, “d”\n\nSynonyme\n\nAttribute haben verschiedene Namen, aber dieselbe Bedeutung\nKundennummer in System A und Customer ID in System B\n\nHomonyme\n\nAttribute haben dieselben Namen, aber verschiedene Bedeutungen\n“Business Partner” als Lieferant in A und als Kunde in B"
+  },
+  {
+    "objectID": "03_VL_D.html#harmonisierung-4",
+    "href": "03_VL_D.html#harmonisierung-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Harmonisierung",
+    "text": "Harmonisierung\nSemantische Harmonisierung\n\n\nDie semantische Harmonisierung bezieht sich auf die Vereinheitlichung der fachlichen Bedeutung von Daten\n\n\nAbgleichung fachlicher Kennzahlen\n\nGewährleistet inhaltlich konsistente entscheidungsorientierte Daten\nBeispiele sind Währungen oder Maßeinheiten oder die Periodenzuordnung betriebswirtschaftlicher Kennzahlen\nErfordert hohe Fachkompetenz und ist nicht automatisierbar\n\nGranularität\n\nDie Überführung der operativen Daten in eine gewünschte Granularität erfordert weitere Transforationsregeln\nEine Übersicht tagesaktueller Bestellungen erfordert bspw. die Zusammenfassung aller Transaktionen eines Tages"
+  },
+  {
+    "objectID": "03_VL_D.html#aggregation",
+    "href": "03_VL_D.html#aggregation",
+    "title": "Business Intelligence & Data Science",
+    "section": "Aggregation",
+    "text": "Aggregation\nVerdichtung und Hierarchisierung\n\nDie Aggregation dient der Erweiterung der gefilterten und harmonisierten Daten um Verdichtungsstrukturen\nIdealerweise mittels mehrfach verwendbarer, zentraler Dimensionshierarchien, die übergreifende Analysen unterstützen\nDie Entwicklung dieser Dimensionshierarchietabellen setzt die Antizipation potenzieller Auswertungen voraus\nDiese Tabellen müssen zudem gepflegt und mit Gültigkeitszeiträumen versehen werden\nDie Erstellung und Pflege von Hierarchietabellen und die Speicherung aggregierter Tabellen ermöglicht erste Anwendungen mit den Daten\nDie physische Speicherung von aggregierten Daten anstelle granularster Ebenen erfolgt hierbei häufig aus Performancegründen"
+  },
+  {
+    "objectID": "03_VL_D.html#anreicherung",
+    "href": "03_VL_D.html#anreicherung",
+    "title": "Business Intelligence & Data Science",
+    "section": "Anreicherung",
+    "text": "Anreicherung\nKennzahlberechnung\n\nIn der Anreicherungsschicht werden fachliche Kennzahlen berechnet und in die Datenbasis integriert.\nHier können sowohl Werte auf Basis der harmonisierten Daten der gewünschten Granularität (zweite Schicht) als auch auf Basis der dritten Schicht (bereits aggregierte Tabellen) berechnet werden.\nBeispiele sind monatliche Deckungsbeiträge auf Produktebene oder jährliche Deckungsbeiträge auf Filialebene."
+  },
+  {
+    "objectID": "03_VL_D.html#anreicherung-1",
+    "href": "03_VL_D.html#anreicherung-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Anreicherung",
+    "text": "Anreicherung\nKennzahlberechnung\n\nDiese Vorgehensweise hat mehrere Vorteile:\n\nKalkulierbare Reaktionszeiten bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.\nGarantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.\nEtablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes"
+  },
+  {
+    "objectID": "03_VL_D.html#business-case-1",
+    "href": "03_VL_D.html#business-case-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nZurück zu Tofispy\n\nTofispy hat uns einen Extrakt aus dem System für Neuregistrierung zur Verfügung gestellt\nDer Datensatz ist bei Superset im Dataset Controlling unter “user_events” hinterlegt, hierbei handelt es sich um den Rohdatensatz, den wir erst einmal transformieren müssen\nErneuter Startpunkt ist eine explorative Analyse, um die Daten zu verstehen\nIn Superset:\n\nOben auf + Chart\nDataset “user_events” auswählen\nTable als Visualisierung auswählen"
+  },
+  {
+    "objectID": "03_VL_D.html#business-case-2",
+    "href": "03_VL_D.html#business-case-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nTable Visualisierung in Superset"
+  },
+  {
+    "objectID": "03_VL_D.html#business-case-3",
+    "href": "03_VL_D.html#business-case-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nTable Visualisierung in Superset"
+  },
+  {
+    "objectID": "03_VL_D.html#business-case-4",
+    "href": "03_VL_D.html#business-case-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nTransformationschritte\n\nDie Daten enthalten mehrere Event-Types und Timestamps\nWelche der Events sind interessant, um User-Wachstum zu verstehen?\nWelche Aggregation des Zeitstempels ist sinnvoll?\nWelche Kennzahlen wollen wir aus den Daten ableiten?"
+  },
+  {
+    "objectID": "03_VL_D.html#quellen",
+    "href": "03_VL_D.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg."
   }
 ]

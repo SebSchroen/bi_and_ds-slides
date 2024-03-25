@@ -3,15 +3,15 @@ title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 5"
 format:
   revealjs:
-    incremental: false  
+    incremental: true  
 ---
   
 ```{r}
 
 library(kableExtra)
-library(readr)
-library(magrittr)
-library(dplyr)
+library(tidyverse)
+library(ggthemes)
+questionnaire <- read_csv("data/questionnaire.csv")
 ```
 
 
@@ -22,7 +22,7 @@ library(dplyr)
 
 ::: {style="font-size: 0.9em"}
 * Quiz und Recap
-* Visualisierung von Anteilen: Kreisdiagramme, Treemaps und Sankey Plots
+* Visualisierung von Anteilen: Kreisdiagramme und Treemaps
 * Informationsgenerierung
   * Welche Formen von Berichten gibt es?
   * Was ist OLAP?
@@ -32,6 +32,110 @@ library(dplyr)
   * Begriffliche Grundlagen Data Science
 :::
 
+
+# Recap
+## Business Case
+### Ergebnisse von letzter Woche
+
+
+:::: {.columns}
+
+::: {.column width="40%"}
+* In der letzten Woche haben wir festgestellt, dass der Hauptgrund für das schwindende Wachstum bei Tofispy ein stark steigender Trend bei den Kündigungen ist
+* Laut einer Umfrage ist der Hauptgrund dafür eine Unzufriedenheit mit dem empfohlenen Content
+
+::: 
+
+::: {.column width="60%"}
+
+::: {.fragment .fade-in}
+![](img/user_events.jpg){width=80%}
+![](img/pie_chart.jpg){width=50%}
+
+:::
+
+:::
+::::
+# Visualisierungen
+
+## Visualisierung von Anteilen
+### Kreisdiagramme
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: {style="font-size: 0.9em"}
+* Kreisdiagramme sind eine der häufigsten und umstrittensten Visualisierungen, um Anteile und Proportionen zu visualisieren
+* Nur bei einer geringen Anzahl von Kategorien (2-5) sinnvoll
+* Nicht sinnvoll, wenn die Anteile zwischen den Dimensionen sehr ähnlich sind
+* Auch bei negativen Werten oder Measures, die sich nicht zu 100% summieren nicht geeignet
+:::
+:::
+::: {.column width="50%"}
+
+::: {.fragment .fade-in}
+
+```{r, fig.height= 4, fig.width=4}
+
+questionnaire %>%
+  filter(question == "Why do you unsubscribe?") %>%
+  ggplot(aes(x = "", fill = response)) +
+  geom_bar(width = 1, color = "white") +
+  coord_polar("y", start = 0) +
+  theme_void() +
+  theme(legend.position = "bottom") +
+  labs(title = "Was ist der häufigste Kündigungsgrund?",
+       fill = element_blank(),
+       x = NULL,
+       y = NULL) + 
+    scale_fill_tableau(palette = "Color Blind")
+
+
+```
+:::
+::: 
+::::
+
+## Visualisierung von Anteilen
+### Treemap
+
+:::: {.columns}
+::: {.column width="50%"}
+
+::: {style="font-size: 0.76em"}
+* Bei hierarchischen Datenstrukturen, die in Kategorien und Subkategorien unterteilt sind, eignet sich eine Treemap
+* Treemaps nutzen die Fläche der Rechtecke, um die Größe der Kategorien zu visualisieren und geben damit einen Eindruck über die relativen Anteile
+* Durch die Nutzung der Fläche statt des Winkels sind Treemaps leichter lesbar
+* Treemaps sind auch in der Lage, mehrere Dimensionen gleichzeitig darzustellen
+* Bei zu vielen Kategorien oder zu ähnlichen Anteilen ist von Treemaps abzuraten
+
+:::
+:::
+::: {.column width="50%"}
+
+::: {.fragment .fade-in}
+
+```{r, fig.height= 5.5, fig.width=5}
+library(treemap)
+questionnaire %>%
+  group_by(question, response) %>% 
+  summarise(n = n()) %>% 
+  treemap(., index = c("question", "response"), vSize = "n", 
+          palette = "Set2",
+          type = "index",
+            bg.labels=c("transparent"),   
+          fontsize.labels = 10,    
+    align.labels=list(
+        c("left", "top"), 
+        c("center", "center")
+        ),    
+          title = "Treemap des Fragebogens")
+
+
+```
+:::
+:::
+::::
 
 ## Kurzer Überblick: Wo geht's weiter?
 ### Informationsgenerierung
@@ -86,9 +190,9 @@ library(dplyr)
 :::
 
 ::: {.column width="50%"}
-
+::: {.fragment .fade-in}
 ![Cube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/plot-cube.PNG){width=100%}
-
+:::
 :::
 ::::
 
@@ -98,9 +202,9 @@ library(dplyr)
 
 * Slicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird
 * Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004--2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen
-
+::: {.fragment .fade-in}
 ![OLAP Slicing. Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/OLAP_slicing.png){width=60%}
-
+:::
 
 ## OLAP
 
@@ -109,8 +213,9 @@ library(dplyr)
 * Dicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht
 * Im Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert
 
+::: {.fragment .fade-in}
 ![OLAP Dicing Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/OLAP_dicing.png){width=60%}
-
+:::
 
 ## OLAP
 ### Pivotierung
@@ -123,9 +228,10 @@ library(dplyr)
 * Im Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie
 
 :::
-
+::: {.fragment .fade-in}
 ![OLAP Pivotierung/Rotation Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/OLAP_pivoting.png){width=55%}
 
+:::
 
 ## OLAP
 ### Roll-Up, Drill-Down & Drill-Through 
@@ -230,10 +336,12 @@ library(dplyr)
 ::: {style="font-size: 0.89em"}
 * Die Generierung von modellbasierten Erkenntnissen aus Daten erfordert eine Definition des Lernproblems, oft mit einer simplen Gleichung:
 
+::: {.fragment .fade-in}
+
 $$
 y = f(X) + \epsilon
 $$ 
-
+:::
 *  $y$ ist ein $N \times 1$ Vektor mit einer Ergebnisvariablen
 * $X$ ist eine $N \times P$ Matrix mit Prädiktoren $X_1, X_2,..., X_P$
 * $N$ entspricht der Anzahl von Beobachtungen im vorliegenden Datensatz, $P$ ist die Anzahl der Prädiktoren
@@ -249,10 +357,11 @@ $$
 * Angenommen, wir haben eine Funktion $f$ sowie einen Algorithmus gefunden, um $f$ an unsere Variablen $y$ und $X$ anzupassen
 * Die Modellschätzung wird auch als Modelltraining oder Modellanpassung bezeichnet und unser trainiertes Modell hat die Form:
 
+::: {.fragment .fade-in}
 $$
 \hat{y} = \hat{f}(X)
 $$ 
-
+:::
 * Das trainierte Modell hat keien Fehlerterm $\epsilon$, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist
 * Geschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet
 
@@ -304,7 +413,10 @@ $$
   * Finanzwerte ($ oder €)
 :::
 ::: {.column width="50%"}
+
+::: {.fragment .fade-in}
 ![Stetig vs. Diskret, Quelle: [Allison Horst](https://twitter.com/allison_horst)](img/discrete_vs_continuous.png)
+:::
 :::
 ::::
 
@@ -318,6 +430,6 @@ $$
 
 
 ## Slide Title {visibility="hidden"}
-@james_introduction_202
+@james_introduction_2021
 
 ## Quellen

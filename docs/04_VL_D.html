@@ -338,10 +338,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-  <script src="site_libs/viz-1.8.2/viz.js"></script>
-  <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-  <script src="site_libs/grViz-binding-1.0.10/grViz.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -349,7 +345,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Business Intelligence &amp; Data Science</h1>
-  <p class="subtitle">Vorlesung 3</p>
+  <p class="subtitle">Vorlesung 4</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -371,246 +367,33 @@ Dr.&nbsp;Sebastian Schrön
 </section>
 <section id="der-plan-für-heute" class="slide level2">
 <h2>Der Plan für heute…</h2>
-<h3 id="vorlesung-3">Vorlesung 3</h3>
-<div>
+<h3 id="vorlesung-4">Vorlesung 4</h3>
+<div style="font-size: 0.85em">
 <ul>
-<li class="fragment">Quiz</li>
-<li class="fragment">Self-Service BI Terminologie</li>
-<li class="fragment">Recap zur Aufgabe von letzter Woche und gemeinsamer Walk-Through</li>
-<li class="fragment">Visualisierungstyp Balkendiagramm</li>
-<li class="fragment">Datentransformation:
+<li class="fragment">Big Data:
 <ul>
-<li class="fragment">Was heißt ETL?</li>
-<li class="fragment">Welche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?</li>
+<li class="fragment">Was ist Big Data?</li>
+<li class="fragment">Definitionen und Eigenschaften</li>
+<li class="fragment">Technologien und Werkzeuge</li>
 </ul></li>
-<li class="fragment">Gemeinsame Transformation eines Datensatzes mit User-Events</li>
-</ul>
-</div>
-</section>
-<section>
-<section id="recap-self-service-bi" class="title-slide slide level1 center">
-<h1>Recap &amp; Self-Service BI</h1>
-
-</section>
-<section id="self-service-bi" class="slide level2">
-<h2>Self-Service BI</h2>
-<h3 id="terminologie">Terminologie</h3>
-<div style="font-size: 0.95em">
+<li class="fragment">Data Lake:
 <ul>
-<li class="fragment">Dashboard:
-<ul>
-<li class="fragment">Eine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden</li>
-<li class="fragment">Ein Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren</li>
-<li class="fragment">Die Visualisierungen können über globale Filter gefiltert werden</li>
+<li class="fragment">Was ist der Data Lake?</li>
+<li class="fragment">Braucht man das?</li>
+<li class="fragment">Was sind die Unterschiede zum Data Warehouse?</li>
 </ul></li>
-<li class="fragment">Chart:
+<li class="fragment">Weitere Ursachenforschung für den Wachstumsschwund bei Tofispy</li>
+<li class="fragment">Visualisierung von Anteilen: Kreisdiagramm und Treemap</li>
+<li class="fragment">Informationsgenerierung:
 <ul>
-<li class="fragment">Eigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann</li>
-<li class="fragment">Es gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können</li>
-<li class="fragment"><a href="https://docs.preset.io/docs/chart-walkthroughs">Preset.io</a> gibt eine Übersicht über die gängigsten Chart-Typen</li>
+<li class="fragment">Berichtsorienterte Analyse</li>
 </ul></li>
 </ul>
 </div>
 </section>
-<section id="self-service-bi-1" class="slide level2">
-<h2>Self-Service BI</h2>
-<h3 id="terminologie-1">Terminologie</h3>
-<div style="font-size: 0.90em">
-<ul>
-<li class="fragment">Dimensions:
-<ul>
-<li class="fragment">Dimensionen sind die Kategorien, nach denen Daten gruppiert wird</li>
-<li class="fragment">Idealerweise kategoriale Variablen, die nicht aggregiert werden</li>
-<li class="fragment">Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar</li>
-<li class="fragment">Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain</li>
-</ul></li>
-<li class="fragment">Metrics
-<ul>
-<li class="fragment">Quantitative Variablen, die sich mit Funktionen aggregieren lassen</li>
-<li class="fragment">Beispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts</li>
-<li class="fragment">Besonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="self-service-bi-2" class="slide level2">
-<h2>Self-Service BI</h2>
-<h3 id="terminologie-2">Terminologie</h3>
-<div style="font-size: 0.90em">
-<ul>
-<li class="fragment">Aggregationsfunktionen
-<ul>
-<li class="fragment">Self-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen</li>
-<li class="fragment">Aggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten</li>
-<li class="fragment">Einfache Beispiele sind Summen, Durchschnitte, Min und Max</li>
-<li class="fragment">Besonderheit Count und Count Distinct:
-<ul>
-<li class="fragment">Count zählt die Anzahl der Datenpunkte,</li>
-<li class="fragment">Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)</li>
-</ul></li>
-<li class="fragment">Semantisches Wissen und Fragestellung sind für die Wahl der Aggregation entscheidend</li>
-</ul></li>
-</ul>
-</div>
-<aside class="notes">
-<p>Beispieltabelle anschreiben: Kunden A und B, Umsatz 100 und 50, Zufriedenheit (1-100%) 80 und 20</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="self-service-bi-3" class="slide level2">
-<h2>Self-Service BI</h2>
-<h3 id="besonderheiten-superset">Besonderheiten Superset</h3>
-<div style="font-size: 0.95em">
-<ul>
-<li class="fragment">Database:
-<ul>
-<li class="fragment">Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse</li>
-<li class="fragment">In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich</li>
-<li class="fragment">Auch der Upload von Excel und CSV Dateien ist möglich</li>
-</ul></li>
-<li class="fragment">Dataset:
-<ul>
-<li class="fragment">Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen</li>
-<li class="fragment">Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden</li>
-<li class="fragment">Physische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="business-case" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="recap-zu-den-fragen">Recap zu den Fragen</h3>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div style="font-size: 0.75em">
-<ul>
-<li class="fragment">Fragen zu Tofispy
-<ol type="1">
-<li class="fragment">Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?</li>
-<li class="fragment">Wie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?</li>
-<li class="fragment">Welcher Konkurrent wächst am stärksten?</li>
-<li class="fragment">Sind die Daten dispositiv oder operativ?</li>
-<li class="fragment">Welcher Reifegrad von Analytics liegt vor?</li>
-</ol></li>
-</ul>
-</div>
-</div><div class="column" style="width:65%;">
-<div style="font-size: 0.75em">
-<ul>
-<li class="fragment">Tofispy verliert Marktanteile, wächst also langsamer als der Markt</li>
-<li class="fragment">Der Marktanteil liegt Ende 2024 bei 34%</li>
-<li class="fragment">YoutubeMusic wächst am stärksten</li>
-<li class="fragment">Der Datensatz ist dispositiv und der Reifegrad deskriptiv</li>
-</ul>
-</div>
-<p><img data-src="img/balkendiagramm.jpg" width="600" height="300"></p>
-</div>
-</div>
-</section>
-<section id="visualisierung" class="slide level2">
-<h2>Visualisierung</h2>
-<h3 id="balkendiagramm">Balkendiagramm</h3>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div style="font-size: 0.75em">
-<ul>
-<li class="fragment">Einfache Balkendiagramme eignen sich besonders gut zur Visualisierung absoluter Häufigkeiten</li>
-<li class="fragment">Idealerweise ist die Anzahl der Dimensionen entlang der X-Achse dabei begrenzt</li>
-<li class="fragment">Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen</li>
-<li class="fragment">Zeitachse immer aufsteigend sortieren</li>
-</ul>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="fragment fade-in">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="576"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="visualisierung-1" class="slide level2">
-<h2>Visualisierung</h2>
-<h3 id="gruppiertes-balkendiagramm">Gruppiertes Balkendiagramm</h3>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div style="font-size: 0.75em">
-<ul>
-<li class="fragment">Eignen sich für die Darstellung absoluter Häufigkeiten über mehrere Dimensionen</li>
-<li class="fragment">Bei zu großen Unterschieden zwischen Gruppen schwer lesbar</li>
-<li class="fragment">Auch hier: Bei langen Dimensionsnamen ein horizontales Balkendiagramm verwenden, statt die Label auf der X-Achse zu drehen und Zeitachse immer aufsteigend sortieren</li>
-</ul>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="fragment fade-in">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="576"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="visualisierung-2" class="slide level2">
-<h2>Visualisierung</h2>
-<h3 id="gestapeltes-balkendiagramm">Gestapeltes Balkendiagramm</h3>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div style="font-size: 0.75em">
-<ul>
-<li class="fragment">Statt Darstellung nebeneinander, werden Balken gestapelt</li>
-<li class="fragment">Sinnvoll, wenn die Summe der Beträge, eine sinnvolle Botschaft vermittelt</li>
-<li class="fragment">Aber: Hierbei geht der Eindruck der Anteile der Dimensionen oft verloren, daher nicht ratsam, wenn die Anteile eigentlich von Interesse sind</li>
-</ul>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="fragment fade-in">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-4-1.png" width="576"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="visualisierung-3" class="slide level2">
-<h2>Visualisierung</h2>
-<h3 id="relatives-gestapeltes-balkendiagramm">Relatives gestapeltes Balkendiagramm</h3>
-<div class="columns">
-<div class="column" style="width:35%;">
-<div style="font-size: 0.75em">
-<ul>
-<li class="fragment">Wenn die Anteile der Dimensionen wichtiger sind als die Summe bzw. die Summe keine sinnvolle Interpretation zulässt</li>
-<li class="fragment">Hinweise des einfachen Balkendiagramms gelten weiterhin, ggf. horizontal und Jahreszahlen aufsteigend sortieren</li>
-</ul>
-</div>
-</div><div class="column" style="width:65%;">
-<div class="fragment fade-in">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="kurzer-überblick-wo-gehts-weiter" class="slide level2">
-<h2>Kurzer Überblick: Wo geht’s weiter?</h2>
-<h3 id="der-etl-prozess">Der ETL Prozess</h3>
+<section id="einordnung-in-den-gesamtkontext" class="slide level2">
+<h2>Einordnung in den Gesamtkontext</h2>
+<h3 id="der-data-lake-big-data">Der Data Lake &amp; Big Data</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/bia_ordnungsrahmen.drawio.png" width="700" height="500"></p>
@@ -618,225 +401,48 @@ Dr.&nbsp;Sebastian Schrön
 </figure>
 </div>
 </section>
-<section id="etl-prozess" class="slide level2">
-<h2>ETL Prozess</h2>
-<h3 id="was-ist-etl">Was ist ETL?</h3>
-<div style="font-size: 0.90em">
-<ul>
-<li class="fragment">ETL steht für Extract, Transform, Load oder auch Extraktion, Transformation, Laden</li>
-<li class="fragment"><strong>Extraktion</strong> beschreibt die Übertragung der Daten aus den operativen Quellsystemen in einen Arbeitsbereich, oft Staging Area genannt</li>
-<li class="fragment">Hier erfolgt die <strong>Transformation</strong>, die wiederum aus vier Teilschritten besteht:
-<ul>
-<li class="fragment">Filterung</li>
-<li class="fragment">Harmonisierung</li>
-<li class="fragment">Aggregation</li>
-<li class="fragment">Anreicherung</li>
-</ul></li>
-<li class="fragment">Anschließend werden die bereinigten und aufbereiteten Daten in die Zieldatenbank ge<strong>laden</strong><br>
-</li>
-</ul>
+<section>
+<section id="big-data" class="title-slide slide level1 center">
+<h1>Big Data</h1>
+
+</section>
+<section id="big-data-1" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="was-ist-big-data">Was ist Big Data?</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/big_data.png" width="700" height="500"></p>
+<figcaption>Quelle: <a href="https://medienportal.siemens-stiftung.org/de/big-data-einfuehrung-111982">Siemens Stiftung 2019</a></figcaption>
+</figure>
 </div>
 </section>
-<section id="etl-prozess-1" class="slide level2">
-<h2>ETL Prozess</h2>
-<h3 id="teilschritte-der-transformation">Teilschritte der Transformation</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-41fce6ae26aaeebd2827" style="width:1000px;height:400px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-41fce6ae26aaeebd2827">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Teilprozesse im ETL-Prozess. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></p>
-</div>
-</div>
-</section>
-<section id="filterung" class="slide level2">
-<h2>Filterung</h2>
-<h3 id="extraktion-und-erste-bereinigung">Extraktion und erste Bereinigung</h3>
-<ul>
-<li class="fragment">Filterung umfasst die Extraktion aus operativen Daten und die Bereinigung <strong>syntaktischer</strong> und <strong>semantischer</strong> Defekte in den Rohdaten</li>
-<li class="fragment">Die Extraktion erfolgt vielfältig, z.B. über Flat File Transporte oder API Schnittstellen</li>
-<li class="fragment">Aus Performance-Erwägungen wird die Extraktion mittels geplanter Batch-Jobs oft außerhalb der Betriebszeiten durchgeführt</li>
-<li class="fragment"><span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span> ordnen die Extraktion der Filterung zu, da oft nur vorgefilterte Daten übertragen werden, bspw. die letzten 90 Tage oder bestimmte Spalten aus den Rohdaten</li>
-<li class="fragment">Diese Extrakte werden anschließend bereinigt</li>
-</ul>
-</section>
-<section id="filterung-1" class="slide level2">
-<h2>Filterung</h2>
-<h3 id="syntaktische-mängel">Syntaktische Mängel</h3>
-<ul>
-<li class="fragment">Syntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen</li>
-<li class="fragment">Syntaktische Mängel sind in der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren</li>
-<li class="fragment">Beispiele:
-<ul>
-<li class="fragment">Fehlende Werte</li>
-<li class="fragment">Widersprüchliche Datumsformate (2022-04-03 und 04.03.2022)</li>
-<li class="fragment">Leere Primärschlüssel</li>
-<li class="fragment">Unzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. “123a” statt “123”)</li>
-</ul></li>
-</ul>
-</section>
-<section id="filterung-2" class="slide level2">
-<h2>Filterung</h2>
-<h3 id="was-ist-ein-primärschlüssel">Was ist ein Primärschlüssel?</h3>
+<section id="big-data-2" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="die-3vs">Die 3Vs</h3>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:50%;">
+<div style="font-size: 0.65em">
+<ol type="1">
+<li class="fragment">Volume:
 <ul>
-<li class="fragment">Ein Primärschlüssel ist ein Attribut oder eine Kombination von Attributen, die eindeutig ein Tupel in einer Tabelle identifizieren</li>
-<li class="fragment">Ein Primärschlüssel darf keine leeren Werte enthalten</li>
-<li class="fragment">Ein Primärschlüssel darf keine Duplikate enthalten</li>
-<li class="fragment">Häufig wird ein ID-Feld als Primärschlüssel verwendet</li>
-<li class="fragment">Wie muss der Primärschlüssel in der Tabelle rechts aussehen?</li>
-</ul>
-</div><div class="column" style="width:45%;">
-<div class="cell">
-<div class="cell-output-display">
-<table data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Vorname</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Nachname</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Eclipse</td>
-<td style="text-align: left;">Enigma</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fantastic</td>
-<td style="text-align: left;">Enigma</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Crazy</td>
-<td style="text-align: left;">Commander</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Crazy</td>
-<td style="text-align: left;">Cameleon</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Harmony</td>
-<td style="text-align: left;">Herald</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Omega</td>
-<td style="text-align: left;">Oracle</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Radiant</td>
-<td style="text-align: left;">Voyager</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="filterung-3" class="slide level2">
-<h2>Filterung</h2>
-<h3 id="semantische-mängel">Semantische Mängel</h3>
-<ul>
-<li class="fragment">Semantische Mängel beziehen sich auf Probleme in Bezug auf die Bedeutung und Interpretation der Daten</li>
-<li class="fragment">Daten sind dann inkonsistent sind oder enthalten widersprüchliche Informationen, selbst wenn sie syntaktisch korrekt sind</li>
-<li class="fragment">Semantische Mängel erfordern oft ein tieferes Verständnis der Domäne und der Daten, um sie zu identifizieren und zu beheben</li>
-<li class="fragment">Beispiele:
-<ul>
-<li class="fragment">Negative oder unplausible Werte in Preis-, Alters- oder Umsatzfeldern</li>
-<li class="fragment">Nicht-zulässige Postleitzahlen</li>
-<li class="fragment">Ungültige IBAN</li>
+<li class="fragment">Die erhebliche Menge an Daten, die erfasst oder generiert wird und die vorgehalten sowie gespeichert werden muss</li>
+<li class="fragment"><span class="citation" data-cites="donofrio_big_2021">D’Onofrio und Meier (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span> sprechen im Petabyte bis Zettabyte-Bereich von Big Data</li>
 </ul></li>
-</ul>
-</section>
-<section id="filterung-4" class="slide level2">
-<h2>Filterung</h2>
-<h3 id="finde-die-mängel">Finde die Mängel</h3>
-<div class="cell">
-<div class="cell-output-display">
-<table data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">ID (Key)</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Name</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Alter</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Land</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">PLZ</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Premium</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Geburtsdatum</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">Jo (h)N</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: left;">DE</td>
-<td style="text-align: right;">2345</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">1999-04-09</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">Mary</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: left;">DE</td>
-<td style="text-align: right;">67890</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">1994-04-11</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">Bob</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: left;">DE</td>
-<td style="text-align: right;">98765</td>
-<td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">1984-04-15</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">Alice</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: left;">DE</td>
-<td style="text-align: right;">54321</td>
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">2026-04-03</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Tom</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">DEU</td>
-<td style="text-align: right;">21345</td>
-<td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">2005-04-08</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-<div style="font-size: 0.80em">
-<ol type="1">
-<li class="fragment">UserID ist ein Key, leere Werte nicht zugelassen</li>
-<li class="fragment">Jo(h)n ist ein Tippfehler</li>
-<li class="fragment">Land DEU weicht ab von den anderen Zeilen</li>
-<li class="fragment">PLZ 2345 ist nicht gültig, da nur 4 Stellen</li>
-<li class="fragment">Premium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1</li>
-<li class="fragment">Das Geburtsdatum von Alice liegt in der Zukunft</li>
+<li class="fragment">Variety:
+<ul>
+<li class="fragment">Meint die unterschiedlichen Arten von Daten in Big Data-Szenarien</li>
+<li class="fragment">Neben strukturierte Daten in Tabellenform auch um unstrukturierte Daten wie Texte, Bilder, Videos, Audios sowie semi-strukturierte Daten</li>
+</ul></li>
+<li class="fragment">Velocity:
+<ul>
+<li class="fragment">Die Rate, mit der Daten erzeugt, gesammelt und verarbeitet werden.</li>
+<li class="fragment">Im Extremfall müssen Daten in Echtzeit analysiert werden, um sofortige Erkenntnisse zu gewinnen.</li>
+</ul></li>
 </ol>
 </div>
-<aside class="notes">
-<ol type="1">
-<li>UserID ist ein Key, NA ist nicht zugelassen</li>
-<li>Jo(h)n ist ein Tippfehler</li>
-<li>Land DEU ist nicht der ISO-Code für Deutschland</li>
-<li>PLZ 2345 ist nicht gültig, da nur 4 Stellen</li>
-<li>Premium ist ein boolscher Wert, sollte also TRUE oder FALSE sein</li>
-<li>Das Geburtsdatum von Alice liegt in der Zukunft</li>
-</ol>
+</div><aside class="notes">
+<p>Exkurs Bits und Bytes:</p>
+<p>1 Bit = Kleinste Informationseinheit, kann 0 oder 1 sein 1 Byte = 8 Bit, entspricht einem Zeichen, bspw. einem Buchstaben und kann 256 verschiedene Kombinationen annehmen, nämlich 2^8. Warum 2^8? Weil 2 Zustände (0 oder 1) und 8 Stellen (Bit) = 2^8 = 256 1 Byte ist auch die kleinste Speichereinheit in Computern 1 Kilobyte (KB) = 1024 Byte 1 Megabyte (MB) = 1024 KB 1 Gigabyte (GB) = 1024 MB 1 Terabyte (TB) = 1024 GB 1 Petabyte (PB) = 1024 TB 1 Exabyte (EB) = 1024 PB 1 Zettabyte (ZB) = 1024 EB 1 Yottabyte (YB) = 1024 ZB</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -847,145 +453,455 @@ Dr.&nbsp;Sebastian Schrön
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside>
+      }</style></aside><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/3vs.png"></p>
+<figcaption>Quelle: <a href="https://medienportal.siemens-stiftung.org/de/big-data-111955">Siemens Stiftung 2019</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="harmonisierung" class="slide level2">
-<h2>Harmonisierung</h2>
-<h3 id="harmonisierung-1">Harmonisierung</h3>
+<section id="big-data-3" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="und-noch-mehr-vs">…und noch mehr Vs</h3>
 <ul>
-<li class="fragment">Harmonisierung ist die zweite Schicht der Datentransformation</li>
-<li class="fragment">Nach Abschluss der Filterungs- und der Harmonisierungsschicht liegt im DWH ein bereinigter und konsistenter Datenbestand auf der festgelegten Granularitätsebene vor</li>
-<li class="fragment">Dieser ist bereits direkt für Komponenten der Informationsgenerierung nutzbar</li>
-<li class="fragment">Auch hier wird zwischen syntaktischer und semantischer Harmonisierung unterschieden</li>
+<li class="fragment">Weitere Vs in der Literatur zielen auf die Verwendung der Daten ab und weniger auf die technischen Eigenschaften der 3 Vs</li>
 </ul>
-</section>
-<section id="harmonisierung-2" class="slide level2">
-<h2>Harmonisierung</h2>
-<h3 id="syntaktische-harmonisierung">Syntaktische Harmonisierung</h3>
+<ol start="4" type="1">
+<li class="fragment">Value (Wert)
 <ul>
-<li class="fragment">Die operativen Quelldatenbestände weisen meist eine hohe Heterogenität auf und müssen mit Hilfe von umfangreichen Transformationsregeln syntaktisch harmonisiert werden.</li>
-<li class="fragment">Häufige Gründe sind:</li>
-</ul>
-<ol type="1">
-<li class="fragment">Schlüsseldisharmonien
-<ul>
-<li class="fragment">Aufgrund verschiedener Primärschlüssel ist die Zusammenführung nicht möglich</li>
-<li class="fragment">Beispiel: Kundennummer in System A weist eine führende 0 auf, in System B nicht</li>
-<li class="fragment">Oft durch Zuordnungstabellen oder die Generierung neuer Primärschlüssel gelöst</li>
+<li class="fragment">Der Wert, den Unternehmen aus den gesammelten und analysierten Daten ziehen können</li>
+<li class="fragment">Das Hauptziel von Big Data ist es, nutzbare Erkenntnisse zu gewinnen und daraus einen Mehrwert zu generieren</li>
 </ul></li>
 </ol>
 </section>
-<section id="harmonisierung-3" class="slide level2">
-<h2>Harmonisierung</h2>
-<h3 id="syntaktische-harmonisierung-1">Syntaktische Harmonisierung</h3>
-<ol start="2" type="1">
-<li class="fragment">Abweichende Kodierung
+<section id="big-data-4" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="und-noch-mehr-vs-1">…und noch mehr Vs</h3>
+<ol start="5" type="1">
+<li class="fragment">Veracity (Genauigkeit)
 <ul>
-<li class="fragment">Die Systeme weisen identische Attributnamen auf, haben jedoch unterschiedliche Wertebereiche</li>
-<li class="fragment">Beispiel: Geschlecht in System A: “männlich”, “weiblich”, “divers” und in System B: “m”, “w”, “d”</li>
+<li class="fragment">Die Qualität der Daten, besonders Präzision und Zuverlässigkeit, da große Daten oft Rauschen und ungenaue Informationen enthalten</li>
+<li class="fragment"><span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span> betonen, dass Genauigkeit auf die durch Big Data erzielten Ergebnisse abzielt und weniger auf die Daten</li>
 </ul></li>
-<li class="fragment">Synonyme
+<li class="fragment">Validity (Validität)
 <ul>
-<li class="fragment">Attribute haben verschiedene Namen, aber dieselbe Bedeutung</li>
-<li class="fragment">Kundennummer in System A und Customer ID in System B</li>
+<li class="fragment">Die Gültigkeit der Datenanalyse, inwiefern die durchgeführten Analysen tatsächlich die gewünschten Erkenntnisse liefern</li>
 </ul></li>
-<li class="fragment">Homonyme
+<li class="fragment">Output Velocity (Analyse-Geschwindigkeit)
 <ul>
-<li class="fragment">Attribute haben dieselben Namen, aber verschiedene Bedeutungen</li>
-<li class="fragment">“Business Partner” als Lieferant in A und als Kunde in B</li>
+<li class="fragment">Die Bereitstellung von relevanten Ergebnissen mit geringer Latenz, idealerweise nahezu in Echtzeit</li>
 </ul></li>
 </ol>
 </section>
-<section id="harmonisierung-4" class="slide level2">
-<h2>Harmonisierung</h2>
-<h3 id="semantische-harmonisierung">Semantische Harmonisierung</h3>
-<div style="font-size: 0.90em">
+<section id="big-data-5" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="technologien-und-werkzeuge">Technologien und Werkzeuge</h3>
 <ul>
-<li class="fragment">Die semantische Harmonisierung bezieht sich auf die Vereinheitlichung der fachlichen Bedeutung von Daten</li>
+<li class="fragment">Big Data Technologien müssen hohe Datenvolumina im mehrstelligen Petabyte-Bereich handhaben, um hierauf Analysen durchzuführen</li>
+<li class="fragment">Die Ergebnisse dieser Analysen gilt es hiernach im IT-Entscheidungsunterstützungssystem zu integrieren</li>
+<li class="fragment">Dies ist mit den bisher vorgestellten relationalen CDWH-Lösungen nicht ohne Weiteres möglich</li>
+<li class="fragment">Die aus den 3 Vs resultierenden Anforderungen erfordern hohe Rechen- und Speicherkapazitäten, die oft durch parallele Infrastruktur realisiert werden.</li>
 </ul>
+</section>
+<section id="big-data-6" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="technologien-und-werkzeuge-1">Technologien und Werkzeuge</h3>
+<ul>
+<li class="fragment">Allgemein werden zwei Formen der Parallelisierung unterschieden:
+<ul>
+<li class="fragment">Vertikale Skalierung:
+<ul>
+<li class="fragment">Auch Scale Up genannt</li>
+<li class="fragment">Nutzung von leistungsstärkeren Rechnern</li>
+</ul></li>
+<li class="fragment">Horizontale Skalierung:
+<ul>
+<li class="fragment">Auch Scale Out genannt</li>
+<li class="fragment">Nutzung von vielen günstigen Standard-Servern oder Cloud Infrastruktur bei modernen Cloud Hyper Scalern, um Lasten zu verteilen</li>
+</ul></li>
+</ul></li>
+<li class="fragment">Vertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen</li>
+</ul>
+</section>
+<section id="big-data-7" class="slide level2">
+<h2>Big Data</h2>
+<h3 id="technologien-und-werkzeuge-2">Technologien und Werkzeuge</h3>
+<ul>
+<li class="fragment">Vertikale Skalierung stößt schnell an technische Grenzen, horizontale Skalierung meist an Budgetgrenzen</li>
+<li class="fragment">Die Datenhaltung in Big Data-Szenarien erfolgt in der Regel in NoSQL-Datenbanken (Not Only SQL)</li>
+<li class="fragment">Dies dient primär der Parallelisierung der Datenhaltung und -verarbeitung</li>
+<li class="fragment">Gleichzeitig ermöglichen diese Datenbanken die Speicherung von unstrukturierten Daten</li>
+</ul>
+</section>
+<section id="nosql-datenbanken" class="slide level2">
+<h2>NoSQL Datenbanken</h2>
+<h3 id="key-value-stores">Key-Value Stores</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Datenbanken, die paarweise einen (einmaligen) Schlüssel mit einem zugehörigen Wert ablegen</li>
+<li class="fragment">Diese Werte können beliebige Datenstrukturen sein, wie z.B. Texte, Bilder, Videos, Audios, JSON-Objekte, XML-Dateien, etc.</li>
+<li class="fragment">Key-Value Stores sind optimiert für schnelle Lese- und Schreibzugriffe auf Basis von Keys</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/key_value_database_example.png" width="250" height="250"></p>
+<figcaption>Key Value Store, Quelle: <a href="https://dataengineering.wiki/Concepts/Key-Value+Database">Data Engineering Wiki</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nosql-datenbanken-1" class="slide level2">
+<h2>NoSQL Datenbanken</h2>
+<h3 id="document-stores">Document Stores</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Enthalten poly-strukturierte Dokumente beliebiger Länge, die auf Basis von Dokumenteninhalten recherchiert werden können.</li>
+<li class="fragment">Häufig in Form von JSON oder XML Files abgelegt, da diese die Möglichkeit bieten, unstrukturierte Attribute zu hinterlegen und flexible Schemata zu definiere.</li>
+<li class="fragment">Das Beispiel rechts entspricht dem JavaScript Object Notation JSON</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/document_database_example.png" width="250" height="400"></p>
+<figcaption>Document Data Base, Quelle: <a href="https://dataengineering.wiki/Concepts/Document+Database">Data Engineering Wiki</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nosql-datenbanken-2" class="slide level2">
+<h2>NoSQL Datenbanken</h2>
+<h3 id="wide-column-stores-und-graph-databases">Wide Column Stores und Graph-Databases</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div style="font-size: 0.75em">
+<ul>
+<li class="fragment">Wide Column Stores:
+<ul>
+<li class="fragment">Datenbanken, die Daten mit einer jeweils variablen (dynamischen) Anzahl von Spalten und Subspalten verwalten können</li>
+<li class="fragment">Einzelne Zeilen können eine unterschiedlichen Anzahl von Spalten beinhalten, die darüber hinaus sehr groß sein kann</li>
+</ul></li>
+<li class="fragment">Graph-Databases:
+<ul>
+<li class="fragment">Sind auf Ablage, Verarbeitung und Suche von vernetzten Datenstrukturen ausgerichtet.</li>
+<li class="fragment">Basieren auf graph-typischen Strukturen mit Knoten und Kanten (Nodes and Edges), mit jeweils eigenen Attributen (Properties)</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="fragment fade-in">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/graph_database_example.png" width="400" height="400"></p>
+<figcaption>Graph Database, Quelle: <a href="https://dataengineering.wiki/Concepts/Graph+Database">Data Engineering Wiki</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="data-lake" class="title-slide slide level1 center">
+<h1>Data Lake</h1>
+
+</section>
+<section id="data-lake-1" class="slide level2">
+<h2>Data Lake</h2>
+<h3 id="das-konzept-des-data-lake">Das Konzept des Data Lake</h3>
+<ul>
+<li class="fragment">Das Data Warehouse galt lange Zeit als das zentrale Architekturkonzept für dispositive Reporting- und Analysezwecke</li>
+<li class="fragment">Big Data Technologien haben den Data Lake in den Fokus gerückt, der meist als eine ergänzende Komponente zu DWH dient</li>
+<li class="fragment">Ein Data Lake erhebt den Anspruch, alle Quelldaten in roher Form als Rohdaten zu persistieren und zur Verfügung zu stellen</li>
+<li class="fragment">Beim Data Lake steht der effiziente Umgang mit großen und polystrukturierten Datenmengen im Vordergrund, die es schnell zu verarbeiten gilt</li>
+<li class="fragment">Dies ermöglicht komplexe Analysen für neue Machine Learning Anwendungen, die verschiedene Datenquellen benötigen</li>
+</ul>
+</section>
+<section id="data-lake-vs.-data-warehouse" class="slide level2">
+<h2>Data Lake vs.&nbsp;Data Warehouse</h2>
+<h3 id="illustration">Illustration</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/data_lake.jpeg" width="600" height="400"></p>
+<figcaption>Data Lake versus Data Warehouse, Quelle: <a href="https://twitter.com/freest_man/status/1764664361581445546">Twitter</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="data-lake-vs.-data-warehouse-1" class="slide level2">
+<h2>Data Lake vs.&nbsp;Data Warehouse</h2>
+<h3 id="charakteristika">Charakteristika</h3>
+<div style="font-size: 0.75em">
+<div id="tbl-lake_vs_dwh">
+<table class="table-striped table-hover">
+<caption>Tabelle&nbsp;1: Wichtige Charakteristika von Data Lake und Data Warehouse im Vergleich. In Anlehnung an <span class="citation" data-cites="gillhuber_architekturen_2023">Dittmar und Schulz (<a href="#/quellen" role="doc-biblioref" onclick="">2023</a>)</span>, S. 159</caption>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data Warehouse</th>
+<th>Data Lake</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Optimiert für wiederholbare Prozesse</td>
+<td>Originär eine Erweiterung der DWH Staging Area</td>
+</tr>
+<tr class="even">
+<td>Unterstützt eine Vielzahl von unternehmensinternen Informationsbedarfen</td>
+<td>Optimiert Daten für Analytics-Lösungen</td>
+</tr>
+<tr class="odd">
+<td>Fokus auf vergangenheitsbezogene Auswertungen</td>
+<td>Fokus auf unbekannte explorative Datenanalyse und zukunftsorienterte Methoden</td>
+</tr>
+<tr class="even">
+<td>Schema-on-Write mit harmonisiertem Datenmodell</td>
+<td>Schema-on-Read mit Echtzeit Rohdaten Bewirtschaftung</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="data-lake-vs.-data-warehouse-2" class="slide level2">
+<h2>Data Lake vs.&nbsp;Data Warehouse</h2>
+<h3 id="anwendungsbereiche">Anwendungsbereiche</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/use_cases.jpeg" width="700" height="500"></p>
+<figcaption>Anwendungsfälle Data Lake und Data Warehouse, Quelle: <a href="https://twitter.com/freest_man/status/1764664361581445546">Twitter</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="data-lake-2" class="slide level2">
+<h2>Data Lake</h2>
+<h3 id="architekturprinzipien">Architekturprinzipien</h3>
+<div style="font-size: 0.80em">
+<ul>
+<li class="fragment">Datenanbindung:
+<ul>
+<li class="fragment">Es werden ausschließlich primäre Datenquellen angebunden</li>
+<li class="fragment">Die feinste Granularität der Datenquelle wird verwendet</li>
+</ul></li>
+<li class="fragment">Datenhaltung
+<ul>
+<li class="fragment">Eine Löschung der Rohdaten erfolgt nur aus regulatorischen Gründen (Datenschutz)</li>
+<li class="fragment">Ein Zonenkonzept ist zu empfehlen</li>
+<li class="fragment">Eine Anonymisierung persönlicher Daten erfolgt während der Beladung</li>
+</ul></li>
+<li class="fragment">Datenplattform
+<ul>
+<li class="fragment">Infrastructure as Code wird angestrebt</li>
+<li class="fragment">Eine Portierbarkeit zur Vermeidung von Vendor-Lock-In wird angestrebt</li>
+<li class="fragment">Ein zentrales Identity Management System steuert Zugriffe granular</li>
+<li class="fragment">Ein Datenkatalog mit fachlicher und operativer Perspektive wird empfohlen</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="data-lake-3" class="slide level2">
+<h2>Data Lake</h2>
+<h3 id="zonen">Zonen</h3>
+<ul>
+<li class="fragment">Ähnlich wie im ETL Prozess umfasst auch der Data Lake verschiedene Zonen, in denen die Daten verschiedene Prozesse durchlaufen:</li>
+</ul>
+<div style="font-size: 0.87em">
 <ol type="1">
-<li class="fragment">Abgleichung fachlicher Kennzahlen
-<ul>
-<li class="fragment">Gewährleistet inhaltlich konsistente entscheidungsorientierte Daten</li>
-<li class="fragment">Beispiele sind Währungen oder Maßeinheiten oder die Periodenzuordnung betriebswirtschaftlicher Kennzahlen</li>
-<li class="fragment">Erfordert hohe Fachkompetenz und ist nicht automatisierbar</li>
-</ul></li>
-<li class="fragment">Granularität
-<ul>
-<li class="fragment">Die Überführung der operativen Daten in eine gewünschte Granularität erfordert weitere Transforationsregeln</li>
-<li class="fragment">Eine Übersicht tagesaktueller Bestellungen erfordert bspw. die Zusammenfassung aller Transaktionen eines Tages</li>
-</ul></li>
+<li class="fragment"><strong>Transient Zone</strong>: Eingangsbereich, in den alle Daten in Rohform extrahiert werden, Daten werden nicht dauerhaft vorgehalten und es wird ggf. anonymisiert</li>
+<li class="fragment"><strong>Raw Data Zone</strong>: Alle Daten werden in ihrer möglichst rohen Form dauerhaft vorgehalten</li>
+<li class="fragment"><strong>Curated Zone</strong>: Hier werden aufbereitete Daten hinterlegt, die bereits Filterprozesse durchlaufen haben und von Mängeln befreit wurden</li>
+<li class="fragment"><strong>Discovery Sandbox</strong>: Hier werden Daten für direkten Zugriff durch Analysten bereitgestellt</li>
+<li class="fragment"><strong>Consumption Zone</strong>: Hier stehen vollständig transformierte, angereicherte und aggregierte Daten für die Endnutzung zur Verfügung</li>
 </ol>
 </div>
 </section>
-<section id="aggregation" class="slide level2">
-<h2>Aggregation</h2>
-<h3 id="verdichtung-und-hierarchisierung">Verdichtung und Hierarchisierung</h3>
+<section id="business-case" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="tofispy-user-events">Tofispy User Events</h3>
 <ul>
-<li class="fragment">Die Aggregation dient der Erweiterung der gefilterten und harmonisierten Daten um Verdichtungsstrukturen</li>
-<li class="fragment">Idealerweise mittels mehrfach verwendbarer, zentraler Dimensionshierarchien, die übergreifende Analysen unterstützen</li>
-<li class="fragment">Die Entwicklung dieser Dimensionshierarchietabellen setzt die Antizipation potenzieller Auswertungen voraus</li>
-<li class="fragment">Diese Tabellen müssen zudem gepflegt und mit Gültigkeitszeiträumen versehen werden</li>
-<li class="fragment">Die Erstellung und Pflege von Hierarchietabellen und die Speicherung aggregierter Tabellen ermöglicht erste Anwendungen mit den Daten</li>
-<li class="fragment">Die physische Speicherung von aggregierten Daten anstelle granularster Ebenen erfolgt hierbei häufig aus Performancegründen</li>
-</ul>
-</section>
-<section id="anreicherung" class="slide level2">
-<h2>Anreicherung</h2>
-<h3 id="kennzahlberechnung">Kennzahlberechnung</h3>
+<li class="fragment">Nachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen</li>
+<li class="fragment">Der Datensatz in Superset heißt nun “user_events_clean” und ist nach wie vor im Controlling Mart gespeichert.</li>
+<li class="fragment">Wie wäre es mit einem Line Chart?</li>
+<li class="fragment">Hierzu erneut in Superset:
 <ul>
-<li class="fragment">In der Anreicherungsschicht werden fachliche Kennzahlen berechnet und in die Datenbasis integriert.</li>
-<li class="fragment">Hier können sowohl Werte auf Basis der harmonisierten Daten der gewünschten Granularität (zweite Schicht) als auch auf Basis der dritten Schicht (bereits aggregierte Tabellen) berechnet werden.</li>
-<li class="fragment">Beispiele sind monatliche Deckungsbeiträge auf Produktebene oder jährliche Deckungsbeiträge auf Filialebene.</li>
-</ul>
-</section>
-<section id="anreicherung-1" class="slide level2">
-<h2>Anreicherung</h2>
-<h3 id="kennzahlberechnung-1">Kennzahlberechnung</h3>
-<ul>
-<li class="fragment">Diese Vorgehensweise hat mehrere Vorteile:
-<ul>
-<li class="fragment">Kalkulierbare Reaktionszeiten bei späteren Abfragen aufgrund der Vorausberechnung von Kennzahlen.</li>
-<li class="fragment">Garantierte Konsistenz der kalkulierten Werte, da sie anwendungsübergreifend einmalig gebildet und persistiert werden.</li>
-<li class="fragment">Etablierung eines abgestimmten betriebswirtschaftlichen Definitionsraumes</li>
+<li class="fragment">Oben auf “+Chart” klicken</li>
+<li class="fragment">Das Dataset “user_events_clean” auswählen</li>
+<li class="fragment">Anschließend “Time Series Line Chart” auswählen</li>
 </ul></li>
+<li class="fragment">Frage: Was ist der Hauptgrund für das schwindende Wachstum?</li>
 </ul>
 </section>
 <section id="business-case-1" class="slide level2">
 <h2>Business Case</h2>
-<h3 id="zurück-zu-tofispy">Zurück zu Tofispy</h3>
-<ul>
-<li class="fragment">Tofispy hat uns einen Extrakt aus dem System für Neuregistrierung zur Verfügung gestellt</li>
-<li class="fragment">Der Datensatz ist bei Superset im Dataset Controlling unter “user_events” hinterlegt, hierbei handelt es sich um den Rohdatensatz, den wir erst einmal transformieren müssen</li>
-<li class="fragment">Erneuter Startpunkt ist eine explorative Analyse, um die Daten zu verstehen</li>
-<li class="fragment">In Superset:
-<ul>
-<li class="fragment">Oben auf + Chart</li>
-<li class="fragment">Dataset “user_events” auswählen</li>
-<li class="fragment">Table als Visualisierung auswählen</li>
-</ul></li>
-</ul>
+<h3 id="line-plot-starthilfe">Line Plot Starthilfe</h3>
+<p><img data-src="img/Superset_Line_Plot.png" width="800" height="500"></p>
 </section>
 <section id="business-case-2" class="slide level2">
 <h2>Business Case</h2>
-<h3 id="table-visualisierung-in-superset">Table Visualisierung in Superset</h3>
-<p><img data-src="img/Superset_Table_Raw.png" width="800" height="500"></p>
+<h3 id="warum-kündigen-user">Warum kündigen User?</h3>
+<ul>
+<li class="fragment">In Superset befindet sich ein weiterer Datensatz “cancellation_questionnaire”, der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen</li>
+<li class="fragment">Der Datensatz enthält zwei Spalten:
+<ul>
+<li class="fragment">Question: Die gestellte Frage mit vier Ausprägungen</li>
+<li class="fragment">Response: Die Antworten der User</li>
+</ul></li>
+</ul>
 </section>
 <section id="business-case-3" class="slide level2">
 <h2>Business Case</h2>
-<h3 id="table-visualisierung-in-superset-1">Table Visualisierung in Superset</h3>
-<p><img data-src="img/Superset_Table_Raw_2.png" width="800" height="500"></p>
-</section>
-<section id="business-case-4" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="transformationschritte">Transformationschritte</h3>
+<h3 id="warum-kündigen-user-1">Warum kündigen User?</h3>
 <ul>
-<li class="fragment">Die Daten enthalten mehrere Event-Types und Timestamps</li>
-<li class="fragment">Welche der Events sind interessant, um User-Wachstum zu verstehen?</li>
-<li class="fragment">Welche Aggregation des Zeitstempels ist sinnvoll?</li>
-<li class="fragment">Welche Kennzahlen wollen wir aus den Daten ableiten?</li>
+<li class="fragment">Ziel: Eine passende Visualisierung, die aufzeigt, wieso User hauptsächlich kündigen</li>
+<li class="fragment">Support durch Google und preset.io Dokumentation<br>
+</li>
+<li class="fragment">Starthilfe:
+<ul>
+<li class="fragment">Erneut gehen wir auf der Startseite oben rechts auf + Chart</li>
+<li class="fragment">Wir wählen dann das Dataset “cancellation_questionnaire” aus</li>
+<li class="fragment">Bei Chart Types gehen wir auf “Part of a Whole”: Welche Optionen gibt es?
+<ul>
+<li class="fragment">Empfehlung:
+<ul>
+<li class="fragment">Pie Chart oder Treemap v2</li>
+</ul></li>
+</ul></li>
+<li class="fragment">Welche Metric ist sinnvoll?</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="visualisierungen" class="title-slide slide level1 center">
+<h1>Visualisierungen</h1>
+
+</section>
+<section id="visualisierung-von-anteilen" class="slide level2">
+<h2>Visualisierung von Anteilen</h2>
+<h3 id="kreisdiagramme">Kreisdiagramme</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 0.9em">
+<ul>
+<li class="fragment">Kreisdiagramme sind eine der häufigsten und umstrittensten Visualisierungen, um Anteile und Proportionen zu visualisieren</li>
+<li class="fragment">Nur bei einer geringen Anzahl von Kategorien (2-5) sinnvoll</li>
+<li class="fragment">Nicht sinnvoll, wenn die Anteile zwischen den Dimensionen sehr ähnlich sind</li>
+<li class="fragment">Auch bei negativen Werten oder Measures, die sich nicht zu 100% summieren nicht geeignet</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="04_VL_D_files/figure-revealjs/unnamed-chunk-2-1.png" width="384"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisierung-von-anteilen-1" class="slide level2">
+<h2>Visualisierung von Anteilen</h2>
+<h3 id="treemap">Treemap</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 0.76em">
+<ul>
+<li class="fragment">Bei hierarchischen Datenstrukturen, die in Kategorien und Subkategorien unterteilt sind, eignet sich eine Treemap</li>
+<li class="fragment">Treemaps nutzen die Fläche der Rechtecke, um die Größe der Kategorien zu visualisieren und geben damit einen Eindruck über die relativen Anteile</li>
+<li class="fragment">Durch die Nutzung der Fläche statt des Winkels sind Treemaps leichter lesbar</li>
+<li class="fragment">Treemaps sind auch in der Lage, mehrere Dimensionen gleichzeitig darzustellen</li>
+<li class="fragment">Bei zu vielen Kategorien oder zu ähnlichen Anteilen ist von Treemaps abzuraten</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="04_VL_D_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="informationsgenerierung" class="title-slide slide level1 center">
+<h1>Informationsgenerierung</h1>
+
+</section>
+<section id="berichtsorientierte-analyse" class="slide level2">
+<h2>Berichtsorientierte Analyse</h2>
+<h3 id="reporting">Reporting</h3>
+<ul>
+<li class="fragment">Ein Bericht oder Report gibt einen Überblick über betriebswirtschaftliche Sachverhalte eines abgegrenzten Verantwortungsbereichs</li>
+<li class="fragment">In der Regel durch Visualisierung von Zusammenhängen in grafischer Form</li>
+<li class="fragment">Betriebliches Berichtswesen wird in interne und externe Berichterstattung unterteilt:
+<ul>
+<li class="fragment">Internes Berichtswesen: Informationen für das Management, bspw. internes Rechnungswesen</li>
+<li class="fragment">Externes Berichtswesen: Informationen für externe Stakeholder, bspw. Jahresbericht</li>
+</ul></li>
 </ul>
 </section>
+<section id="berichtsorientierte-analyse-1" class="slide level2">
+<h2>Berichtsorientierte Analyse</h2>
+<h3 id="reporting-1">Reporting</h3>
+<ul>
+<li class="fragment">Aktive Berichtskomponenten:
+<ul>
+<li class="fragment">Werden nach einmaliger Spezifikation der Inhalte und Formate regelmäßig erstellt und aktiv versandt, entweder:
+<ul>
+<li class="fragment">Periodisch: In festen Zeitabständen (jede Woche, jedes Quartal)</li>
+<li class="fragment">Aperiodisch: Bei Überschreitung bestimmter Grenzwerte (z.B. Umsatzgrenze)</li>
+</ul></li>
+</ul></li>
+<li class="fragment">Passive Berichtskomponenten:
+<ul>
+<li class="fragment">Werden nur auf konkrete Anforderungen der Anwendenden erstellt</li>
+<li class="fragment">Individuelle und bedarfsspezifische Berichte</li>
+<li class="fragment">Auch Ad-hoc Berichtskomponente genannt, oft mit OLAP und Self-Service Tools umgesetzt</li>
+</ul></li>
+</ul>
+</section>
+<section id="berichtsorientierte-analyse-2" class="slide level2">
+<h2>Berichtsorientierte Analyse</h2>
+<h3 id="olap">OLAP</h3>
+<ul>
+<li class="fragment">Online Analyitical Processing (OLAP) ermöglicht die Bereitstellung anwendungsfreundlicher und gleichermaßen flexibler Abfragen in multidimensionalen Datenräumen</li>
+<li class="fragment">Form des Ad-hoc Reportings</li>
+<li class="fragment">OLAP-Komponenten sind weitgehend mit Pivot Tabellen in Excel oder Google Sheets vergleichbar</li>
+<li class="fragment">Aber: Erweitert um ein zentrales Datenmodell (meist Data Mart basiert) und Rollenverwaltung</li>
+</ul>
+</section>
+<section id="olap-1" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="datenmodell-als-würfel">Datenmodell als Würfel</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 0.9em">
+<ul>
+<li class="fragment">Bestehen konzeptionell aus Fakten, Dimensionen und Hierarchien</li>
+<li class="fragment">Da oft mehrere Dimensionen vorliegen, spricht man von Cubes</li>
+<li class="fragment">Theoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt</li>
+<li class="fragment">Bei mehr als 3 Dimensionen spricht man oft von Hypercube</li>
+<li class="fragment">Bei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/plot-cube.PNG" style="width:100.0%"></p>
+<figcaption>Cube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+
 <section id="quellen" class="slide level2 smaller scrollable">
 <h2>Quellen</h2>
 
@@ -995,6 +911,15 @@ Dr.&nbsp;Sebastian Schrön
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-baars_business_2021" class="csl-entry" role="listitem">
 Baars, Henning, und Hans-Georg Kemper. 2021. <em>Business Intelligence &amp; Analytics: Grundlagen und praktische Anwendungen: Ansätze der <span>IT</span>-basierten Entscheidungsunterstützung</em>. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.
+</div>
+<div id="ref-donofrio_big_2021" class="csl-entry" role="listitem">
+D’Onofrio, Sara, und Andreas Meier, Hrsg. 2021. <em>Big Data Analytics: Grundlagen, Fallbeispiele und Nutzungspotenziale</em>. Edition <span>HMD</span>. Wiesbaden: Springer Fachmedien Wiesbaden. <a href="https://doi.org/10.1007/978-3-658-32236-6">https://doi.org/10.1007/978-3-658-32236-6</a>.
+</div>
+<div id="ref-gillhuber_architekturen_2023" class="csl-entry" role="listitem">
+Dittmar, Carsten, und Peter Schulz. 2023. <span>„Architekturen und Technologien für den Data Lake“</span>. In <em>Künstliche Intelligenz und Data Science in Theorie und Praxis</em>, herausgegeben von Andreas Gillhuber, Göran Kauermann, und Wolfgang Hauner, 157–66. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-66278-6_12">https://doi.org/10.1007/978-3-662-66278-6_12</a>.
+</div>
+<div id="ref-frick_big-data-technologien_2021" class="csl-entry" role="listitem">
+Quix, Christoph. 2021. <span>„Big-Data-Technologien“</span>. In <em>Data Science</em>, herausgegeben von Detlev Frick, Andreas Gadatsch, Jens Kaufmann, Birgit Lankes, Christoph Quix, Andreas Schmidt, und Uwe Schmitz, 133–48. Wiesbaden: Springer Fachmedien Wiesbaden. <a href="https://doi.org/10.1007/978-3-658-33403-1_8">https://doi.org/10.1007/978-3-658-33403-1_8</a>.
 </div>
 </div>
 </section></section>

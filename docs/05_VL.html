@@ -370,20 +370,95 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="vorlesung">Vorlesung</h3>
 <div style="font-size: 0.9em">
 <ul>
-<li>Quiz und Recap</li>
-<li>Visualisierung von Anteilen: Kreisdiagramme, Treemaps und Sankey Plots</li>
-<li>Informationsgenerierung
+<li class="fragment">Quiz und Recap</li>
+<li class="fragment">Visualisierung von Anteilen: Kreisdiagramme und Treemaps</li>
+<li class="fragment">Informationsgenerierung
 <ul>
-<li>Welche Formen von Berichten gibt es?</li>
-<li>Was ist OLAP?</li>
-<li>Wo genau unterscheiden sich Self-Sevice BI und traditionelle BI?</li>
+<li class="fragment">Welche Formen von Berichten gibt es?</li>
+<li class="fragment">Was ist OLAP?</li>
+<li class="fragment">Wo genau unterscheiden sich Self-Sevice BI und traditionelle BI?</li>
 </ul></li>
-<li>Modellgestützte Analysen
+<li class="fragment">Modellgestützte Analysen
 <ul>
-<li>Wie läuft ein Data Science Projekt ab?</li>
-<li>Begriffliche Grundlagen Data Science</li>
+<li class="fragment">Wie läuft ein Data Science Projekt ab?</li>
+<li class="fragment">Begriffliche Grundlagen Data Science</li>
 </ul></li>
 </ul>
+</div>
+</section>
+<section>
+<section id="recap" class="title-slide slide level1 center">
+<h1>Recap</h1>
+
+</section>
+<section id="business-case" class="slide level2">
+<h2>Business Case</h2>
+<h3 id="ergebnisse-von-letzter-woche">Ergebnisse von letzter Woche</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li class="fragment">In der letzten Woche haben wir festgestellt, dass der Hauptgrund für das schwindende Wachstum bei Tofispy ein stark steigender Trend bei den Kündigungen ist</li>
+<li class="fragment">Laut einer Umfrage ist der Hauptgrund dafür eine Unzufriedenheit mit dem empfohlenen Content</li>
+</ul>
+</div><div class="column" style="width:60%;">
+<div class="fragment fade-in">
+<p><img data-src="img/user_events.jpg" style="width:80.0%"> <img data-src="img/pie_chart.jpg" style="width:50.0%"></p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="visualisierungen" class="title-slide slide level1 center">
+<h1>Visualisierungen</h1>
+
+</section>
+<section id="visualisierung-von-anteilen" class="slide level2">
+<h2>Visualisierung von Anteilen</h2>
+<h3 id="kreisdiagramme">Kreisdiagramme</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 0.9em">
+<ul>
+<li class="fragment">Kreisdiagramme sind eine der häufigsten und umstrittensten Visualisierungen, um Anteile und Proportionen zu visualisieren</li>
+<li class="fragment">Nur bei einer geringen Anzahl von Kategorien (2-5) sinnvoll</li>
+<li class="fragment">Nicht sinnvoll, wenn die Anteile zwischen den Dimensionen sehr ähnlich sind</li>
+<li class="fragment">Auch bei negativen Werten oder Measures, die sich nicht zu 100% summieren nicht geeignet</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="05_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="384"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisierung-von-anteilen-1" class="slide level2">
+<h2>Visualisierung von Anteilen</h2>
+<h3 id="treemap">Treemap</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 0.76em">
+<ul>
+<li class="fragment">Bei hierarchischen Datenstrukturen, die in Kategorien und Subkategorien unterteilt sind, eignet sich eine Treemap</li>
+<li class="fragment">Treemaps nutzen die Fläche der Rechtecke, um die Größe der Kategorien zu visualisieren und geben damit einen Eindruck über die relativen Anteile</li>
+<li class="fragment">Durch die Nutzung der Fläche statt des Winkels sind Treemaps leichter lesbar</li>
+<li class="fragment">Treemaps sind auch in der Lage, mehrere Dimensionen gleichzeitig darzustellen</li>
+<li class="fragment">Bei zu vielen Kategorien oder zu ähnlichen Anteilen ist von Treemaps abzuraten</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="05_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="kurzer-überblick-wo-gehts-weiter" class="slide level2">
@@ -395,7 +470,7 @@ Dr.&nbsp;Sebastian Schrön
 <figcaption>BIA Gesamtansatz. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span>.</figcaption>
 </figure>
 </div>
-</section>
+</section></section>
 <section>
 <section id="informationsgenerierung-1" class="title-slide slide level1 center">
 <h1>Informationsgenerierung</h1>
@@ -405,12 +480,12 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Berichtsorientierte Analyse</h2>
 <h3 id="reporting">Reporting</h3>
 <ul>
-<li>Ein Bericht oder Report gibt einen Überblick über betriebswirtschaftliche Sachverhalte eines abgegrenzten Verantwortungsbereichs</li>
-<li>In der Regel durch Visualisierung von Zusammenhängen in grafischer Form</li>
-<li>Betriebliches Berichtswesen wird in interne und externe Berichterstattung unterteilt:
+<li class="fragment">Ein Bericht oder Report gibt einen Überblick über betriebswirtschaftliche Sachverhalte eines abgegrenzten Verantwortungsbereichs</li>
+<li class="fragment">In der Regel durch Visualisierung von Zusammenhängen in grafischer Form</li>
+<li class="fragment">Betriebliches Berichtswesen wird in interne und externe Berichterstattung unterteilt:
 <ul>
-<li>Internes Berichtswesen: Informationen für das Management, bspw. internes Rechnungswesen</li>
-<li>Externes Berichtswesen: Informationen für externe Stakeholder, bspw. Jahresbericht</li>
+<li class="fragment">Internes Berichtswesen: Informationen für das Management, bspw. internes Rechnungswesen</li>
+<li class="fragment">Externes Berichtswesen: Informationen für externe Stakeholder, bspw. Jahresbericht</li>
 </ul></li>
 </ul>
 </section>
@@ -418,19 +493,19 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Berichtsorientierte Analyse</h2>
 <h3 id="reporting-1">Reporting</h3>
 <ul>
-<li>Aktive Berichtskomponenten:
+<li class="fragment">Aktive Berichtskomponenten:
 <ul>
-<li>Werden nach einmaliger Spezifikation der Inhalte und Formate regelmäßig erstellt und aktiv versandt, entweder:
+<li class="fragment">Werden nach einmaliger Spezifikation der Inhalte und Formate regelmäßig erstellt und aktiv versandt, entweder:
 <ul>
-<li>Periodisch: In festen Zeitabständen (jede Woche, jedes Quartal)</li>
-<li>Aperiodisch: Bei Überschreitung bestimmter Grenzwerte (z.B. Umsatzgrenze)</li>
+<li class="fragment">Periodisch: In festen Zeitabständen (jede Woche, jedes Quartal)</li>
+<li class="fragment">Aperiodisch: Bei Überschreitung bestimmter Grenzwerte (z.B. Umsatzgrenze)</li>
 </ul></li>
 </ul></li>
-<li>Passive Berichtskomponenten:
+<li class="fragment">Passive Berichtskomponenten:
 <ul>
-<li>Werden nur auf konkrete Anforderungen der Anwendenden erstellt</li>
-<li>Individuelle und bedarfsspezifische Berichte</li>
-<li>Auch Ad-hoc Berichtskomponente genannt, oft mit OLAP und Self-Service Tools umgesetzt</li>
+<li class="fragment">Werden nur auf konkrete Anforderungen der Anwendenden erstellt</li>
+<li class="fragment">Individuelle und bedarfsspezifische Berichte</li>
+<li class="fragment">Auch Ad-hoc Berichtskomponente genannt, oft mit OLAP und Self-Service Tools umgesetzt</li>
 </ul></li>
 </ul>
 </section>
@@ -438,10 +513,10 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Berichtsorientierte Analyse</h2>
 <h3 id="olap">OLAP</h3>
 <ul>
-<li>Online Analyitical Processing (OLAP) ermöglicht die Bereitstellung anwendungsfreundlicher und gleichermaßen flexibler Abfragen in multidimensionalen Datenräumen</li>
-<li>Form des Ad-hoc Reportings</li>
-<li>OLAP-Komponenten sind weitgehend mit Pivot Tabellen in Excel oder Google Sheets vergleichbar</li>
-<li>Aber: Erweitert um ein zentrales Datenmodell (meist Data Mart basiert) und Rollenverwaltung</li>
+<li class="fragment">Online Analyitical Processing (OLAP) ermöglicht die Bereitstellung anwendungsfreundlicher und gleichermaßen flexibler Abfragen in multidimensionalen Datenräumen</li>
+<li class="fragment">Form des Ad-hoc Reportings</li>
+<li class="fragment">OLAP-Komponenten sind weitgehend mit Pivot Tabellen in Excel oder Google Sheets vergleichbar</li>
+<li class="fragment">Aber: Erweitert um ein zentrales Datenmodell (meist Data Mart basiert) und Rollenverwaltung</li>
 </ul>
 </section>
 <section id="olap-1" class="slide level2">
@@ -451,14 +526,15 @@ Dr.&nbsp;Sebastian Schrön
 <div class="column" style="width:50%;">
 <div style="font-size: 0.9em">
 <ul>
-<li>Bestehen konzeptionell aus Fakten, Dimensionen und Hierarchien</li>
-<li>Da oft mehrere Dimensionen vorliegen, spricht man von Cubes</li>
-<li>Theoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt</li>
-<li>Bei mehr als 3 Dimensionen spricht man oft von Hypercube</li>
-<li>Bei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen</li>
+<li class="fragment">Bestehen konzeptionell aus Fakten, Dimensionen und Hierarchien</li>
+<li class="fragment">Da oft mehrere Dimensionen vorliegen, spricht man von Cubes</li>
+<li class="fragment">Theoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt</li>
+<li class="fragment">Bei mehr als 3 Dimensionen spricht man oft von Hypercube</li>
+<li class="fragment">Bei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen</li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/plot-cube.PNG" style="width:100.0%"></p>
@@ -467,33 +543,30 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="olap-2" class="slide level2">
 <h2>OLAP</h2>
 <h3 id="slicing">Slicing</h3>
 <ul>
-<li>Slicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird</li>
-<li>Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen</li>
+<li class="fragment">Slicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird</li>
+<li class="fragment">Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen ::: {.fragment .fade-in} <img data-src="img/OLAP_slicing.png" style="width:60.0%" alt="OLAP Slicing. Quelle: Wikipedia"> :::</li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/OLAP_slicing.png" style="width:60.0%"></p>
-<figcaption>OLAP Slicing. Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
-</figure>
-</div>
 </section>
 <section id="olap-3" class="slide level2">
 <h2>OLAP</h2>
 <h3 id="dicing">Dicing</h3>
 <ul>
-<li>Dicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht</li>
-<li>Im Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert</li>
+<li class="fragment">Dicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht</li>
+<li class="fragment">Im Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert</li>
 </ul>
+<div class="fragment fade-in">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/OLAP_dicing.png" style="width:60.0%"></p>
 <figcaption>OLAP Dicing Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
 </figure>
+</div>
 </div>
 </section>
 <section id="olap-4" class="slide level2">
@@ -501,46 +574,48 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="pivotierung">Pivotierung</h3>
 <div style="font-size: 0.78em">
 <ul>
-<li>Auswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr</li>
-<li>Grafisch entspricht eine solche Ansicht einer Seite des Würfels</li>
-<li>Durch Pivotierung wird der Würfel um eine Achse gedreht</li>
-<li>Im Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie</li>
+<li class="fragment">Auswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr</li>
+<li class="fragment">Grafisch entspricht eine solche Ansicht einer Seite des Würfels</li>
+<li class="fragment">Durch Pivotierung wird der Würfel um eine Achse gedreht</li>
+<li class="fragment">Im Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie</li>
 </ul>
 </div>
+<div class="fragment fade-in">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/OLAP_pivoting.png" style="width:55.0%"></p>
 <figcaption>OLAP Pivotierung/Rotation Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
 </figure>
 </div>
+</div>
 </section>
 <section id="olap-5" class="slide level2">
 <h2>OLAP</h2>
 <h3 id="roll-up-drill-down-drill-through">Roll-Up, Drill-Down &amp; Drill-Through</h3>
 <ul>
-<li>Beim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert</li>
-<li>Beim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004</li>
-<li>In einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist</li>
-<li>Das geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen</li>
+<li class="fragment">Beim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert</li>
+<li class="fragment">Beim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004</li>
+<li class="fragment">In einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist</li>
+<li class="fragment">Das geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen</li>
 </ul>
 </section>
 <section id="olap-6" class="slide level2">
 <h2>OLAP</h2>
 <h3 id="physikalische-umsetzung-und-anbindungsschnittstellen">Physikalische Umsetzung und Anbindungsschnittstellen</h3>
 <ul>
-<li>Die Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig</li>
-<li>OLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel</li>
-<li>Ein bekanntes Beispiel ist <a href="https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html?version=2.8.19.0">SAP Analysis</a> für Excel</li>
-<li>Andere gängige Praxis sind webbasierte Schnittstellen wie <a href="https://www.cubeware.com/content/Produkte/C8_Cockpit/C8-Cockpit-Viewer_DE.pdf">Cubeware Cockpit</a></li>
+<li class="fragment">Die Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig</li>
+<li class="fragment">OLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel</li>
+<li class="fragment">Ein bekanntes Beispiel ist <a href="https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html?version=2.8.19.0">SAP Analysis</a> für Excel</li>
+<li class="fragment">Andere gängige Praxis sind webbasierte Schnittstellen wie <a href="https://www.cubeware.com/content/Produkte/C8_Cockpit/C8-Cockpit-Viewer_DE.pdf">Cubeware Cockpit</a></li>
 </ul>
 </section>
 <section id="self-service-bi" class="slide level2">
 <h2>Self-Service BI</h2>
 <h3 id="das-versprechen-von-self-service-bi">Das Versprechen von Self-Service BI</h3>
 <ul>
-<li>Self Service BI setzt beim Versprechen an, die Anwendenden in die Lage zu versetzen eigenständig und flexibel den Datenbestand nach neuen Verknüpfungen zu untersuchen</li>
-<li>Das kann zudem weitgehend unabhängig von der Unternehmens-IT betrieben und bedient werden</li>
-<li>Traditionelle BI-Lösungen sind oft als zu starr angesehen, wenn es darum geht, neue Reporting Anforderungen rasch umzusetzen und damit innovative Analysen zu testen</li>
+<li class="fragment">Self Service BI setzt beim Versprechen an, die Anwendenden in die Lage zu versetzen eigenständig und flexibel den Datenbestand nach neuen Verknüpfungen zu untersuchen</li>
+<li class="fragment">Das kann zudem weitgehend unabhängig von der Unternehmens-IT betrieben und bedient werden</li>
+<li class="fragment">Traditionelle BI-Lösungen sind oft als zu starr angesehen, wenn es darum geht, neue Reporting Anforderungen rasch umzusetzen und damit innovative Analysen zu testen</li>
 </ul>
 </section>
 <section id="self-service-bi-vs.-traditionelle-bi" class="slide level2">
@@ -575,10 +650,10 @@ Dr.&nbsp;Sebastian Schrön
 <div class="column" style="width:55%;">
 <div style="font-size: 0.95em">
 <ul>
-<li>Data Science Projekte sind in der Praxis aufwendig und erfordern stets die Zusammenarbeit zwischen Fachabteilungen und Data Science Team</li>
-<li>Deshalb wurden feste Prozesse etabliert, bspw. der Cross Reference Industry Standard Process for Data Mining (CRISP-DM)</li>
-<li>CRISP-DM besteht aus 6 Phasen, die iterativ durchlaufen werden</li>
-<li>Rückkopplungen zwischen den Phasen sind dabei oft notwendig</li>
+<li class="fragment">Data Science Projekte sind in der Praxis aufwendig und erfordern stets die Zusammenarbeit zwischen Fachabteilungen und Data Science Team</li>
+<li class="fragment">Deshalb wurden feste Prozesse etabliert, bspw. der Cross Reference Industry Standard Process for Data Mining (CRISP-DM)</li>
+<li class="fragment">CRISP-DM besteht aus 6 Phasen, die iterativ durchlaufen werden</li>
+<li class="fragment">Rückkopplungen zwischen den Phasen sind dabei oft notwendig</li>
 </ul>
 </div>
 </div><div class="column" style="width:45%;">
@@ -595,11 +670,11 @@ Dr.&nbsp;Sebastian Schrön
 <h2>CRISP-DM</h2>
 <h3 id="geschäftsmodell">Geschäftsmodell</h3>
 <ol type="1">
-<li>Verständnis des Geschäftsmodells
+<li class="fragment">Verständnis des Geschäftsmodells
 <ul>
-<li>Verständnis des Geschäftsmodells und der Unternehmensziele</li>
-<li>Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten</li>
-<li>Definition des erwartbaren Nutzens und messbarer Erfolgskriterien</li>
+<li class="fragment">Verständnis des Geschäftsmodells und der Unternehmensziele</li>
+<li class="fragment">Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten</li>
+<li class="fragment">Definition des erwartbaren Nutzens und messbarer Erfolgskriterien</li>
 </ul></li>
 </ol>
 </section>
@@ -607,16 +682,16 @@ Dr.&nbsp;Sebastian Schrön
 <h2>CRISP-DM</h2>
 <h3 id="anwendungs-datendomäne-und-datenvorbereitung">Anwendungs-/Datendomäne und Datenvorbereitung</h3>
 <ol start="2" type="1">
-<li>Verständnis der Anwendungs- und Datendomäne
+<li class="fragment">Verständnis der Anwendungs- und Datendomäne
 <ul>
-<li>Analyse der Unternehmensprozesse und Datenquellen</li>
-<li>Zusammenführung, Beschreibung und Exploration der Zieldaten</li>
-<li>Eruierung der Datenqualität</li>
+<li class="fragment">Analyse der Unternehmensprozesse und Datenquellen</li>
+<li class="fragment">Zusammenführung, Beschreibung und Exploration der Zieldaten</li>
+<li class="fragment">Eruierung der Datenqualität</li>
 </ul></li>
-<li>Datenvorbereitung
+<li class="fragment">Datenvorbereitung
 <ul>
-<li>Zusammenführung und Beschreibung polystrukturierter Daten</li>
-<li>Berechnung von Kennzahlen und Durchführung von Datentransformationen</li>
+<li class="fragment">Zusammenführung und Beschreibung polystrukturierter Daten</li>
+<li class="fragment">Berechnung von Kennzahlen und Durchführung von Datentransformationen</li>
 </ul></li>
 </ol>
 </section>
@@ -624,19 +699,19 @@ Dr.&nbsp;Sebastian Schrön
 <h2>CRISP-DM</h2>
 <h3 id="modellierung-evaluation-und-bereitstellung">Modellierung, Evaluation und Bereitstellung</h3>
 <ol start="4" type="1">
-<li>Modellierung
+<li class="fragment">Modellierung
 <ul>
-<li>Modellauswahl und -erstellung</li>
-<li>Iterativer Prozess zur Weiterentwicklung von Modellen</li>
-<li>Möglicher Einsatz vortrainierter Modelle für die Verfeinerung</li>
+<li class="fragment">Modellauswahl und -erstellung</li>
+<li class="fragment">Iterativer Prozess zur Weiterentwicklung von Modellen</li>
+<li class="fragment">Möglicher Einsatz vortrainierter Modelle für die Verfeinerung</li>
 </ul></li>
-<li>Evaluation
+<li class="fragment">Evaluation
 <ul>
-<li>Bewertung der erstellten Modelle anhand definierter Erfolgskriterien</li>
+<li class="fragment">Bewertung der erstellten Modelle anhand definierter Erfolgskriterien</li>
 </ul></li>
-<li>Einsatz
+<li class="fragment">Einsatz
 <ul>
-<li>Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse</li>
+<li class="fragment">Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse</li>
 </ul></li>
 </ol>
 </section>
@@ -645,17 +720,19 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="eine-gleichung-viele-anwendungen">Eine Gleichung, viele Anwendungen</h3>
 <div style="font-size: 0.89em">
 <ul>
-<li>Die Generierung von modellbasierten Erkenntnissen aus Daten erfordert eine Definition des Lernproblems, oft mit einer simplen Gleichung:</li>
+<li class="fragment">Die Generierung von modellbasierten Erkenntnissen aus Daten erfordert eine Definition des Lernproblems, oft mit einer simplen Gleichung:</li>
 </ul>
+<div class="fragment fade-in">
 <p><span class="math display">\[
 y = f(X) + \epsilon
 \]</span></p>
+</div>
 <ul>
-<li><span class="math inline">\(y\)</span> ist ein <span class="math inline">\(N \times 1\)</span> Vektor mit einer Ergebnisvariablen</li>
-<li><span class="math inline">\(X\)</span> ist eine <span class="math inline">\(N \times P\)</span> Matrix mit Prädiktoren <span class="math inline">\(X_1, X_2,..., X_P\)</span></li>
-<li><span class="math inline">\(N\)</span> entspricht der Anzahl von Beobachtungen im vorliegenden Datensatz, <span class="math inline">\(P\)</span> ist die Anzahl der Prädiktoren</li>
-<li>Anstelle von Prädiktoren werden oft die Begriffe erklärende oder unabhängige Variablen oder Features verwendet</li>
-<li><span class="math inline">\(f\)</span> beschreibt alle systematischen Zusammenhänge zwischen <span class="math inline">\(X\)</span> und <span class="math inline">\(y\)</span>, während der Fehlerterm <span class="math inline">\(\epsilon\)</span> alle Variation in <span class="math inline">\(X\)</span> aufnimmt, die nicht von <span class="math inline">\(f\)</span> erklärbar sind</li>
+<li class="fragment"><span class="math inline">\(y\)</span> ist ein <span class="math inline">\(N \times 1\)</span> Vektor mit einer Ergebnisvariablen</li>
+<li class="fragment"><span class="math inline">\(X\)</span> ist eine <span class="math inline">\(N \times P\)</span> Matrix mit Prädiktoren <span class="math inline">\(X_1, X_2,..., X_P\)</span></li>
+<li class="fragment"><span class="math inline">\(N\)</span> entspricht der Anzahl von Beobachtungen im vorliegenden Datensatz, <span class="math inline">\(P\)</span> ist die Anzahl der Prädiktoren</li>
+<li class="fragment">Anstelle von Prädiktoren werden oft die Begriffe erklärende oder unabhängige Variablen oder Features verwendet</li>
+<li class="fragment"><span class="math inline">\(f\)</span> beschreibt alle systematischen Zusammenhänge zwischen <span class="math inline">\(X\)</span> und <span class="math inline">\(y\)</span>, während der Fehlerterm <span class="math inline">\(\epsilon\)</span> alle Variation in <span class="math inline">\(X\)</span> aufnimmt, die nicht von <span class="math inline">\(f\)</span> erklärbar sind</li>
 </ul>
 </div>
 </section>
@@ -663,56 +740,58 @@ y = f(X) + \epsilon
 <h2>Begriffliche Grundlagen</h2>
 <h3 id="vorhersage-vs.-inferenz">Vorhersage vs.&nbsp;Inferenz</h3>
 <ul>
-<li>Angenommen, wir haben eine Funktion <span class="math inline">\(f\)</span> sowie einen Algorithmus gefunden, um <span class="math inline">\(f\)</span> an unsere Variablen <span class="math inline">\(y\)</span> und <span class="math inline">\(X\)</span> anzupassen</li>
-<li>Die Modellschätzung wird auch als Modelltraining oder Modellanpassung bezeichnet und unser trainiertes Modell hat die Form:</li>
+<li class="fragment">Angenommen, wir haben eine Funktion <span class="math inline">\(f\)</span> sowie einen Algorithmus gefunden, um <span class="math inline">\(f\)</span> an unsere Variablen <span class="math inline">\(y\)</span> und <span class="math inline">\(X\)</span> anzupassen</li>
+<li class="fragment">Die Modellschätzung wird auch als Modelltraining oder Modellanpassung bezeichnet und unser trainiertes Modell hat die Form:</li>
 </ul>
+<div class="fragment fade-in">
 <p><span class="math display">\[
 \hat{y} = \hat{f}(X)
 \]</span></p>
+</div>
 <ul>
-<li>Das trainierte Modell hat keien Fehlerterm <span class="math inline">\(\epsilon\)</span>, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist</li>
-<li>Geschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet</li>
+<li class="fragment">Das trainierte Modell hat keien Fehlerterm <span class="math inline">\(\epsilon\)</span>, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist</li>
+<li class="fragment">Geschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet</li>
 </ul>
 </section>
 <section id="begriffliche-grundlagen-2" class="slide level2">
 <h2>Begriffliche Grundlagen</h2>
 <h3 id="vorhersage-vs.-inferenz-1">Vorhersage vs.&nbsp;Inferenz</h3>
 <ul>
-<li>Das Modell kann nun für zwei Zwecke verwendet werden:
+<li class="fragment">Das Modell kann nun für zwei Zwecke verwendet werden:
 <ul>
-<li>Vorhersage: Schätzung von <span class="math inline">\(y\)</span> für neue, nicht im Modell enthaltene Daten</li>
-<li>Inferenz: Verständnis der Beziehungen und Muster in den Daten, die das Modell gelernt hat</li>
+<li class="fragment">Vorhersage: Schätzung von <span class="math inline">\(y\)</span> für neue, nicht im Modell enthaltene Daten</li>
+<li class="fragment">Inferenz: Verständnis der Beziehungen und Muster in den Daten, die das Modell gelernt hat</li>
 </ul></li>
-<li>Inferenz erfordert ein genaues Verständnis der Zusammenhänge</li>
-<li>Bei Vorhersage kümmern wir uns nicht um seine genaue Struktur oder Parameter des Modells, sondern ausschließlich um die generierten Vorhersagen.</li>
+<li class="fragment">Inferenz erfordert ein genaues Verständnis der Zusammenhänge</li>
+<li class="fragment">Bei Vorhersage kümmern wir uns nicht um seine genaue Struktur oder Parameter des Modells, sondern ausschließlich um die generierten Vorhersagen.</li>
 </ul>
 </section>
 <section id="begriffliche-grundlagen-3" class="slide level2">
 <h2>Begriffliche Grundlagen</h2>
 <h3 id="klassifikation-vs.-regression">Klassifikation vs.&nbsp;Regression</h3>
 <ul>
-<li>Die Art der Variablen <span class="math inline">\(y\)</span> bestimmt die Art des Modells, das wir verwenden</li>
-<li>Variablen sind entweder <em>kategorisch</em> oder <em>numerisch</em>, oft auch als <em>qualitativ</em> und <em>quantitativ</em> bezeichnet</li>
-<li>Wenn die abhängige Variable numerisch ist, ist es möglich, den exakten Wert der Variable vorherzusagen, dann liegt ein Regressionsproblem vor</li>
-<li>Wenn die abhängige Variable kategorisch ist, lässt sich lediglich die erwartete Klasse vorhersagen, basierend auf einer Wahrscheinlichkeit, dann liegt ein Klassifikationsproblem vor</li>
-<li>Wichtig: Hierbei ist nur die Art der abhängigen Variable entscheidend</li>
+<li class="fragment">Die Art der Variablen <span class="math inline">\(y\)</span> bestimmt die Art des Modells, das wir verwenden</li>
+<li class="fragment">Variablen sind entweder <em>kategorisch</em> oder <em>numerisch</em>, oft auch als <em>qualitativ</em> und <em>quantitativ</em> bezeichnet</li>
+<li class="fragment">Wenn die abhängige Variable numerisch ist, ist es möglich, den exakten Wert der Variable vorherzusagen, dann liegt ein Regressionsproblem vor</li>
+<li class="fragment">Wenn die abhängige Variable kategorisch ist, lässt sich lediglich die erwartete Klasse vorhersagen, basierend auf einer Wahrscheinlichkeit, dann liegt ein Klassifikationsproblem vor</li>
+<li class="fragment">Wichtig: Hierbei ist nur die Art der abhängigen Variable entscheidend</li>
 </ul>
 </section>
 <section id="begriffliche-grundlagen-4" class="slide level2">
 <h2>Begriffliche Grundlagen</h2>
 <h3 id="kategoriale-daten">Kategoriale Daten</h3>
 <ul>
-<li>Kategoriale Daten umfassen verschiedene Kategorien oder Labels</li>
-<li>Bei kategorialen Daten wird wiederum zwischen nominalen und ordinalen Variablen unterschieden</li>
-<li>Nominaldaten repräsentieren Kategorien ohne eine inhärente Rangfolge:
+<li class="fragment">Kategoriale Daten umfassen verschiedene Kategorien oder Labels</li>
+<li class="fragment">Bei kategorialen Daten wird wiederum zwischen nominalen und ordinalen Variablen unterschieden</li>
+<li class="fragment">Nominaldaten repräsentieren Kategorien ohne eine inhärente Rangfolge:
 <ul>
-<li>Farben (rot, blau, grün),</li>
-<li>Familienstand (ledig, verheiratet, geschieden, …),</li>
+<li class="fragment">Farben (rot, blau, grün),</li>
+<li class="fragment">Familienstand (ledig, verheiratet, geschieden, …),</li>
 </ul></li>
-<li>Ordinaldaten weisen eine spezifische Reihenfolge oder Hierarchie auf, aber keine gleichmäßigen Abstände zwischen den Kategorien:
+<li class="fragment">Ordinaldaten weisen eine spezifische Reihenfolge oder Hierarchie auf, aber keine gleichmäßigen Abstände zwischen den Kategorien:
 <ul>
-<li>Schärfe von Essen (mild, pikant, scharf),</li>
-<li>Expertise mit Programmiersprachen (keine, wenig, fortgeschritten, professionell)</li>
+<li class="fragment">Schärfe von Essen (mild, pikant, scharf),</li>
+<li class="fragment">Expertise mit Programmiersprachen (keine, wenig, fortgeschritten, professionell)</li>
 </ul></li>
 </ul>
 </section>
@@ -722,16 +801,17 @@ y = f(X) + \epsilon
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li><em>Numerische</em> Daten reräsentieren Mengen, Messungen, und allgemein numerische Werte</li>
-<li>Lassen sich mit mathematichen Operationen verarbeiten und manipulieren</li>
-<li>Numerische Daten können entweder <em>diskret</em> oder <em>kontinuierlich</em> sein, Beispiele:
+<li class="fragment"><em>Numerische</em> Daten reräsentieren Mengen, Messungen, und allgemein numerische Werte</li>
+<li class="fragment">Lassen sich mit mathematichen Operationen verarbeiten und manipulieren</li>
+<li class="fragment">Numerische Daten können entweder <em>diskret</em> oder <em>kontinuierlich</em> sein, Beispiele:
 <ul>
-<li>Alter,</li>
-<li>Temperatur,</li>
-<li>Finanzwerte ($ oder €)</li>
+<li class="fragment">Alter,</li>
+<li class="fragment">Temperatur,</li>
+<li class="fragment">Finanzwerte ($ oder €)</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/discrete_vs_continuous.png"></p>
@@ -740,15 +820,16 @@ y = f(X) + \epsilon
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="begriffliche-grundlagen-6" class="slide level2">
 <h2>Begriffliche Grundlagen</h2>
 <h3 id="überwachtes-vs.-unüberwachtes-lernen">Überwachtes vs.&nbsp;Unüberwachtes Lernen</h3>
 <ul>
-<li>Überwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable <span class="math inline">\(y_i, i = 1,2,...N\)</span> für jede Beobachtung <span class="math inline">\(i\)</span> auf sowie eine oder mehrere Prädiktoren</li>
-<li>Unüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden</li>
-<li>Die Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von <span class="math inline">\(y\)</span> basieren</li>
-<li>Auch wir konzentrieren uns bei der Klassifikation auf</li>
+<li class="fragment">Überwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable <span class="math inline">\(y_i, i = 1,2,...N\)</span> für jede Beobachtung <span class="math inline">\(i\)</span> auf sowie eine oder mehrere Prädiktoren</li>
+<li class="fragment">Unüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden</li>
+<li class="fragment">Die Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von <span class="math inline">\(y\)</span> basieren</li>
+<li class="fragment">Auch wir konzentrieren uns bei der Klassifikation auf</li>
 </ul>
 </section>
 
@@ -761,6 +842,9 @@ y = f(X) + \epsilon
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-baars_business_2021" class="csl-entry" role="listitem">
 Baars, Henning, und Hans-Georg Kemper. 2021. <em>Business Intelligence &amp; Analytics: Grundlagen und praktische Anwendungen: Ansätze der <span>IT</span>-basierten Entscheidungsunterstützung</em>. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.
+</div>
+<div id="ref-james_introduction_2021" class="csl-entry" role="listitem">
+James, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: with Applications in R</em>. Second edition. Springer texts in statistics. New York <span>NY</span>: Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
 </div>
 <div id="ref-donofrio_rundgang_2021" class="csl-entry" role="listitem">
 Meier, Andreas. 2021. <span>„Rundgang Big Data Analytics – Hard &amp; Soft Data Mining“</span>. In <em>Big Data Analytics</em>, herausgegeben von Sara D’Onofrio und Andreas Meier, 3–23. Wiesbaden: Springer Fachmedien Wiesbaden. <a href="https://doi.org/10.1007/978-3-658-32236-6_1">https://doi.org/10.1007/978-3-658-32236-6_1</a>.

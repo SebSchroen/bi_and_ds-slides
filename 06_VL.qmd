@@ -3,7 +3,7 @@ title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 6"
 format:
   revealjs:
-    incremental: false  
+    incremental: true  
 ---
   
 ```{r}
@@ -803,8 +803,9 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 
 ::::
 
+## Slide Title {visibility="hidden"}
+@james_introduction_2021
 
-
-## Quelle
+## Quellen
 
 

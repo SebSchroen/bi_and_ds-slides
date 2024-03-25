@@ -375,8 +375,7 @@ Dr.&nbsp;Sebastian Schrön
 <div>
 <ul>
 <li class="fragment">Quiz</li>
-<li class="fragment">Self-Service BI Terminologie</li>
-<li class="fragment">Recap zur Aufgabe von letzter Woche und gemeinsamer Walk-Through</li>
+<li class="fragment">Recap zur Aufgabe von letzter Woche</li>
 <li class="fragment">Visualisierungstyp Balkendiagramm</li>
 <li class="fragment">Datentransformation:
 <ul>
@@ -388,103 +387,9 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 </section>
 <section>
-<section id="recap-self-service-bi" class="title-slide slide level1 center">
-<h1>Recap &amp; Self-Service BI</h1>
+<section id="recap-zur-aufgabe" class="title-slide slide level1 center">
+<h1>Recap zur Aufgabe</h1>
 
-</section>
-<section id="self-service-bi" class="slide level2">
-<h2>Self-Service BI</h2>
-<h3 id="terminologie">Terminologie</h3>
-<div style="font-size: 0.95em">
-<ul>
-<li class="fragment">Dashboard:
-<ul>
-<li class="fragment">Eine Sammlung von Visualisierungen, die in einem gemeinsamen Kontext dargestellt werden</li>
-<li class="fragment">Ein Dashboard kann mehrere Visualisierungen enthalten, die auf unterschiedlichen Datasets basieren</li>
-<li class="fragment">Die Visualisierungen können über globale Filter gefiltert werden</li>
-</ul></li>
-<li class="fragment">Chart:
-<ul>
-<li class="fragment">Eigenständige Visualisierung eines Datasets, die eigenständig oder in einem Dashboard dargestellt werden kann</li>
-<li class="fragment">Es gibt eine Vielzahl von Chart-Typen, die in Superset dargestellt werden können</li>
-<li class="fragment"><a href="https://docs.preset.io/docs/chart-walkthroughs">Preset.io</a> gibt eine Übersicht über die gängigsten Chart-Typen</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="self-service-bi-1" class="slide level2">
-<h2>Self-Service BI</h2>
-<h3 id="terminologie-1">Terminologie</h3>
-<div style="font-size: 0.90em">
-<ul>
-<li class="fragment">Dimensions:
-<ul>
-<li class="fragment">Dimensionen sind die Kategorien, nach denen Daten gruppiert wird</li>
-<li class="fragment">Idealerweise kategoriale Variablen, die nicht aggregiert werden</li>
-<li class="fragment">Wenn die Daten eine Zeitdimension enthalten (erkennbar am Uhren-Symbol) ist eine spezielle Time Dimension verfügbar</li>
-<li class="fragment">Bei korrekter Pflege der Zeitvariable lässt sich direkt auf Tages-, Wochen-, Monats- und Jahreswerte aggregieren mittels Time Grain</li>
-</ul></li>
-<li class="fragment">Metrics
-<ul>
-<li class="fragment">Quantitative Variablen, die sich mit Funktionen aggregieren lassen</li>
-<li class="fragment">Beispielfunktionen sind Summen, Durchschnitte, Min und Max oder Counts</li>
-<li class="fragment">Besonderheit: Viele BI-Tools erstellen per Default eine Count-Metrik, die Datenpunkte pro Dimension zählt</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="self-service-bi-2" class="slide level2">
-<h2>Self-Service BI</h2>
-<h3 id="terminologie-2">Terminologie</h3>
-<div style="font-size: 0.90em">
-<ul>
-<li class="fragment">Aggregationsfunktionen
-<ul>
-<li class="fragment">Self-Service BI Tools werden meist mit Daten von höchster Granularität verknüpft, um die Flexibilität der Analyse zu erhöhen und Aggregationen seitens der Nutzenden zu ermöglichen</li>
-<li class="fragment">Aggregationsfunktionen werden auf Metriken angewendet, um die Daten zu verdichten</li>
-<li class="fragment">Einfache Beispiele sind Summen, Durchschnitte, Min und Max</li>
-<li class="fragment">Besonderheit Count und Count Distinct:
-<ul>
-<li class="fragment">Count zählt die Anzahl der Datenpunkte,</li>
-<li class="fragment">Count Distinct zählt die Anzahl der einzigartigen Werte über die Dimension(en)</li>
-</ul></li>
-<li class="fragment">Semantisches Wissen und Fragestellung sind für die Wahl der Aggregation entscheidend</li>
-</ul></li>
-</ul>
-</div>
-<aside class="notes">
-<p>Beispieltabelle anschreiben: Kunden A und B, Umsatz 100 und 50, Zufriedenheit (1-100%) 80 und 20</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="self-service-bi-3" class="slide level2">
-<h2>Self-Service BI</h2>
-<h3 id="besonderheiten-superset">Besonderheiten Superset</h3>
-<div style="font-size: 0.95em">
-<ul>
-<li class="fragment">Database:
-<ul>
-<li class="fragment">Backend-Datenbank, in der die Rohdaten liegen, das Pendant zu einem Data Warehouse</li>
-<li class="fragment">In unserem Fall Google BigQuery, aber auch andere Datenbanken wie MySQL, PostgreSQL oder SQLite sind möglich</li>
-<li class="fragment">Auch der Upload von Excel und CSV Dateien ist möglich</li>
-</ul></li>
-<li class="fragment">Dataset:
-<ul>
-<li class="fragment">Einzelne Tabellen in der Datenbank, die als Grundlage für Analysen und Visualisierungen dienen</li>
-<li class="fragment">Basieren auf Rohdaten, die für die Visualisierung verarbeitet werden</li>
-<li class="fragment">Physische Datasets “leben” auf der Backend-Datenbank, virtuelle Datasets sind direkt in Superset generiert und gespeichert</li>
-</ul></li>
-</ul>
-</div>
 </section>
 <section id="business-case" class="slide level2">
 <h2>Business Case</h2>
@@ -533,7 +438,7 @@ Dr.&nbsp;Sebastian Schrön
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="576"></p>
+<p><img data-src="03_VL_D_files/figure-revealjs/unnamed-chunk-2-1.png" width="576"></p>
 </div>
 </div>
 </div>
@@ -556,7 +461,7 @@ Dr.&nbsp;Sebastian Schrön
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="576"></p>
+<p><img data-src="03_VL_D_files/figure-revealjs/unnamed-chunk-3-1.png" width="576"></p>
 </div>
 </div>
 </div>
@@ -579,7 +484,7 @@ Dr.&nbsp;Sebastian Schrön
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-4-1.png" width="576"></p>
+<p><img data-src="03_VL_D_files/figure-revealjs/unnamed-chunk-4-1.png" width="576"></p>
 </div>
 </div>
 </div>
@@ -601,7 +506,7 @@ Dr.&nbsp;Sebastian Schrön
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="03_VL_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
+<p><img data-src="03_VL_D_files/figure-revealjs/unnamed-chunk-5-1.png" width="576"></p>
 </div>
 </div>
 </div>
@@ -642,8 +547,8 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="teilschritte-der-transformation">Teilschritte der Transformation</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-41fce6ae26aaeebd2827" style="width:1000px;height:400px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-41fce6ae26aaeebd2827">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-04c8f60a151cc1b41995" style="width:1000px;height:400px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-04c8f60a151cc1b41995">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Teilprozesse im ETL-Prozess. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></p>
 </div>
 </div>
@@ -818,16 +723,14 @@ Dr.&nbsp;Sebastian Schrön
 
 </div>
 </div>
-<div style="font-size: 0.80em">
-<ol type="1">
-<li class="fragment">UserID ist ein Key, leere Werte nicht zugelassen</li>
-<li class="fragment">Jo(h)n ist ein Tippfehler</li>
-<li class="fragment">Land DEU weicht ab von den anderen Zeilen</li>
-<li class="fragment">PLZ 2345 ist nicht gültig, da nur 4 Stellen</li>
-<li class="fragment">Premium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1</li>
-<li class="fragment">Das Geburtsdatum von Alice liegt in der Zukunft</li>
-</ol>
-</div>
+<!-- ::: {style="font-size: 0.80em"} -->
+<!-- 1. UserID ist ein Key, leere Werte nicht zugelassen -->
+<!-- 2. Jo(h)n ist ein Tippfehler -->
+<!-- 3. Land DEU weicht ab von den anderen Zeilen -->
+<!-- 4. PLZ 2345 ist nicht gültig, da nur 4 Stellen -->
+<!-- 5. Premium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1 -->
+<!-- 6. Das Geburtsdatum von Alice liegt in der Zukunft und passt nicht zum Alter -->
+<!-- ::: -->
 <aside class="notes">
 <ol type="1">
 <li>UserID ist ein Key, NA ist nicht zugelassen</li>
