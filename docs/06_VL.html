@@ -447,9 +447,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="480"></p>
+</div>
 </div>
 </div>
 </div>
@@ -470,9 +472,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:55%;">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+</div>
 </div>
 </div>
 </div>
@@ -519,16 +523,18 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="box-plot-2">Box-Plot</h3>
 <div class="columns">
 <div class="column" style="width:55%;">
+<div>
 <div style="font-size: 0.80em">
 <ul>
-<li class="fragment">Die Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten</li>
-<li class="fragment">Die Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten</li>
-<li class="fragment">Die Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil</li>
-<li class="fragment">Die oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten</li>
-<li class="fragment">Alternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)<br>
+<li>Die Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten</li>
+<li>Die Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten</li>
+<li>Die Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil</li>
+<li>Die oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten</li>
+<li>Alternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)<br>
 </li>
-<li class="fragment">Einzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt</li>
+<li>Einzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt</li>
 </ul>
+</div>
 </div>
 </div><div class="column" style="width:45%;">
 <div class="cell">
@@ -568,12 +574,14 @@ Dr.&nbsp;Sebastian Schrön
 <div class="columns">
 <div class="column" style="width:55%;">
 <div style="font-size: 0.87em">
+<div>
 <ul>
-<li class="fragment">Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.</li>
-<li class="fragment">Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse</li>
-<li class="fragment">Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz</li>
-<li class="fragment">Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind</li>
+<li>Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.</li>
+<li>Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse</li>
+<li>Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz</li>
+<li>Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind</li>
 </ul>
+</div>
 </div>
 </div><div class="column" style="width:45%;">
 <div class="cell">
@@ -607,7 +615,7 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="trainings--und-testdaten">Trainings- und Testdaten</h3>
 <ul>
 <li class="fragment">Bevor wir die von Tofispy bereitgestellten Daten analysieren, teilen wir die Daten in Trainings- und Testdaten auf</li>
-<li class="fragment">Das ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfittung zu vermeiden</li>
+<li class="fragment">Das ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfitting zu vermeiden</li>
 <li class="fragment">Da der Trainingsdatensatz für das Modelltraining verwendet wird, wählt an oft einen Anteil von 70-80% der Daten für das Training und 20-30% für das Testen</li>
 <li class="fragment">In unserem Fall verwenden wir nur 300 Beobachtungen, um die Visualisierungen zum Einstieg nicht zu überfrachten</li>
 <li class="fragment">Neben diesen einfachen Splits gibt es auch komplexere Verfahren wie Kreuzvalidierung</li>
@@ -710,6 +718,7 @@ y =
 <ul>
 <li class="fragment">Noch intuitiver wird der Zusammenhang, wenn wir die Daten visualisieren mit der abhängigen Variable <em>EDM</em> auf der Y-Achse und der unabhängigen Variable <em>Energy</em> auf der X-Achse</li>
 </ul>
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -717,6 +726,7 @@ y =
 <p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-7-1.png" width="768"></p>
 <figcaption>Scatter Plot mit Dummy Variable als abhängiger Variable. Eigene Darstellung</figcaption>
 </figure>
+</div>
 </div>
 </div>
 </div>
@@ -731,13 +741,17 @@ y =
 </ul>
 </div>
 <div style="font-size: 0.8em">
+<div class="fragment fade-in">
 <p><span class="math display">\[
 \operatorname{\widehat{EDM}} = -0.1 + 1.24 \cdot \text{Energy}
 \]</span></p>
 </div>
+</div>
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</div>
 </div>
 </div>
 </section>
@@ -764,9 +778,11 @@ y = \beta_0 + \beta_1 \cdot X
 <li class="fragment">Sigmoid Funktionen garantieren, dass alle vorgehersagten Wahrscheinlichkeiten zwischen 0 und 1 liegen, auch wenn die unabhängige Variable <span class="math inline">\(X\)</span> sehr groß oder sehr klein ist</li>
 </ul>
 </div>
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</div>
 </div>
 </div>
 </section>
@@ -774,7 +790,7 @@ y = \beta_0 + \beta_1 \cdot X
 <h2>Logistische Regression</h2>
 <h3 id="die-logistische-funktion-1">Die Logistische Funktion</h3>
 <ul>
-<li class="fragment">Die logistische Regression modelliert stattdessen die Wahrscheinlichkeit, dass <span class="math inline">\(y\)</span> eine bestimmte Kategorie annimmt: <span class="math display">\[
+<li class="fragment">Die logistische Regression modelliert die Wahrscheinlichkeit, dass <span class="math inline">\(y\)</span> eine bestimmte Kategorie annimmt: <span class="math display">\[
 P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X)}}{1 + e^{(\beta_0 + \beta_1 \cdot X)}}
 \]</span></li>
 <li class="fragment">wobei <span class="math inline">\(P(y = 1|X)\)</span> die Wahrscheinlichkeit ist, dass <span class="math inline">\(y\)</span> die Kategorie 1 annimmt, also EDM ist, gegeben einen Wert für <span class="math inline">\(X\)</span>, in unserem Fall <em>Energy</em></li>
@@ -789,27 +805,15 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 <ul>
 <li class="fragment">Wenn wir statt des linearen Modells ein logistisches Modell verwenden, erhalten wir folgenden Zusammenhang zwischen Energy und der Wahrscheinlichkeit, dass ein Song zum Genre EDM gehört:</li>
 </ul>
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </div>
 </div>
+</div>
 </section>
 <section id="logistische-regression-9" class="slide level2">
-<h2>Logistische Regression</h2>
-<h3 id="generierung-von-prognosen">Generierung von Prognosen</h3>
-<ul>
-<li class="fragment">Aus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten <span class="math inline">\(\beta_0\)</span> und <span class="math inline">\(\beta_1\)</span></li>
-<li class="fragment">Das gefittete Modell hat folgende Koeffizienten:</li>
-</ul>
-<p><span class="math display">\[
-\hat{P}(EDM = 1|Energy) = \frac{ e^{(-9.89 + 21.34 \cdot \text{Energy})}}{1 + e^{(-9.89 +  21.34\cdot \text{Energy})}}
-\]</span></p>
-<ul>
-<li class="fragment">Durch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus</li>
-</ul>
-</section>
-<section id="logistische-regression-10" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="ergebnis-der-logistischen-regression-1">Ergebnis der logistischen Regression</h3>
 <div class="columns">
@@ -824,6 +828,7 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 </div>
 </div><div class="column" style="width:50%;">
 <div style="font-size: 0.45em">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <table data-quarto-postprocess="true">
@@ -916,6 +921,23 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="logistische-regression-10" class="slide level2">
+<h2>Logistische Regression</h2>
+<h3 id="generierung-von-prognosen">Generierung von Prognosen</h3>
+<ul>
+<li class="fragment">Aus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten <span class="math inline">\(\beta_0\)</span> und <span class="math inline">\(\beta_1\)</span></li>
+<li class="fragment">Das gefittete Modell hat folgende Koeffizienten:</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[
+\hat{P}(EDM = 1|Energy) = \frac{ e^{(-9.89 + 21.34 \cdot \text{Energy})}}{1 + e^{(-9.89 +  21.34\cdot \text{Energy})}}
+\]</span></p>
+</div>
+<ul>
+<li class="fragment">Durch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus</li>
+</ul>
 </section>
 <section id="logistische-regression-11" class="slide level2">
 <h2>Logistische Regression</h2>
@@ -924,15 +946,18 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 <ul>
 <li class="fragment">Bisher haben wir nur eine Wahrscheinlichkeit für die Klassenzugehörigkeit von Song <span class="math inline">\(i\)</span> berechnet, gegeben den Wert für Energy, also</li>
 </ul>
+<div class="fragment fade-in">
 <div style="font-size: 0.75em">
 <p><span class="math display">\[
 P(\text{EDM}_i = 1|\text{X = Energy}_i)
 \]</span></p>
 </div>
+</div>
 <ul>
 <li class="fragment">Im binären Klassifikationsmodell wird ein Schwellenwert oder Cut-Off Point <span class="math inline">\(C\)</span> festgelegt, der bestimmt, ob ein Song als EDM klassifiziert wird oder nicht</li>
 <li class="fragment">Die Zuordnung folgt dann allgemein nach der Form:</li>
 </ul>
+<div class="fragment fade-in">
 <div style="font-size: 0.75em">
 <p><span class="math display">\[\begin{equation}
   \text{Klasse} =
@@ -941,6 +966,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
       1 &amp; \text{wenn } P(y_i = 1|X= x_i) &gt; C
     \end{cases}       
 \end{equation}\]</span></p>
+</div>
 </div>
 <ul>
 <li class="fragment">Ein häufig anzutreffender Default-Wert ist <span class="math inline">\(C=0.5\)</span></li>
@@ -961,6 +987,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </div>
 </div><div class="column" style="width:50%;">
 <div style="font-size: 0.45em">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <table data-quarto-postprocess="true">
@@ -969,7 +996,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <th style="text-align: right;" data-quarto-table-cell-role="th">energy</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">track.name</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">track.artist</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">edm_factor</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">edm</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">p_edm</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">.pred_class</th>
 </tr>
@@ -1064,6 +1091,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </div>
 </div>
 </div>
+</div>
 </section>
 <section id="modellevaluation" class="slide level2">
 <h2>Modellevaluation</h2>
@@ -1073,6 +1101,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <li class="fragment">Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst.</li>
 <li class="fragment">Im binären Modell bedeutet positiv, dass die Beobachtung zur interessanten Klasse (in unserem Fall EDM) gehört, negativ, dass sie nicht dazu gehört</li>
 </ul>
+<div class="fragment fade-in">
 <table style="width:100%;">
 <colgroup>
 <col style="width: 25%">
@@ -1109,6 +1138,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </section>
 <section id="modellevaluation-1" class="slide level2">
@@ -1183,11 +1213,13 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <li class="fragment">Aus den vier Quadranten lässt sich dann die Accuracy berechnen:</li>
 </ul>
 <div style="font-size: 0.8em">
+<div class="fragment fade-in">
 <p><span class="math display">\[
 \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
 \]</span> <span class="math display">\[
 = \frac{156 + 140}{156 + 140 + 2 + 2} = 0.987
 \]</span></p>
+</div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">

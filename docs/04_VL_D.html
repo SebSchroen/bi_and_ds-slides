@@ -737,15 +737,33 @@ Dr.&nbsp;Sebastian Schrön
 <li class="fragment">Das Dataset “user_events_clean” auswählen</li>
 <li class="fragment">Anschließend “Time Series Line Chart” auswählen</li>
 </ul></li>
-<li class="fragment">Frage: Was ist der Hauptgrund für das schwindende Wachstum?</li>
 </ul>
 </section>
 <section id="business-case-1" class="slide level2">
 <h2>Business Case</h2>
+<h3 id="tofispy-user-events-1">Tofispy User Events</h3>
+<ul>
+<li class="fragment">Der Datensatz enthält die folgenden Spalten:
+<ul>
+<li class="fragment">DATE: Datum mit täglicher Granularität</li>
+<li class="fragment">SUBSCRIPTIONS: Zahl der Neu-Registrierungen pro Tag</li>
+<li class="fragment">CANCELLATIONS: Zahl der Kündigungen pro Tag</li>
+<li class="fragment">NET: Netto-Zahl pro Tag als Differenz zwischen Neu-Registrierungen und Kündigungen</li>
+</ul></li>
+<li class="fragment">Fragen:
+<ul>
+<li class="fragment">Welche Granularität des Zeitstempels (Time Grain) generiert das anschaulichste Chart?</li>
+<li class="fragment">Was ist eine sinnvolle Aggregation?</li>
+<li class="fragment">Was ist der Hauptgrund für das schwindende Wachstum?</li>
+</ul></li>
+</ul>
+</section>
+<section id="business-case-2" class="slide level2">
+<h2>Business Case</h2>
 <h3 id="line-plot-starthilfe">Line Plot Starthilfe</h3>
 <p><img data-src="img/Superset_Line_Plot.png" width="800" height="500"></p>
 </section>
-<section id="business-case-2" class="slide level2">
+<section id="business-case-3" class="slide level2">
 <h2>Business Case</h2>
 <h3 id="warum-kündigen-user">Warum kündigen User?</h3>
 <ul>
@@ -757,7 +775,7 @@ Dr.&nbsp;Sebastian Schrön
 </ul></li>
 </ul>
 </section>
-<section id="business-case-3" class="slide level2">
+<section id="business-case-4" class="slide level2">
 <h2>Business Case</h2>
 <h3 id="warum-kündigen-user-1">Warum kündigen User?</h3>
 <ul>
@@ -798,9 +816,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="04_VL_D_files/figure-revealjs/unnamed-chunk-2-1.png" width="384"></p>
+</div>
 </div>
 </div>
 </div>
@@ -821,9 +841,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="04_VL_D_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+</div>
 </div>
 </div>
 </div>
@@ -900,6 +922,78 @@ Dr.&nbsp;Sebastian Schrön
 </div>
 </div>
 </div>
+</section>
+<section id="olap-2" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="slicing">Slicing</h3>
+<ul>
+<li class="fragment">Slicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird</li>
+<li class="fragment">Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen</li>
+</ul>
+<div class="fragment fade-in">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/OLAP_slicing.png" style="width:60.0%"></p>
+<figcaption>OLAP Slicing. Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="olap-3" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="dicing">Dicing</h3>
+<ul>
+<li class="fragment">Dicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht</li>
+<li class="fragment">Im Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert</li>
+</ul>
+<div class="fragment fade-in">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/OLAP_dicing.png" style="width:60.0%"></p>
+<figcaption>OLAP Dicing Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="olap-4" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="pivotierung">Pivotierung</h3>
+<div style="font-size: 0.78em">
+<ul>
+<li class="fragment">Auswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr</li>
+<li class="fragment">Grafisch entspricht eine solche Ansicht einer Seite des Würfels</li>
+<li class="fragment">Durch Pivotierung wird der Würfel um eine Achse gedreht</li>
+<li class="fragment">Im Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/OLAP_pivoting.png" style="width:55.0%"></p>
+<figcaption>OLAP Pivotierung/Rotation Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="olap-5" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="roll-up-drill-down-drill-through">Roll-Up, Drill-Down &amp; Drill-Through</h3>
+<ul>
+<li class="fragment">Beim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert</li>
+<li class="fragment">Beim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004</li>
+<li class="fragment">In einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist</li>
+<li class="fragment">Das geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen</li>
+</ul>
+</section>
+<section id="olap-6" class="slide level2">
+<h2>OLAP</h2>
+<h3 id="physikalische-umsetzung-und-anbindungsschnittstellen">Physikalische Umsetzung und Anbindungsschnittstellen</h3>
+<ul>
+<li class="fragment">Die Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig</li>
+<li class="fragment">OLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel</li>
+<li class="fragment">Ein bekanntes Beispiel ist <a href="https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html?version=2.8.19.0">SAP Analysis</a> für Excel</li>
+<li class="fragment">Andere gängige Praxis sind webbasierte Schnittstellen wie <a href="https://www.cubeware.com/content/Produkte/C8_Cockpit/C8-Cockpit-Viewer_DE.pdf">Cubeware Cockpit</a></li>
+</ul>
 </section>
 
 <section id="quellen" class="slide level2 smaller scrollable">

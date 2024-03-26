@@ -123,7 +123,7 @@
     "href": "03_VL.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-09\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-11\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-15\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-08\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-10\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-12\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-16\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-09\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",
@@ -501,25 +501,32 @@
     "href": "04_VL_D.html#business-case",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
-    "text": "Business Case\nTofispy User Events\n\nNachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen\nDer Datensatz in Superset heißt nun “user_events_clean” und ist nach wie vor im Controlling Mart gespeichert.\nWie wäre es mit einem Line Chart?\nHierzu erneut in Superset:\n\nOben auf “+Chart” klicken\nDas Dataset “user_events_clean” auswählen\nAnschließend “Time Series Line Chart” auswählen\n\nFrage: Was ist der Hauptgrund für das schwindende Wachstum?"
+    "text": "Business Case\nTofispy User Events\n\nNachdem wir die User Events in unserem Cloud Data Warehouse Big Query gespeichert haben, können wir nun weiter auf Ursachenforschung gehen\nDer Datensatz in Superset heißt nun “user_events_clean” und ist nach wie vor im Controlling Mart gespeichert.\nWie wäre es mit einem Line Chart?\nHierzu erneut in Superset:\n\nOben auf “+Chart” klicken\nDas Dataset “user_events_clean” auswählen\nAnschließend “Time Series Line Chart” auswählen"
   },
   {
     "objectID": "04_VL_D.html#business-case-1",
     "href": "04_VL_D.html#business-case-1",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
-    "text": "Business Case\nLine Plot Starthilfe"
+    "text": "Business Case\nTofispy User Events\n\nDer Datensatz enthält die folgenden Spalten:\n\nDATE: Datum mit täglicher Granularität\nSUBSCRIPTIONS: Zahl der Neu-Registrierungen pro Tag\nCANCELLATIONS: Zahl der Kündigungen pro Tag\nNET: Netto-Zahl pro Tag als Differenz zwischen Neu-Registrierungen und Kündigungen\n\nFragen:\n\nWelche Granularität des Zeitstempels (Time Grain) generiert das anschaulichste Chart?\nWas ist eine sinnvolle Aggregation?\nWas ist der Hauptgrund für das schwindende Wachstum?"
   },
   {
     "objectID": "04_VL_D.html#business-case-2",
     "href": "04_VL_D.html#business-case-2",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
-    "text": "Business Case\nWarum kündigen User?\n\nIn Superset befindet sich ein weiterer Datensatz “cancellation_questionnaire”, der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen\nDer Datensatz enthält zwei Spalten:\n\nQuestion: Die gestellte Frage mit vier Ausprägungen\nResponse: Die Antworten der User"
+    "text": "Business Case\nLine Plot Starthilfe"
   },
   {
     "objectID": "04_VL_D.html#business-case-3",
     "href": "04_VL_D.html#business-case-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Business Case",
+    "text": "Business Case\nWarum kündigen User?\n\nIn Superset befindet sich ein weiterer Datensatz “cancellation_questionnaire”, der die Antworten einer Stichprobe von Usern erhält, die bei Kündigung einen Fragebogen bekommen\nDer Datensatz enthält zwei Spalten:\n\nQuestion: Die gestellte Frage mit vier Ausprägungen\nResponse: Die Antworten der User"
+  },
+  {
+    "objectID": "04_VL_D.html#business-case-4",
+    "href": "04_VL_D.html#business-case-4",
     "title": "Business Intelligence & Data Science",
     "section": "Business Case",
     "text": "Business Case\nWarum kündigen User?\n\nZiel: Eine passende Visualisierung, die aufzeigt, wieso User hauptsächlich kündigen\nSupport durch Google und preset.io Dokumentation\n\nStarthilfe:\n\nErneut gehen wir auf der Startseite oben rechts auf + Chart\nWir wählen dann das Dataset “cancellation_questionnaire” aus\nBei Chart Types gehen wir auf “Part of a Whole”: Welche Optionen gibt es?\n\nEmpfehlung:\n\nPie Chart oder Treemap v2\n\n\nWelche Metric ist sinnvoll?"
@@ -565,6 +572,41 @@
     "title": "Business Intelligence & Data Science",
     "section": "OLAP",
     "text": "OLAP\nDatenmodell als Würfel\n\n\n\n\nBestehen konzeptionell aus Fakten, Dimensionen und Hierarchien\nDa oft mehrere Dimensionen vorliegen, spricht man von Cubes\nTheoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt\nBei mehr als 3 Dimensionen spricht man oft von Hypercube\nBei der Erstellung von Reports aus OLAP Cubes spricht man oft von OLAP Operationen\n\n\n\n\n\n\nCube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: Wikipedia"
+  },
+  {
+    "objectID": "04_VL_D.html#olap-2",
+    "href": "04_VL_D.html#olap-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nSlicing\n\nSlicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird\nIm Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen\n\n\n\n\n\nOLAP Slicing. Quelle: Wikipedia"
+  },
+  {
+    "objectID": "04_VL_D.html#olap-3",
+    "href": "04_VL_D.html#olap-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nDicing\n\nDicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht\nIm Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert\n\n\n\n\n\nOLAP Dicing Quelle: Wikipedia"
+  },
+  {
+    "objectID": "04_VL_D.html#olap-4",
+    "href": "04_VL_D.html#olap-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nPivotierung\n\n\nAuswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr\nGrafisch entspricht eine solche Ansicht einer Seite des Würfels\nDurch Pivotierung wird der Würfel um eine Achse gedreht\nIm Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie\n\n\n\n\n\n\nOLAP Pivotierung/Rotation Quelle: Wikipedia"
+  },
+  {
+    "objectID": "04_VL_D.html#olap-5",
+    "href": "04_VL_D.html#olap-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nRoll-Up, Drill-Down & Drill-Through\n\nBeim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert\nBeim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004\nIn einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist\nDas geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen"
+  },
+  {
+    "objectID": "04_VL_D.html#olap-6",
+    "href": "04_VL_D.html#olap-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "OLAP",
+    "text": "OLAP\nPhysikalische Umsetzung und Anbindungsschnittstellen\n\nDie Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig\nOLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel\nEin bekanntes Beispiel ist SAP Analysis für Excel\nAndere gängige Praxis sind webbasierte Schnittstellen wie Cubeware Cockpit"
   },
   {
     "objectID": "04_VL_D.html#quellen",
@@ -1180,7 +1222,7 @@
     "href": "06_VL.html#visualisierung-von-verteilungen-4",
     "title": "Business Intelligence & Data Science",
     "section": "Visualisierung von Verteilungen",
-    "text": "Visualisierung von Verteilungen\nBox-Plot\n\n\n\n\nDie Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten\nDie Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten\nDie Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil\nDie oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten\nAlternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)\n\nEinzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt"
+    "text": "Visualisierung von Verteilungen\nBox-Plot\n\n\n\n\n\nDie Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten\nDie Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten\nDie Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil\nDie oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten\nAlternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)\n\nEinzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt"
   },
   {
     "objectID": "06_VL.html#visualisierung-von-verteilungen-5",
@@ -1194,7 +1236,7 @@
     "href": "06_VL.html#visualisierung-von-verteilungen-6",
     "title": "Business Intelligence & Data Science",
     "section": "Visualisierung von Verteilungen",
-    "text": "Visualisierung von Verteilungen\nViolin-Plot\n\n\n\n\nDa händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.\nStatt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse\nDer dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz\nViolins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind"
+    "text": "Visualisierung von Verteilungen\nViolin-Plot\n\n\n\n\n\nDa händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.\nStatt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse\nDer dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz\nViolins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind"
   },
   {
     "objectID": "06_VL.html#visualisierung-von-verteilungen-7",
@@ -1215,7 +1257,7 @@
     "href": "06_VL.html#logistische-regression",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nTrainings- und Testdaten\n\nBevor wir die von Tofispy bereitgestellten Daten analysieren, teilen wir die Daten in Trainings- und Testdaten auf\nDas ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfittung zu vermeiden\nDa der Trainingsdatensatz für das Modelltraining verwendet wird, wählt an oft einen Anteil von 70-80% der Daten für das Training und 20-30% für das Testen\nIn unserem Fall verwenden wir nur 300 Beobachtungen, um die Visualisierungen zum Einstieg nicht zu überfrachten\nNeben diesen einfachen Splits gibt es auch komplexere Verfahren wie Kreuzvalidierung"
+    "text": "Logistische Regression\nTrainings- und Testdaten\n\nBevor wir die von Tofispy bereitgestellten Daten analysieren, teilen wir die Daten in Trainings- und Testdaten auf\nDas ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfitting zu vermeiden\nDa der Trainingsdatensatz für das Modelltraining verwendet wird, wählt an oft einen Anteil von 70-80% der Daten für das Training und 20-30% für das Testen\nIn unserem Fall verwenden wir nur 300 Beobachtungen, um die Visualisierungen zum Einstieg nicht zu überfrachten\nNeben diesen einfachen Splits gibt es auch komplexere Verfahren wie Kreuzvalidierung"
   },
   {
     "objectID": "06_VL.html#logistische-regression-1",
@@ -1236,14 +1278,14 @@
     "href": "06_VL.html#logistische-regression-3",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nIntuition\n\nNoch intuitiver wird der Zusammenhang, wenn wir die Daten visualisieren mit der abhängigen Variable EDM auf der Y-Achse und der unabhängigen Variable Energy auf der X-Achse\n\n\n\n\n\n\nScatter Plot mit Dummy Variable als abhängiger Variable. Eigene Darstellung"
+    "text": "Logistische Regression\nIntuition\n\nNoch intuitiver wird der Zusammenhang, wenn wir die Daten visualisieren mit der abhängigen Variable EDM auf der Y-Achse und der unabhängigen Variable Energy auf der X-Achse\n\n\n\n\n\n\n\nScatter Plot mit Dummy Variable als abhängiger Variable. Eigene Darstellung"
   },
   {
     "objectID": "06_VL.html#logistische-regression-4",
     "href": "06_VL.html#logistische-regression-4",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nWarum nicht einfach lineare Regression?\n\n\nEine lineare Regression ist erste Option, den Zusammenhang zu modellieren\nWir erhalten folgende Koeffizienten:\n\n\n\n\\[\n\\operatorname{\\widehat{EDM}} = -0.1 + 1.24 \\cdot \\text{Energy}\n\\]"
+    "text": "Logistische Regression\nWarum nicht einfach lineare Regression?\n\n\nEine lineare Regression ist erste Option, den Zusammenhang zu modellieren\nWir erhalten folgende Koeffizienten:\n\n\n\n\n\\[\n\\operatorname{\\widehat{EDM}} = -0.1 + 1.24 \\cdot \\text{Energy}\n\\]"
   },
   {
     "objectID": "06_VL.html#logistische-regression-5",
@@ -1264,7 +1306,7 @@
     "href": "06_VL.html#logistische-regression-7",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nDie Logistische Funktion\n\nDie logistische Regression modelliert stattdessen die Wahrscheinlichkeit, dass \\(y\\) eine bestimmte Kategorie annimmt: \\[\nP(y = 1|X) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot X)}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot X)}}\n\\]\nwobei \\(P(y = 1|X)\\) die Wahrscheinlichkeit ist, dass \\(y\\) die Kategorie 1 annimmt, also EDM ist, gegeben einen Wert für \\(X\\), in unserem Fall Energy\nDas finale Modell sieht dann aus wie folgt: \\[\nP(EDM = 1|Energy) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy})}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy})}}\n\\]"
+    "text": "Logistische Regression\nDie Logistische Funktion\n\nDie logistische Regression modelliert die Wahrscheinlichkeit, dass \\(y\\) eine bestimmte Kategorie annimmt: \\[\nP(y = 1|X) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot X)}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot X)}}\n\\]\nwobei \\(P(y = 1|X)\\) die Wahrscheinlichkeit ist, dass \\(y\\) die Kategorie 1 annimmt, also EDM ist, gegeben einen Wert für \\(X\\), in unserem Fall Energy\nDas finale Modell sieht dann aus wie folgt: \\[\nP(EDM = 1|Energy) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy})}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy})}}\n\\]"
   },
   {
     "objectID": "06_VL.html#logistische-regression-8",
@@ -1278,35 +1320,35 @@
     "href": "06_VL.html#logistische-regression-9",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nGenerierung von Prognosen\n\nAus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten \\(\\beta_0\\) und \\(\\beta_1\\)\nDas gefittete Modell hat folgende Koeffizienten:\n\n\\[\n\\hat{P}(EDM = 1|Energy) = \\frac{ e^{(-9.89 + 21.34 \\cdot \\text{Energy})}}{1 + e^{(-9.89 +  21.34\\cdot \\text{Energy})}}\n\\]\n\nDurch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus"
+    "text": "Logistische Regression\nErgebnis der logistischen Regression\n\n\n\n\nAus dem Modell erhalten für für jeden Wert von Energy eine Wahrscheinlichkeit, dass ein Song EDM ist\nDie Wahrscheinlichkeit steigt (sinkt) mit steigender Energy und nähert sich 1 (0) an\nDie Steigung der Kurve ist in der Mitte am größten und nimmt zu den Rändern hin ab und die Kurve hat die typische S-Form\nDie Tabelle rechts zeigt die Wahrscheinlichkeiten für 10 zufällig ausgewählte Songs, sortiert nach der Wahrscheinlichkeit\n\n\n\n\n\n\n\n\n\n\nenergy\ntrack.name\ntrack.artist\ncategory\np_edm\n\n\n\n\n0.255\nNaruto: Alone Theme\nToshio Masuda\nKlassik\n0.012\n\n\n0.285\nThe Wife\nJocelyn Pook\nKlassik\n0.022\n\n\n0.323\nbad guy\nVitamin String Quartet\nKlassik\n0.048\n\n\n0.433\nMIDNIGHT\nPLAYAMANE\nEDM\n0.343\n\n\n0.570\nCNTRTE\nAQUIHAYAQUIHAY\nEDM\n0.907\n\n\n0.628\nI'll Take That Back\nAvangart Tabldot\nEDM\n0.971\n\n\n0.629\nOneHundred\nHEDEGAARD\nEDM\n0.972\n\n\n0.636\nEtude No. 9\nKummerspeck\nKlassik\n0.975\n\n\n0.680\nNow\nNiklas Dee\nEDM\n0.990\n\n\n0.690\nMe Provocas\nFumaratto\nEDM\n0.992"
   },
   {
     "objectID": "06_VL.html#logistische-regression-10",
     "href": "06_VL.html#logistische-regression-10",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nErgebnis der logistischen Regression\n\n\n\n\nAus dem Modell erhalten für für jeden Wert von Energy eine Wahrscheinlichkeit, dass ein Song EDM ist\nDie Wahrscheinlichkeit steigt (sinkt) mit steigender Energy und nähert sich 1 (0) an\nDie Steigung der Kurve ist in der Mitte am größten und nimmt zu den Rändern hin ab und die Kurve hat die typische S-Form\nDie Tabelle rechts zeigt die Wahrscheinlichkeiten für 10 zufällig ausgewählte Songs, sortiert nach der Wahrscheinlichkeit\n\n\n\n\n\n\n\n\n\nenergy\ntrack.name\ntrack.artist\ncategory\np_edm\n\n\n\n\n0.255\nNaruto: Alone Theme\nToshio Masuda\nKlassik\n0.012\n\n\n0.285\nThe Wife\nJocelyn Pook\nKlassik\n0.022\n\n\n0.323\nbad guy\nVitamin String Quartet\nKlassik\n0.048\n\n\n0.433\nMIDNIGHT\nPLAYAMANE\nEDM\n0.343\n\n\n0.570\nCNTRTE\nAQUIHAYAQUIHAY\nEDM\n0.907\n\n\n0.628\nI'll Take That Back\nAvangart Tabldot\nEDM\n0.971\n\n\n0.629\nOneHundred\nHEDEGAARD\nEDM\n0.972\n\n\n0.636\nEtude No. 9\nKummerspeck\nKlassik\n0.975\n\n\n0.680\nNow\nNiklas Dee\nEDM\n0.990\n\n\n0.690\nMe Provocas\nFumaratto\nEDM\n0.992"
+    "text": "Logistische Regression\nGenerierung von Prognosen\n\nAus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten \\(\\beta_0\\) und \\(\\beta_1\\)\nDas gefittete Modell hat folgende Koeffizienten:\n\n\n\\[\n\\hat{P}(EDM = 1|Energy) = \\frac{ e^{(-9.89 + 21.34 \\cdot \\text{Energy})}}{1 + e^{(-9.89 +  21.34\\cdot \\text{Energy})}}\n\\]\n\n\nDurch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus"
   },
   {
     "objectID": "06_VL.html#logistische-regression-11",
     "href": "06_VL.html#logistische-regression-11",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nVon Wahrscheinlichkeiten zu Klassifikationen\n\n\nBisher haben wir nur eine Wahrscheinlichkeit für die Klassenzugehörigkeit von Song \\(i\\) berechnet, gegeben den Wert für Energy, also\n\n\n\\[\nP(\\text{EDM}_i = 1|\\text{X = Energy}_i)\n\\]\n\n\nIm binären Klassifikationsmodell wird ein Schwellenwert oder Cut-Off Point \\(C\\) festgelegt, der bestimmt, ob ein Song als EDM klassifiziert wird oder nicht\nDie Zuordnung folgt dann allgemein nach der Form:\n\n\n\\[\\begin{equation}\n  \\text{Klasse} =\n    \\begin{cases}\n      0 & \\text{wenn } P(y_i = 1|X= x_i) \\leq C \\\\\n      1 & \\text{wenn } P(y_i = 1|X= x_i) &gt; C\n    \\end{cases}       \n\\end{equation}\\]\n\n\nEin häufig anzutreffender Default-Wert ist \\(C=0.5\\)"
+    "text": "Logistische Regression\nVon Wahrscheinlichkeiten zu Klassifikationen\n\n\nBisher haben wir nur eine Wahrscheinlichkeit für die Klassenzugehörigkeit von Song \\(i\\) berechnet, gegeben den Wert für Energy, also\n\n\n\n\\[\nP(\\text{EDM}_i = 1|\\text{X = Energy}_i)\n\\]\n\n\n\nIm binären Klassifikationsmodell wird ein Schwellenwert oder Cut-Off Point \\(C\\) festgelegt, der bestimmt, ob ein Song als EDM klassifiziert wird oder nicht\nDie Zuordnung folgt dann allgemein nach der Form:\n\n\n\n\\[\\begin{equation}\n  \\text{Klasse} =\n    \\begin{cases}\n      0 & \\text{wenn } P(y_i = 1|X= x_i) \\leq C \\\\\n      1 & \\text{wenn } P(y_i = 1|X= x_i) &gt; C\n    \\end{cases}       \n\\end{equation}\\]\n\n\n\nEin häufig anzutreffender Default-Wert ist \\(C=0.5\\)"
   },
   {
     "objectID": "06_VL.html#logistische-regression-12",
     "href": "06_VL.html#logistische-regression-12",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nErgebnis und Evaluation\n\n\n\n\nMit dem Default-Wert \\(C=0.5\\) erhalten wir die rechts dargestellten Klassifikationen für die 10 Beispiel-Songs\nMit den generierten Klassifikationen lassen sich nun verschiedene Metriken berechnen, um die Qualität des Modells zu bewerten\nDie einfachste Metrik ist die Accuracy, die den Anteil der korrekt klassifizierten Songs angibt\n\n\n\n\n\n\n\n\n\nenergy\ntrack.name\ntrack.artist\nedm_factor\np_edm\n.pred_class\n\n\n\n\n0.255\nNaruto: Alone Theme\nToshio Masuda\n0\n0.012\n0\n\n\n0.285\nThe Wife\nJocelyn Pook\n0\n0.022\n0\n\n\n0.323\nbad guy\nVitamin String Quartet\n0\n0.048\n0\n\n\n0.433\nMIDNIGHT\nPLAYAMANE\n1\n0.343\n0\n\n\n0.570\nCNTRTE\nAQUIHAYAQUIHAY\n1\n0.907\n1\n\n\n0.628\nI'll Take That Back\nAvangart Tabldot\n1\n0.971\n1\n\n\n0.629\nOneHundred\nHEDEGAARD\n1\n0.972\n1\n\n\n0.636\nEtude No. 9\nKummerspeck\n0\n0.975\n1\n\n\n0.680\nNow\nNiklas Dee\n1\n0.990\n1\n\n\n0.690\nMe Provocas\nFumaratto\n1\n0.992\n1"
+    "text": "Logistische Regression\nErgebnis und Evaluation\n\n\n\n\nMit dem Default-Wert \\(C=0.5\\) erhalten wir die rechts dargestellten Klassifikationen für die 10 Beispiel-Songs\nMit den generierten Klassifikationen lassen sich nun verschiedene Metriken berechnen, um die Qualität des Modells zu bewerten\nDie einfachste Metrik ist die Accuracy, die den Anteil der korrekt klassifizierten Songs angibt\n\n\n\n\n\n\n\n\n\n\nenergy\ntrack.name\ntrack.artist\nedm\np_edm\n.pred_class\n\n\n\n\n0.255\nNaruto: Alone Theme\nToshio Masuda\n0\n0.012\n0\n\n\n0.285\nThe Wife\nJocelyn Pook\n0\n0.022\n0\n\n\n0.323\nbad guy\nVitamin String Quartet\n0\n0.048\n0\n\n\n0.433\nMIDNIGHT\nPLAYAMANE\n1\n0.343\n0\n\n\n0.570\nCNTRTE\nAQUIHAYAQUIHAY\n1\n0.907\n1\n\n\n0.628\nI'll Take That Back\nAvangart Tabldot\n1\n0.971\n1\n\n\n0.629\nOneHundred\nHEDEGAARD\n1\n0.972\n1\n\n\n0.636\nEtude No. 9\nKummerspeck\n0\n0.975\n1\n\n\n0.680\nNow\nNiklas Dee\n1\n0.990\n1\n\n\n0.690\nMe Provocas\nFumaratto\n1\n0.992\n1"
   },
   {
     "objectID": "06_VL.html#modellevaluation",
     "href": "06_VL.html#modellevaluation",
     "title": "Business Intelligence & Data Science",
     "section": "Modellevaluation",
-    "text": "Modellevaluation\nKonfusionsmatrix\n\n\nZur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst.\nIm binären Modell bedeutet positiv, dass die Beobachtung zur interessanten Klasse (in unserem Fall EDM) gehört, negativ, dass sie nicht dazu gehört\n\n\n\n\n\n\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\nSumme Vorhersage\n\n\n\n\nVorhergesagt Positiv\nTrue Positive (TP)\nFalse Positive (FP)\nSumme Positiv\n\n\nVorhergesagt Negativ\nFalse Negative (FN)\nTrue Negative (TN)\nSumme Negativ\n\n\nSumme Tatsächlich\nSumme Positiv Tats.\nSumme Negativ Tats.\nGesamtsumme"
+    "text": "Modellevaluation\nKonfusionsmatrix\n\n\nZur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst.\nIm binären Modell bedeutet positiv, dass die Beobachtung zur interessanten Klasse (in unserem Fall EDM) gehört, negativ, dass sie nicht dazu gehört\n\n\n\n\n\n\n\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\nSumme Vorhersage\n\n\n\n\nVorhergesagt Positiv\nTrue Positive (TP)\nFalse Positive (FP)\nSumme Positiv\n\n\nVorhergesagt Negativ\nFalse Negative (FN)\nTrue Negative (TN)\nSumme Negativ\n\n\nSumme Tatsächlich\nSumme Positiv Tats.\nSumme Negativ Tats.\nGesamtsumme"
   },
   {
     "objectID": "06_VL.html#modellevaluation-1",
@@ -1327,7 +1369,7 @@
     "href": "06_VL.html#modellevaluation-3",
     "title": "Business Intelligence & Data Science",
     "section": "Modellevaluation",
-    "text": "Modellevaluation\nKonfusionsmatrix im Beispiel und Berechnung der Accuracy\n\n\n\nUnser einfaches Modell zeigt die rechts dargestellte Konfusionsmatrix\nAus den vier Quadranten lässt sich dann die Accuracy berechnen:\n\n\n\\[\n\\text{Accuracy} = \\frac{TP + TN}{TP + TN + FP + FN}\n\\] \\[\n= \\frac{156 + 140}{156 + 140 + 2 + 2} = 0.987\n\\]"
+    "text": "Modellevaluation\nKonfusionsmatrix im Beispiel und Berechnung der Accuracy\n\n\n\nUnser einfaches Modell zeigt die rechts dargestellte Konfusionsmatrix\nAus den vier Quadranten lässt sich dann die Accuracy berechnen:\n\n\n\n\\[\n\\text{Accuracy} = \\frac{TP + TN}{TP + TN + FP + FN}\n\\] \\[\n= \\frac{156 + 140}{156 + 140 + 2 + 2} = 0.987\n\\]"
   },
   {
     "objectID": "06_VL.html#modellevaluation-4",
@@ -1726,7 +1768,7 @@
     "href": "03_VL_D.html#der-plan-für-heute",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung 3\n\n\nQuiz\nRecap zur Aufgabe von letzter Woche\nVisualisierungstyp Balkendiagramm\nDatentransformation:\n\nWas heißt ETL?\nWelche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?\n\nGemeinsame Transformation eines Datensatzes mit User-Events"
+    "text": "Der Plan für heute…\nVorlesung 3\n\n\nQuiz\nRecap zur Aufgabe von letzter Woche\nVisualisierung von Häufigkeiten: Balkendiagramm\nDatentransformation:\n\nWas heißt ETL?\nWelche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?\n\nGemeinsame Transformation eines Datensatzes mit User-Events"
   },
   {
     "objectID": "03_VL_D.html#business-case",
@@ -1761,7 +1803,7 @@
     "href": "03_VL_D.html#visualisierung-3",
     "title": "Business Intelligence & Data Science",
     "section": "Visualisierung",
-    "text": "Visualisierung\nRelatives gestapeltes Balkendiagramm\n\n\n\n\nWenn die Anteile der Dimensionen wichtiger sind als die Summe bzw. die Summe keine sinnvolle Interpretation zulässt\nHinweise des einfachen Balkendiagramms gelten weiterhin, ggf. horizontal und Jahreszahlen aufsteigend sortieren"
+    "text": "Visualisierung\nRelatives gestapeltes Balkendiagramm\n\n\n\n\nWenn die Anteile der Dimensionen wichtiger sind als die Summe bzw. die Summe keine sinnvolle Interpretation zulässt\nHinweise des einfachen Balkendiagramms gelten weiterhin, ggf. horizontal und Jahreszahlen aufsteigend sortieren\nBei mehr als 5 Dimensionen oft unübersichtlich"
   },
   {
     "objectID": "03_VL_D.html#kurzer-überblick-wo-gehts-weiter",
@@ -1796,7 +1838,7 @@
     "href": "03_VL_D.html#filterung-1",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nSyntaktische Mängel\n\nSyntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen\nSyntaktische Mängel sind in der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren\nBeispiele:\n\nFehlende Werte\nWidersprüchliche Datumsformate (2022-04-03 und 04.03.2022)\nLeere Primärschlüssel\nUnzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. “123a” statt “123”)"
+    "text": "Filterung\nSyntaktische Mängel\n\nSyntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen\nIn der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren\nBeispiele:\n\nFehlende Werte\nWidersprüchliche Datumsformate (2022-04-03 und 04.03.2022)\nLeere Primärschlüssel\nUnzulässige Zeichen wie nicht-numerische Zeichen in numerischen Feldern (z.B. “123a” statt “123”)"
   },
   {
     "objectID": "03_VL_D.html#filterung-2",
@@ -1817,7 +1859,7 @@
     "href": "03_VL_D.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-09\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-11\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-15\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-08\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-10\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-12\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-16\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-09\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL_D.html#harmonisierung",

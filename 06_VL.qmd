@@ -112,6 +112,9 @@ training <-
 
 
 ::: {.column width=50%}
+
+::: {.fragment .fade-in}
+
 ```{r, fig.width = 5, fig.height = 5.5}
 bins_5 <- data %>% 
   filter(category == "Klassik") %>%
@@ -132,6 +135,7 @@ bins_5/bins_10
 ```
 
 :::
+:::
 ::::
 
 
@@ -150,8 +154,11 @@ bins_5/bins_10
 ::: 
 :::
 
-
 ::: {.column width=55%}
+
+::: {.fragment .fade-in}
+
+
 ```{r, fig.width = 5, fig.height = 5.5}
 schlecht <-  data %>% 
   ggplot(data = ., aes(x = danceability, fill = category)) + 
@@ -173,6 +180,8 @@ besser <- data %>%
 schlecht/besser
 
 ```
+
+:::
 
 :::
 ::::
@@ -221,7 +230,9 @@ schlecht/besser
 :::: {.columns}
 ::: {.column width=55%}
 
+::: {.nonincremental}
 ::: {style="font-size: 0.80em"}
+
 * Die Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten
 * Die Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten
 * Die Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil
@@ -230,7 +241,7 @@ schlecht/besser
 * Einzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt
   
 :::
-
+:::
 :::
 
 ::: {.column width=45%}
@@ -291,10 +302,13 @@ boxplot
 
 
 ::: {style="font-size: 0.87em"}
+::: {.nonincremental}
 * Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.
 * Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse
 * Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz
 * Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind
+:::
+
 :::
 
 :::
@@ -339,7 +353,7 @@ violin
 ### Trainings- und Testdaten
 
 * Bevor wir die von Tofispy bereitgestellten Daten analysieren, teilen wir die Daten in Trainings- und Testdaten auf
-* Das ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfittung zu vermeiden
+* Das ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfitting zu vermeiden
 * Da der Trainingsdatensatz für das Modelltraining verwendet wird, wählt an oft einen Anteil von 70-80% der Daten für das Training und 20-30% für das Testen
 * In unserem Fall verwenden wir nur 300 Beobachtungen, um die Visualisierungen zum Einstieg nicht zu überfrachten
 * Neben diesen einfachen Splits gibt es auch komplexere Verfahren wie Kreuzvalidierung
@@ -405,6 +419,11 @@ training %>%
 
 * Noch intuitiver wird der Zusammenhang, wenn wir die Daten visualisieren mit der abhängigen Variable *EDM*  auf der Y-Achse und der unabhängigen Variable *Energy* auf der X-Achse
 
+
+::: {.fragment .fade-in}
+
+
+
 ```{r, fig.cap = "Scatter Plot mit Dummy Variable als abhängiger Variable. Eigene Darstellung", message = FALSE, fig.height = 3.5, fig.width = 8}
 
 ggplot(data= training, aes(x=energy, y = edm)) + 
@@ -415,6 +434,7 @@ ggplot(data= training, aes(x=energy, y = edm)) +
 
 ```
 
+:::
 
 ## Logistische Regression
 ### Warum nicht einfach lineare Regression?
@@ -422,6 +442,8 @@ ggplot(data= training, aes(x=energy, y = edm)) +
 ::: {style="font-size: 0.80em"}
 * Eine lineare Regression ist erste Option, den Zusammenhang zu modellieren
 * Wir erhalten folgende Koeffizienten:
+
+
 ```{r}
 lm_rap <- linear_reg() %>% 
   set_engine("lm") %>% 
@@ -434,10 +456,18 @@ slope <- tidy(lm_rap)$estimate[2]
 ```
 :::
 ::: {style="font-size: 0.8em"}
+::: {.fragment .fade-in}
+
 $$
 \operatorname{\widehat{EDM}} = `r round(intercept,2)` + `r round(slope,2)` \cdot \text{Energy}
 $$
 :::
+
+:::
+
+::: {.fragment .fade-in}
+
+
 ```{r,  message = FALSE, fig.height = 3.5, fig.width = 10}
 ggplot(data= training, aes(x=energy, y =edm )) + 
   labs(title = "Energy vs. EDM", x = "Energy", y = "EDM") +
@@ -447,7 +477,7 @@ ggplot(data= training, aes(x=energy, y =edm )) +
 ```
 
 
-
+:::
 
 ## Logistische Regression
 ### Warum nicht einfach lineare Regression?
@@ -468,6 +498,8 @@ $$
 * Sigmoid Funktionen garantieren, dass alle vorgehersagten Wahrscheinlichkeiten zwischen 0 und 1 liegen, auch wenn die unabhängige Variable $X$ sehr groß oder sehr klein ist
 :::
 
+::: {.fragment .fade-in}
+
 ```{r,  message = FALSE, fig.height = 3.5, fig.width = 10}
 logistic <- function(x){
   
@@ -483,13 +515,13 @@ ggplot(data.frame(x, y), aes(x=x, y = y)) + geom_line(linewidth = 1) +
   labs(x = "X", y = "p(X)") + theme_bw()
 ```
 
-
+:::
   
 ## Logistische Regression
 ### Die Logistische Funktion
 
 
-* Die logistische Regression modelliert stattdessen die Wahrscheinlichkeit, dass $y$ eine bestimmte Kategorie annimmt:
+* Die logistische Regression modelliert die Wahrscheinlichkeit, dass $y$ eine bestimmte Kategorie annimmt:
 $$
 P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X)}}{1 + e^{(\beta_0 + \beta_1 \cdot X)}}
 $$
@@ -511,6 +543,8 @@ $$
 
 * Wenn wir statt des linearen Modells ein logistisches Modell verwenden, erhalten wir folgenden Zusammenhang zwischen Energy und der Wahrscheinlichkeit, dass ein Song zum Genre EDM gehört:
 
+::: {.fragment .fade-in}
+
 ```{r,  message = FALSE, fig.height = 3.5, fig.width = 10}
 
 binomial_smooth <- function(...) {
@@ -528,34 +562,8 @@ ggplot(data= training, aes(x=energy, y = edm)) +
 
 ```
 
-## Logistische Regression
-### Generierung von Prognosen
+:::
 
-```{r}
-
-logistic <- logistic_reg() %>% 
-  set_engine("glm") %>% 
-  fit(edm_factor ~ energy, data = training)
-
-
-coefficients_logistic <- tidy(logistic)
-
-beta_0 <- round(coefficients_logistic$estimate[1],2)
-beta_1 <- round(coefficients_logistic$estimate[2],2)
-
-```
-
-
-* Aus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten $\beta_0$ und $\beta_1$
-* Das gefittete Modell hat folgende Koeffizienten:
-
-
-$$
-\hat{P}(EDM = 1|Energy) = \frac{ e^{(`r beta_0` + `r beta_1` \cdot \text{Energy})}}{1 + e^{(`r beta_0` +  `r beta_1`\cdot \text{Energy})}}
-$$
-
-
-* Durch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus
 
 
 ## Logistische Regression
@@ -574,6 +582,10 @@ $$
 ::: {.column width=50%}
 
 ::: {style="font-size: 0.45em"}
+
+::: {.fragment .fade-in}
+
+
 
 ```{r}
 logistic <- logistic_reg() %>% 
@@ -603,24 +615,60 @@ sample %>%
 
 :::
 
+:::
+
 
 
 ::::
+
+## Logistische Regression
+### Generierung von Prognosen
+
+```{r}
+
+logistic <- logistic_reg() %>% 
+  set_engine("glm") %>% 
+  fit(edm_factor ~ energy, data = training)
+
+
+coefficients_logistic <- tidy(logistic)
+
+beta_0 <- round(coefficients_logistic$estimate[1],2)
+beta_1 <- round(coefficients_logistic$estimate[2],2)
+
+```
+
+
+* Aus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten $\beta_0$ und $\beta_1$
+* Das gefittete Modell hat folgende Koeffizienten:
+
+::: {.fragment .fade-in}
+$$
+\hat{P}(EDM = 1|Energy) = \frac{ e^{(`r beta_0` + `r beta_1` \cdot \text{Energy})}}{1 + e^{(`r beta_0` +  `r beta_1`\cdot \text{Energy})}}
+$$
+
+::: 
+* Durch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus
+
 
 ## Logistische Regression
 ### Von Wahrscheinlichkeiten zu Klassifikationen
 ::: {style="font-size: 0.95em"}
 * Bisher haben wir nur eine Wahrscheinlichkeit für die Klassenzugehörigkeit von Song $i$ berechnet, gegeben den Wert für Energy, also
 
+::: {.fragment .fade-in}
+
 ::: {style="font-size: 0.75em"}
 $$
 P(\text{EDM}_i = 1|\text{X = Energy}_i)
 $$
 :::
+:::
 
 * Im binären Klassifikationsmodell wird ein Schwellenwert oder Cut-Off Point $C$ festgelegt, der bestimmt, ob ein Song als EDM klassifiziert wird oder nicht
 * Die Zuordnung folgt dann allgemein nach der Form:
 
+::: {.fragment .fade-in}
 ::: {style="font-size: 0.75em"}
 \begin{equation}
   \text{Klasse} =
@@ -629,6 +677,8 @@ $$
       1 & \text{wenn } P(y_i = 1|X= x_i) > C
     \end{cases}       
 \end{equation}
+:::
+
 :::
 * Ein häufig anzutreffender Default-Wert ist $C=0.5$
 
@@ -652,9 +702,15 @@ $$
 
 ::: {style="font-size: 0.45em"}
 
+::: {.fragment .fade-in}
+
+
+
 ```{r}
 sample %>% 
+
   select(energy, track.name, track.artist, edm_factor, p_edm, .pred_class) %>% 
+    rename(edm = edm_factor) %>% 
   arrange(p_edm) %>%
    kable(digits = 3) 
 
@@ -663,6 +719,8 @@ sample %>%
 
 
 ```
+
+:::
 :::
 :::
 ::::
@@ -676,6 +734,8 @@ sample %>%
 * Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst.
 * Im binären Modell bedeutet positiv, dass die Beobachtung zur interessanten Klasse (in unserem Fall EDM) gehört, negativ, dass sie nicht dazu gehört
 
+::: {.fragment .fade-in}
+
 
 
 |                    | Tatsächlich Positiv | Tatsächlich Negativ | Summe Vorhersage |
@@ -684,7 +744,7 @@ sample %>%
 | **Vorhergesagt Negativ**| False Negative (FN) | True Negative (TN)  | Summe Negativ    |
 | **Summe Tatsächlich**   | Summe Positiv Tats. | Summe Negativ Tats. | Gesamtsumme      |
 
-
+:::
 
 :::
 
@@ -739,6 +799,7 @@ Beispiele: die ausbleibende Meldung eines aufgetretenen Schadens oder die falsch
 
 
 ::: {style="font-size: 0.8em"}
+::: {.fragment .fade-in}
 
 $$
 \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN} 
@@ -748,6 +809,7 @@ $$
 $$
 
 ::: 
+:::
 :::
 
 ::: {.column width=50%}
@@ -792,11 +854,15 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 
 ::: {style="font-size: 0.6em"}
 
+
+
 |                    | Tatsächlich Positiv | Tatsächlich Negativ | Summe Vorhersage |
 |--------------------|---------------------|---------------------|------------------|
 | **Vorhergesagt Positiv**| 1 |0 | 1   |
 | **Vorhergesagt Negativ**| 99 | 900  | 999     |
 | **Summe Tatsächlich**   | 100 | 900 | 1000      |
+
+
 
 :::
 :::

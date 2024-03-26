@@ -278,7 +278,20 @@ Warum 2^8? Weil 2 Zustände (0 oder 1) und 8 Stellen (Bit) = 2^8 = 256
   * Oben auf "+Chart" klicken
   * Das Dataset "user_events_clean" auswählen
   * Anschließend "Time Series Line Chart" auswählen
-* Frage: Was ist der Hauptgrund für das schwindende Wachstum?
+
+
+## Business Case
+### Tofispy User Events
+
+* Der Datensatz enthält die folgenden Spalten:
+  * DATE: Datum mit täglicher Granularität
+  * SUBSCRIPTIONS: Zahl der Neu-Registrierungen pro Tag
+  * CANCELLATIONS: Zahl der Kündigungen pro Tag
+  * NET: Netto-Zahl pro Tag als Differenz zwischen Neu-Registrierungen und Kündigungen
+* Fragen: 
+  * Welche Granularität des Zeitstempels (Time Grain) generiert das anschaulichste Chart?
+  * Was ist eine sinnvolle Aggregation?
+  * Was ist der Hauptgrund für das schwindende Wachstum?
 
 ## Business Case
 ### Line Plot Starthilfe
@@ -329,6 +342,9 @@ Warum 2^8? Weil 2 Zustände (0 oder 1) und 8 Stellen (Bit) = 2^8 = 256
 :::
 ::: {.column width="50%"}
 
+::: {.fragment .fade-in}
+
+
 ```{r, fig.height= 4, fig.width=4}
 
 questionnaire %>%
@@ -346,6 +362,8 @@ questionnaire %>%
 
 
 ```
+
+::: 
 
 ::: 
 ::::
@@ -367,6 +385,8 @@ questionnaire %>%
 :::
 ::: {.column width="50%"}
 
+::: {.fragment .fade-in}
+
 ```{r, fig.height= 5.5, fig.width=5}
 library(treemap)
 questionnaire %>%
@@ -386,6 +406,7 @@ questionnaire %>%
 
 ```
 
+:::
 :::
 ::::
 
@@ -445,7 +466,59 @@ questionnaire %>%
 :::
 ::::
 
+## OLAP
 
+### Slicing
+
+* Slicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird
+* Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004--2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen
+
+::: {.fragment .fade-in}
+![OLAP Slicing. Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/OLAP_slicing.png){width=60%}
+:::
+
+## OLAP
+
+### Dicing
+
+* Dicing ist die Einschränkung mehrerer Dimensionen auf ausgewählte Werte, sodass ein neuer, kleinerer Würfel entsteht
+* Im Beispiel wird die Anzahl der Produktkategorien von fünf auf drei reduziert
+
+::: {.fragment .fade-in}
+![OLAP Dicing Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/OLAP_dicing.png){width=60%}
+:::
+
+## OLAP
+### Pivotierung
+
+::: {style="font-size: 0.78em"}
+
+* Auswertung erfolgt meist auf zweidimensionalen Ausschnitten aus dem Cube, beispielsweise Produktkategorie pro Jahr
+* Grafisch entspricht eine solche Ansicht einer Seite des Würfels
+* Durch Pivotierung wird der Würfel um eine Achse gedreht
+* Im Beispiel: Geografie pro Jahr statt Produktkategorie über Geografie
+
+:::
+::: {.fragment .fade-in}
+![OLAP Pivotierung/Rotation Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/OLAP_pivoting.png){width=55%}
+
+:::
+
+## OLAP
+### Roll-Up, Drill-Down & Drill-Through 
+
+* Beim Roll-Up werden die Werte einer Hierarchieebene auf die Werte einer übergeordneten Hierarchieebene aggregiert
+* Beim Drill-Down wiederum wird ein aggregierter Wert in die einzelnen Bestandteile aufgeschlüsselt, bspw. die Betrachtung von einzelnen Monaten im Jahr 2004
+* In einigen Fällen wird beim Drilling die physikalische Datenquelle gewechselt, da beispielsweise nur eine begrenzte Granularitätsstufe im aktuellen Cube verfügbar ist
+* Das geschieht im Normalfall ohne Wissen der Anwendenden, die die Abfrage stellen
+
+## OLAP
+### Physikalische Umsetzung und Anbindungsschnittstellen
+
+* Die Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig
+* OLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in  Tabellenkalkulationsprogramm wie Excel
+* Ein bekanntes Beispiel ist [SAP Analysis](https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html?version=2.8.19.0) für Excel
+* Andere gängige Praxis sind webbasierte Schnittstellen wie [Cubeware Cockpit](https://www.cubeware.com/content/Produkte/C8_Cockpit/C8-Cockpit-Viewer_DE.pdf) 
 
 ## Slide Title {visibility="hidden"}
 

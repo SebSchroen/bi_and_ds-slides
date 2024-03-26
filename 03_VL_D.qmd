@@ -25,7 +25,7 @@ market_share <- read_csv("data/market_research.csv") %>%
 :::{.incremental}
 * Quiz
 * Recap zur Aufgabe von letzter Woche
-* Visualisierungstyp Balkendiagramm
+* Visualisierung von Häufigkeiten: Balkendiagramm
 * Datentransformation:
   * Was heißt ETL?
   * Welche Transformationschritte durchlaufen operative Daten bis zur Speicherung im DWH?
@@ -209,6 +209,7 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 ::: {style="font-size: 0.75em"}
 * Wenn die Anteile der Dimensionen wichtiger sind als die Summe bzw. die Summe keine sinnvolle Interpretation zulässt
 * Hinweise des einfachen Balkendiagramms gelten weiterhin, ggf. horizontal und Jahreszahlen aufsteigend sortieren
+* Bei mehr als 5 Dimensionen oft unübersichtlich
 
 :::
 :::
@@ -221,9 +222,9 @@ ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
 ggplot(data = market_share, aes(x = Year, y = User, fill = Anbieter)) +
   geom_col(position = "fill", just = 1) +
   labs(title = "Gestapeltes Balkendiagramm",
-       subtitle = "User in Mio pro Anbieter",
+       subtitle = "Marktanteile pro Anbieter",
        x = "Jahr",
-       y = "User in Mio.",
+       y = "Anteil",
        fill = "Anbieter") +
   theme_minimal() +
   theme(legend.position = "bottom") +
@@ -340,7 +341,7 @@ plot_marts_aligned
 ### Syntaktische Mängel
 
 * Syntaktische Mängel beziehen sich auf Fehler oder Probleme in der Struktur der Daten, die gegen die Syntax- oder Formatregeln verstoßen
-* Syntaktische Mängel sind in der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren
+* In der Regel einfacher zu erkennen und automatisch zu beheben, da sie auf klaren Regelverstößen basieren
 * Beispiele:
   * Fehlende Werte
   * Widersprüchliche Datumsformate (2022-04-03 und 04.03.2022)
