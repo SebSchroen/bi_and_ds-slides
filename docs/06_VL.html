@@ -447,11 +447,9 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="480"></p>
-</div>
 </div>
 </div>
 </div>
@@ -472,11 +470,9 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:55%;">
-<div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
-</div>
 </div>
 </div>
 </div>
@@ -552,7 +548,7 @@ Dr.&nbsp;Sebastian Schrön
 <div class="column" style="width:55%;">
 <div style="font-size: 0.87em">
 <ul>
-<li class="fragment">Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.</li>
+<li class="fragment">Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violin-Plots abgelöst.</li>
 <li class="fragment">Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse</li>
 <li class="fragment">Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz</li>
 <li class="fragment">Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind</li>
@@ -623,13 +619,26 @@ Dr.&nbsp;Sebastian Schrön
 </section>
 <section id="logistische-regression-1" class="slide level2">
 <h2>Logistische Regression</h2>
+<h3 id="binäre-klassifikation-vs.-multiklassen-klassifikation">Binäre Klassifikation vs.&nbsp;Multiklassen-Klassifikation</h3>
+<ul>
+<li class="fragment">Klassifikationsmodelle können in zwei Kategorien unterteilt werden:
+<ul>
+<li class="fragment">Binäre Klassifikation: Die abhängige Variable hat nur zwei Kategorien</li>
+<li class="fragment">Multiklassen-Klassifikation: Die abhängige Variable hat mehr als zwei Kategorien</li>
+</ul></li>
+<li class="fragment">In unserem Fall haben wir nur zwei Genres, Klassik und EDM, also eine binäre Klassifikation</li>
+<li class="fragment">Da die Intuition hinter der logistischen Regression einfacher zu verstehen ist, beginnen wir mit der binären Klassifikation</li>
+</ul>
+</section>
+<section id="logistische-regression-2" class="slide level2">
+<h2>Logistische Regression</h2>
 <h3 id="zurück-zu-unserer-ausgangsgleichung">Zurück zu unserer Ausgangsgleichung</h3>
 <ul>
 <li class="fragment">Ausgangspunkt für die logistische Regression ist erneut unsere Grundgleichung <span class="math display">\[
 y = f(X) + \epsilon,
 \]</span></li>
 <li class="fragment">Wie besprochen ist die Variable <span class="math inline">\(y\)</span> bei Klassifikationsproblemen qualitativ oder kategorial</li>
-<li class="fragment">Für die logistische Regression erfolgt eine Umkodierung in eine sog. Dummy-Variable, also 0 oder 1, im Sinne von <em>Falsch</em> und <em>Richtig</em></li>
+<li class="fragment">Für die binäre logistische Regression erfolgt eine Umkodierung in eine sog. Dummy-Variable, also 0 oder 1, im Sinne von <em>Falsch</em> und <em>Richtig</em></li>
 <li class="fragment">Beispiel bei zwei Genres in der Variable <span class="math inline">\(y\)</span>: <span class="math display">\[\begin{equation}
 y =
   \begin{cases}
@@ -639,7 +648,7 @@ y =
 \end{equation}\]</span></li>
 </ul>
 </section>
-<section id="logistische-regression-2" class="slide level2">
+<section id="logistische-regression-3" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="intuition">Intuition</h3>
 <div class="columns">
@@ -712,7 +721,7 @@ y =
 </div>
 </div>
 </section>
-<section id="logistische-regression-3" class="slide level2">
+<section id="logistische-regression-4" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="intuition-1">Intuition</h3>
 <ul>
@@ -731,7 +740,7 @@ y =
 </div>
 </div>
 </section>
-<section id="logistische-regression-4" class="slide level2">
+<section id="logistische-regression-5" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="warum-nicht-einfach-lineare-regression">Warum nicht einfach lineare Regression?</h3>
 <div style="font-size: 0.80em">
@@ -755,7 +764,7 @@ y =
 </div>
 </div>
 </section>
-<section id="logistische-regression-5" class="slide level2">
+<section id="logistische-regression-6" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="warum-nicht-einfach-lineare-regression-1">Warum nicht einfach lineare Regression?</h3>
 <ul>
@@ -769,7 +778,7 @@ y = \beta_0 + \beta_1 \cdot X
 </ul></li>
 </ul>
 </section>
-<section id="logistische-regression-6" class="slide level2">
+<section id="logistische-regression-7" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="die-logistische-funktion">Die Logistische Funktion</h3>
 <div style="font-size: 0.8em">
@@ -786,7 +795,7 @@ y = \beta_0 + \beta_1 \cdot X
 </div>
 </div>
 </section>
-<section id="logistische-regression-7" class="slide level2">
+<section id="logistische-regression-8" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="die-logistische-funktion-1">Die Logistische Funktion</h3>
 <ul>
@@ -799,7 +808,7 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 \]</span></li>
 </ul>
 </section>
-<section id="logistische-regression-8" class="slide level2">
+<section id="logistische-regression-9" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="ergebnis-der-logistischen-regression">Ergebnis der logistischen Regression</h3>
 <ul>
@@ -813,7 +822,7 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 </div>
 </div>
 </section>
-<section id="logistische-regression-9" class="slide level2">
+<section id="logistische-regression-10" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="ergebnis-der-logistischen-regression-1">Ergebnis der logistischen Regression</h3>
 <div class="columns">
@@ -923,7 +932,7 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 </div>
 </div>
 </section>
-<section id="logistische-regression-10" class="slide level2">
+<section id="logistische-regression-11" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="generierung-von-prognosen">Generierung von Prognosen</h3>
 <ul>
@@ -939,7 +948,7 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 <li class="fragment">Durch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus</li>
 </ul>
 </section>
-<section id="logistische-regression-11" class="slide level2">
+<section id="logistische-regression-12" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="von-wahrscheinlichkeiten-zu-klassifikationen">Von Wahrscheinlichkeiten zu Klassifikationen</h3>
 <div style="font-size: 0.95em">
@@ -973,7 +982,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </ul>
 </div>
 </section>
-<section id="logistische-regression-12" class="slide level2">
+<section id="logistische-regression-13" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="ergebnis-und-evaluation">Ergebnis und Evaluation</h3>
 <div class="columns">
@@ -1098,8 +1107,12 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <h3 id="konfusionsmatrix">Konfusionsmatrix</h3>
 <div style="font-size: 0.8em">
 <ul>
-<li class="fragment">Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst.</li>
-<li class="fragment">Im binären Modell bedeutet positiv, dass die Beobachtung zur interessanten Klasse (in unserem Fall EDM) gehört, negativ, dass sie nicht dazu gehört</li>
+<li class="fragment">Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst</li>
+<li class="fragment">Im binären Modell gilt:
+<ul>
+<li class="fragment">positiv: Beobachtung <span class="math inline">\(i\)</span> gehört zur interessanten Klasse (in unserem Fall EDM)</li>
+<li class="fragment">negativ: Beobachtung <span class="math inline">\(i\)</span> gehört nicht dazu</li>
+</ul></li>
 </ul>
 <div class="fragment fade-in">
 <table style="width:100%;">
@@ -1168,7 +1181,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </table>
 <ul>
 <li class="fragment"><strong>True Positive (TP)</strong>: Ein TP liegt vor, wenn das Modell ein Objekt korrekt der relevanten Klasse zuordnet. Beispiele hierfür sind die korrekte Identifikation eines Schadens, die richtige Diagnose einer Krankheit oder die richtige Erkennung von Spam.</li>
-<li class="fragment"><strong>False Positive (FP)</strong>: Ein FP liegt vor, wenn das Modell ein Objekt fälschlicherweise als positiv bzw. relevant klassifiziert, obwohl es tatsächlich negativ ist. Beispiele hierfür sind die ausbleibende Meldung eines Schadens oder die Diagnose einer nicht existierenden Krankheit. FP wird auch als Typ-I Fehler oder Alpha-Fehler bezeichnet.</li>
+<li class="fragment"><strong>False Positive (FP)</strong>: Ein FP liegt vor, wenn das Modell ein Objekt fälschlicherweise als positiv bzw. relevant klassifiziert, obwohl es tatsächlich negativ ist. Beispiele hierfür sind die Meldung eines nicht vorhandenen Schadens oder die Diagnose einer nicht existierenden Krankheit. FP wird auch als Typ-I Fehler oder Alpha-Fehler bezeichnet.</li>
 </ul>
 </div>
 </section>
@@ -1249,7 +1262,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <li class="fragment">In der Praxis liegen häufig unbalancierte Datensätze vor, sodass die Accuracy allein meist nur geringe Aussagekraft hat</li>
 <li class="fragment">Wir nehmen ein extremes Beispiel mit 1000 E-Mails, von denen 100 Spam-Mails sind</li>
 <li class="fragment">Unser Modell zur Spam-Erkennung liefert die Konfusionsmatrix rechts</li>
-<li class="fragment">Das Modell erkennt keine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%</li>
+<li class="fragment">Das Modell erkennt nur eine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%, weil die Zahl der TN sehr hoch ist</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <div style="font-size: 0.6em">

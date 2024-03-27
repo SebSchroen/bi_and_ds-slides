@@ -396,10 +396,13 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="ergebnisse-von-letzter-woche">Ergebnisse von letzter Woche</h3>
 <div class="columns">
 <div class="column" style="width:40%;">
+<div style="font-size: 0.9em">
 <ul>
 <li class="fragment">In der letzten Woche haben wir festgestellt, dass der Hauptgrund für das schwindende Wachstum bei Tofispy ein stark steigender Trend bei den Kündigungen ist</li>
 <li class="fragment">Laut einer Umfrage ist der Hauptgrund dafür eine Unzufriedenheit mit dem empfohlenen Content</li>
+<li class="fragment">Alle Ergebnisse sind im Dashboard “Tofispy Marktanalyse” zusammengefasst</li>
 </ul>
+</div>
 </div><div class="column" style="width:60%;">
 <div class="fragment fade-in">
 <p><img data-src="img/user_events.jpg" style="width:80.0%"> <img data-src="img/pie_chart.jpg" style="width:50.0%"></p>
@@ -422,7 +425,7 @@ Dr.&nbsp;Sebastian Schrön
 <li class="fragment">Kreisdiagramme sind eine der häufigsten und umstrittensten Visualisierungen, um Anteile und Proportionen zu visualisieren</li>
 <li class="fragment">Nur bei einer geringen Anzahl von Kategorien (2-5) sinnvoll</li>
 <li class="fragment">Nicht sinnvoll, wenn die Anteile zwischen den Dimensionen sehr ähnlich sind</li>
-<li class="fragment">Auch bei negativen Werten oder Measures, die sich nicht zu 100% summieren nicht geeignet</li>
+<li class="fragment">Auch bei negativen Werten oder Measures, die sich nicht sinnvoll zu 100% summieren nicht geeignet</li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
@@ -526,7 +529,7 @@ Dr.&nbsp;Sebastian Schrön
 <div class="column" style="width:50%;">
 <div style="font-size: 0.9em">
 <ul>
-<li class="fragment">Bestehen konzeptionell aus Fakten, Dimensionen und Hierarchien</li>
+<li class="fragment">Bestehen konzeptionell aus Fakten (Measures), Dimensionen und Hierarchien</li>
 <li class="fragment">Da oft mehrere Dimensionen vorliegen, spricht man von Cubes</li>
 <li class="fragment">Theoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt</li>
 <li class="fragment">Bei mehr als 3 Dimensionen spricht man oft von Hypercube</li>
@@ -534,13 +537,11 @@ Dr.&nbsp;Sebastian Schrön
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="fragment fade-in">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/plot-cube.PNG" style="width:100.0%"></p>
 <figcaption>Cube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
 </figure>
-</div>
 </div>
 </div>
 </div>
@@ -550,8 +551,16 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="slicing">Slicing</h3>
 <ul>
 <li class="fragment">Slicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird</li>
-<li class="fragment">Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen ::: {.fragment .fade-in} <img data-src="img/OLAP_slicing.png" style="width:60.0%" alt="OLAP Slicing. Quelle: Wikipedia"> :::</li>
+<li class="fragment">Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004–2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen</li>
 </ul>
+<div class="fragment fade-in">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/OLAP_slicing.png" style="width:60.0%"></p>
+<figcaption>OLAP Slicing. Quelle: <a href="https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel">Wikipedia</a></figcaption>
+</figure>
+</div>
+</div>
 </section>
 <section id="olap-3" class="slide level2">
 <h2>OLAP</h2>
@@ -749,7 +758,7 @@ y = f(X) + \epsilon
 \]</span></p>
 </div>
 <ul>
-<li class="fragment">Das trainierte Modell hat keien Fehlerterm <span class="math inline">\(\epsilon\)</span>, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist</li>
+<li class="fragment">Das trainierte Modell hat keinen Fehlerterm <span class="math inline">\(\epsilon\)</span>, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist</li>
 <li class="fragment">Geschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet</li>
 </ul>
 </section>
@@ -829,7 +838,7 @@ y = f(X) + \epsilon
 <li class="fragment">Überwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable <span class="math inline">\(y_i, i = 1,2,...N\)</span> für jede Beobachtung <span class="math inline">\(i\)</span> auf sowie eine oder mehrere Prädiktoren</li>
 <li class="fragment">Unüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden</li>
 <li class="fragment">Die Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von <span class="math inline">\(y\)</span> basieren</li>
-<li class="fragment">Auch wir konzentrieren uns bei der Klassifikation auf</li>
+<li class="fragment">Auch wir konzentrieren uns bei der Klassifikation auf überwachte Lernprobleme</li>
 </ul>
 </section>
 

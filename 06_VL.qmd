@@ -113,7 +113,7 @@ training <-
 
 ::: {.column width=50%}
 
-::: {.fragment .fade-in}
+
 
 ```{r, fig.width = 5, fig.height = 5.5}
 bins_5 <- data %>% 
@@ -134,7 +134,7 @@ bins_10 <- data %>%
 bins_5/bins_10
 ```
 
-:::
+
 :::
 ::::
 
@@ -156,7 +156,7 @@ bins_5/bins_10
 
 ::: {.column width=55%}
 
-::: {.fragment .fade-in}
+
 
 
 ```{r, fig.width = 5, fig.height = 5.5}
@@ -181,7 +181,7 @@ schlecht/besser
 
 ```
 
-:::
+
 
 :::
 ::::
@@ -274,10 +274,12 @@ boxplot
 
 
 ::: {style="font-size: 0.87em"}
-* Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.
+* Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violin-Plots abgelöst.
 * Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse
 * Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz
 * Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind
+
+
 :::
 
 :::
@@ -360,7 +362,14 @@ violin
 
 
 
+## Logistische Regression
+### Binäre Klassifikation vs. Multiklassen-Klassifikation
 
+* Klassifikationsmodelle können in zwei Kategorien unterteilt werden:
+  * Binäre Klassifikation: Die abhängige Variable hat nur zwei Kategorien
+  * Multiklassen-Klassifikation: Die abhängige Variable hat mehr als zwei Kategorien
+* In unserem Fall haben wir nur zwei Genres, Klassik und EDM, also eine binäre Klassifikation
+* Da die Intuition hinter der logistischen Regression einfacher zu verstehen ist, beginnen wir mit der binären Klassifikation
 
 ## Logistische Regression
 ### Zurück zu unserer Ausgangsgleichung
@@ -371,7 +380,7 @@ $$
 y = f(X) + \epsilon,
 $$
 * Wie besprochen ist die Variable $y$ bei Klassifikationsproblemen qualitativ oder kategorial
-* Für die logistische Regression erfolgt eine Umkodierung in eine sog. Dummy-Variable, also 0 oder 1, im Sinne von *Falsch* und *Richtig*
+* Für die binäre logistische Regression erfolgt eine Umkodierung in eine sog. Dummy-Variable, also 0 oder 1, im Sinne von *Falsch* und *Richtig*
 * Beispiel bei zwei Genres in der Variable $y$:
 \begin{equation}
   y =
@@ -731,8 +740,10 @@ sample %>%
 
 ::: {style="font-size: 0.8em"}
 
-* Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst.
-* Im binären Modell bedeutet positiv, dass die Beobachtung zur interessanten Klasse (in unserem Fall EDM) gehört, negativ, dass sie nicht dazu gehört
+* Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst
+* Im binären Modell gilt:
+  * positiv: Beobachtung $i$ gehört zur interessanten Klasse (in unserem Fall EDM)
+  * negativ: Beobachtung $i$ gehört nicht dazu
 
 ::: {.fragment .fade-in}
 
@@ -764,7 +775,7 @@ sample %>%
 
 
 * **True Positive (TP)**: Ein TP liegt vor, wenn das Modell ein Objekt korrekt der relevanten Klasse zuordnet. Beispiele hierfür sind die korrekte Identifikation eines Schadens, die richtige Diagnose einer Krankheit oder die richtige Erkennung von Spam. 
-* **False Positive (FP)**: Ein FP liegt vor, wenn das Modell ein Objekt fälschlicherweise als positiv bzw. relevant klassifiziert, obwohl es tatsächlich negativ ist. Beispiele hierfür sind die ausbleibende Meldung eines Schadens oder die Diagnose einer nicht existierenden Krankheit. FP wird auch als Typ-I Fehler oder Alpha-Fehler bezeichnet. 
+* **False Positive (FP)**: Ein FP liegt vor, wenn das Modell ein Objekt fälschlicherweise als positiv bzw. relevant klassifiziert, obwohl es tatsächlich negativ ist. Beispiele hierfür sind die Meldung eines nicht vorhandenen Schadens oder die Diagnose einer nicht existierenden Krankheit. FP wird auch als Typ-I Fehler oder Alpha-Fehler bezeichnet. 
 
 :::
 
@@ -846,7 +857,7 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 * In der Praxis liegen häufig unbalancierte Datensätze vor, sodass die Accuracy allein meist nur geringe Aussagekraft hat
 * Wir nehmen ein extremes Beispiel mit 1000 E-Mails, von denen 100 Spam-Mails sind
 * Unser Modell zur Spam-Erkennung liefert die Konfusionsmatrix rechts 
-* Das Modell erkennt keine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%
+* Das Modell erkennt nur eine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%, weil die Zahl der TN sehr hoch ist
 
 :::
 

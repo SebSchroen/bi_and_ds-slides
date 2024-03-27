@@ -41,9 +41,11 @@ questionnaire <- read_csv("data/questionnaire.csv")
 :::: {.columns}
 
 ::: {.column width="40%"}
+::: {style="font-size: 0.9em"}
 * In der letzten Woche haben wir festgestellt, dass der Hauptgrund für das schwindende Wachstum bei Tofispy ein stark steigender Trend bei den Kündigungen ist
 * Laut einer Umfrage ist der Hauptgrund dafür eine Unzufriedenheit mit dem empfohlenen Content
-
+* Alle Ergebnisse sind im Dashboard "Tofispy Marktanalyse" zusammengefasst
+:::
 ::: 
 
 ::: {.column width="60%"}
@@ -68,7 +70,7 @@ questionnaire <- read_csv("data/questionnaire.csv")
 * Kreisdiagramme sind eine der häufigsten und umstrittensten Visualisierungen, um Anteile und Proportionen zu visualisieren
 * Nur bei einer geringen Anzahl von Kategorien (2-5) sinnvoll
 * Nicht sinnvoll, wenn die Anteile zwischen den Dimensionen sehr ähnlich sind
-* Auch bei negativen Werten oder Measures, die sich nicht zu 100% summieren nicht geeignet
+* Auch bei negativen Werten oder Measures, die sich nicht sinnvoll zu 100% summieren nicht geeignet
 :::
 :::
 ::: {.column width="50%"}
@@ -180,7 +182,7 @@ questionnaire %>%
 :::: {.columns}
 ::: {.column width="50%"}
 ::: {style="font-size: 0.9em"}
-* Bestehen konzeptionell aus Fakten, Dimensionen und Hierarchien
+* Bestehen konzeptionell aus Fakten (Measures), Dimensionen und Hierarchien
 * Da oft mehrere Dimensionen vorliegen, spricht man von Cubes
 * Theoretisch ist der Zahl an Dimensionen keine Grenzen gesetzt, in der Praxis aber im einstelligen Bereich begrenzt
 * Bei mehr als 3 Dimensionen spricht man oft von Hypercube
@@ -190,9 +192,9 @@ questionnaire %>%
 :::
 
 ::: {.column width="50%"}
-::: {.fragment .fade-in}
+
 ![Cube mit den Dimensionen Zeit, Produkt und Kunde. Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/plot-cube.PNG){width=100%}
-:::
+
 :::
 ::::
 
@@ -202,6 +204,7 @@ questionnaire %>%
 
 * Slicing ist die Entnahme einer einzigen Dimension, indem eine ausgewählte Dimension auf einen Wert reduziert wird
 * Im Beispiel wird der dreidimensionale Raum mit den Jahreswerten 2004--2006 auf das Jahr 2004 reduziert und so eine einzelne Scheibe aus dem Cube entnommen
+
 ::: {.fragment .fade-in}
 ![OLAP Slicing. Quelle: [Wikipedia](https://de.wikipedia.org/wiki/OLAP-W%C3%BCrfel)](img/OLAP_slicing.png){width=60%}
 :::
@@ -362,7 +365,7 @@ $$
 \hat{y} = \hat{f}(X)
 $$ 
 :::
-* Das trainierte Modell hat keien Fehlerterm $\epsilon$, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist
+* Das trainierte Modell hat keinen Fehlerterm $\epsilon$, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist
 * Geschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet
 
 
@@ -426,7 +429,7 @@ $$
 * Überwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable  $y_i, i = 1,2,...N$ für jede Beobachtung $i$ auf sowie eine oder mehrere Prädiktoren
 * Unüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden
 * Die Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von $y$ basieren
-* Auch wir konzentrieren uns bei der Klassifikation auf 
+* Auch wir konzentrieren uns bei der Klassifikation auf überwachte Lernprobleme
 
 
 ## Slide Title {visibility="hidden"}
