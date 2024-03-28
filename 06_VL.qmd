@@ -880,6 +880,16 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 
 ::::
 
+## Logistische Regression
+### Interaktive Visualisierung
+
+* Für eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App
+* Erreichbar über:
+
+    * [Logistic Explorer](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
+
+* Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script `install_packages.R`
+
 ## Slide Title {visibility="hidden"}
 @james_introduction_2021
 

@@ -520,6 +520,15 @@ questionnaire %>%
 * Ein bekanntes Beispiel ist [SAP Analysis](https://help.sap.com/docs/SAP_BUSINESSOBJECTS_ANALYSIS_OFFICE/ca9c58444d64420d99d6c136a3207632/ebf198667aa54740b9049d9da804a901.html?version=2.8.19.0) für Excel
 * Andere gängige Praxis sind webbasierte Schnittstellen wie [Cubeware Cockpit](https://www.cubeware.com/content/Produkte/C8_Cockpit/C8-Cockpit-Viewer_DE.pdf) 
 
+## Hausaufgabe
+
+### Wiederholung lineare Regression
+
+* Kleine Wiederholung der Basics in linearer Regression, entweder mit eigenen Unterlagen oder diesem Video hier ([Link zum Video](https://www.youtube.com/watch?v=WZKMzjfJ-x4)):
+
+{{< video https://www.youtube.com/watch?v=WZKMzjfJ-x4 width="60%" height="60%" >}}
+
+
 ## Slide Title {visibility="hidden"}
 
 @frick_big-data-technologien_2021

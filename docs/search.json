@@ -123,7 +123,7 @@
     "href": "03_VL.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-11\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-13\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-17\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-10\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-12\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-14\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-18\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-11\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",
@@ -607,6 +607,13 @@
     "title": "Business Intelligence & Data Science",
     "section": "OLAP",
     "text": "OLAP\nPhysikalische Umsetzung und Anbindungsschnittstellen\n\nDie Datenhaltung erfolgt in OLAP Komponenten weitgehend unabhängig von der Anwendungsansicht meist in Client-Server-Architekturen und die Datenhaltung erfolgt serverseitig\nOLAP-Anwendungen erfordern zudem eine Programmoberfläche und oft erfolgt die Einbindung in Tabellenkalkulationsprogramm wie Excel\nEin bekanntes Beispiel ist SAP Analysis für Excel\nAndere gängige Praxis sind webbasierte Schnittstellen wie Cubeware Cockpit"
+  },
+  {
+    "objectID": "04_VL_D.html#hausaufgabe",
+    "href": "04_VL_D.html#hausaufgabe",
+    "title": "Business Intelligence & Data Science",
+    "section": "Hausaufgabe",
+    "text": "Hausaufgabe\nWiederholung lineare Regression\n\nKleine Wiederholung der Basics in linearer Regression, entweder mit eigenen Unterlagen oder diesem Video hier (Link zum Video):"
   },
   {
     "objectID": "04_VL_D.html#quellen",
@@ -1393,6 +1400,13 @@
     "text": "Modellevaluation\nAccuracy bei unbalancierten Datensätzen\n\n\n\nIn der Praxis liegen häufig unbalancierte Datensätze vor, sodass die Accuracy allein meist nur geringe Aussagekraft hat\nWir nehmen ein extremes Beispiel mit 1000 E-Mails, von denen 100 Spam-Mails sind\nUnser Modell zur Spam-Erkennung liefert die Konfusionsmatrix rechts\nDas Modell erkennt nur eine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%, weil die Zahl der TN sehr hoch ist\n\n\n\n\n\n\n\n\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\nSumme Vorhersage\n\n\n\n\nVorhergesagt Positiv\n1\n0\n1\n\n\nVorhergesagt Negativ\n99\n900\n999\n\n\nSumme Tatsächlich\n100\n900\n1000"
   },
   {
+    "objectID": "06_VL.html#logistische-regression-14",
+    "href": "06_VL.html#logistische-regression-14",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nInteraktive Visualisierung\n\nFür eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App\nErreichbar über:\n\nLogistic Explorer\n\nAlternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script install_packages.R"
+  },
+  {
     "objectID": "06_VL.html#quellen",
     "href": "06_VL.html#quellen",
     "title": "Business Intelligence & Data Science",
@@ -1866,7 +1880,7 @@
     "href": "03_VL_D.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-11\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-13\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-17\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-10\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-12\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-14\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-18\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-11\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL_D.html#harmonisierung",
