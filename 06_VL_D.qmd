@@ -3,7 +3,7 @@ title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 6"
 format:
   revealjs:
-    incremental: false  
+    incremental: true  
 ---
   
 ```{r}
