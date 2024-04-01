@@ -373,31 +373,32 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Der Plan für heute…</h2>
 <h3 id="vorlesung-1">Vorlesung</h3>
 <ul>
-<li class="fragment">Neue Daten von Tofispy</li>
-<li class="fragment">Visualisierung von Verteilungen</li>
-<li class="fragment">Modellgestützte Analysen
+<li>Neue Daten von Tofispy</li>
+<li>Visualisierung von Verteilungen</li>
+<li>Modellgestützte Analysen
 <ul>
-<li class="fragment">Einfache Logistische Regression</li>
-<li class="fragment">Modellevaluation</li>
+<li>Einfache Logistische Regression</li>
+<li>Modellevaluation</li>
+<li>Multiple Logistische Regression</li>
 </ul></li>
-<li class="fragment">Wie gut kann man Musik-Genres klassifizieren?</li>
+<li>Wie gut kann man Musik-Genres klassifizieren?</li>
 </ul>
 </section>
 <section id="business-case" class="slide level2">
 <h2>Business Case</h2>
 <h3 id="recap-tofispy">Recap Tofispy</h3>
 <ul>
-<li class="fragment">Unsere bisherigen Analysen haben gezeigt:
+<li>Unsere bisherigen Analysen haben gezeigt:
 <ul>
-<li class="fragment">Tofispy verliert Marktanteile gegenüber der Konkurrenz, insbesondere gegenüber Youtube Music</li>
-<li class="fragment">Der Grund ist vorallem ein stark ansteigender Trend bei den Kündigungen, während die Registrierungen linear wachsen</li>
-<li class="fragment">Eine Befragung nach der Kündigung hat ergeben:
+<li>Tofispy verliert Marktanteile gegenüber der Konkurrenz, insbesondere gegenüber Youtube Music</li>
+<li>Der Grund ist vorallem ein stark ansteigender Trend bei den Kündigungen, während die Registrierungen linear wachsen</li>
+<li>Eine Befragung nach der Kündigung hat ergeben:
 <ul>
-<li class="fragment">Die Mehrheit hört Musik über Playlists (55.8%)</li>
-<li class="fragment">Der Großteil ist unzufrieden mit den Empfehlungen (69.2%)</li>
+<li>Die Mehrheit hört Musik über Playlists (55.8%)</li>
+<li>Der Großteil ist unzufrieden mit den Empfehlungen (69.2%)</li>
 </ul></li>
 </ul></li>
-<li class="fragment">Handlungsempfehlung: Verbesserung der empfohlenen Playlists</li>
+<li>Handlungsempfehlung: Verbesserung der empfohlenen Playlists</li>
 </ul>
 </section>
 <section id="business-case-1" class="slide level2">
@@ -405,17 +406,17 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="neue-daten-von-tofispy">Neue Daten von Tofispy</h3>
 <div style="font-size: 0.88em">
 <ul>
-<li class="fragment">Zum Einstieg in die Empfehlungsverbesserung hat Tofispy neue Daten bereitgestellt</li>
-<li class="fragment">Die Daten enthalten eine Auswahl an Songs aus den beiden Genres Klassik und Dance/Electronic (EDM)</li>
-<li class="fragment">Die Daten enthalten:
+<li>Zum Einstieg in die Empfehlungsverbesserung hat Tofispy neue Daten bereitgestellt</li>
+<li>Die Daten enthalten eine Auswahl an Songs aus den beiden Genres Klassik und Dance/Electronic (EDM)</li>
+<li>Die Daten enthalten:
 <ul>
-<li class="fragment">Song ID, Name und Artists,</li>
-<li class="fragment">Genre als Label, manuell erstellt</li>
-<li class="fragment">Features:
+<li>Song ID, Name und Artists,</li>
+<li>Genre als Label, manuell erstellt</li>
+<li>Features:
 <ul>
-<li class="fragment">Tempo (BPM)</li>
-<li class="fragment">Danceability (0-1), beschreibt wie gut der Song zum Tanzen geeignet ist</li>
-<li class="fragment">Energy (0-1), beschreibt wie energiegeladen der Song ist, wobei energiegeladene Songs schnell, intensiv und laut sind</li>
+<li>Tempo (BPM)</li>
+<li>Danceability (0-1), beschreibt wie gut der Song zum Tanzen geeignet ist</li>
+<li>Energy (0-1), beschreibt wie energiegeladen der Song ist, wobei energiegeladene Songs schnell, intensiv und laut sind</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -425,10 +426,10 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Business Case</h2>
 <h3 id="neue-daten-von-tofispy-1">Neue Daten von Tofispy</h3>
 <ul>
-<li class="fragment">Die Daten sind via Superset zur Verfügung gestellt und befinden sich im Schema “Classification” und Dataset “training_logistic”</li>
-<li class="fragment">Die Daten sind bereits bereinigt und enthalten keine fehlenden Werte</li>
-<li class="fragment">Tofispy generiert jeden Freitag – pünktlich zum Wochenende – eine neue EDM Playlist mit den neuen Releases der Woche und bittet uns, die Klassifizierung für die nächste Playlist zu erstellen</li>
-<li class="fragment">Erste Frage: Wie gut sind die Daten geeignet, um zwischen den beiden Genres zu unterscheiden?</li>
+<li>Die Daten sind via Superset zur Verfügung gestellt und befinden sich im Schema “Classification” und Dataset “training_logistic”</li>
+<li>Die Daten sind bereits bereinigt und enthalten keine fehlenden Werte</li>
+<li>Tofispy generiert jeden Freitag – pünktlich zum Wochenende – eine neue EDM Playlist mit den neuen Releases der Woche und bittet uns, die Klassifizierung für die nächste Playlist zu erstellen</li>
+<li>Erste Frage: Wie gut sind die Daten geeignet, um zwischen den beiden Genres zu unterscheiden?</li>
 </ul>
 </section>
 <section id="visualisierung-von-verteilungen" class="slide level2">
@@ -438,18 +439,18 @@ Dr.&nbsp;Sebastian Schrön
 <div class="column" style="width:50%;">
 <div style="font-size: 0.8em">
 <ul>
-<li class="fragment">Einfache Möglichkeit, die Verteilung einer numerischen Variable zu visualisieren</li>
-<li class="fragment">Die einzelnen Werte der entsprechenden Variable werden in sogenannte Bins gruppiert</li>
-<li class="fragment">Die Anzahl der Werte in jedem Bin wird gezählt und als Balken dargestellt</li>
-<li class="fragment">Die Breite der Balken entspricht der Breite der Bins und die Höhe der Balken entspricht der Anzahl der Werte pro Bin</li>
-<li class="fragment">Die Anzahl der Bins ist wichtig, zu wenige verschleiern den Detailgrad der Verteilung, zu viele Bins können zu zu granular sein</li>
-<li class="fragment">Viele Tools optimieren die Bin-Zahl, oft aber Trial &amp; Error</li>
+<li>Einfache Möglichkeit, die Verteilung einer numerischen Variable zu visualisieren</li>
+<li>Die einzelnen Werte der entsprechenden Variable werden in sogenannte Bins gruppiert</li>
+<li>Die Anzahl der Werte in jedem Bin wird gezählt und als Balken dargestellt</li>
+<li>Die Breite der Balken entspricht der Breite der Bins und die Höhe der Balken entspricht der Anzahl der Werte pro Bin</li>
+<li>Die Anzahl der Bins ist wichtig, zu wenige verschleiern den Detailgrad der Verteilung, zu viele Bins können zu zu granular sein</li>
+<li>Viele Tools optimieren die Bin-Zahl, oft aber Trial &amp; Error</li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="480"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-2-1.png" width="480"></p>
 </div>
 </div>
 </div>
@@ -462,17 +463,17 @@ Dr.&nbsp;Sebastian Schrön
 <div class="column" style="width:45%;">
 <div style="font-size: 0.8em">
 <ul>
-<li class="fragment">Histogramme sind ideal, um einzelne Verteilung zu visualisieren</li>
-<li class="fragment">Bei mehreren Dimensionen und ähnlichen Verteilungen drohen sich die Verteilungen zu überlagern</li>
-<li class="fragment">Histogramme sind nicht mehr aussagekräftig</li>
-<li class="fragment">In diesen Fällen sind mehrere Histogramme zu empfehlen</li>
-<li class="fragment">Hierbei auf passende X-Achsen achten, um Vergleiche zu erleichtern</li>
+<li>Histogramme sind ideal, um einzelne Verteilung zu visualisieren</li>
+<li>Bei mehreren Dimensionen und ähnlichen Verteilungen drohen sich die Verteilungen zu überlagern</li>
+<li>Histogramme sind nicht mehr aussagekräftig</li>
+<li>In diesen Fällen sind mehrere Histogramme zu empfehlen</li>
+<li>Hierbei auf passende X-Achsen achten, um Vergleiche zu erleichtern</li>
 </ul>
 </div>
 </div><div class="column" style="width:55%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
 </div>
 </div>
 </div>
@@ -482,10 +483,10 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Visualisierung von Verteilungen</h2>
 <h3 id="box-plot">Box-Plot</h3>
 <ul>
-<li class="fragment">Box Plots sind eine weitere Möglichkeit, die Verteilung einer numerischen Variable über verschiedene Gruppen hinweg zu visualisieren</li>
-<li class="fragment">Ermöglichen es, viele Gruppen gleichzeitig zu visualisieren und zu vergleichen</li>
-<li class="fragment">Box-Plots sind einfach, aber hochinformativ, wurden in den 1970er Jahren von John Tukey entwickelt und gewannen schnell an Popularität, da sie sich einfach per Hand zeichnen ließen</li>
-<li class="fragment">Box-Plots werden oft auch als Box-and-Whisker-Plots bezeichnet</li>
+<li>Box Plots sind eine weitere Möglichkeit, die Verteilung einer numerischen Variable über verschiedene Gruppen hinweg zu visualisieren</li>
+<li>Ermöglichen es, viele Gruppen gleichzeitig zu visualisieren und zu vergleichen</li>
+<li>Box-Plots sind einfach, aber hochinformativ, wurden in den 1970er Jahren von John Tukey entwickelt und gewannen schnell an Popularität, da sie sich einfach per Hand zeichnen ließen</li>
+<li>Box-Plots werden oft auch als Box-and-Whisker-Plots bezeichnet</li>
 </ul>
 </section>
 <section id="visualisierung-von-verteilungen-3" class="slide level2">
@@ -495,13 +496,13 @@ Dr.&nbsp;Sebastian Schrön
 <div class="column" style="width:55%;">
 <div style="font-size: 0.80em">
 <ul>
-<li class="fragment">Die Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten</li>
-<li class="fragment">Die Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten</li>
-<li class="fragment">Die Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil</li>
-<li class="fragment">Die oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten</li>
-<li class="fragment">Alternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)<br>
+<li>Die Punktewolke illustriert die Verteilung der Y-Werte der Rohdaten</li>
+<li>Die Linie in der Mitte des Box-Plots repräsentiert den Median, und die Box umschließt die mittleren 50% der Daten</li>
+<li>Die Obergrenze (Untergrenze) der Box ist damit das obere bzw. untere Quartil</li>
+<li>Die oberen und unteren sogenannten Whisker erstrecken sich meist bis zum Maximum und Minimum der Daten</li>
+<li>Alternativ entsprechen die Whisker das 1,5 fache des Interquartilabstands (IQR)<br>
 </li>
-<li class="fragment">Einzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt</li>
+<li>Einzelne Datenpunkte, die über die Grenzen hinausgehen sind Ausreißer bezeichnet und werden als einzelne Punkte dargestellt</li>
 </ul>
 </div>
 </div><div class="column" style="width:45%;">
@@ -535,7 +536,7 @@ Dr.&nbsp;Sebastian Schrön
 </div><div class="column" style="width:45%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-4-1.png" width="480"></p>
 </div>
 </div>
 </div>
@@ -548,10 +549,10 @@ Dr.&nbsp;Sebastian Schrön
 <div class="column" style="width:55%;">
 <div style="font-size: 0.87em">
 <ul>
-<li class="fragment">Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violin-Plots abgelöst.</li>
-<li class="fragment">Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse</li>
-<li class="fragment">Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz</li>
-<li class="fragment">Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind</li>
+<li>Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violin-Plots abgelöst.</li>
+<li>Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse</li>
+<li>Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz</li>
+<li>Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind</li>
 </ul>
 </div>
 </div><div class="column" style="width:45%;">
@@ -582,7 +583,7 @@ Dr.&nbsp;Sebastian Schrön
 </div><div class="column" style="width:45%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
 </div>
 </div>
 </div>
@@ -592,12 +593,12 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Visualisierung von Verteilungen</h2>
 <h3 id="box-plots-mit-superset">Box-Plots mit Superset</h3>
 <ul>
-<li class="fragment">Superset erlaubt es, Box-Plots direkt zu erstellen, Violin-Plots in der verfügbaren Version jedoch nicht</li>
-<li class="fragment">Hierzu wählen wir den üblichen Weg:
+<li>Superset erlaubt es, Box-Plots direkt zu erstellen, Violin-Plots in der verfügbaren Version jedoch nicht</li>
+<li>Hierzu wählen wir den üblichen Weg:
 <ul>
-<li class="fragment">Auf der Startseite oben rechts + Chart</li>
-<li class="fragment">Unter Dataset wählen wir “training_logistic”</li>
-<li class="fragment">Anschließend suchen wir nach “Box Plot” und wählen es aus</li>
+<li>Auf der Startseite oben rechts + Chart</li>
+<li>Unter Dataset wählen wir “training_logistic”</li>
+<li>Anschließend suchen wir nach “Box Plot” und wählen es aus</li>
 </ul></li>
 </ul>
 </section>
@@ -610,36 +611,36 @@ Dr.&nbsp;Sebastian Schrön
 <h2>Logistische Regression</h2>
 <h3 id="trainings--und-testdaten">Trainings- und Testdaten</h3>
 <ul>
-<li class="fragment">Bevor wir die von Tofispy bereitgestellten Daten analysieren, teilen wir die Daten in Trainings- und Testdaten auf</li>
-<li class="fragment">Das ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfitting zu vermeiden</li>
-<li class="fragment">Da der Trainingsdatensatz für das Modelltraining verwendet wird, wählt an oft einen Anteil von 70-80% der Daten für das Training und 20-30% für das Testen</li>
-<li class="fragment">In unserem Fall verwenden wir nur 300 Beobachtungen, um die Visualisierungen zum Einstieg nicht zu überfrachten</li>
-<li class="fragment">Neben diesen einfachen Splits gibt es auch komplexere Verfahren wie Kreuzvalidierung</li>
+<li>Bevor wir die von Tofispy bereitgestellten Daten analysieren, teilen wir die Daten in Trainings- und Testdaten auf</li>
+<li>Das ist ein übliches Prozedere, um die Qualität des Modells zu evaluieren und Overfitting zu vermeiden</li>
+<li>Da der Trainingsdatensatz für das Modelltraining verwendet wird, wählt an oft einen Anteil von 70-80% der Daten für das Training und 20-30% für das Testen</li>
+<li>In unserem Fall verwenden wir nur 300 Beobachtungen, um die Visualisierungen zum Einstieg nicht zu überfrachten</li>
+<li>Neben diesen einfachen Splits gibt es auch komplexere Verfahren wie Kreuzvalidierung</li>
 </ul>
 </section>
 <section id="logistische-regression-1" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="binäre-klassifikation-vs.-multiklassen-klassifikation">Binäre Klassifikation vs.&nbsp;Multiklassen-Klassifikation</h3>
 <ul>
-<li class="fragment">Klassifikationsmodelle können in zwei Kategorien unterteilt werden:
+<li>Klassifikationsmodelle können in zwei Kategorien unterteilt werden:
 <ul>
-<li class="fragment">Binäre Klassifikation: Die abhängige Variable hat nur zwei Kategorien</li>
-<li class="fragment">Multiklassen-Klassifikation: Die abhängige Variable hat mehr als zwei Kategorien</li>
+<li>Binäre Klassifikation: Die abhängige Variable hat nur zwei Kategorien</li>
+<li>Multiklassen-Klassifikation: Die abhängige Variable hat mehr als zwei Kategorien</li>
 </ul></li>
-<li class="fragment">In unserem Fall haben wir nur zwei Genres, Klassik und EDM, also eine binäre Klassifikation</li>
-<li class="fragment">Da die Intuition hinter der logistischen Regression einfacher zu verstehen ist, beginnen wir mit der binären Klassifikation</li>
+<li>In unserem Fall haben wir nur zwei Genres, Klassik und EDM, also eine binäre Klassifikation</li>
+<li>Da die Intuition hinter der logistischen Regression einfacher zu verstehen ist, beginnen wir mit der binären Klassifikation</li>
 </ul>
 </section>
 <section id="logistische-regression-2" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="zurück-zu-unserer-ausgangsgleichung">Zurück zu unserer Ausgangsgleichung</h3>
 <ul>
-<li class="fragment">Ausgangspunkt für die logistische Regression ist erneut unsere Grundgleichung <span class="math display">\[
+<li>Ausgangspunkt für die logistische Regression ist erneut unsere Grundgleichung <span class="math display">\[
 y = f(X) + \epsilon,
 \]</span></li>
-<li class="fragment">Wie besprochen ist die Variable <span class="math inline">\(y\)</span> bei Klassifikationsproblemen qualitativ oder kategorial</li>
-<li class="fragment">Für die binäre logistische Regression erfolgt eine Umkodierung in eine sog. Dummy-Variable, also 0 oder 1, im Sinne von <em>Falsch</em> und <em>Richtig</em></li>
-<li class="fragment">Beispiel bei zwei Genres in der Variable <span class="math inline">\(y\)</span>: <span class="math display">\[\begin{equation}
+<li>Wie besprochen ist die Variable <span class="math inline">\(y\)</span> bei Klassifikationsproblemen qualitativ oder kategorial</li>
+<li>Für die binäre logistische Regression erfolgt eine Umkodierung in eine sog. Dummy-Variable, also 0 oder 1, im Sinne von <em>Falsch</em> und <em>Richtig</em></li>
+<li>Beispiel bei zwei Genres in der Variable <span class="math inline">\(y\)</span>: <span class="math display">\[\begin{equation}
 y =
   \begin{cases}
     0 &amp; \text{Song $i$ Klassik,}\\
@@ -655,10 +656,10 @@ y =
 <div class="column" style="width:55%;">
 <div style="font-size: 0.87em">
 <ul>
-<li class="fragment">Die Wahl der Kodierung ist theoretisch willkürlich, aber aus praktischer Sicht ist es sinnvoll, die Kategorie, die interessante Kategorie als 1 zu kodieren</li>
-<li class="fragment">Als erklärende Variable <span class="math inline">\(X\)</span> können wir beliebig viele Features verwenden, wir beschränken uns aber zunächst auf eine, nämlich <em>Energy</em></li>
-<li class="fragment">Nach der Umkodierung der abhängigen Variable <span class="math inline">\(y\)</span> sehen unsere Daten aus wie der Auszug rechts</li>
-<li class="fragment">Unser Ziel ist es, die <strong>Wahrscheinlichkeit</strong> zu berechnen, mit der ein Song EDM ist, gegeben die Energy</li>
+<li>Die Wahl der Kodierung ist theoretisch willkürlich, aber aus praktischer Sicht ist es sinnvoll, die Kategorie, die interessante Kategorie als 1 zu kodieren</li>
+<li>Als erklärende Variable <span class="math inline">\(X\)</span> können wir beliebig viele Features verwenden, wir beschränken uns aber zunächst auf eine, nämlich <em>Energy</em></li>
+<li>Nach der Umkodierung der abhängigen Variable <span class="math inline">\(y\)</span> sehen unsere Daten aus wie der Auszug rechts</li>
+<li>Unser Ziel ist es, die <strong>Wahrscheinlichkeit</strong> zu berechnen, mit der ein Song EDM ist, gegeben die Energy</li>
 </ul>
 </div>
 </div><div class="column" style="width:45%;">
@@ -725,14 +726,14 @@ y =
 <h2>Logistische Regression</h2>
 <h3 id="intuition-1">Intuition</h3>
 <ul>
-<li class="fragment">Noch intuitiver wird der Zusammenhang, wenn wir die Daten visualisieren mit der abhängigen Variable <em>EDM</em> auf der Y-Achse und der unabhängigen Variable <em>Energy</em> auf der X-Achse</li>
+<li>Noch intuitiver wird der Zusammenhang, wenn wir die Daten visualisieren mit der abhängigen Variable <em>EDM</em> auf der Y-Achse und der unabhängigen Variable <em>Energy</em> auf der X-Achse</li>
 </ul>
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-7-1.png" width="768"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-7-1.png" width="768"></p>
 <figcaption>Scatter Plot mit Dummy Variable als abhängiger Variable. Eigene Darstellung</figcaption>
 </figure>
 </div>
@@ -745,8 +746,8 @@ y =
 <h3 id="warum-nicht-einfach-lineare-regression">Warum nicht einfach lineare Regression?</h3>
 <div style="font-size: 0.80em">
 <ul>
-<li class="fragment">Eine lineare Regression ist erste Option, den Zusammenhang zu modellieren</li>
-<li class="fragment">Wir erhalten folgende Koeffizienten:</li>
+<li>Eine lineare Regression ist erste Option, den Zusammenhang zu modellieren</li>
+<li>Wir erhalten folgende Koeffizienten:</li>
 </ul>
 </div>
 <div style="font-size: 0.8em">
@@ -759,7 +760,7 @@ y =
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -768,13 +769,13 @@ y =
 <h2>Logistische Regression</h2>
 <h3 id="warum-nicht-einfach-lineare-regression-1">Warum nicht einfach lineare Regression?</h3>
 <ul>
-<li class="fragment">Das lineare Modell erstellt auf der blauen Geraden nun eine Prognose für die Wahrscheinlichkeit, dass ein Song EDM ist und modelliert den Zusammenhang zwischen <span class="math inline">\(y\)</span> und <span class="math inline">\(X\)</span> mit <span class="math display">\[
+<li>Das lineare Modell erstellt auf der blauen Geraden nun eine Prognose für die Wahrscheinlichkeit, dass ein Song EDM ist und modelliert den Zusammenhang zwischen <span class="math inline">\(y\)</span> und <span class="math inline">\(X\)</span> mit <span class="math display">\[
 y = \beta_0 + \beta_1 \cdot X
 \]</span></li>
-<li class="fragment">Diese Prognose ist aus mehreren Gründen nicht sinnvoll:
+<li>Diese Prognose ist aus mehreren Gründen nicht sinnvoll:
 <ul>
-<li class="fragment">Die Prognose kann Werte außerhalb des Intervalls <span class="math inline">\([0,1]\)</span> annehmen</li>
-<li class="fragment">Wie kann man ein Modell mit mehr als 2 Klassen darstellen, bei denen es keine natürliche Ordnung gibt?</li>
+<li>Die Prognose kann Werte außerhalb des Intervalls <span class="math inline">\([0,1]\)</span> annehmen</li>
+<li>Wie kann man ein Modell mit mehr als 2 Klassen darstellen, bei denen es keine natürliche Ordnung gibt?</li>
 </ul></li>
 </ul>
 </section>
@@ -783,14 +784,14 @@ y = \beta_0 + \beta_1 \cdot X
 <h3 id="die-logistische-funktion">Die Logistische Funktion</h3>
 <div style="font-size: 0.8em">
 <ul>
-<li class="fragment">Die logistische Funktion ist eine Sigmoid-Funktion, die Werte zwischen 0 und 1 annimmt und eine S-Form aufweist und damit das erste Problem behebt</li>
-<li class="fragment">Sigmoid Funktionen garantieren, dass alle vorgehersagten Wahrscheinlichkeiten zwischen 0 und 1 liegen, auch wenn die unabhängige Variable <span class="math inline">\(X\)</span> sehr groß oder sehr klein ist</li>
+<li>Die logistische Funktion ist eine Sigmoid-Funktion, die Werte zwischen 0 und 1 annimmt und eine S-Form aufweist und damit das erste Problem behebt</li>
+<li>Sigmoid Funktionen garantieren, dass alle vorgehersagten Wahrscheinlichkeiten zwischen 0 und 1 liegen, auch wenn die unabhängige Variable <span class="math inline">\(X\)</span> sehr groß oder sehr klein ist</li>
 </ul>
 </div>
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -799,11 +800,11 @@ y = \beta_0 + \beta_1 \cdot X
 <h2>Logistische Regression</h2>
 <h3 id="die-logistische-funktion-1">Die Logistische Funktion</h3>
 <ul>
-<li class="fragment">Die logistische Regression modelliert die Wahrscheinlichkeit, dass <span class="math inline">\(y\)</span> eine bestimmte Kategorie annimmt: <span class="math display">\[
+<li>Die logistische Regression modelliert die Wahrscheinlichkeit, dass <span class="math inline">\(y\)</span> eine bestimmte Kategorie annimmt: <span class="math display">\[
 P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X)}}{1 + e^{(\beta_0 + \beta_1 \cdot X)}}
 \]</span></li>
-<li class="fragment">wobei <span class="math inline">\(P(y = 1|X)\)</span> die Wahrscheinlichkeit ist, dass <span class="math inline">\(y\)</span> die Kategorie 1 annimmt, also EDM ist, gegeben einen Wert für <span class="math inline">\(X\)</span>, in unserem Fall <em>Energy</em></li>
-<li class="fragment">Das finale Modell sieht dann aus wie folgt: <span class="math display">\[
+<li>wobei <span class="math inline">\(P(y = 1|X)\)</span> die Wahrscheinlichkeit ist, dass <span class="math inline">\(y\)</span> die Kategorie 1 annimmt, also EDM ist, gegeben einen Wert für <span class="math inline">\(X\)</span>, in unserem Fall <em>Energy</em></li>
+<li>Das finale Modell sieht dann aus wie folgt: <span class="math display">\[
 P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}
 \]</span></li>
 </ul>
@@ -812,12 +813,12 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 <h2>Logistische Regression</h2>
 <h3 id="ergebnis-der-logistischen-regression">Ergebnis der logistischen Regression</h3>
 <ul>
-<li class="fragment">Wenn wir statt des linearen Modells ein logistisches Modell verwenden, erhalten wir folgenden Zusammenhang zwischen Energy und der Wahrscheinlichkeit, dass ein Song zum Genre EDM gehört:</li>
+<li>Wenn wir statt des linearen Modells ein logistisches Modell verwenden, erhalten wir folgenden Zusammenhang zwischen Energy und der Wahrscheinlichkeit, dass ein Song zum Genre EDM gehört:</li>
 </ul>
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -829,10 +830,10 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 <div class="column" style="width:50%;">
 <div style="font-size: 0.85em">
 <ul>
-<li class="fragment">Aus dem Modell erhalten für für jeden Wert von Energy eine Wahrscheinlichkeit, dass ein Song EDM ist</li>
-<li class="fragment">Die Wahrscheinlichkeit steigt (sinkt) mit steigender Energy und nähert sich 1 (0) an</li>
-<li class="fragment">Die Steigung der Kurve ist in der Mitte am größten und nimmt zu den Rändern hin ab und die Kurve hat die typische S-Form</li>
-<li class="fragment">Die Tabelle rechts zeigt die Wahrscheinlichkeiten für 10 zufällig ausgewählte Songs, sortiert nach der Wahrscheinlichkeit</li>
+<li>Aus dem Modell erhalten für für jeden Wert von Energy eine Wahrscheinlichkeit, dass ein Song EDM ist</li>
+<li>Die Wahrscheinlichkeit steigt (sinkt) mit steigender Energy und nähert sich 1 (0) an</li>
+<li>Die Steigung der Kurve ist in der Mitte am größten und nimmt zu den Rändern hin ab und die Kurve hat die typische S-Form</li>
+<li>Die Tabelle rechts zeigt die Wahrscheinlichkeiten für 10 zufällig ausgewählte Songs, sortiert nach der Wahrscheinlichkeit</li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
@@ -936,8 +937,8 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 <h2>Logistische Regression</h2>
 <h3 id="generierung-von-prognosen">Generierung von Prognosen</h3>
 <ul>
-<li class="fragment">Aus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten <span class="math inline">\(\beta_0\)</span> und <span class="math inline">\(\beta_1\)</span></li>
-<li class="fragment">Das gefittete Modell hat folgende Koeffizienten:</li>
+<li>Aus dem Modell erhalten wir eine Schätzung für die beiden Koeffizienten <span class="math inline">\(\beta_0\)</span> und <span class="math inline">\(\beta_1\)</span></li>
+<li>Das gefittete Modell hat folgende Koeffizienten:</li>
 </ul>
 <div class="fragment fade-in">
 <p><span class="math display">\[
@@ -945,7 +946,7 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 \]</span></p>
 </div>
 <ul>
-<li class="fragment">Durch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus</li>
+<li>Durch einfaches Einsetzen des jeweiligen Energy-Wertes erhalten wir die Wahrscheinlichkeit gibt das Modell eine entsprechende Prognose aus</li>
 </ul>
 </section>
 <section id="logistische-regression-12" class="slide level2">
@@ -953,7 +954,7 @@ P(EDM = 1|Energy) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy})}}{1 + e^{(
 <h3 id="von-wahrscheinlichkeiten-zu-klassifikationen">Von Wahrscheinlichkeiten zu Klassifikationen</h3>
 <div style="font-size: 0.95em">
 <ul>
-<li class="fragment">Bisher haben wir nur eine Wahrscheinlichkeit für die Klassenzugehörigkeit von Song <span class="math inline">\(i\)</span> berechnet, gegeben den Wert für Energy, also</li>
+<li>Bisher haben wir nur eine Wahrscheinlichkeit für die Klassenzugehörigkeit von Song <span class="math inline">\(i\)</span> berechnet, gegeben den Wert für Energy, also</li>
 </ul>
 <div class="fragment fade-in">
 <div style="font-size: 0.75em">
@@ -963,8 +964,8 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </div>
 </div>
 <ul>
-<li class="fragment">Im binären Klassifikationsmodell wird ein Schwellenwert oder Cut-Off Point <span class="math inline">\(C\)</span> festgelegt, der bestimmt, ob ein Song als EDM klassifiziert wird oder nicht</li>
-<li class="fragment">Die Zuordnung folgt dann allgemein nach der Form:</li>
+<li>Im binären Klassifikationsmodell wird ein Schwellenwert oder Cut-Off Point <span class="math inline">\(C\)</span> festgelegt, der bestimmt, ob ein Song als EDM klassifiziert wird oder nicht</li>
+<li>Die Zuordnung folgt dann allgemein nach der Form:</li>
 </ul>
 <div class="fragment fade-in">
 <div style="font-size: 0.75em">
@@ -978,7 +979,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </div>
 </div>
 <ul>
-<li class="fragment">Ein häufig anzutreffender Default-Wert ist <span class="math inline">\(C=0.5\)</span></li>
+<li>Ein häufig anzutreffender Default-Wert ist <span class="math inline">\(C=0.5\)</span></li>
 </ul>
 </div>
 </section>
@@ -989,9 +990,9 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <div class="column" style="width:50%;">
 <div style="font-size: 0.90em">
 <ul>
-<li class="fragment">Mit dem Default-Wert <span class="math inline">\(C=0.5\)</span> erhalten wir die rechts dargestellten Klassifikationen für die 10 Beispiel-Songs</li>
-<li class="fragment">Mit den generierten Klassifikationen lassen sich nun verschiedene Metriken berechnen, um die Qualität des Modells zu bewerten</li>
-<li class="fragment">Die einfachste Metrik ist die <strong>Accuracy</strong>, die den Anteil der korrekt klassifizierten Songs angibt</li>
+<li>Mit dem Default-Wert <span class="math inline">\(C=0.5\)</span> erhalten wir die rechts dargestellten Klassifikationen für die 10 Beispiel-Songs</li>
+<li>Mit den generierten Klassifikationen lassen sich nun verschiedene Metriken berechnen, um die Qualität des Modells zu bewerten</li>
+<li>Die einfachste Metrik ist die <strong>Accuracy</strong>, die den Anteil der korrekt klassifizierten Songs angibt</li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1107,11 +1108,11 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <h3 id="konfusionsmatrix">Konfusionsmatrix</h3>
 <div style="font-size: 0.8em">
 <ul>
-<li class="fragment">Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst</li>
-<li class="fragment">Im binären Modell gilt:
+<li>Zur Berechnung der Modellgüte wird die sog. Konfusionsmatrix verwendet, die die Anzahl der korrekt und inkorrekt klassifizierten Beobachtungen zusammenfasst</li>
+<li>Im binären Modell gilt:
 <ul>
-<li class="fragment">positiv: Beobachtung <span class="math inline">\(i\)</span> gehört zur interessanten Klasse (in unserem Fall EDM)</li>
-<li class="fragment">negativ: Beobachtung <span class="math inline">\(i\)</span> gehört nicht dazu</li>
+<li>positiv: Beobachtung <span class="math inline">\(i\)</span> gehört zur interessanten Klasse (in unserem Fall EDM)</li>
+<li>negativ: Beobachtung <span class="math inline">\(i\)</span> gehört nicht dazu</li>
 </ul></li>
 </ul>
 <div class="fragment fade-in">
@@ -1180,8 +1181,8 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </tbody>
 </table>
 <ul>
-<li class="fragment"><strong>True Positive (TP)</strong>: Ein TP liegt vor, wenn das Modell ein Objekt korrekt der relevanten Klasse zuordnet. Beispiele hierfür sind die korrekte Identifikation eines Schadens, die richtige Diagnose einer Krankheit oder die richtige Erkennung von Spam.</li>
-<li class="fragment"><strong>False Positive (FP)</strong>: Ein FP liegt vor, wenn das Modell ein Objekt fälschlicherweise als positiv bzw. relevant klassifiziert, obwohl es tatsächlich negativ ist. Beispiele hierfür sind die Meldung eines nicht vorhandenen Schadens oder die Diagnose einer nicht existierenden Krankheit. FP wird auch als Typ-I Fehler oder Alpha-Fehler bezeichnet.</li>
+<li><strong>True Positive (TP)</strong>: Ein TP liegt vor, wenn das Modell ein Objekt korrekt der relevanten Klasse zuordnet. Beispiele hierfür sind die korrekte Identifikation eines Schadens, die richtige Diagnose einer Krankheit oder die richtige Erkennung von Spam.</li>
+<li><strong>False Positive (FP)</strong>: Ein FP liegt vor, wenn das Modell ein Objekt fälschlicherweise als positiv bzw. relevant klassifiziert, obwohl es tatsächlich negativ ist. Beispiele hierfür sind die Meldung eines nicht vorhandenen Schadens oder die Diagnose einer nicht existierenden Krankheit. FP wird auch als Typ-I Fehler oder Alpha-Fehler bezeichnet.</li>
 </ul>
 </div>
 </section>
@@ -1211,8 +1212,8 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </tbody>
 </table>
 <ul>
-<li class="fragment"><strong>True Negative (TN)</strong>: Ein TN liegt vor, wenn das Modell ein Objekt korrekt als negativ, also nicht der relevanten Klasse zugehörig klassifiziert. Beispiele hierfür sind die korrekte Identifikation eines funktionsfähigen Teils oder die richtige Klassifizierung einer Person als gesund.</li>
-<li class="fragment"><strong>False Negative (FN)</strong>: Ein FN liegt vor, wenn das Modell ein Objekt falsch als negativ klassifiziert, obwohl es tatsächlich positiv – also relevant – ist. Synonyme hierfür sind Typ-II Fehler oder Beta-Fehler. Beispiele: die ausbleibende Meldung eines aufgetretenen Schadens oder die falsche Nicht-Diagnose einer existierenden Krankheit</li>
+<li><strong>True Negative (TN)</strong>: Ein TN liegt vor, wenn das Modell ein Objekt korrekt als negativ, also nicht der relevanten Klasse zugehörig klassifiziert. Beispiele hierfür sind die korrekte Identifikation eines funktionsfähigen Teils oder die richtige Klassifizierung einer Person als gesund.</li>
+<li><strong>False Negative (FN)</strong>: Ein FN liegt vor, wenn das Modell ein Objekt falsch als negativ klassifiziert, obwohl es tatsächlich positiv – also relevant – ist. Synonyme hierfür sind Typ-II Fehler oder Beta-Fehler. Beispiele: die ausbleibende Meldung eines aufgetretenen Schadens oder die falsche Nicht-Diagnose einer existierenden Krankheit</li>
 </ul>
 </div>
 </section>
@@ -1222,8 +1223,8 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li class="fragment">Unser einfaches Modell zeigt die rechts dargestellte Konfusionsmatrix</li>
-<li class="fragment">Aus den vier Quadranten lässt sich dann die Accuracy berechnen:</li>
+<li>Unser einfaches Modell zeigt die rechts dargestellte Konfusionsmatrix</li>
+<li>Aus den vier Quadranten lässt sich dann die Accuracy berechnen:</li>
 </ul>
 <div style="font-size: 0.8em">
 <div class="fragment fade-in">
@@ -1237,7 +1238,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="06_VL_files/figure-revealjs/unnamed-chunk-15-1.png" width="384"></p>
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-15-1.png" width="384"></p>
 </div>
 </div>
 </div>
@@ -1247,10 +1248,10 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <h2>Modellevaluation</h2>
 <h3 id="vor--und-nachteile-der-accuracy">Vor- und Nachteile der Accuracy</h3>
 <ul>
-<li class="fragment">Die Accuracy ist eine einfache und intuitive Metrik, die den Anteil der korrekt klassifizierten Beobachtungen angibt</li>
-<li class="fragment">Allerdings sollte die Accuracy nur bei einem ausgewogenen Datensatz verwendet werden</li>
-<li class="fragment">Ausgewogen oder balanciert bedeutet hier, dass die Anzahl der Beobachtungen in den Klassen ungefähr gleich ist</li>
-<li class="fragment">Im einfachen Beispiel hier ist das der Fall, weshalb die Accuracy ausreichend ist</li>
+<li>Die Accuracy ist eine einfache und intuitive Metrik, die den Anteil der korrekt klassifizierten Beobachtungen angibt</li>
+<li>Allerdings sollte die Accuracy nur bei einem ausgewogenen Datensatz verwendet werden</li>
+<li>Ausgewogen oder balanciert bedeutet hier, dass die Anzahl der Beobachtungen in den Klassen ungefähr gleich ist</li>
+<li>Im einfachen Beispiel hier ist das der Fall, weshalb die Accuracy ausreichend ist</li>
 </ul>
 </section>
 <section id="modellevaluation-5" class="slide level2">
@@ -1259,10 +1260,10 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li class="fragment">In der Praxis liegen häufig unbalancierte Datensätze vor, sodass die Accuracy allein meist nur geringe Aussagekraft hat</li>
-<li class="fragment">Wir nehmen ein extremes Beispiel mit 1000 E-Mails, von denen 100 Spam-Mails sind</li>
-<li class="fragment">Unser Modell zur Spam-Erkennung liefert die Konfusionsmatrix rechts</li>
-<li class="fragment">Das Modell erkennt nur eine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%, weil die Zahl der TN sehr hoch ist</li>
+<li>In der Praxis liegen häufig unbalancierte Datensätze vor, sodass die Accuracy allein meist nur geringe Aussagekraft hat</li>
+<li>Wir nehmen ein extremes Beispiel mit 1000 E-Mails, von denen 100 Spam-Mails sind</li>
+<li>Unser Modell zur Spam-Erkennung liefert die Konfusionsmatrix rechts</li>
+<li>Das Modell erkennt nur eine Spam-Nachricht, erreicht jedoch eine Accuracy von über 90%, weil die Zahl der TN sehr hoch ist</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <div style="font-size: 0.6em">
@@ -1310,13 +1311,325 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <h2>Logistische Regression</h2>
 <h3 id="interaktive-visualisierung">Interaktive Visualisierung</h3>
 <ul>
-<li class="fragment"><p>Für eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App</p></li>
-<li class="fragment"><p>Erreichbar über:</p>
+<li><p>Für eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App</p></li>
+<li><p>Erreichbar über:</p>
 <ul>
-<li class="fragment"><a href="https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/">Logistic Explorer</a></li>
+<li><a href="https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/">Logistic Explorer</a></li>
 </ul></li>
-<li class="fragment"><p>Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script <code>install_packages.R</code></p></li>
+<li><p>Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script <code>install_packages.R</code></p></li>
+<li><p>Frage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?</p></li>
 </ul>
+</section>
+<section id="modellevaluation-6" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="precision">Precision</h3>
+<div style="font-size: 0.85em">
+<ul>
+<li>Andere Metriken beheben die Schwächen der Accuracy</li>
+<li>Precision oder Präzision gibt an, wie viele der vom Klassifikator als positiv identifizierten Fälle tatsächlich positiv sind und entspricht dem Anteil der tatsächlich positiven Fälle an der Menge aller als positiv klassifizierten Fälle</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[\text{Precision} = \frac{\text{TP}}{\text{TP + FP}}\]</span></p>
+</div>
+<ul>
+<li>Welcher Anteil der positiven Identifikationen war tatsächlich korrekt? Oder: Wenn das Modell einen Datenpunkt positiv klassifiziert, wie wahrscheinlich ist es, dass diese Klassifikation richtig ist?</li>
+<li>Eine hohe Precision bedeutet also, dass der Klassifikator nur wenige irrelevante Fälle als relevant einstuft und ein Klassifikator mit einer Precision von 1,0 liefert keine FP.</li>
+</ul>
+</div>
+</section>
+<section id="modellevaluation-7" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="recall">Recall</h3>
+<div style="font-size: 0.85em">
+<ul>
+<li><strong>Recall</strong> hingegen gibt an, wie viele der tatsächlich positiven Fälle vom Klassifikator als positiv bzw. relevant erkannt wurden:</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[\text{Recall} = \frac{\text{TP}}{\text{TP + FN}}\]</span></p>
+</div>
+<ul>
+<li>Ein hoher Recall-Wert bedeutet, dass der Klassifikator viele relevante Fälle erkennt und beantwortet die Frage, welcher Anteil der positiven Ergebnisse richtig identifiziert wurde.</li>
+<li>Wie wahrscheinlich ist es, dass das Modell einen positiven Datenpunkt erkennt?</li>
+<li>Auch häufig als Sensitivität oder True Positive Rate bezeichnet</li>
+</ul>
+</div>
+</section>
+<section id="modellevaluation-8" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="precision-und-recall">Precision und Recall</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Visualizing-accuracy-recall-aka-sensitivity-and-precision-which-are-the-common.png" style="width:72.0%"></p>
+<figcaption>Illustration Precision, Recall, Accuracy, Quelle: <span class="citation" data-cites="maleki_overview_2020">Maleki u.&nbsp;a. (<a href="#/quellen" role="doc-biblioref" onclick="">2020</a>)</span></figcaption>
+</figure>
+</div>
+</section>
+<section id="modellevaluation-9" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="precision-und-recall-für-den-spam-filter">Precision und Recall für den Spam-Filter</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div style="font-size: 0.85em">
+<ul>
+<li>Um Precision und Recall bei unausgewogenen Datensätzen zu illustrieren, betrachten wir erneut den Spam-Filter</li>
+<li>Für Precision erhalten wir</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[\text{Precision} = \frac{\text{1}}{\text{1 + 0}} = 1\]</span></p>
+</div>
+<ul>
+<li>Für Recall ergibt sich</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[\text{Recall} = \frac{\text{1}}{\text{1 + 99}} = 0,01.\]</span></p>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div style="font-size: 0.6em">
+<table style="width:100%;">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Tatsächlich Positiv</th>
+<th>Tatsächlich Negativ</th>
+<th>Summe Vorhersage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Vorhergesagt Positiv</strong></td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>Vorhergesagt Negativ</strong></td>
+<td>99</td>
+<td>900</td>
+<td>999</td>
+</tr>
+<tr class="odd">
+<td><strong>Summe Tatsächlich</strong></td>
+<td>100</td>
+<td>900</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="font-size: 0.8em">
+<ul>
+<li>Wenn das Modell eine Mail als Spam klassifiziert, ist diese Prognose zu 100% korrekt</li>
+<li>Das Modell erkennt aber nur 1% der tatsächlichen Spam-Mails.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="modellevaluation-10" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="precision-und-recall-für-den-spam-filter-1">Precision und Recall für den Spam-Filter</h3>
+<ul>
+<li>Welches Maß ist nun das Richtige?</li>
+</ul>
+<ol type="1">
+<li>Wenn ein balancierter Datensatz vorliegt, kann Accuracy bedenkenlos verwendet werden, um das Modell zu evaluieren</li>
+<li>Wenn wir sicher sein wollen, dass eine positive Vorhersage korrekt ist, dann ist Precision die angemessene Evaluationsmetrik. Dies ist oft der Fall, wenn FP mit höheren Kosten verbunden sind, als FN.</li>
+<li>Wenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen</li>
+</ol>
+</section>
+<section id="modellevaluation-11" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="f1-score">F1-Score</h3>
+<ul>
+<li>Oft sind Kosten und Nutzen von FP und FN Klassifikationen nicht eindeutig</li>
+<li>Der F1 Score kompensiert die Nachteile der Accuracy bei unbalancierten Datensätzen zu kompensieren und legt gleichzeitig einen ausgewogenen Fokus auf Precision und Recall:</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[
+F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\]</span></p>
+</div>
+<ul>
+<li>F1 ist das harmonische Mittel von Precision und Recall und liegt zwischen 0 und 1</li>
+</ul>
+</section>
+<section id="modellevaluation-12" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="f1-score-1">F1-Score</h3>
+<ul>
+<li>Im Spam Beispiel:</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[
+F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
+\]</span></p>
+</div>
+<ul>
+<li>Dieser Wert ist deutlich niedriger, als uns die 90,1% Accuracy zunächst suggerieren.</li>
+<li>Trotzdem ist das Beispielmodell nahezu nutzlos, wie anhand des niedrigen F1-Scores erkennbar wird.</li>
+</ul>
+</section>
+<section id="modellevaluation-13" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="abschließende-bemerkungen">Abschließende Bemerkungen</h3>
+<ul>
+<li>Bei einem balancierten Datensatz <strong>und</strong> gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik</li>
+<li>Bei unbalancierten Datensätzen oder unterschiedlichen Kosten von FP und FN sollten Precision, Recall und F1-Score verwendet werden</li>
+<li>Wenn FP höhere Kosten haben, dann sollte Precision im Vordergrund stehen</li>
+<li>Wenn FN höhere haben, dann sollte Recall im Vordergrund stehen</li>
+</ul>
+</section>
+<section id="modellevaluation-14" class="slide level2">
+<h2>Modellevaluation</h2>
+<h3 id="kosten-von-fp-und-fn">Kosten von FP und FN</h3>
+<ul>
+<li><p>Die meisten Klassifikationsmethoden basieren auf der Annahme, dass FP und FN gleich problematisch sind</p></li>
+<li><p>In praktischen Szenarios ist dies jedoch selten der Fall, Beispiel:</p></li>
+<li><p>Betrugserkennung: Eine Haftpflichtversicherung prüft Schadensmeldungen mit ML. Das Modell soll den Schaden automatisch abwickelnd und entweder als “Zahlung” oder “Keine Zahlung” klassifizieren, je nachdem ob ein Betrugsversuch vorliegt</p></li>
+<li><p>Fragen:</p>
+<ul>
+<li>Was ist die positive (interessante) Klasse aus Sicht der Versicherung?</li>
+<li>Welche Fälle sind dann FN und FP?</li>
+<li>Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?</li>
+</ul></li>
+</ul>
+<aside class="notes">
+<p>Antworten: * Die interessante Klasse ist die Zahlung des Schadens * FN: Die Forderung ist berechtigt, aber die Versicherung zahlt nicht * FP: Die Forderung ist unberechtigt, aber die Versicherung zahlt * FP ist teurer, da die Versicherung zahlen muss, deshalb sollte Precision im Vordergrund stehen</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!-- ## Modellevaluation -->
+<!-- ### Kosten von FP und FN -->
+<!-- 2. Identifikation einer ansteckenden Krankheit: Ein medizinisches Modell identifiziert eine ansteckende Krankheit mit der Eingabe weniger Symptome. Anschließend wird die Person isoliert und umfänglich getestet -->
+<!-- * Fragen:  -->
+<!--   * Was ist die interessante Klasse aus Sicht einer Gesundheitsbehörde? -->
+<!--   * Welche Fälle sind dann FN und FP? -->
+<!--   * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden? -->
+<!-- ::: {.notes} -->
+<!-- Antworten: -->
+<!--   * Die interessante Klasse ist die Identifikation der Krankheit -->
+<!--   * FN: Die Person ist krank, wird aber nicht isoliert -->
+<!--   * FP: Die Person ist nicht krank, wird aber isoliert -->
+<!--   * FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben -->
+<!-- ::: -->
+</section>
+<section id="logistische-regression-15" class="slide level2">
+<h2>Logistische Regression</h2>
+<h3 id="mehrere-unabhängige-variablen">Mehrere unabhängige Variablen</h3>
+<div style="font-size: 0.8em">
+<ul>
+<li>Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet</li>
+<li>Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability</li>
+<li>Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[
+P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}{1 + e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}
+\]</span></p>
+</div>
+<ul>
+<li>Mit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:</li>
+</ul>
+<div class="fragment fade-in">
+<p><span class="math display">\[
+P(EDM = 1|\text{Energy, Danceability}) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="logistische-regression-16" class="slide level2">
+<h2>Logistische Regression</h2>
+<h3 id="mehrere-unabhängige-variablen-1">Mehrere unabhängige Variablen</h3>
+</section>
+<section id="logistische-regression-17" class="slide level2">
+<h2>Logistische Regression</h2>
+<h3 id="mehrere-unabhängige-variablen-2">Mehrere unabhängige Variablen</h3>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.</li>
+<li>Accuracy, Precision, Recall und F1-Score sind:</li>
+</ul>
+<div class="fragment fade-in">
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Metric</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: right;">0.9933</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">recall</td>
+<td style="text-align: right;">0.9930</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">precision</td>
+<td style="text-align: right;">0.9930</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">f_meas</td>
+<td style="text-align: right;">0.9930</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="fragment fade-in">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-18-1.png" width="384"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ## Logistische Regression -->
+<!-- ### Mehrklassen-Klassifikation -->
+<!-- * Auch bei mehreren unabhängigen Variablen bleibt die logistische Regression ein binäres Modell -->
+<!-- * Zur Erweiterung auf $K>2$ Klassen wird die multinomiale logistische Regression verwendet, bei der zunächst eine Referenz- oder Baseline-Klasse festgelegt wird -->
+<!-- * Zur Schätzung der Koeffizienten werden anschließend alle $K-1$ Klassen paarweise separat gegen die Referenzklasse regressiert -->
+<!-- * Anschließend lassen sich die Klassenzugehörigkeiten ähnlich wie im binären Modell vorhersagen -->
+<!-- ## Logistische Regression -->
+<!-- ### Mehrklassen-Klassifikation -->
+<!-- ::: {style="font-size: 0.9em"} -->
+<!-- * Für die Klassen $k = 1, ..., K-1$ geschieht dies mit -->
+<!-- $$ -->
+<!-- p(y_i = k|X = x) = \frac{e^{\beta_{k0} + \beta_{k1}x_1 + ... + \beta_{kp}x_p}}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + ... + \beta_{lp}x_p} } -->
+<!-- $$ -->
+<!-- und für die Referenzklasse $K$ mit -->
+<!-- $$ -->
+<!-- p(y_i = k|X = x) = \frac{1}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + ... + \beta_{lp}x_p} } -->
+<!-- $$ -->
+<!-- * Dabei sind $\beta_{k0}, ..., \beta_{kp}$ die Koeffizienten für die Klasse $k$ und $x_1, ..., x_p$ die unabhängigen Variablen -->
+<!-- ::: -->
+<!-- ## Logistische Regression -->
+<!-- ### Beispiel -->
 </section>
 
 <section id="quellen" class="slide level2 smaller scrollable">
@@ -1328,6 +1641,9 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-james_introduction_2021" class="csl-entry" role="listitem">
 James, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. <em>An Introduction to Statistical Learning: with Applications in R</em>. Second edition. Springer texts in statistics. New York <span>NY</span>: Springer. <a href="https://doi.org/10.1007/978-1-0716-1418-1">https://doi.org/10.1007/978-1-0716-1418-1</a>.
+</div>
+<div id="ref-maleki_overview_2020" class="csl-entry" role="listitem">
+Maleki, Farhad, Katie Ovens, Keyhan Najafian, Behzad Forghani, Caroline Md, und Reza Forghani. 2020. <span>„Overview of Machine Learning Part 1“</span>. <em>Neuroimaging Clinics of North America</em> 30 (November): e17–32. <a href="https://doi.org/10.1016/j.nic.2020.08.007">https://doi.org/10.1016/j.nic.2020.08.007</a>.
 </div>
 <div id="ref-wilke_fundamentals_2019" class="csl-entry" role="listitem">
 Wilke, C. 2019. <em>Fundamentals of data visualization: a primer on making informative and compelling figures</em>. First edition. Sebastopol, CA: O’Reilly Media. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>.

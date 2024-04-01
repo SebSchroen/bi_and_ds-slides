@@ -1,0 +1,220 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung 5"
+format:
+  revealjs:
+    incremental: true  
+---
+  
+```{r}
+
+library(kableExtra)
+library(tidyverse)
+library(ggthemes)
+questionnaire <- read_csv("data/questionnaire.csv")
+```
+
+
+
+
+## Der Plan für heute...
+### Vorlesung 
+
+::: {style="font-size: 0.9em"}
+* Quiz und Recap
+* Informationsgenerierung
+  * Beispiel für OLAP Report
+  * Wo genau unterscheiden sich Self-Sevice BI und traditionelle BI?
+* Modellgestützte Analysen
+  * Wie läuft ein Data Science Projekt ab?
+  * Begriffliche Grundlagen Data Science
+:::
+
+
+
+## Kurzer Überblick: Wo geht's weiter?
+### Informationsgenerierung
+![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio.png){width="700" height="500"}
+
+## Self-Service BI
+### Das Versprechen von Self-Service BI
+
+* Self Service BI setzt beim Versprechen an, die Anwendenden in die Lage zu versetzen eigenständig und flexibel den Datenbestand nach neuen Verknüpfungen zu untersuchen
+* Das kann zudem weitgehend unabhängig von der Unternehmens-IT betrieben und bedient werden
+* Traditionelle BI-Lösungen sind oft als zu starr angesehen, wenn es darum geht, neue Reporting Anforderungen rasch umzusetzen und damit innovative Analysen zu testen
+
+## Self-Service BI vs. Traditionelle BI
+### Blick auf die alte Welt
+
+
+![Traditionelle BI, Quelle: [Fidelity](https://datafidelity.io/business-intelligence-solutions/)](img/Traditional-Approach-1.png){width=80%}
+
+
+## Self-Service BI vs. Traditionelle BI
+### Versprechen der neuen Welt am Beispiel von Looker
+
+
+![Traditionelle BI, Quelle: [Fidelity](https://datafidelity.io/business-intelligence-solutions/)](img/modern-approach-scaled.jpg){width=80%}
+
+# Modellgestützte Analysen
+
+
+
+## Der Data Science Prozess 
+### Ablauf von Data Science Use Cases
+
+:::: {.columns}
+::: {.column width="55%"}
+::: {style="font-size: 0.95em"}
+* Data Science Projekte sind in der Praxis aufwendig und erfordern stets die Zusammenarbeit zwischen Fachabteilungen und Data Science Team
+* Deshalb wurden feste Prozesse etabliert, bspw. der Cross Reference Industry Standard Process for Data Mining (CRISP-DM)
+* CRISP-DM besteht aus 6 Phasen, die iterativ durchlaufen werden
+* Rückkopplungen zwischen den Phasen sind dabei oft notwendig
+:::
+:::
+
+::: {.column width="45%"}
+
+
+![CRISP-DM Prozess. Eigene Darstellung in Anlehnung an @donofrio_rundgang_2021.](img/CRISP_DM.drawio.png){width=70%}
+
+:::
+::::
+
+
+## CRISP-DM
+### Geschäftsmodell
+
+
+1. Verständnis des Geschäftsmodells
+    * Verständnis des Geschäftsmodells und der Unternehmensziele
+    * Berücksichtigung von Chancen, Risiken und zeitlichen Aspekten
+    * Definition des erwartbaren Nutzens und messbarer Erfolgskriterien
+
+## CRISP-DM
+### Anwendungs-/Datendomäne und Datenvorbereitung
+
+2. Verständnis der Anwendungs- und Datendomäne
+    * Analyse der Unternehmensprozesse und Datenquellen
+    * Zusammenführung, Beschreibung und Exploration der Zieldaten
+    * Eruierung der Datenqualität
+3. Datenvorbereitung
+    * Zusammenführung und Beschreibung polystrukturierter Daten
+    * Berechnung von Kennzahlen und Durchführung von Datentransformationen
+
+## CRISP-DM
+### Modellierung, Evaluation und Bereitstellung
+
+4. Modellierung
+    * Modellauswahl und -erstellung
+    * Iterativer Prozess zur Weiterentwicklung von Modellen
+    * Möglicher Einsatz vortrainierter Modelle für die Verfeinerung
+5. Evaluation
+    * Bewertung der erstellten Modelle anhand definierter Erfolgskriterien
+6. Einsatz
+    * Umsetzung der Ergebnisse in die Praxis und Integration in die Unternehmensprozesse
+
+
+## Begriffliche Grundlagen
+### Eine Gleichung, viele Anwendungen
+
+::: {style="font-size: 0.89em"}
+* Die Generierung von modellbasierten Erkenntnissen aus Daten erfordert eine Definition des Lernproblems, oft mit einer simplen Gleichung:
+
+::: {.fragment .fade-in}
+
+$$
+y = f(X) + \epsilon
+$$ 
+:::
+*  $y$ ist ein $N \times 1$ Vektor mit einer Ergebnisvariablen
+* $X$ ist eine $N \times P$ Matrix mit Prädiktoren $X_1, X_2,..., X_P$
+* $N$ entspricht der Anzahl von Beobachtungen im vorliegenden Datensatz, $P$ ist die Anzahl der Prädiktoren
+* Anstelle von Prädiktoren werden oft die Begriffe erklärende oder unabhängige Variablen oder Features verwendet
+* $f$ beschreibt alle systematischen Zusammenhänge zwischen $X$ und $y$, während der Fehlerterm $\epsilon$ alle Variation in $X$ aufnimmt, die nicht von $f$ erklärbar sind
+
+:::
+
+
+## Begriffliche Grundlagen
+### Vorhersage vs. Inferenz
+
+* Angenommen, wir haben eine Funktion $f$ sowie einen Algorithmus gefunden, um $f$ an unsere Variablen $y$ und $X$ anzupassen
+* Die Modellschätzung wird auch als Modelltraining oder Modellanpassung bezeichnet und unser trainiertes Modell hat die Form:
+
+::: {.fragment .fade-in}
+$$
+\hat{y} = \hat{f}(X)
+$$ 
+:::
+* Das trainierte Modell hat keinen Fehlerterm $\epsilon$, da dieser die Variation in den Daten darstellt, die vom Modell nicht erfasst wird und unvorhersehbar ist
+* Geschätzte Größen werden mit einem Zirkumflex-Symbol (^) gekennzeichnet
+
+
+## Begriffliche Grundlagen
+### Vorhersage vs. Inferenz
+* Das Modell kann nun für zwei Zwecke verwendet werden:
+  * Vorhersage: Schätzung von $y$ für neue, nicht im Modell enthaltene Daten
+  * Inferenz: Verständnis der Beziehungen und Muster in den Daten, die das Modell gelernt hat
+* Inferenz erfordert ein genaues Verständnis der Zusammenhänge
+* Bei Vorhersage kümmern wir uns nicht um seine genaue Struktur oder Parameter des Modells, sondern ausschließlich um die generierten Vorhersagen.
+
+
+
+## Begriffliche Grundlagen
+### Klassifikation vs. Regression
+
+
+
+* Die Art der Variablen $y$ bestimmt die Art des Modells, das wir verwenden
+* Variablen sind entweder *kategorisch* oder *numerisch*, oft auch als *qualitativ* und *quantitativ* bezeichnet
+* Wenn die abhängige Variable numerisch ist, ist es möglich, den exakten Wert der Variable vorherzusagen, dann liegt ein Regressionsproblem vor
+* Wenn die abhängige Variable kategorisch ist, lässt sich lediglich die erwartete Klasse vorhersagen, basierend auf einer Wahrscheinlichkeit, dann liegt ein Klassifikationsproblem vor
+* Wichtig: Hierbei ist nur die Art der abhängigen Variable entscheidend
+
+## Begriffliche Grundlagen
+### Kategoriale Daten
+
+* Kategoriale Daten umfassen verschiedene Kategorien oder Labels
+* Bei kategorialen Daten wird wiederum zwischen nominalen und ordinalen Variablen unterschieden
+* Nominaldaten repräsentieren Kategorien ohne eine inhärente Rangfolge:
+  * Farben (rot, blau, grün),
+  * Familienstand (ledig, verheiratet, geschieden, ...),
+* Ordinaldaten weisen eine spezifische Reihenfolge oder Hierarchie auf, aber keine gleichmäßigen Abstände zwischen den Kategorien:
+  * Schärfe von Essen (mild, pikant, scharf),
+  * Expertise mit Programmiersprachen (keine, wenig, fortgeschritten, professionell)
+
+
+## Begriffliche Grundlagen
+### Numerische Daten
+
+:::: {.columns}
+::: {.column width="50%"}
+* *Numerische* Daten reräsentieren Mengen, Messungen, und allgemein numerische Werte
+* Lassen sich mit mathematichen Operationen verarbeiten und manipulieren
+* Numerische Daten können entweder *diskret* oder *kontinuierlich* sein, Beispiele:
+  * Alter,
+  * Temperatur,
+  * Finanzwerte ($ oder €)
+:::
+::: {.column width="50%"}
+
+::: {.fragment .fade-in}
+![Stetig vs. Diskret, Quelle: [Allison Horst](https://twitter.com/allison_horst)](img/discrete_vs_continuous.png)
+:::
+:::
+::::
+
+## Begriffliche Grundlagen
+### Überwachtes vs. Unüberwachtes Lernen
+
+* Überwachte Lernprobleme weisen eine mess- oder beobachtbare abhängige Variable  $y_i, i = 1,2,...N$ für jede Beobachtung $i$ auf sowie eine oder mehrere Prädiktoren
+* Unüberwachte Lernprobleme hingegen haben keine abhängige Variable, sondern versuchen, Muster in den Daten zu finden
+* Die Mehrheit der Data Science Projekte sind überwacht, da sie auf der Vorhersage von $y$ basieren
+* Auch wir konzentrieren uns bei der Klassifikation auf überwachte Lernprobleme
+
+
+## Slide Title {visibility="hidden"}
+@james_introduction_2021
+
+## Quellen

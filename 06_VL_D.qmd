@@ -3,7 +3,7 @@ title: "Business Intelligence & Data Science"
 subtitle: "Vorlesung 6"
 format:
   revealjs:
-    incremental: true  
+    incremental: false  
 ---
   
 ```{r}
@@ -26,7 +26,7 @@ set.seed(1)
 split <- initial_split(data, prop = 3*0.029156, strata = category)
 training <- 
   training(split) %>% 
-  select(category, energy, track.name, track.artist) %>% 
+  select(category, energy, danceability, track.name, track.artist) %>% 
   mutate(edm = case_when(
     category == "EDM" ~ 1,
     category == "Klassik" ~ 0
@@ -53,6 +53,7 @@ training <-
 * Modellgestützte Analysen
   * Einfache Logistische Regression
   * Modellevaluation
+  * Multiple Logistische Regression
 * Wie gut kann man Musik-Genres klassifizieren?
 
 ## Business Case
@@ -837,6 +838,9 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 :::
 ::::
 
+
+
+
 ## Modellevaluation
 ### Vor- und Nachteile der Accuracy
 
@@ -844,6 +848,8 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 * Allerdings sollte die Accuracy nur bei einem ausgewogenen Datensatz verwendet werden
 * Ausgewogen oder balanciert bedeutet hier, dass die Anzahl der Beobachtungen in den Klassen ungefähr gleich ist
 * Im einfachen Beispiel hier ist das der Fall, weshalb die Accuracy ausreichend ist
+
+
 
 
 ## Modellevaluation
@@ -889,6 +895,341 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
     * [Logistic Explorer](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
 
 * Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script `install_packages.R`
+* Frage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?
+
+## Modellevaluation
+### Precision
+
+
+::: {style="font-size: 0.85em"}
+
+* Andere Metriken beheben die Schwächen der Accuracy
+* Precision oder Präzision gibt an, wie viele der vom Klassifikator als positiv identifizierten Fälle tatsächlich positiv sind und entspricht dem Anteil der tatsächlich positiven Fälle an der Menge aller als positiv klassifizierten Fälle
+
+::: {.fragment .fade-in}
+
+$$\text{Precision} = \frac{\text{TP}}{\text{TP + FP}}$$
+:::
+
+* Welcher Anteil der positiven Identifikationen war tatsächlich korrekt? Oder: Wenn das Modell einen Datenpunkt positiv klassifiziert, wie wahrscheinlich ist es, dass diese Klassifikation richtig ist? 
+* Eine hohe Precision bedeutet also, dass der Klassifikator nur wenige irrelevante Fälle als relevant einstuft und ein Klassifikator mit einer Precision von 1,0 liefert keine FP. 
+
+:::
+
+## Modellevaluation
+### Recall
+
+::: {style="font-size: 0.85em"}
+
+* **Recall** hingegen gibt an, wie viele der tatsächlich positiven Fälle vom Klassifikator als positiv bzw. relevant erkannt wurden:
+
+::: {.fragment .fade-in}
+$$\text{Recall} = \frac{\text{TP}}{\text{TP + FN}}$$
+:::
+* Ein hoher Recall-Wert bedeutet, dass der Klassifikator viele relevante Fälle erkennt und beantwortet die Frage, welcher Anteil der positiven Ergebnisse richtig identifiziert wurde.
+* Wie wahrscheinlich ist es, dass das Modell einen positiven Datenpunkt erkennt?
+* Auch häufig als Sensitivität oder True Positive Rate bezeichnet
+
+:::
+
+## Modellevaluation
+### Precision und Recall
+
+![Illustration Precision, Recall, Accuracy, Quelle: @maleki_overview_2020](img/Visualizing-accuracy-recall-aka-sensitivity-and-precision-which-are-the-common.png){width=72%}
+
+## Modellevaluation
+### Precision und Recall für den Spam-Filter
+
+
+:::: {.columns}
+
+
+::: {.column width=55%}
+
+
+::: {style="font-size: 0.85em"}
+
+* Um Precision und Recall bei unausgewogenen Datensätzen zu illustrieren, betrachten wir erneut den Spam-Filter
+* Für Precision erhalten wir 
+
+::: {.fragment .fade-in}
+
+$$\text{Precision} = \frac{\text{1}}{\text{1 + 0}} = 1$$
+:::
+
+* Für Recall ergibt sich
+
+::: {.fragment .fade-in}
+$$\text{Recall} = \frac{\text{1}}{\text{1 + 99}} = 0,01.$$
+:::
+
+:::
+:::
+
+::: {.column width=45%}
+
+::: {style="font-size: 0.6em"}
+
+
+
+|                    | Tatsächlich Positiv | Tatsächlich Negativ | Summe Vorhersage |
+|--------------------|---------------------|---------------------|------------------|
+| **Vorhergesagt Positiv**| 1 |0 | 1   |
+| **Vorhergesagt Negativ**| 99 | 900  | 999     |
+| **Summe Tatsächlich**   | 100 | 900 | 1000      |
+
+:::
+
+
+::: {style="font-size: 0.8em"}
+
+
+
+* Wenn das Modell eine Mail als Spam klassifiziert, ist diese Prognose zu 100% korrekt
+* Das Modell erkennt aber nur 1% der tatsächlichen Spam-Mails. 
+
+
+:::
+
+:::
+
+::::
+
+
+
+
+## Modellevaluation
+### Precision und Recall für den Spam-Filter
+
+* Welches Maß ist nun das Richtige?
+
+1. Wenn ein balancierter Datensatz vorliegt, kann Accuracy bedenkenlos verwendet werden, um das Modell zu evaluieren
+2. Wenn wir sicher sein wollen, dass eine positive Vorhersage korrekt ist, dann ist Precision die angemessene Evaluationsmetrik.
+Dies ist oft der Fall, wenn FP mit höheren Kosten verbunden sind, als FN. 
+3. Wenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden
+In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen
+
+
+
+## Modellevaluation
+### F1-Score
+
+
+* Oft sind Kosten und Nutzen von FP und FN Klassifikationen nicht eindeutig
+* Der F1 Score kompensiert die Nachteile der Accuracy bei unbalancierten Datensätzen zu kompensieren und legt gleichzeitig einen ausgewogenen Fokus auf Precision und Recall:
+
+::: {.fragment .fade-in}
+$$
+F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+$$
+:::
+
+* F1 ist das harmonische Mittel von Precision und Recall und liegt zwischen 0 und 1
+
+
+
+
+## Modellevaluation
+### F1-Score
+
+* Im Spam Beispiel:
+
+::: {.fragment .fade-in}
+
+$$
+F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
+$$
+:::
+
+
+* Dieser Wert ist deutlich niedriger, als uns die 90,1% Accuracy zunächst suggerieren.
+* Trotzdem ist das Beispielmodell nahezu nutzlos, wie anhand des niedrigen F1-Scores erkennbar wird.
+
+
+
+## Modellevaluation
+### Abschließende Bemerkungen
+
+* Bei einem balancierten Datensatz **und** gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik
+* Bei unbalancierten Datensätzen oder unterschiedlichen Kosten von FP und FN sollten Precision, Recall und F1-Score verwendet werden
+* Wenn FP höhere Kosten haben, dann sollte Precision im Vordergrund stehen
+* Wenn FN höhere haben, dann sollte Recall im Vordergrund stehen
+
+## Modellevaluation
+### Kosten von FP und FN
+
+* Die meisten Klassifikationsmethoden basieren auf der Annahme, dass FP und FN gleich problematisch sind
+* In praktischen Szenarios ist dies jedoch selten der Fall, Beispiel:
+
+* Betrugserkennung: Eine Haftpflichtversicherung prüft Schadensmeldungen mit ML. Das Modell soll den Schaden automatisch abwickelnd und entweder als "Zahlung" oder "Keine Zahlung" klassifizieren, je nachdem ob ein Betrugsversuch vorliegt
+
+* Fragen: 
+  * Was ist die positive (interessante) Klasse aus Sicht der Versicherung?
+  * Welche Fälle sind dann FN und FP?
+  * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?
+
+
+::: {.notes}
+
+Antworten:
+  * Die interessante Klasse ist die Zahlung des Schadens
+  * FN: Die Forderung ist berechtigt, aber die Versicherung zahlt nicht
+  * FP: Die Forderung ist unberechtigt, aber die Versicherung zahlt
+  * FP ist teurer, da die Versicherung zahlen muss, deshalb sollte Precision im Vordergrund stehen
+:::
+
+<!-- ## Modellevaluation -->
+<!-- ### Kosten von FP und FN -->
+
+<!-- 2. Identifikation einer ansteckenden Krankheit: Ein medizinisches Modell identifiziert eine ansteckende Krankheit mit der Eingabe weniger Symptome. Anschließend wird die Person isoliert und umfänglich getestet -->
+
+<!-- * Fragen:  -->
+<!--   * Was ist die interessante Klasse aus Sicht einer Gesundheitsbehörde? -->
+<!--   * Welche Fälle sind dann FN und FP? -->
+<!--   * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden? -->
+
+
+<!-- ::: {.notes} -->
+
+<!-- Antworten: -->
+
+<!--   * Die interessante Klasse ist die Identifikation der Krankheit -->
+<!--   * FN: Die Person ist krank, wird aber nicht isoliert -->
+<!--   * FP: Die Person ist nicht krank, wird aber isoliert -->
+<!--   * FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben -->
+<!-- ::: -->
+
+
+## Logistische Regression
+### Mehrere unabhängige Variablen
+::: {style="font-size: 0.8em"}
+* Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet
+* Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability
+* Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:
+
+::: {.fragment .fade-in}
+$$
+P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}{1 + e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}
+$$
+:::
+* Mit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:
+
+::: {.fragment .fade-in}
+$$
+P(EDM = 1|\text{Energy, Danceability}) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}
+$$
+:::
+
+:::
+
+## Logistische Regression
+### Mehrere unabhängige Variablen
+
+```{r}
+
+logistic <- logistic_reg() %>%
+  set_engine("glm") %>%
+  fit(edm_factor ~ energy + danceability, data = training)
+
+predictions <- augment(logistic, new_data = training, .predict = "response")
+
+accuracy <- yardstick::accuracy(predictions, truth = edm_factor, estimate = .pred_class)
+
+
+coefficients_logistic <- tidy(logistic) %>%
+  select(term, estimate)
+
+```
+
+
+
+## Logistische Regression
+### Mehrere unabhängige Variablen
+
+
+:::: {.columns}
+
+::: {.column width=55%}
+
+* Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.
+* Accuracy, Precision, Recall und F1-Score sind:
+
+::: {.fragment .fade-in}
+
+```{r}
+
+multi_metric <- metric_set(yardstick::accuracy, recall, precision, f_meas)
+
+
+augment(logistic, new_data = training) %>%
+  multi_metric(truth = edm_factor, estimate = .pred_class, event_level = "second") %>%
+  select(.metric, .estimate) %>%
+  rename(Metric = .metric, Value = .estimate) %>%
+  knitr::kable(digits = 4) 
+  
+
+```
+
+:::
+
+:::
+
+::: {.column width=45%}
+
+::: {.fragment .fade-in}
+
+
+
+```{r, fig.height = 4, fig.width = 4}
+
+yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
+  autoplot(type = "heatmap") +
+  labs(x = "Wahrheit", y = "Vorhersage")
+
+```
+
+:::
+
+:::
+
+
+::::
+
+
+<!-- ## Logistische Regression -->
+<!-- ### Mehrklassen-Klassifikation -->
+
+
+<!-- * Auch bei mehreren unabhängigen Variablen bleibt die logistische Regression ein binäres Modell -->
+<!-- * Zur Erweiterung auf $K>2$ Klassen wird die multinomiale logistische Regression verwendet, bei der zunächst eine Referenz- oder Baseline-Klasse festgelegt wird -->
+<!-- * Zur Schätzung der Koeffizienten werden anschließend alle $K-1$ Klassen paarweise separat gegen die Referenzklasse regressiert -->
+<!-- * Anschließend lassen sich die Klassenzugehörigkeiten ähnlich wie im binären Modell vorhersagen -->
+
+<!-- ## Logistische Regression -->
+<!-- ### Mehrklassen-Klassifikation -->
+
+<!-- ::: {style="font-size: 0.9em"} -->
+<!-- * Für die Klassen $k = 1, ..., K-1$ geschieht dies mit -->
+
+<!-- $$ -->
+<!-- p(y_i = k|X = x) = \frac{e^{\beta_{k0} + \beta_{k1}x_1 + ... + \beta_{kp}x_p}}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + ... + \beta_{lp}x_p} } -->
+<!-- $$ -->
+
+<!-- und für die Referenzklasse $K$ mit -->
+
+<!-- $$ -->
+<!-- p(y_i = k|X = x) = \frac{1}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + ... + \beta_{lp}x_p} } -->
+<!-- $$ -->
+
+<!-- * Dabei sind $\beta_{k0}, ..., \beta_{kp}$ die Koeffizienten für die Klasse $k$ und $x_1, ..., x_p$ die unabhängigen Variablen -->
+
+<!-- ::: -->
+
+<!-- ## Logistische Regression -->
+<!-- ### Beispiel -->
+
+
+
 
 ## Slide Title {visibility="hidden"}
 @james_introduction_2021
