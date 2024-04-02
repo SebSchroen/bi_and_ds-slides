@@ -53,7 +53,7 @@ training <-
 * Modellgestützte Analysen
   * Einfache Logistische Regression
   * Modellevaluation
-  * Multiple Logistische Regression
+  * Multivariate Logistische Regression
 * Wie gut kann man Musik-Genres klassifizieren?
 
 ## Business Case
@@ -306,7 +306,7 @@ boxplot
 
 ::: {style="font-size: 0.87em"}
 ::: {.nonincremental}
-* Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.
+* Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violin-Plots abgelöst.
 * Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse
 * Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz
 * Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind
@@ -892,7 +892,8 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 * Für eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App
 * Erreichbar über:
 
-    * [Logistic Explorer](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
+    * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
+
 
 * Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script `install_packages.R`
 * Frage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?
@@ -1006,7 +1007,7 @@ $$\text{Recall} = \frac{\text{1}}{\text{1 + 99}} = 0,01.$$
 1. Wenn ein balancierter Datensatz vorliegt, kann Accuracy bedenkenlos verwendet werden, um das Modell zu evaluieren
 2. Wenn wir sicher sein wollen, dass eine positive Vorhersage korrekt ist, dann ist Precision die angemessene Evaluationsmetrik.
 Dies ist oft der Fall, wenn FP mit höheren Kosten verbunden sind, als FN. 
-3. Wenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden
+3. Wenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden.
 In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen
 
 
@@ -1052,8 +1053,8 @@ $$
 
 * Bei einem balancierten Datensatz **und** gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik
 * Bei unbalancierten Datensätzen oder unterschiedlichen Kosten von FP und FN sollten Precision, Recall und F1-Score verwendet werden
-* Wenn FP höhere Kosten haben, dann sollte Precision im Vordergrund stehen
-* Wenn FN höhere haben, dann sollte Recall im Vordergrund stehen
+* Wenn FP höhere Kosten haben, dann sollte Precision im Fokus stehen
+* Wenn FN höhere haben, dann sollte Recall im Fokus stehen
 
 ## Modellevaluation
 ### Kosten von FP und FN
@@ -1098,6 +1099,19 @@ Antworten:
 <!--   * FP: Die Person ist nicht krank, wird aber isoliert -->
 <!--   * FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben -->
 <!-- ::: -->
+
+
+## Logistische Regression
+### Verhältnis von Precision und Recall
+
+* Für eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App
+* Erreichbar über:
+
+    * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
+
+* Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script `install_packages.R`
+* Frage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?
+
 
 
 ## Logistische Regression

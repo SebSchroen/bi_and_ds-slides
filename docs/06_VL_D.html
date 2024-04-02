@@ -379,7 +379,7 @@ Dr.&nbsp;Sebastian Schrön
 <ul>
 <li class="fragment">Einfache Logistische Regression</li>
 <li class="fragment">Modellevaluation</li>
-<li class="fragment">Multiple Logistische Regression</li>
+<li class="fragment">Multivariate Logistische Regression</li>
 </ul></li>
 <li class="fragment">Wie gut kann man Musik-Genres klassifizieren?</li>
 </ul>
@@ -573,7 +573,7 @@ Dr.&nbsp;Sebastian Schrön
 <div style="font-size: 0.87em">
 <div>
 <ul>
-<li>Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.</li>
+<li>Da händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violin-Plots abgelöst.</li>
 <li>Statt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse</li>
 <li>Der dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz</li>
 <li>Violins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind</li>
@@ -1314,7 +1314,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <li class="fragment"><p>Für eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App</p></li>
 <li class="fragment"><p>Erreichbar über:</p>
 <ul>
-<li class="fragment"><a href="https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/">Logistic Explorer</a></li>
+<li class="fragment"><a href="https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/">https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/</a></li>
 </ul></li>
 <li class="fragment"><p>Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script <code>install_packages.R</code></p></li>
 <li class="fragment"><p>Frage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?</p></li>
@@ -1441,7 +1441,7 @@ P(\text{EDM}_i = 1|\text{X = Energy}_i)
 <ol type="1">
 <li class="fragment">Wenn ein balancierter Datensatz vorliegt, kann Accuracy bedenkenlos verwendet werden, um das Modell zu evaluieren</li>
 <li class="fragment">Wenn wir sicher sein wollen, dass eine positive Vorhersage korrekt ist, dann ist Precision die angemessene Evaluationsmetrik. Dies ist oft der Fall, wenn FP mit höheren Kosten verbunden sind, als FN.</li>
-<li class="fragment">Wenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen</li>
+<li class="fragment">Wenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden. In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen</li>
 </ol>
 </section>
 <section id="modellevaluation-11" class="slide level2">
@@ -1482,8 +1482,8 @@ F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
 <ul>
 <li class="fragment">Bei einem balancierten Datensatz <strong>und</strong> gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik</li>
 <li class="fragment">Bei unbalancierten Datensätzen oder unterschiedlichen Kosten von FP und FN sollten Precision, Recall und F1-Score verwendet werden</li>
-<li class="fragment">Wenn FP höhere Kosten haben, dann sollte Precision im Vordergrund stehen</li>
-<li class="fragment">Wenn FN höhere haben, dann sollte Recall im Vordergrund stehen</li>
+<li class="fragment">Wenn FP höhere Kosten haben, dann sollte Precision im Fokus stehen</li>
+<li class="fragment">Wenn FN höhere haben, dann sollte Recall im Fokus stehen</li>
 </ul>
 </section>
 <section id="modellevaluation-14" class="slide level2">
@@ -1530,6 +1530,19 @@ F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
 </section>
 <section id="logistische-regression-15" class="slide level2">
 <h2>Logistische Regression</h2>
+<h3 id="verhältnis-von-precision-und-recall">Verhältnis von Precision und Recall</h3>
+<ul>
+<li class="fragment"><p>Für eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App</p></li>
+<li class="fragment"><p>Erreichbar über:</p>
+<ul>
+<li class="fragment"><a href="https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/">https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/</a></li>
+</ul></li>
+<li class="fragment"><p>Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script <code>install_packages.R</code></p></li>
+<li class="fragment"><p>Frage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?</p></li>
+</ul>
+</section>
+<section id="logistische-regression-16" class="slide level2">
+<h2>Logistische Regression</h2>
 <h3 id="mehrere-unabhängige-variablen">Mehrere unabhängige Variablen</h3>
 <div style="font-size: 0.8em">
 <ul>
@@ -1552,11 +1565,11 @@ P(EDM = 1|\text{Energy, Danceability}) = \frac{ e^{(\beta_0 + \beta_1 \cdot \tex
 </div>
 </div>
 </section>
-<section id="logistische-regression-16" class="slide level2">
+<section id="logistische-regression-17" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="mehrere-unabhängige-variablen-1">Mehrere unabhängige Variablen</h3>
 </section>
-<section id="logistische-regression-17" class="slide level2">
+<section id="logistische-regression-18" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="mehrere-unabhängige-variablen-2">Mehrere unabhängige Variablen</h3>
 <div class="columns">

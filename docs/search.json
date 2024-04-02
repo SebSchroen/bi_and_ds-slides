@@ -1138,7 +1138,7 @@
     "href": "06_VL_D.html#der-plan-für-heute-1",
     "title": "Business Intelligence & Data Science",
     "section": "Der Plan für heute…",
-    "text": "Der Plan für heute…\nVorlesung\n\nNeue Daten von Tofispy\nVisualisierung von Verteilungen\nModellgestützte Analysen\n\nEinfache Logistische Regression\nModellevaluation\nMultiple Logistische Regression\n\nWie gut kann man Musik-Genres klassifizieren?"
+    "text": "Der Plan für heute…\nVorlesung\n\nNeue Daten von Tofispy\nVisualisierung von Verteilungen\nModellgestützte Analysen\n\nEinfache Logistische Regression\nModellevaluation\nMultivariate Logistische Regression\n\nWie gut kann man Musik-Genres klassifizieren?"
   },
   {
     "objectID": "06_VL_D.html#business-case",
@@ -1208,7 +1208,7 @@
     "href": "06_VL_D.html#visualisierung-von-verteilungen-6",
     "title": "Business Intelligence & Data Science",
     "section": "Visualisierung von Verteilungen",
-    "text": "Visualisierung von Verteilungen\nViolin-Plot\n\n\n\n\n\nDa händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violinplots abgelöst.\nStatt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse\nDer dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz\nViolins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind"
+    "text": "Visualisierung von Verteilungen\nViolin-Plot\n\n\n\n\n\nDa händische Zeichnungen heute weniger wichtig sind, werden Boxplots in letzter Zeit verstärkt von Violin-Plots abgelöst.\nStatt Boxen und Whiskern zeigen Violin-Plots die gesamte Verteilung der Daten entlang der Y-Achse\nDer dickste Teil des Violins entspricht der höchsten Punktendichte im Datensatz\nViolins sind symmetrisch und beginnen und enden bei den minimalen und maximalen Datenwerten und vergleichbar mit stetigen Histogrammen, die um 90 Grad gedreht sind"
   },
   {
     "objectID": "06_VL_D.html#visualisierung-von-verteilungen-7",
@@ -1369,7 +1369,7 @@
     "href": "06_VL_D.html#logistische-regression-14",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nInteraktive Visualisierung\n\nFür eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App\nErreichbar über:\n\nLogistic Explorer\n\nAlternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script install_packages.R\nFrage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?"
+    "text": "Logistische Regression\nInteraktive Visualisierung\n\nFür eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App\nErreichbar über:\n\nhttps://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/\n\nAlternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script install_packages.R\nFrage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?"
   },
   {
     "objectID": "06_VL_D.html#modellevaluation-6",
@@ -1404,7 +1404,7 @@
     "href": "06_VL_D.html#modellevaluation-10",
     "title": "Business Intelligence & Data Science",
     "section": "Modellevaluation",
-    "text": "Modellevaluation\nPrecision und Recall für den Spam-Filter\n\nWelches Maß ist nun das Richtige?\n\n\nWenn ein balancierter Datensatz vorliegt, kann Accuracy bedenkenlos verwendet werden, um das Modell zu evaluieren\nWenn wir sicher sein wollen, dass eine positive Vorhersage korrekt ist, dann ist Precision die angemessene Evaluationsmetrik. Dies ist oft der Fall, wenn FP mit höheren Kosten verbunden sind, als FN.\nWenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen"
+    "text": "Modellevaluation\nPrecision und Recall für den Spam-Filter\n\nWelches Maß ist nun das Richtige?\n\n\nWenn ein balancierter Datensatz vorliegt, kann Accuracy bedenkenlos verwendet werden, um das Modell zu evaluieren\nWenn wir sicher sein wollen, dass eine positive Vorhersage korrekt ist, dann ist Precision die angemessene Evaluationsmetrik. Dies ist oft der Fall, wenn FP mit höheren Kosten verbunden sind, als FN.\nWenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden. In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen"
   },
   {
     "objectID": "06_VL_D.html#modellevaluation-11",
@@ -1425,7 +1425,7 @@
     "href": "06_VL_D.html#modellevaluation-13",
     "title": "Business Intelligence & Data Science",
     "section": "Modellevaluation",
-    "text": "Modellevaluation\nAbschließende Bemerkungen\n\nBei einem balancierten Datensatz und gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik\nBei unbalancierten Datensätzen oder unterschiedlichen Kosten von FP und FN sollten Precision, Recall und F1-Score verwendet werden\nWenn FP höhere Kosten haben, dann sollte Precision im Vordergrund stehen\nWenn FN höhere haben, dann sollte Recall im Vordergrund stehen"
+    "text": "Modellevaluation\nAbschließende Bemerkungen\n\nBei einem balancierten Datensatz und gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik\nBei unbalancierten Datensätzen oder unterschiedlichen Kosten von FP und FN sollten Precision, Recall und F1-Score verwendet werden\nWenn FP höhere Kosten haben, dann sollte Precision im Fokus stehen\nWenn FN höhere haben, dann sollte Recall im Fokus stehen"
   },
   {
     "objectID": "06_VL_D.html#modellevaluation-14",
@@ -1439,18 +1439,25 @@
     "href": "06_VL_D.html#logistische-regression-15",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\nBisher haben wir nur eine unabhängige Variable, Energy, betrachtet\nDa die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability\nAllgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:\n\n\n\\[\nP(y = 1|X) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}\n\\]\n\n\nMit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:\n\n\n\\[\nP(EDM = 1|\\text{Energy, Danceability}) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}\n\\]"
+    "text": "Logistische Regression\nVerhältnis von Precision und Recall\n\nFür eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App\nErreichbar über:\n\nhttps://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/\n\nAlternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script install_packages.R\nFrage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?"
   },
   {
     "objectID": "06_VL_D.html#logistische-regression-16",
     "href": "06_VL_D.html#logistische-regression-16",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nMehrere unabhängige Variablen"
+    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\nBisher haben wir nur eine unabhängige Variable, Energy, betrachtet\nDa die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability\nAllgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:\n\n\n\\[\nP(y = 1|X) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}\n\\]\n\n\nMit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:\n\n\n\\[\nP(EDM = 1|\\text{Energy, Danceability}) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}\n\\]"
   },
   {
     "objectID": "06_VL_D.html#logistische-regression-17",
     "href": "06_VL_D.html#logistische-regression-17",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMehrere unabhängige Variablen"
+  },
+  {
+    "objectID": "06_VL_D.html#logistische-regression-18",
+    "href": "06_VL_D.html#logistische-regression-18",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
     "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\n\nFür das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.\nAccuracy, Precision, Recall und F1-Score sind:\n\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\naccuracy\n0.9933\n\n\nrecall\n0.9930\n\n\nprecision\n0.9930\n\n\nf_meas\n0.9930"
