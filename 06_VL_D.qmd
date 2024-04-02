@@ -1097,11 +1097,12 @@ $$
 
 ::: {.notes}
 
-Antworten:
+* Antworten:
   * Die interessante Klasse ist die Zahlung des Schadens
   * FN: Die Forderung ist berechtigt, aber die Versicherung zahlt nicht
   * FP: Die Forderung ist unberechtigt, aber die Versicherung zahlt
   * FP ist teurer, da die Versicherung zahlen muss, deshalb sollte Precision im Vordergrund stehen
+
 :::
 
 <!-- ## Modellevaluation -->
