@@ -1383,14 +1383,14 @@
     "href": "06_VL_D.html#modellevaluation-7",
     "title": "Business Intelligence & Data Science",
     "section": "Modellevaluation",
-    "text": "Modellevaluation\nRecall\n\n\nRecall hingegen gibt an, wie viele der tatsächlich positiven Fälle vom Klassifikator als positiv bzw. relevant erkannt wurden:\n\n\n\\[\\text{Recall} = \\frac{\\text{TP}}{\\text{TP + FN}}\\]\n\n\nEin hoher Recall-Wert bedeutet, dass der Klassifikator viele relevante Fälle erkennt und beantwortet die Frage, welcher Anteil der positiven Ergebnisse richtig identifiziert wurde.\nWie wahrscheinlich ist es, dass das Modell einen positiven Datenpunkt erkennt?\nAuch häufig als Sensitivität oder True Positive Rate bezeichnet"
+    "text": "Modellevaluation\nRecall\n\n\nRecall hingegen gibt an, wie viele der tatsächlich positiven Fälle vom Klassifikator als positiv bzw. relevant erkannt wurden:\n\n\n\\[\\text{Recall} = \\frac{\\text{TP}}{\\text{TP + FN}}\\]\n\n\nEin hoher Recall-Wert bedeutet, dass der Klassifikator viele relevante Fälle erkennt und beantwortet die Frage, welcher Anteil der positiven Ergebnisse richtig identifiziert wurde.\nWie wahrscheinlich ist es, dass das Modell einen positiven Datenpunkt erkennt?\nAuch häufig als Sensitivität oder True Positive Rate bezeichnet\n\n\n\n\nKasten: Sample aller Beobachtungen\nLinker Kasten: Positive Beobachtungen\nRechte Kasten: Negative Beobachtungen\nKreis: Vorhersage des Modells, also ALLE als positiv vorhergesagte Datenpunkte\nKreis besteht aus zwei Hälften: TP und FN"
   },
   {
     "objectID": "06_VL_D.html#modellevaluation-8",
     "href": "06_VL_D.html#modellevaluation-8",
     "title": "Business Intelligence & Data Science",
     "section": "Modellevaluation",
-    "text": "Modellevaluation\nPrecision und Recall\n\n\n\nIllustration Precision, Recall, Accuracy, Quelle: Maleki u. a. (2020)"
+    "text": "Modellevaluation\nPrecision und Recall\n\n\n\nIllustration Precision, Recall, Accuracy, Quelle: Maleki u. a. (2020)\n\n\n\n\nKasten: Sample aller Beobachtungen\nLinker Kasten: Positive Beobachtungen\nRechte Kasten: Negative Beobachtungen\nKreis: Vorhersage des Modells, also ALLE als positiv vorhergesagte Datenpunkte\nKreis besteht aus zwei Hälften: TP und FN"
   },
   {
     "objectID": "06_VL_D.html#modellevaluation-9",

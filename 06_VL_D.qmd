@@ -932,10 +932,32 @@ $$\text{Recall} = \frac{\text{TP}}{\text{TP + FN}}$$
 
 :::
 
+:::{.notes}
+
+* Kasten: Sample aller Beobachtungen
+* Linker Kasten: Positive Beobachtungen
+* Rechte Kasten: Negative Beobachtungen
+* Kreis: Vorhersage des Modells, also ALLE als positiv vorhergesagte Datenpunkte
+* Kreis besteht aus zwei Hälften: TP und FN
+
+:::
+
+
 ## Modellevaluation
 ### Precision und Recall
 
 ![Illustration Precision, Recall, Accuracy, Quelle: @maleki_overview_2020](img/Visualizing-accuracy-recall-aka-sensitivity-and-precision-which-are-the-common.png){width=72%}
+
+:::{.notes}
+
+* Kasten: Sample aller Beobachtungen
+* Linker Kasten: Positive Beobachtungen
+* Rechte Kasten: Negative Beobachtungen
+* Kreis: Vorhersage des Modells, also ALLE als positiv vorhergesagte Datenpunkte
+* Kreis besteht aus zwei Hälften: TP und FN
+
+:::
+
 
 ## Modellevaluation
 ### Precision und Recall für den Spam-Filter
