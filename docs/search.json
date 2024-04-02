@@ -1425,39 +1425,39 @@
     "href": "06_VL_D.html#modellevaluation-13",
     "title": "Business Intelligence & Data Science",
     "section": "Modellevaluation",
-    "text": "Modellevaluation\nAbschließende Bemerkungen\n\nBei einem balancierten Datensatz und gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik\nBei unbalancierten Datensätzen oder unterschiedlichen Kosten von FP und FN sollten Precision, Recall und F1-Score verwendet werden\nWenn FP höhere Kosten haben, dann sollte Precision im Fokus stehen\nWenn FN höhere haben, dann sollte Recall im Fokus stehen"
+    "text": "Modellevaluation\nAbschließende Bemerkungen\n\nBei einem balancierten Datensatz und gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik\nBei unbalancierten Datensätzen sollten Precision, Recall und F1-Score verwendet werden\nWenn FP höhere Kosten haben, dann sollte Precision im Fokus stehen\nWenn FN höhere haben, dann sollte Recall im Fokus stehen\nDer F1-Score ist besonders nützlich, wenn Precision und Recall gleiche Gewichtung haben"
   },
   {
     "objectID": "06_VL_D.html#modellevaluation-14",
     "href": "06_VL_D.html#modellevaluation-14",
     "title": "Business Intelligence & Data Science",
     "section": "Modellevaluation",
-    "text": "Modellevaluation\nKosten von FP und FN\n\nDie meisten Klassifikationsmethoden basieren auf der Annahme, dass FP und FN gleich problematisch sind\nIn praktischen Szenarios ist dies jedoch selten der Fall, Beispiel:\nBetrugserkennung: Eine Haftpflichtversicherung prüft Schadensmeldungen mit ML. Das Modell soll den Schaden automatisch abwickelnd und entweder als “Zahlung” oder “Keine Zahlung” klassifizieren, je nachdem ob ein Betrugsversuch vorliegt\nFragen:\n\nWas ist die positive (interessante) Klasse aus Sicht der Versicherung?\nWelche Fälle sind dann FN und FP?\nWelche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?\n\n\n\nAntworten: * Die interessante Klasse ist die Zahlung des Schadens * FN: Die Forderung ist berechtigt, aber die Versicherung zahlt nicht * FP: Die Forderung ist unberechtigt, aber die Versicherung zahlt * FP ist teurer, da die Versicherung zahlen muss, deshalb sollte Precision im Vordergrund stehen"
+    "text": "Modellevaluation\nKosten von FP und FN\n\n\nDie meisten Klassifikationsmethoden basieren auf der Annahme, dass FP und FN gleich problematisch sind\nIn praktischen Szenarios ist dies jedoch selten der Fall, Beispiel:\nBetrugserkennung: Eine Haftpflichtversicherung prüft Schadensmeldungen mit ML. Das Modell soll den Schaden automatisch abwickelnd und entweder als “Zahlung” oder “Keine Zahlung” klassifizieren, je nachdem ob ein Betrugsversuch vorliegt\nFragen:\n\nWas ist die positive (interessante) Klasse aus Sicht der Versicherung?\nWelche Fälle sind dann FN und FP?\nWelche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?\n\n\n\n\nAntworten: * Die interessante Klasse ist die Zahlung des Schadens * FN: Die Forderung ist berechtigt, aber die Versicherung zahlt nicht * FP: Die Forderung ist unberechtigt, aber die Versicherung zahlt * FP ist teurer, da die Versicherung zahlen muss, deshalb sollte Precision im Vordergrund stehen"
+  },
+  {
+    "objectID": "06_VL_D.html#modellevaluation-15",
+    "href": "06_VL_D.html#modellevaluation-15",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nTauziehen zwischen Precision und Recall\n\nPrecision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt)\nDieses Tauziehen kann durch die Anpassung des Cut-Off Points \\(C\\) beeinflusst werden\nZur Illustration noch einmal zurück zur interaktiven Visualisierung:\n\nhttps://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/\n\nFragen:\n\nWas passiert mit Precision und Recall, wenn \\(C\\) ansteigt (sinkt)?\nFür welche Werte von \\(C\\) erhalten wir maximale Precision und Recall?"
+  },
+  {
+    "objectID": "06_VL_D.html#modellevaluation-16",
+    "href": "06_VL_D.html#modellevaluation-16",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nTauziehen zwischen Precision und Recall\n\n\n\nPrecision und Recall in Abhängigkeit von \\(C\\). Quelle: Shi u. a. (2009)"
   },
   {
     "objectID": "06_VL_D.html#logistische-regression-15",
     "href": "06_VL_D.html#logistische-regression-15",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nVerhältnis von Precision und Recall\n\nFür eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App\nErreichbar über:\n\nhttps://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/\n\nAlternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script install_packages.R\nFrage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?"
+    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\nBisher haben wir nur eine unabhängige Variable, Energy, betrachtet\nDa die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability\nAllgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:\n\n\n\\[\nP(y = 1|X) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}\n\\]\n\n\nMit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:\n\n\n\\[\nP(EDM = 1|\\text{Energy, Danceability}) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}\n\\]"
   },
   {
     "objectID": "06_VL_D.html#logistische-regression-16",
     "href": "06_VL_D.html#logistische-regression-16",
-    "title": "Business Intelligence & Data Science",
-    "section": "Logistische Regression",
-    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\nBisher haben wir nur eine unabhängige Variable, Energy, betrachtet\nDa die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability\nAllgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:\n\n\n\\[\nP(y = 1|X) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}\n\\]\n\n\nMit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:\n\n\n\\[\nP(EDM = 1|\\text{Energy, Danceability}) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}\n\\]"
-  },
-  {
-    "objectID": "06_VL_D.html#logistische-regression-17",
-    "href": "06_VL_D.html#logistische-regression-17",
-    "title": "Business Intelligence & Data Science",
-    "section": "Logistische Regression",
-    "text": "Logistische Regression\nMehrere unabhängige Variablen"
-  },
-  {
-    "objectID": "06_VL_D.html#logistische-regression-18",
-    "href": "06_VL_D.html#logistische-regression-18",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
     "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\n\nFür das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.\nAccuracy, Precision, Recall und F1-Score sind:\n\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\naccuracy\n0.9933\n\n\nrecall\n0.9930\n\n\nprecision\n0.9930\n\n\nf_meas\n0.9930"
@@ -1467,7 +1467,7 @@
     "href": "06_VL_D.html#quellen",
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
-    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. An Introduction to Statistical Learning: with Applications in R. Second edition. Springer texts in statistics. New York NY: Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nMaleki, Farhad, Katie Ovens, Keyhan Najafian, Behzad Forghani, Caroline Md, und Reza Forghani. 2020. „Overview of Machine Learning Part 1“. Neuroimaging Clinics of North America 30 (November): e17–32. https://doi.org/10.1016/j.nic.2020.08.007.\n\n\nWilke, C. 2019. Fundamentals of data visualization: a primer on making informative and compelling figures. First edition. Sebastopol, CA: O’Reilly Media. https://clauswilke.com/dataviz/."
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. An Introduction to Statistical Learning: with Applications in R. Second edition. Springer texts in statistics. New York NY: Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nMaleki, Farhad, Katie Ovens, Keyhan Najafian, Behzad Forghani, Caroline Md, und Reza Forghani. 2020. „Overview of Machine Learning Part 1“. Neuroimaging Clinics of North America 30 (November): e17–32. https://doi.org/10.1016/j.nic.2020.08.007.\n\n\nShi, Feng, Juanzi Li, Jie Tang, Guotong Xie, und Hanyu Li. 2009. „Actively Learning Ontology Matching via User Interaction“. In, 5823:585–600. https://doi.org/10.1007/978-3-642-04930-9_37.\n\n\nWilke, C. 2019. Fundamentals of data visualization: a primer on making informative and compelling figures. First edition. Sebastopol, CA: O’Reilly Media. https://clauswilke.com/dataviz/."
   },
   {
     "objectID": "02_VL_D.html#der-plan-für-heute",

@@ -894,7 +894,6 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 
     * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
 
-
 * Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script `install_packages.R`
 * Frage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?
 
@@ -1052,12 +1051,15 @@ $$
 ### Abschließende Bemerkungen
 
 * Bei einem balancierten Datensatz **und** gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik
-* Bei unbalancierten Datensätzen oder unterschiedlichen Kosten von FP und FN sollten Precision, Recall und F1-Score verwendet werden
+* Bei unbalancierten Datensätzen sollten Precision, Recall und F1-Score verwendet werden
 * Wenn FP höhere Kosten haben, dann sollte Precision im Fokus stehen
 * Wenn FN höhere haben, dann sollte Recall im Fokus stehen
+* Der F1-Score ist besonders nützlich, wenn Precision und Recall gleiche Gewichtung haben
 
 ## Modellevaluation
 ### Kosten von FP und FN
+
+::: {style="font-size: 0.93em"}
 
 * Die meisten Klassifikationsmethoden basieren auf der Annahme, dass FP und FN gleich problematisch sind
 * In praktischen Szenarios ist dies jedoch selten der Fall, Beispiel:
@@ -1069,6 +1071,7 @@ $$
   * Welche Fälle sind dann FN und FP?
   * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?
 
+:::
 
 ::: {.notes}
 
@@ -1101,22 +1104,29 @@ Antworten:
 <!-- ::: -->
 
 
-## Logistische Regression
-### Verhältnis von Precision und Recall
+## Modellevaluation
+### Tauziehen zwischen Precision und Recall
 
-* Für eine bessere Intuition hinter den Konzepten der logistischen Regression und der Konfusionsmatrix gibt es eine interaktive Visualisierung als Shiny App
-* Erreichbar über:
+* Precision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt)
+* Dieses Tauziehen kann durch die Anpassung des Cut-Off Points $C$ beeinflusst werden
+* Zur Illustration noch einmal zurück zur interaktiven Visualisierung:
+  * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
 
-    * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
+* Fragen:
+  * Was passiert mit Precision und Recall, wenn $C$ ansteigt (sinkt)?
+  * Für welche Werte von $C$ erhalten wir maximale Precision und Recall?
 
-* Alternativ Download der R-Files von StudIP und Ausführung in RStudio nach Installation der notwendigen Packages im Script `install_packages.R`
-* Frage: Welche Auswirkungen hat eine Änderung des Cut-Off Points auf die Konfusionsmatrix und die Accuracy? Welche ist die bestmöglich Accuracy?
 
+## Modellevaluation
+### Tauziehen zwischen Precision und Recall
+
+![Precision und Recall in Abhängigkeit von $C$. Quelle: @shen_actively_2009 ](img/Relationship-of-thresholds-and-matching-performance-precision-recall-and-f1-Measure){width=67%}
 
 
 ## Logistische Regression
 ### Mehrere unabhängige Variablen
-::: {style="font-size: 0.8em"}
+
+::: {style="font-size: 0.78em"}
 * Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet
 * Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability
 * Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:
@@ -1136,8 +1146,6 @@ $$
 
 :::
 
-## Logistische Regression
-### Mehrere unabhängige Variablen
 
 ```{r}
 
