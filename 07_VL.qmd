@@ -1,0 +1,943 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung 7"
+format:
+  revealjs:
+    incremental: false  
+---
+  
+```{r}
+library(kableExtra)
+library(tidyverse)
+library(patchwork)
+library(tidymodels)
+library(plotly)
+library(ggcorrplot)
+data <- read_csv("data/songs_with_features.csv") %>% 
+  filter(category %in% c("Klassik", "Dance/Electronic")) %>% 
+  select(track.name, track.artist, category, energy, danceability) %>% 
+  mutate(category = case_when(
+    category == "Klassik" ~ "Klassik",
+    category == "Dance/Electronic" ~ "EDM"
+  ))
+
+set.seed(1)
+
+split <- initial_split(data, prop = 3*0.029156, strata = category)
+training <- 
+  training(split) %>% 
+  select(category, energy, danceability, track.name, track.artist) %>% 
+  mutate(edm = case_when(
+    category == "EDM" ~ 1,
+    category == "Klassik" ~ 0
+  )) %>% 
+  mutate(edm_factor = as.factor(edm))
+
+explicit <- readRDS("data/category_songs_raw.rds") %>% 
+  distinct(track.id, track.explicit) 
+
+data_multi <- read_csv("data/songs_with_features.csv") %>% 
+  filter(category %in% c("Klassik", "Dance/Electronic", "Hip-Hop")) %>% 
+  mutate(category = case_when(
+    category == "Klassik" ~ "Klassik",
+    category == "Dance/Electronic" ~ "EDM",
+    category == "Hip-Hop" ~ "Hip-Hop"
+  )) %>% 
+  left_join(explicit, by = c("track.id" = "track.id")) %>%
+  select(track.name, track.artist, category, energy, danceability, speechiness, track.explicit) %>% 
+  mutate(track.explicit = as.factor(track.explicit)) %>% 
+  mutate(category = as.factor(category))
+
+
+split_multi <- initial_split(data_multi, prop = 0.7, strata = category)
+
+
+training_multi <- training(split_multi)
+testing_multi <- testing(split_multi)
+
+
+```
+
+
+
+
+
+## Der Plan für heute...
+### Vorlesung 
+
+
+* Quiz und kurzes Recap logistische Regression
+* Modellgestützte Analysen
+  * Weitere Modellevaluation
+  * Multiple Logistische Regression
+  * Multinominale Logistische Regression
+
+
+## Modellevaluation
+### Precision
+
+::: {style="font-size: 0.85em"}
+
+
+
+* Andere Metriken beheben die Schwächen der Accuracy
+* Precision oder Präzision gibt an, wie viele der vom Klassifikator als positiv identifizierten Fälle tatsächlich positiv sind und entspricht dem Anteil der tatsächlich positiven Fälle an der Menge aller als positiv klassifizierten Fälle
+
+::: {.fragment .fade-in}
+
+$$\text{Precision} = \frac{\text{TP}}{\text{TP + FP}}$$
+:::
+
+* Welcher Anteil der positiven Identifikationen war tatsächlich korrekt? Oder: Wenn das Modell einen Datenpunkt positiv klassifiziert, wie wahrscheinlich ist es, dass diese Klassifikation richtig ist? 
+* Eine hohe Precision bedeutet also, dass der Klassifikator nur wenige irrelevante Fälle als relevant einstuft und ein Klassifikator mit einer Precision von 1,0 liefert keine FP. 
+
+:::
+
+## Modellevaluation
+### Recall
+
+::: {style="font-size: 0.85em"}
+
+* **Recall** hingegen gibt an, wie viele der tatsächlich positiven Fälle vom Klassifikator als positiv bzw. relevant erkannt wurden:
+
+::: {.fragment .fade-in}
+$$\text{Recall} = \frac{\text{TP}}{\text{TP + FN}}$$
+:::
+* Ein hoher Recall-Wert bedeutet, dass der Klassifikator viele relevante Fälle erkennt und beantwortet die Frage, welcher Anteil der positiven Ergebnisse richtig identifiziert wurde.
+* Wie wahrscheinlich ist es, dass das Modell einen positiven Datenpunkt erkennt?
+* Auch häufig als Sensitivität oder True Positive Rate bezeichnet
+
+:::
+
+:::{.notes}
+
+* Kasten: Sample aller Beobachtungen
+* Linker Kasten: Positive Beobachtungen
+* Rechte Kasten: Negative Beobachtungen
+* Kreis: Vorhersage des Modells, also ALLE als positiv vorhergesagte Datenpunkte
+* Kreis besteht aus zwei Hälften: TP und FN
+
+:::
+
+
+## Modellevaluation
+### Precision und Recall
+
+![Illustration Precision, Recall, Accuracy, Quelle: @maleki_overview_2020](img/Visualizing-accuracy-recall-aka-sensitivity-and-precision-which-are-the-common.png){width=72%}
+
+:::{.notes}
+
+* Kasten: Sample aller Beobachtungen
+* Linker Kasten: Positive Beobachtungen
+* Rechte Kasten: Negative Beobachtungen
+* Kreis: Vorhersage des Modells, also ALLE als positiv vorhergesagte Datenpunkte
+* Kreis besteht aus zwei Hälften: TP und FN
+
+:::
+
+
+## Modellevaluation
+### Precision und Recall für den Spam-Filter
+
+
+:::: {.columns}
+
+
+::: {.column width=55%}
+
+
+::: {style="font-size: 0.85em"}
+
+* Um Precision und Recall bei unausgewogenen Datensätzen zu illustrieren, betrachten wir erneut den Spam-Filter
+* Für Precision erhalten wir 
+
+::: {.fragment .fade-in}
+
+$$\text{Precision} = \frac{\text{1}}{\text{1 + 0}} = 1$$
+:::
+
+* Für Recall ergibt sich
+
+::: {.fragment .fade-in}
+$$\text{Recall} = \frac{\text{1}}{\text{1 + 99}} = 0,01.$$
+:::
+
+:::
+:::
+
+::: {.column width=45%}
+
+::: {style="font-size: 0.6em"}
+
+
+
+|                    | Tatsächlich Positiv | Tatsächlich Negativ | Summe Vorhersage |
+|--------------------|---------------------|---------------------|------------------|
+| **Vorhergesagt Positiv**| 1 |0 | 1   |
+| **Vorhergesagt Negativ**| 99 | 900  | 999     |
+| **Summe Tatsächlich**   | 100 | 900 | 1000      |
+
+:::
+
+
+::: {style="font-size: 0.8em"}
+
+
+
+* Wenn das Modell eine Mail als Spam klassifiziert, ist diese Prognose zu 100% korrekt
+* Das Modell erkennt aber nur 1% der tatsächlichen Spam-Mails. 
+
+
+:::
+
+:::
+
+::::
+
+
+
+
+## Modellevaluation
+### Precision und Recall für den Spam-Filter
+
+* Welches Maß ist nun das Richtige?
+
+1. Wenn ein balancierter Datensatz vorliegt, kann Accuracy bedenkenlos verwendet werden, um das Modell zu evaluieren
+2. Wenn wir sicher sein wollen, dass eine positive Vorhersage korrekt ist, dann ist Precision die angemessene Evaluationsmetrik.
+Dies ist oft der Fall, wenn FP mit höheren Kosten verbunden sind, als FN. 
+3. Wenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden.
+In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen
+
+
+
+## Modellevaluation
+### F1-Score
+
+
+* Oft sind Kosten und Nutzen von FP und FN Klassifikationen nicht eindeutig
+* Der F1 Score kompensiert die Nachteile der Accuracy bei unbalancierten Datensätzen zu kompensieren und legt gleichzeitig einen ausgewogenen Fokus auf Precision und Recall:
+
+::: {.fragment .fade-in}
+$$
+F1 = 2 \cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+$$
+:::
+
+* F1 ist das harmonische Mittel von Precision und Recall und liegt zwischen 0 und 1
+
+
+
+
+## Modellevaluation
+### F1-Score
+
+* Im Spam Beispiel:
+
+::: {.fragment .fade-in}
+
+$$
+F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
+$$
+:::
+
+
+* Dieser Wert ist deutlich niedriger, als uns die 90,1% Accuracy zunächst suggerieren.
+* Trotzdem ist das Beispielmodell nahezu nutzlos, wie anhand des niedrigen F1-Scores erkennbar wird.
+
+
+
+## Modellevaluation
+### Abschließende Bemerkungen
+
+* Bei einem balancierten Datensatz **und** gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik
+* Bei unbalancierten Datensätzen sollten Precision, Recall und F1-Score verwendet werden
+* Wenn FP höhere Kosten haben, dann sollte Precision im Fokus stehen
+* Wenn FN höhere haben, dann sollte Recall im Fokus stehen
+* Der F1-Score ist besonders nützlich, wenn Precision und Recall gleiche Gewichtung haben
+
+## Modellevaluation
+### Kosten von FP und FN
+
+::: {style="font-size: 0.93em"}
+
+* Die meisten Klassifikationsmethoden basieren auf der Annahme, dass FP und FN gleich problematisch sind
+* In praktischen Szenarios ist dies jedoch selten der Fall, Beispiel:
+
+* Betrugserkennung: Eine Haftpflichtversicherung prüft Schadensmeldungen mit ML. Das Modell soll den Schaden automatisch abwickelnd und entweder als "Zahlung" oder "Keine Zahlung" klassifizieren, je nachdem ob ein Betrugsversuch vorliegt
+
+* Fragen: 
+  * Was ist die positive (interessante) Klasse aus Sicht der Versicherung?
+  * Welche Fälle sind dann FN und FP?
+  * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?
+
+:::
+
+::: {.notes}
+
+* Antworten:
+  * Die interessante Klasse ist die Zahlung des Schadens
+  * FN: Die Forderung ist berechtigt, aber die Versicherung zahlt nicht
+  * FP: Die Forderung ist unberechtigt, aber die Versicherung zahlt
+  * FP ist teurer, da die Versicherung zahlen muss, deshalb sollte Precision im Vordergrund stehen
+
+:::
+
+## Modellevaluation
+### Kosten von FP und FN
+
+2. Identifikation einer ansteckenden Krankheit: Ein medizinisches Modell identifiziert eine ansteckende Krankheit mit der Eingabe weniger Symptome. Anschließend wird die Person isoliert und umfänglich getestet
+
+* Fragen:
+  * Was ist die interessante Klasse aus Sicht einer Gesundheitsbehörde?
+  * Welche Fälle sind dann FN und FP?
+  * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?
+
+
+::: {.notes}
+
+Antworten:
+
+  * Die interessante Klasse ist die Identifikation der Krankheit
+  * FN: Die Person ist krank, wird aber nicht isoliert
+  * FP: Die Person ist nicht krank, wird aber isoliert
+  * FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben
+:::
+
+
+## Modellevaluation
+### Tauziehen zwischen Precision und Recall
+
+* Precision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt)
+* Dieses Tauziehen kann durch die Anpassung des Cut-Off Points $C$ beeinflusst werden
+* Zur Illustration noch einmal zurück zur interaktiven Visualisierung:
+  * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
+
+* Fragen:
+  * Was passiert mit Precision und Recall, wenn $C$ ansteigt (sinkt)?
+  * Für welche Werte von $C$ erhalten wir maximale Precision und Recall?
+
+
+## Modellevaluation
+### Tauziehen zwischen Precision und Recall
+
+![Precision und Recall in Abhängigkeit von $C$. Quelle: @shen_actively_2009 ](img/Relationship-of-thresholds-and-matching-performance-precision-recall-and-f1-Measure){width=67%}
+
+
+## Logistische Regression
+### Mehrere unabhängige Variablen
+
+:::: {.columns}
+
+::: {.column width=50%}
+* Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet
+* Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability
+* Zur Identifikation geeigneter Variablen lassen sich erneut Box-Plots oder Violin-Plots verwenden
+* Zur Erinnerung: Auch Danceability scheint geeignet, um zwischen EDM und Klassik zu unterscheiden
+
+
+:::
+
+::: {.column width=50%}
+
+```{r, fig.height = 5, fig.width = 5}
+
+data %>% 
+  ggplot(aes(x = category, y = danceability, fill = category)) +
+  geom_violin() +
+  labs(x = "Kategorie", y = "Energy") +
+  theme_minimal()
+
+```
+
+:::
+
+::::
+
+
+## Logistische Regression
+### Mehrere unabhängige Variablen
+
+* Bei der Hinzunahme mehrerer Variablen ist neben der Korrelation mit der abhängigen Variable auch die Korrelation zwischen den unabhängigen Variablen zu beachten
+* Bei hoher positiver Korrelation zwischen den Variablen ist es möglich, dass die Hinzunahme dieser Variablen zum Modell keinen zusätzlichen Informationsgewinn liefert
+* Auch besteht das Risiko der Multikollinearität, die zu instabilen Koeffizienten und einer schlechten Modellperformance führen kann
+* Die Korrelation zwischen Danceability und Energy beträgt 0,8, ist also hoch, aber noch nicht bedenklich
+
+## Logistische Regression
+### Mehrere unabhängige Variablen
+
+
+:::: {.columns}
+
+::: {.column width=40%}
+* Bei zwei unabhängigen Variablen lässt sich der Zusammenhang zwischen den Variablen und der abhängigen Variable nach wie vor grafisch darstellen, diesmal als Scatter Plot
+
+:::
+
+::: {.column width=60%}
+
+
+```{r, fig.height = 5, fig.width = 7}
+
+training %>% 
+  ggplot(aes(x = energy, y = danceability, color = category)) +
+  geom_point(size = 2) +
+  labs(x = "Energy", y = "Danceability", color = "Category") +
+    xlim(0,1) + ylim(0,1) +
+  theme_minimal()
+
+
+```
+
+:::
+
+::::
+
+
+## Logistische Regression
+### Mehrere unabhängige Variablen
+
+
+```{r}
+
+logistic <- logistic_reg() %>%
+  set_engine("glm") %>%
+  fit(edm_factor ~ energy + danceability, data = training)
+
+predictions <- augment(logistic, new_data = training, .predict = "response")
+
+accuracy <- yardstick::accuracy(predictions, truth = edm_factor, estimate = .pred_class)
+
+
+coefficients_logistic <- tidy(logistic) %>%
+  select(term, estimate)
+
+```
+
+
+
+
+* Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:
+
+::: {.fragment .fade-in}
+$$
+P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}{1 + e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}
+$$
+:::
+* Mit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:
+
+::: {.fragment .fade-in}
+$$
+P(EDM = 1|\text{Energy, Danceability}) = \\ \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}
+$$
+:::
+
+## Logistische Regression
+### Mehrere unabhängige Variablen
+
+::: {style="font-size: 0.9em"}
+
+* Die Koeffizienten für die unabhängigen Variablen sind:
+
+
+
+
+```{r}
+coefficients_logistic %>% knitr::kable(digits = 4)
+```
+
+
+
+* Auch wenn die Interpretation der Koeffizienten bei Klassifikation weniger wichtig ist, zwei Anmerkungen zur Interpretation:
+  1.  Da der Zusammenhang zwischen den unabhängigen Variablen und der abhängigen Variable nicht linear ist, können wir die Koeffizienten nicht direkt interpretieren wie bei der linearen Regression
+  2. Die Vorzeichen der Koeffizienten geben jedoch an, ob die unabhängige Variable positive oder negative Auswirkungen auf die abhängige Variable hat
+
+
+:::
+
+## Logistische Regression
+### Multiple Logistische Regression
+
+
+:::: {.columns}
+
+::: {.column width=55%}
+
+* Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.
+* Accuracy, Precision, Recall und F1-Score sind:
+
+::: {.fragment .fade-in}
+
+```{r}
+
+multi_metric <- metric_set(yardstick::accuracy, recall, precision, f_meas)
+
+
+augment(logistic, new_data = training) %>%
+  multi_metric(truth = edm_factor, estimate = .pred_class, event_level = "second") %>%
+  select(.metric, .estimate) %>%
+  rename(Metric = .metric, Value = .estimate) %>%
+  knitr::kable(digits = 4)
+
+# 
+# testing <- crossing(energy = seq(0, 1, length.out = 300),danceability = seq(0, 1, length.out = 300))
+# 
+
+
+# ggplot(data = NULL) +
+#   geom_abline(slope = slope, intercept = intercept)
+# 
+# visual <- augment(logistic, new_data = testing)
+# 
+# ggplot(visual, aes(x = energy, y = danceability, fill = .pred_class)) +
+#   geom_tile(alpha = 0.5) +
+#   labs(x = "Energy", y = "Danceability", fill = "Prediction") +
+#   theme_minimal()
+
+
+
+```
+
+:::
+
+:::
+
+::: {.column width=45%}
+
+::: {.fragment .fade-in}
+
+
+
+```{r, fig.height = 4, fig.width = 4}
+
+yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
+  autoplot(type = "heatmap") +
+  labs(x = "Wahrheit", y = "Vorhersage")
+
+```
+
+:::
+
+:::
+
+
+::::
+
+
+## Logistische Regression
+### Multiple Logistische Regression
+
+:::: {.columns}
+
+::: {.column width=40%}
+
+::: {style="font-size: 0.93em"}
+
+* Mit dem Scatter Plot lassen sich die Vorhersagen des Modells visualisieren und evaluieren
+* Die gestrichelte Linie ist die Decision Boundary, also die Linie, auf der die Wahrscheinlichkeit für beide Klassen gleich 0,5 ist
+
+:::
+:::
+
+::: {.column width=60%}
+
+
+```{r, fig.height = 5, fig.width = 7}
+
+coefs <- coefficients_logistic %>% pull(estimate)
+slope <- coefs[2]/(-coefs[3])
+intercept <- coefs[1]/(-coefs[3]) 
+
+predictions %>% 
+  ggplot(aes(x = energy, y = danceability, shape = .pred_class, color = edm_factor)) +
+  geom_point(size = 3) +
+  labs(x = "Energy", y = "Danceability", shape = "Vorhersage", color = "Genre") +
+  xlim(0,1) + ylim(0,1) +
+  geom_abline(slope = slope, intercept = intercept, linetype = "dashed") +
+  ggtitle("Vorhersage aus dem multiplen Modell mit = 0,5") + 
+  theme_minimal()
+
+
+
+```
+
+:::
+
+::::
+
+
+## Logistische Regression
+### Multiple Logistische Regression
+
+:::: {.columns}
+
+::: {.column width=35%}
+
+* Um die Performance des Modells systematisch zu optimieren, können wir erneut den Cut-Off Point $C$ anpassen
+* Statt Trial & Error ist es sinnvoll, Precision und Recall für verschiedene Werte von $C$ zu berechnen und zu visualisieren
+
+:::
+
+::: {.column width=65%}
+
+```{r, fig.height = 5, fig.width = 7}
+
+pr_curve(predictions, truth = edm_factor, .pred_1, event_level = "second") %>% 
+  filter(.threshold > 0.01 & .threshold < 0.99) %>% 
+  mutate(f1 = 2 * precision * recall / (precision + recall)) %>%
+  pivot_longer(cols = c(precision, recall, f1), names_to = "Metric", values_to = "Value") %>% 
+  ggplot(data =., aes(x = .threshold, y = Value, color = Metric)) +
+  geom_line() +
+  geom_point() +
+  labs(x = "Grenzwert C", y = "Wert") +
+  scale_y_continuous(minor_breaks = waiver(), breaks = seq(0, 1, by = 0.005)) +
+  scale_x_continuous(minor_breaks = waiver(), breaks = seq(0, 1, by = 0.1)) +
+  theme_minimal()
+
+
+
+
+
+```
+
+:::
+:::: 
+
+## Logistische Regression
+### Zusammenfassung binäre Klassifikation
+
+* Die binäre Klassifikation erfordert zunächst die Umwandlung der abhängigen Variable in eine Dummy-Variable, kodiert mit 0 und 1
+* Zur Vereinfachung der Interpretation wird die interessante Klasse als 1 kodiert
+* Das Modell berechnet für jeden Datenpunkt eine Wahrscheinlichkeit, dass die Beobachtung zur interessanten Klasse gehört
+* Anhand eines Cut-Off Points $C$ wird entschieden, ob die Beobachtung zur interessanten Klasse gehört
+* Die Wahl der Evaluationsmetrik hängt von den Kosten von FP und FN und der Klassenungleichgewichtung ab
+* Konfusionsmatrix, Accuracy, Precision, Recall und F1-Score sind gängige Metriken zur Modellbewertung
+
+
+## Multinominale Logistische Regression
+### Erweiterung auf mehrere Klassen
+
+
+* Auch bei mehreren unabhängigen Variablen bleibt die logistische Regression ein binäres Modell
+* Zur Erweiterung auf $K>2$ Klassen wird die multinomiale logistische Regression verwendet, bei der zunächst eine Referenz- oder Baseline-Klasse festgelegt wird
+* Zur Schätzung der Koeffizienten werden anschließend alle $K-1$ Klassen paarweise separat gegen die Referenzklasse regressiert
+* Anschließend lassen sich die Klassenzugehörigkeiten ähnlich wie im binären Modell vorhersagen
+
+## Logistische Regression
+### Mehrklassen-Klassifikation
+
+::: {style="font-size: 0.9em"}
+* Für die Klassen $k = 1, ..., K-1$ geschieht dies mit
+
+$$
+p(y_i = k|X = x) = \frac{e^{\beta_{k0} + \beta_{k1}x_1 + ... + \beta_{kp}x_p}}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + ... + \beta_{lp}x_p} }
+$$
+
+und für die Referenzklasse $K$ mit
+
+$$
+p(y_i = k|X = x) = \frac{1}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + ... + \beta_{lp}x_p} }
+$$
+
+* Dabei sind $\beta_{k0}, ..., \beta_{kp}$ die Koeffizienten für die Klasse $k$ und $x_1, ..., x_p$ die unabhängigen Variablen
+
+:::
+
+
+
+## Multinominale Logistische Regression
+### Neue Daten von Tofispy
+
+* Tofispy hat uns neue Daten zur Verfügung gestellt:
+  * Neben Klassik und EDM ist jetzt auch Hip-Hop enthalten
+  * Nach wie vor haben wir die beiden Variablen Energy und Danceability zur Verfügung
+* Erneut teilen wir die Daten in Trainings- und Testdaten auf
+* Diesmal verwenden wir 70% der Daten für das Training und 30% für das Testen
+* Die Bewertung des Modells erfolgt dann anhand der Testdaten
+
+
+
+
+## Multinominale Logistische Regression
+### Ergebnisse
+
+* Für das multinominale Modell erhalten wir jeweils Koeffizienten für $K-1$ Klassen, bis auf die Referenzklasse $K$
+* Für das Beispiel mit den drei Genres Klassik, EDM und Hip-Hop erhalten wir folgende Koeffizienten
+
+::: {style="font-size: 0.8em"}
+
+```{r}
+
+logistic_multi <- multinom_reg() %>%
+  set_engine("nnet") %>%
+  fit(category ~ energy +  danceability, data = training_multi)
+
+
+predictions_multi <- augment(logistic_multi, new_data = testing_multi, .predict = "response")
+
+multi_metric_multi <- metric_set(yardstick::accuracy, recall, precision, f_meas)
+
+# 
+# predictions_multi %>%  
+#   multi_metric_multi(truth = category, estimate = .pred_class, event_level = "second") %>%
+#   select(.metric, .estimate) %>%
+#   rename(Metric = .metric, Value = .estimate) %>%
+#   knitr::kable(digits = 4)
+
+
+coefs_multi <- tidy(logistic_multi)
+
+coefs_multi %>% 
+  select(y.level, term, estimate) %>%
+  rename(Class = y.level, Variable = term, Coefficient = estimate) %>%
+  knitr::kable(digits = 4)
+
+
+intercept_hip <- coefs_multi %>% 
+  filter(term == "(Intercept)" & y.level == "Hip-Hop") %>% 
+  pull(estimate)
+
+beta_hip_energy <- coefs_multi %>% 
+  filter(term == "energy" & y.level == "Hip-Hop") %>% 
+  pull(estimate)
+
+beta_hip_dance <- coefs_multi %>% 
+  filter(term == "danceability" & y.level == "Hip-Hop") %>% 
+  pull(estimate)
+
+intercept_klassik <- coefs_multi %>% 
+  filter(term == "(Intercept)" & y.level == "Klassik") %>% 
+  pull(estimate)
+
+beta_klassik_energy <- coefs_multi %>% 
+  filter(term == "energy" & y.level == "Klassik") %>% 
+  pull(estimate)
+
+beta_klassik_dance <- coefs_multi %>% 
+  filter(term == "danceability" & y.level == "Klassik") %>% 
+  pull(estimate)
+
+```
+
+:::
+
+
+
+## Multinominale Logistische Regression
+### Wahrscheinlichkeit und Klassenzugehörigkeit
+
+* Auch das Modell der multinomialen logistischen Regression gibt für jede Klasse eine Wahrscheinlichkeit aus
+* Anders als im binären Modell wird jedoch nicht nur die Wahrscheinlichkeit für eine Klasse ausgegeben, sondern für alle Klassen
+* Die Klassenzugehörigkeit wird dann anhand der höchsten Wahrscheinlichkeit bestimmt, ein Cut-Off Point ist nicht notwendig
+
+
+## Multinominale Logistische Regression
+### Prognose aus dem multinominalen Modell
+
+* Die Prognose für die jeweilligen Klassen erfolgt erneut durch einsetzen der Koeffizienten in die logistische Funktion
+* Für Hip-Hop erhalten wir beispielsweise
+
+::: {style="font-size: 0.8em"}
+
+$$
+\operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
+\frac{e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}}}{1 + e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}} +
+e^{`r round(intercept_klassik,2)`  `r round(beta_klassik_energy,2)` \cdot \text{Energy}  `r round(beta_klassik_dance,2)` \cdot \text{Dance}}}  
+$$
+:::
+* Und für die Referenzklasse EDM:
+
+::: {style="font-size: 0.8em"}
+$$
+\operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
+\frac{1}{1 + e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}} +
+e^{`r round(intercept_klassik,2)`  `r round(beta_klassik_energy,2)` \cdot \text{Energy}  `r round(beta_klassik_dance,2)` \cdot \text{Dance}}}  
+$$
+:::
+
+
+## Multinominale Logistische Regression
+### Prognose aus dem multinominalen Modell
+
+* Da die händische Berechnung viel zu aufwendig ist, hier ein Beispiel für 10 ausgewählte Songs:
+
+::: {style="font-size: 0.5em"}
+
+```{r}
+set.seed(1)
+predictions_multi %>% 
+  select(-speechiness, -track.explicit) %>% 
+  relocate(category, .after = .pred_class) %>% 
+  rename(pred_class = .pred_class,
+         p_EDM = .pred_EDM,
+        `p_Hip-Hop` =  `.pred_Hip-Hop` ,
+        p_Klassik =  .pred_Klassik ) %>% 
+  sample_n(10) %>% 
+  kable(digits = 4)
+```
+
+:::
+
+
+
+
+## Multinominale Logistische Regression
+### Evaluationsmetriken
+
+* Die Evaluationsmetriken für die multinominale logistische Regression sind analog zum binären Modell, Accuracy, Precision, Recall und F1-Score können auch hier verwendet werden
+* Auch die Konfusionsmatrix ist ein geeignetes Mittel zur Modellbewertung, umfasst nun aber alle Klassen und nicht nur vier Felder
+* Accuracy entspricht dann nach wie vor der Summe aller richtig klassifizierten Fälle geteilt durch die Gesamtanzahl der Fälle
+* Andere Metriken können entweder für jede Klasse einzeln berechnet oder gemittelt werden, um ein Gesamtbild der Modellperformance zu erhalten
+
+## Multinominale Logistische Regression
+### Evaluationsmetriken
+
+* Bei der Aggregation wird häufig Macro-Averaging verwendet, bei dem der gleichgewichtete Durchschnitt über alle Klassen berechnet wird
+* Zum Beispiel für Precision ergibt sich bei Macro-Averaging:
+
+::: {style="font-size: 0.8em"}
+
+$$
+Precision_{\text{macro}} = \frac{1}{K} \sum_{k=1}^{K} Precision_k
+$$
+
+:::
+
+* Wobei $K$ die Anzahl der Klassen ist
+* Analog für Recall möglich
+
+## Multinominale Logistische Regression
+### Evaluationsmetriken
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+* Die Konfusionsmatrix für das Modell mit drei Klassen ist auf der rechten Seite dargestellt
+* Im Durchschnitt über alle Klassen erhalten wir die folgenden Metriken:
+
+
+
+```{r}
+
+predictions_multi %>%  
+#  group_by(category) %>% 
+  multi_metric_multi(truth = category, estimate = .pred_class) %>%
+  select(.metric, .estimate) %>%
+  rename(Metric = .metric, Value = .estimate) %>%
+  knitr::kable(digits = 4)
+
+
+```
+
+
+
+:::
+
+::: {.column width=50%}
+
+```{r, fig.height = 5, fig.width = 5}
+
+predictions_multi %>%  
+  conf_mat(truth = category, estimate = .pred_class)  %>% 
+  autoplot(type = "heatmap") 
+
+```
+
+:::
+
+::::
+
+
+
+## Multinominale Logistische Regression
+### Evaluationsmetriken
+
+* Die Performance des Modells weicht zwischen den Klassen oft ab, häufig auch in einer Klassenungleichgewichtung begründet
+* Aus diesem Grund ist es manchmal sinnvoll, die Metriken für jede Klasse einzeln zu betrachten
+* Für Precision:
+
+::: {style="font-size: 0.8em"}
+$$
+Precision_{\text{k}} = \frac{TP_{\text{k}}}{TP_{\text{k}} + FP_{\text{k}}} = \frac{TP_{\text{k}}}{\text{# vorhergesagte Klasse k}}
+$$
+:::
+* und für Recall:
+
+::: {style="font-size: 0.8em"}
+$$
+Recall_{\text{k}} = \frac{TP_{\text{k}}}{TP_{\text{k}} + FN_{\text{k}}} = \frac{TP_{\text{k}}}{\text{# tatsächliche Klasse k}}
+$$
+
+:::
+
+<!-- # ```{r} -->
+<!-- #  -->
+<!-- # predictions_multi %>%   -->
+<!-- #   group_by(category) %>%  -->
+<!-- #   multi_metric_multi(truth = category, estimate = .pred_class, event_level = "second") %>% -->
+<!-- #   select(.metric, .estimate) %>% -->
+<!-- #   rename(Metric = .metric, Value = .estimate) %>% -->
+<!-- #   knitr::kable(digits = 4) -->
+<!-- #  -->
+<!-- # ``` -->
+
+
+
+
+```{r, eval = FALSE}
+plot_probs <- function(model, var1, var2, n = 50, ...) {
+  nm1 <- deparse(substitute(var1))
+  nm2 <- deparse(substitute(var2))
+  df <- model.frame(model)
+  var1 <- df[[nm1]]
+  var2 <- df[[nm2]]
+  df <- df[-match(c(nm1, nm2), names(df))]
+  preds <- list(x = seq(min(var1), max(var1), length = n),
+                y = seq(min(var2), max(var2), length = n))
+  predlist <- setNames(c(preds, lapply(df, mean)), c(nm1, nm2, names(df)))
+  pred_df <- do.call("expand.grid", predlist)
+  Probability <- matrix(predict(model, newdata = pred_df, type = "response"), 
+                        nrow = n)
+  persp(x = preds$x, y = preds$y, z = Probability, xlab = nm1, ylab = nm2,
+        ticktype = "detailed", zlim = c(0, 1), ...)
+}
+
+mmodel <- glm(edm_factor ~ energy + danceability, data = training, family = "binomial")
+
+
+plot_probs(mmodel, energy, danceability, theta = 45, phi = 30, col = "gold")
+```
+
+
+## Multinominale Logistische Regression
+### Vergleich Aggregation vs. Einzelmetriken
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+* **Macro-Averaging**
+  * Einfach interpretierbar, Reduktion auf eine Zahl
+  * Sinnvoll wenn alle Klassen gleich wichtig sind oder Datensatz ausgewogen
+  * Kann schlechte Performance in kleinen Klassen verbergen
+
+:::
+
+::: {.column width=50%}
+
+* **Berechnung pro Klasse**
+  * Wenn nur bestimmte Klassen interessant sind kann man gezielt evaluieren
+  * Auch bei unbalancierten Datensätzen sinnvoll, um die Performance kleiner Klassen hervorzuheben
+  * Kann zu unübersichtlichen Ergebnissen führen, wenn viele Klassen vorhanden sind
+  
+:::
+
+::::
+
+## Slide Title {visibility="hidden"}
+@james_introduction_2021
+
+## Quellen
+
+

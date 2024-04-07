@@ -1127,118 +1127,118 @@ $$
 <!-- ::: -->
 
 
-## Modellevaluation
-### Tauziehen zwischen Precision und Recall
+<!-- ## Modellevaluation -->
+<!-- ### Tauziehen zwischen Precision und Recall -->
 
-* Precision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt)
-* Dieses Tauziehen kann durch die Anpassung des Cut-Off Points $C$ beeinflusst werden
-* Zur Illustration noch einmal zurück zur interaktiven Visualisierung:
-  * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
+<!-- * Precision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt) -->
+<!-- * Dieses Tauziehen kann durch die Anpassung des Cut-Off Points $C$ beeinflusst werden -->
+<!-- * Zur Illustration noch einmal zurück zur interaktiven Visualisierung: -->
+<!--   * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/) -->
 
-* Fragen:
-  * Was passiert mit Precision und Recall, wenn $C$ ansteigt (sinkt)?
-  * Für welche Werte von $C$ erhalten wir maximale Precision und Recall?
-
-
-## Modellevaluation
-### Tauziehen zwischen Precision und Recall
-
-![Precision und Recall in Abhängigkeit von $C$. Quelle: @shen_actively_2009 ](img/Relationship-of-thresholds-and-matching-performance-precision-recall-and-f1-Measure){width=67%}
+<!-- * Fragen: -->
+<!--   * Was passiert mit Precision und Recall, wenn $C$ ansteigt (sinkt)? -->
+<!--   * Für welche Werte von $C$ erhalten wir maximale Precision und Recall? -->
 
 
-## Logistische Regression
-### Mehrere unabhängige Variablen
+<!-- ## Modellevaluation -->
+<!-- ### Tauziehen zwischen Precision und Recall -->
 
-::: {style="font-size: 0.78em"}
-* Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet
-* Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability
-* Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:
-
-::: {.fragment .fade-in}
-$$
-P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}{1 + e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}
-$$
-:::
-* Mit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:
-
-::: {.fragment .fade-in}
-$$
-P(EDM = 1|\text{Energy, Danceability}) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}
-$$
-:::
-
-:::
+<!-- ![Precision und Recall in Abhängigkeit von $C$. Quelle: @shen_actively_2009 ](img/Relationship-of-thresholds-and-matching-performance-precision-recall-and-f1-Measure){width=67%} -->
 
 
-```{r}
+<!-- ## Logistische Regression -->
+<!-- ### Mehrere unabhängige Variablen -->
 
-logistic <- logistic_reg() %>%
-  set_engine("glm") %>%
-  fit(edm_factor ~ energy + danceability, data = training)
+<!-- ::: {style="font-size: 0.78em"} -->
+<!-- * Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet -->
+<!-- * Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability -->
+<!-- * Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form: -->
 
-predictions <- augment(logistic, new_data = training, .predict = "response")
+<!-- ::: {.fragment .fade-in} -->
+<!-- $$ -->
+<!-- P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}{1 + e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}} -->
+<!-- $$ -->
+<!-- ::: -->
+<!-- * Mit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell: -->
 
-accuracy <- yardstick::accuracy(predictions, truth = edm_factor, estimate = .pred_class)
+<!-- ::: {.fragment .fade-in} -->
+<!-- $$ -->
+<!-- P(EDM = 1|\text{Energy, Danceability}) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}} -->
+<!-- $$ -->
+<!-- ::: -->
 
-
-coefficients_logistic <- tidy(logistic) %>%
-  select(term, estimate)
-
-```
-
-
-
-## Logistische Regression
-### Mehrere unabhängige Variablen
-
-
-:::: {.columns}
-
-::: {.column width=55%}
-
-* Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.
-* Accuracy, Precision, Recall und F1-Score sind:
-
-::: {.fragment .fade-in}
-
-```{r}
-
-multi_metric <- metric_set(yardstick::accuracy, recall, precision, f_meas)
+<!-- ::: -->
 
 
-augment(logistic, new_data = training) %>%
-  multi_metric(truth = edm_factor, estimate = .pred_class, event_level = "second") %>%
-  select(.metric, .estimate) %>%
-  rename(Metric = .metric, Value = .estimate) %>%
-  knitr::kable(digits = 4) 
-  
+<!-- ```{r} -->
 
-```
+<!-- logistic <- logistic_reg() %>% -->
+<!--   set_engine("glm") %>% -->
+<!--   fit(edm_factor ~ energy + danceability, data = training) -->
 
-:::
+<!-- predictions <- augment(logistic, new_data = training, .predict = "response") -->
 
-:::
+<!-- accuracy <- yardstick::accuracy(predictions, truth = edm_factor, estimate = .pred_class) -->
 
-::: {.column width=45%}
 
-::: {.fragment .fade-in}
+<!-- coefficients_logistic <- tidy(logistic) %>% -->
+<!--   select(term, estimate) -->
+
+<!-- ``` -->
 
 
 
-```{r, fig.height = 4, fig.width = 4}
-
-yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
-  autoplot(type = "heatmap") +
-  labs(x = "Wahrheit", y = "Vorhersage")
-
-```
-
-:::
-
-:::
+<!-- ## Logistische Regression -->
+<!-- ### Mehrere unabhängige Variablen -->
 
 
-::::
+<!-- :::: {.columns} -->
+
+<!-- ::: {.column width=55%} -->
+
+<!-- * Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite. -->
+<!-- * Accuracy, Precision, Recall und F1-Score sind: -->
+
+<!-- ::: {.fragment .fade-in} -->
+
+<!-- ```{r} -->
+
+<!-- multi_metric <- metric_set(yardstick::accuracy, recall, precision, f_meas) -->
+
+
+<!-- augment(logistic, new_data = training) %>% -->
+<!--   multi_metric(truth = edm_factor, estimate = .pred_class, event_level = "second") %>% -->
+<!--   select(.metric, .estimate) %>% -->
+<!--   rename(Metric = .metric, Value = .estimate) %>% -->
+<!--   knitr::kable(digits = 4)  -->
+
+
+<!-- ``` -->
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+<!-- ::: {.column width=45%} -->
+
+<!-- ::: {.fragment .fade-in} -->
+
+
+
+<!-- ```{r, fig.height = 4, fig.width = 4} -->
+
+<!-- yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>% -->
+<!--   autoplot(type = "heatmap") + -->
+<!--   labs(x = "Wahrheit", y = "Vorhersage") -->
+
+<!-- ``` -->
+
+<!-- ::: -->
+
+<!-- ::: -->
+
+
+<!-- :::: -->
 
 
 <!-- ## Logistische Regression -->

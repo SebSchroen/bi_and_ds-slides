@@ -1,6 +1,6 @@
 ---
 title: "Business Intelligence & Data Science"
-subtitle: "Vorlesung "
+subtitle: "Vorlesung 8"
 format:
   revealjs:
     incremental: false  

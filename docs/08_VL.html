@@ -29,26 +29,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-    }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
-    }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
-    }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+  </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -338,10 +319,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-  <script src="site_libs/viz-1.8.2/viz.js"></script>
-  <link href="site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
-  <script src="site_libs/grViz-binding-1.0.10/grViz.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -349,7 +326,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Business Intelligence &amp; Data Science</h1>
-  <p class="subtitle">Vorlesung 2</p>
+  <p class="subtitle">Vorlesung 8</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -371,631 +348,69 @@ Dr.&nbsp;Sebastian Schrön
 </section>
 <section id="der-plan-für-heute" class="slide level2">
 <h2>Der Plan für heute…</h2>
-<h3 id="vorlesung-2">Vorlesung 2</h3>
+<h3 id="vorlesung">Vorlesung</h3>
 <ul>
-<li>Datenbereitstellung:
+<li>Modellgestützte Analysen
 <ul>
-<li>Data Warehouse</li>
-<li>Data Mart</li>
-<li>Architekturkonzepte</li>
-</ul></li>
-<li>Business Case: Der Musikstreaming Anbieter Tofispy braucht unsere Hilfe</li>
-<li>Verknüpfung eines ersten Data Marts mit Superset</li>
-</ul>
-</section>
-<section>
-<section id="datenbereitstellung" class="title-slide slide level1 center">
-<h1>Datenbereitstellung</h1>
-
-</section>
-<section id="überblick-zum-bia-gesamteinsatz" class="slide level2">
-<h2>Überblick zum BIA Gesamteinsatz</h2>
-<h3 id="datenbereitstellung-1">Datenbereitstellung</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/bia_ordnungsrahmen.drawio.png" width="700" height="500"></p>
-<figcaption>BIA Gesamtansatz. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span>.</figcaption>
-</figure>
-</div>
-<aside class="notes">
-<ul>
-<li>Für den Moment nehmen wir erst einmal an, die Daten befänden sich bereits in unserem Zugriff in unserer unternehmenseigenen IT-Infrastuktur</li>
-<li>Der eigentliche Weg dahin, der ETL Prozess: Extract, Transform, Load oder auf Deutsch Extraktion, Transformation, Laden, kommt dann in der nächsten Woche</li>
-<li>Heute schauen wir uns den rechten Teil in der Datenbereitstellung an, den ersten Schritt auf dem Weg von operativen Rohdaten hin zu informationsgetriebenen Entscheidungen</li>
-<li>Wir schauen uns an, wie Daten in einem Data Warehouse und Data Marts aufbereitet und bereitgestellt werden, welche Architekturkonzepte es gibt, was deren Vor- und Nachteile sind</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="data-warehouse" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="begriff">Begriff</h3>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Definition</strong></p>
-</div>
-<div class="callout-content">
-<p>Ein Data Warehouse (DWH) ist ein Datenhaltungssystem dispositiver Daten, das von den operativen Datenbeständen getrennt, themenorientiert aufbereitet und logisch zentralisiert ist. Ein DWH integriert unternehmensweit Datenbestände aus verschiedenen operativen internen Systemen (z.B. Kernbanksystemen und Enterprise-Ressource-Planning-Systemen) sowie externen Systemen (z.B. Börseninformationssystemen und Systeme für externe Ratings) und dient idealtypisch als unternehmensweite, einheitliche und konsistente Datenbasis für alle Arten von Systemen der Entscheidungsunterstützung <span class="citation" data-cites="kemper_data_2023">(siehe <a href="#/quellen" role="doc-biblioref" onclick="">Kemper und Sun 2023</a>)</span>.</p>
-</div>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Die entscheidenden Punkte sind hier:
-<ul>
-<li>Trennung von operativen und dispositiven Daten</li>
-<li>Integration von Datenbeständen aus verschiedenen und oftmals sehr heterogenen Quellen</li>
-<li>Einheitliche und konsistente Datenbasis für das gesamte Unternehmen</li>
+<li>Nearest Neighbor Klassifikation</li>
+<li>Entscheidungsbäume</li>
 </ul></li>
 </ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="data-warehouse-1" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="eigenschaften">Eigenschaften</h3>
-<div style="font-size: 0.95em">
-<div>
-<ol type="1">
-<li class="fragment">Themenorientierung:
+<section id="nearest-neighbor-klassifikation" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="grundidee">Grundidee</h3>
 <ul>
-<li class="fragment">Dispositive Daten des DWH sind explizit an den Interessenslagen der Entscheidenden ausgerichtet</li>
-<li class="fragment">Die operativen bzw. externen Daten werden vor der Speicherung im DWH aufbereitet, harmonisiert und ggf. voraggregiert</li>
-<li class="fragment">Themen sind Produkthierarchien, vordefinierte Zeiträume wie Quartale oder betriebswirtschaftliche Kennzahlen wie DB1</li>
-</ul></li>
-<li class="fragment">Integration:
-<ul>
-<li class="fragment">Daten aus den unterschiedlichen operativen und externen Systemen werden im DWH integriert</li>
-<li class="fragment">Zusammenführung zu einer inhaltlich widerspruchfreien Datenquelle, sogenannter “single point of truth”</li>
-</ul></li>
-</ol>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Themenorientierung bedeutet vor allem auch, dass die Quellsystelogik aufgebrochen wird, es also egal ist, aus welchen Systemen die Daten ursprünglich mal gekommen</li>
-<li>Auch liegen hier nicht die Rohdaten, vielmehr haben schon Tranformationen stattgefunden, beispielsweise eine Harmonisierung und Aggregation</li>
-<li>Diese Themen wirken relativ abstrakt, aber Beispiele sind Umsätze pro Produkthierarchieebene im aktuellen Jahr, oder der DB1 in den letzten Jahren</li>
+<li>Nearest Neighbor Klassifikation oder meist K-Nearest Neighbor (KNN) basiert auf der Idee, dass ähnliche Datenpunkte zu ähnlichen Klassen gehören</li>
+<li>KNN macht keine Annahmen über die Verteilung der Daten und die For der Entscheidungsgrenze</li>
+<li>KNN ist ein sogenanntes “lazy learning” Verfahren, da es keine explizite Modellbildung durchführt</li>
+<li>Die Klassifikation erfolgt durch die Mehrheitsentscheidung der <span class="math inline">\(K\)</span> nächsten Nachbarn in den Testdaten</li>
 </ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
-<section id="data-warehouse-2" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="eigenschaften-1">Eigenschaften</h3>
-<div>
-<ol start="3" type="1">
-<li class="fragment">Zeitraumbezug:
+<section id="nearest-neighbor-klassifikation-1" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="grundidee-1">Grundidee</h3>
 <ul>
-<li class="fragment">Operative Systeme sind transaktionsorientiert und bilden einen bestimmten Zeitpunkt ab</li>
-<li class="fragment">Daten im DWH werden üblicherweise auf Zeiträume aggregiert, bspw. ein Monat oder ein Jahr</li>
-</ul></li>
-<li class="fragment">Nicht-Volatilität:
-<ul>
-<li class="fragment">Daten im DWH werden dauerhaft abgelegt und für die Analyse zur Verfügung gestellt</li>
-<li class="fragment">DWH-Daten werden somit in der Regel nicht mehr geändert, überschrieben oder entfernt</li>
-</ul></li>
-</ol>
-</div>
-<aside class="notes">
-<ul>
-<li>Operative Daten sind immer ein Snapshot, der einen bestimmten Zeitpunkt abbildet.</li>
-<li>Beispielsweise durchläuft eine Order verschiedene Zustände und ein operatives System zeigt üblicherweise nur den Ist-Zustand. Beispiel: Bestellstatus bei einem Online-Händler</li>
-<li>Im DWH wiederum wird eine Historie gebildet, die aggregiert wird, beispielsweise die Zustände der Orders pro Tag</li>
+<li>Auch bei KNN wird die Wahrscheinlichkeit ermittelt, mit der Element <span class="math inline">\(x_0\)</span> zur Klasse <span class="math inline">\(j\)</span> gehört</li>
 </ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<p><span class="math display">\[
+P(Y=j|X= x_0) = \frac{1}{K} \sum_{i \in \aleph_0} I(y_i=j)
+\]</span></p>
+<ul>
+<li>Dabei repräsentiert <span class="math inline">\(\aleph_0\)</span> die Menge der <span class="math inline">\(K\)</span> nächsten Nachbarn von <span class="math inline">\(x_0\)</span> und <span class="math inline">\(I(y_i=j)\)</span> ist eine Indikatorfunktion, die 1 zurückgibt, wenn <span class="math inline">\(y_i=j\)</span> und 0 sonst</li>
+<li>Die Zuordnung erfolgt dann durch die Klasse mit der höchsten Wahrscheinlichkeit im Sinne einer Mehrheitsentscheidung</li>
+</ul>
 </section>
-<section id="data-warehouse-3" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="komponenten-des-data-warehouse">Komponenten des Data Warehouse</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Data Mart</p>
+<section id="nearest-neighbor-klassifikation-2" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="bestimung-der-nachbarn">Bestimung der Nachbarn</h3>
 <ul>
-<li class="fragment">Separater Datenpool für einen bestimmten Anwendungsbereich spezifischer Abteilungen</li>
-<li class="fragment">Nur ein Ausschnitt aus dem gesamten Datenpool, häufig aus Performance-Erwägungen</li>
-<li class="fragment">Häufig mit Reporting und OLAP assoziiert, zunehmend aber auch für Analysen</li>
+<li>Die Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße</li>
+<li>Es gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden</li>
+<li>Die einfachste Form ist die euklidische Distanz, in allgemeiner Form:</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p>Core Data Warehouse</p>
-<ul>
-<li class="fragment">Rückrat der meisten Architekturkonzepte und oft als Basisdatenbank bezeichnet</li>
-<li class="fragment">Befüllung über ETL-Prozesse aus operativen Quellsystemen</li>
-<li class="fragment">Meist auf relationalen Datenhaltungssystemen basierend mit großen Datenvolumina (TB Bereich)</li>
-<li class="fragment">Applikationsneutral modelliert</li>
-</ul>
-</div>
-</div>
-</div>
+<p><span class="math display">\[
+d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2  + ... + (p_n-q_n)^2}
+\]</span></p>
 </section>
-<section id="data-warehouse-4" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="funktionen-des-cdwh">Funktionen des CDWH</h3>
-<ol type="1">
-<li>Sammel- und Integrationsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
-<ul>
-<li>Aufnahme aller wichtigen Daten für die Analyse in Form eines zentralen Datenlagers</li>
-</ul>
-</div>
-<ol start="2" type="1">
-<li>Distributionsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
-<ul>
-<li>Versorgung aller nachgeschalteten Data Marts mit Daten</li>
-</ul>
-</div>
-<ol start="3" type="1">
-<li>Qualitätssicherungsfunktion:</li>
-</ol>
-<div class="fragment fade-in">
-<ul>
-<li>Datentransformation sichert die syntaktische und semantische Stimmigkeit der dispositiven Datenbasis</li>
-</ul>
-</div>
-<aside class="notes">
-<ul>
-<li>Jemand eine Idee was das bedeutet, syntaktisch und semantische Stimmigkeit?</li>
-<li>Syntaktisch: Die Daten sind in der richtigen Form, also beispielsweise die richtigen Datentypen, die richtigen Werte</li>
-<li>Semantisch: Die Daten haben die richtige Bedeutung, also beispielsweise die richtigen Bezeichnungen, die richtigen Einheiten, Währungen, Periodenzuordnungen</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="data-warehouse-5" class="slide level2">
-<h2>Data Warehouse</h2>
-<h3 id="data-mart-vs.-cdwh">Data Mart vs.&nbsp;CDWH</h3>
-<div>
-<div style="font-size: 0.70em">
-<table>
-<caption>Charakteristika von Data Mart und Core Data Warehouse im Vergleich. In Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></caption>
-<colgroup>
-<col style="width: 20%">
-<col style="width: 40%">
-<col style="width: 40%">
-</colgroup>
-<thead>
-<tr class="header">
-<th></th>
-<th>Data Mart</th>
-<th>Core Data Warehouse</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Ziel</td>
-<td>Entscheidungsunterstützung für ausgewählte Bereiche, spezifisch auf Analyseanforderungen zugeschnitten</td>
-<td>Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</td>
-</tr>
-<tr class="even">
-<td>Ausrichtung</td>
-<td>Bereichsspezifisch oder Abteilungsbezogen</td>
-<td>Zentral und unternehmensweit</td>
-</tr>
-<tr class="odd">
-<td>Granularität</td>
-<td>Höhere Aggregationen</td>
-<td>Feinste verfügbare Granularität</td>
-</tr>
-<tr class="even">
-<td>Verfügbarkeit für Endanwendende</td>
-<td>In der Regel möglich</td>
-<td>Häufig nicht erlaubt da zentral durch IT betrieben und als Quellsystem für Marts genutzt</td>
-</tr>
-<tr class="odd">
-<td>Flexibilität der Analysen</td>
-<td>Tendenziell gering und auf Anwendungsbereich beschränkt</td>
-<td>Sehr flexibel</td>
-</tr>
-<tr class="even">
-<td>Volumina</td>
-<td>Gering bis moderat</td>
-<td>Moderat bis umfangreich</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<aside class="notes">
-<p>Beispiel: Tages und Wochendaten Fabrikläden vs.&nbsp;DSP wegen unterschiedlicher Planungszeiträume</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="dwh-architekturen" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="unabhängige-data-marts">Unabhängige Data Marts</h3>
-<div class="columns">
-<div class="column" style="width:45%;">
-<!-- ![Unabhängige Data Marts. Eigene Darstellung in Anlehnung an @gluchowski_architekturkonzepte_2016](img/plot_marts.png){width="100%"} -->
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-cddbdc934c7bee734fc0" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-cddbdc934c7bee734fc0">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\n\n# edge definitions with the node IDs\n{pdm sap}  -> {sales }\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Unabhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div>
-<ul>
-<li class="fragment">Auch Stove-Pipe Ansatz</li>
-<li class="fragment">Bedienen sich direkt aus den operativen und externen Systemen</li>
-<li class="fragment">Bereiten die enthaltenen Daten für relevante Anwendungsfelder auf</li>
-<li class="fragment">Daten werden isoliert bezogen und fließen direkt in Datensilos auf Basis bereichsspezifischer Fragestellungen</li>
-<li class="fragment">Verschiedene Marts können unterschiedliche externe Datenquellen zusammenführen</li>
-</ul>
-</div>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Kurz Formen besprechen und was sie darstellen:
-<ul>
-<li>Zylinder sind Datenbanken und Systeme, hier MES, PDM und SAP</li>
-<li>Würfel sind mehrdimensinale Tabellen, unsere Data Marts</li>
-</ul></li>
-<li>Stove-Pipe Ansatz heißt so viel wie Ofenrohr, also eine direkte Verbindung zwischen Quelle und Ziel</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="dwh-architekturen-1" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="unabhängige-data-marts-1">Unabhängige Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Schnelle und bereichsspezifische Informationsbereitstellung</li>
-<li class="fragment">Sinnvoll bei fehlender Governance Strategie</li>
-<li class="fragment">Erfüllung maßgeschneideter bereichsspezifischer Fragestellungen</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Häufig historisch gewachsene Strukturen und damit geringe Governance</li>
-<li class="fragment">Mehrfache Aufbereitung der Quelldaten</li>
-<li class="fragment">Gefahr von Inkonsistenzen bei der Kennzahlenberechnung zwischen Marts</li>
-<li class="fragment">Mangelnde Möglichkeit bereichsübergreifender Analysen</li>
-</ul>
-</div>
-</div>
-</div>
-<aside class="notes">
-<ul>
-<li>Governance ist hier eine Art Regelwerk, das die Datenqualität und -sicherheit sicherstellt und gemeinsame Datenmodelle definiert</li>
-<li>Im Extremfall haben die Marts dann inkompatible Datenmodelle, beispielsweise heißt die Datumsspalte in einem Mart DATE und im anderen YMD oder die Aggregationslevel weichen ab, sodass keine gemeinsame Analyse der Marts mehr möglich ist.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="dwh-architekturen-2" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="abgestimmte-data-marts">Abgestimmte Data Marts</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-352bc341726aaa9e0cd8" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-352bc341726aaa9e0cd8">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\nsubgraph cluster_EBD {\nlabel = \"Abgestimmtes Datenmodell\"\nlabelloc = \"b\"\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n}\n\n# edge definitions with the node IDs\n{mes pdm}  -> {sales procurement}\n{sap mes} -> controlling\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Abhängige Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div>
-<ul>
-<li class="fragment">Konzeptionell abgestimmte Datenmodelle um die Integrität des Datenmaterials zu gewährleisten</li>
-<li class="fragment">Das abgestimmte Datenmodell dient der syntaktischen und semantischen Vereinheitlichung</li>
-<li class="fragment">Inhaltliche und zeitliche Übereinstimmung der Datenextraktionen ist entscheidend für die Konsistenz der Data Marts</li>
-</ul>
-</div>
-</div>
-</div>
-<aside class="notes">
-<p>Frage: Was bedeutet hier inhaltliche und zeitliche Übereinstimmung und warum ist das wichtig?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="dwh-architekturen-3" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="abgestimmte-data-marts-1">Abgestimmte Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:47%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Integrität des Datenmodells wird gewährleistet</li>
-<li class="fragment">Möglichkeit bereichsübergreifender Analysen bei hoher Flexibilität innerhalb der Bereiche</li>
-<li class="fragment">Entscheidungsunterstützung für alle Bereiche in einem Unternehmen</li>
-</ul>
-</div><div class="column" style="width:53%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Durch hohen Bereichsbezug oft unterschiedliche Granularität oder Aufbereitung, damit nur bedingte Integration zwischen Marts</li>
-<li class="fragment">Möglicherweise höherer Abstimmungsbedarf zwischen Abteilungen bei der Kennzahldefinition</li>
-<li class="fragment">Informationsverlust bei übergreifenden Analysen</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-4" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse">Core Data Warehouse</h3>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-1103e7352489da204e14" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1103e7352489da204e14">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Core Data Warehouse. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div>
-<ul>
-<li class="fragment">Das CDWH wird direkt aus den operativen Quellsystemen befüllt und basiert auf einer relationalen Datenbank</li>
-<li class="fragment">Dieser Ansatz wird oft als Monolith bezeichnet</li>
-<li class="fragment">Die Daten decken unterschiedliche Auswertungszwecke ab und sind weniger anwendungsbezogen als Datensilos</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-5" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-1">Core Data Warehouse</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Hoher Grad an Mehrfachverwendbarkeit der Daten</li>
-<li class="fragment">Hoher Detailgrad möglich</li>
-<li class="fragment">Bei kleineren Anwendungsfällen oft ausreichend</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Berechtigungsmanagement und Performance stoßen bei komplexen Anwendungsfällen schnell an Grenzen</li>
-<li class="fragment">Bei größeren Einheiten mit eigenen Geschäftsprozessen und stark abweichenden Hierarchiestrukturen sehr komplex, hier bietet sich der Einsatz mehrerer CDWH an</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-6" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-mit-abhängigen-data-marts">Core Data Warehouse mit abhängigen Data Marts</h3>
-<div class="columns">
-<div class="column" style="width:55%;">
-<div>
-<ul>
-<li class="fragment">Auch Hub-and-Spoke Ansatz genannt</li>
-<li class="fragment">CDWH wird nicht direkt für Analysen herangezogen, sondern dient der Befüllung von Marts</li>
-<li class="fragment">Marts sind dann anwendungsbezogen, weisen aber ein einheitliches Datenmodell auf</li>
-<li class="fragment">CDWH als Hub erfüllt Aufgaben der Integration, Qualitätssicherung und Datenverteilung an die Marts</li>
-</ul>
-</div>
-</div><div class="column" style="width:45%;">
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div id="htmlwidget-d0a39e1f14b212ce5fc6" style="width:400px;height:450px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d0a39e1f14b212ce5fc6">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\n\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Core Data Warehouse mit abhängigen Data Marts. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-7" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="core-data-warehouse-mit-abhängigen-data-marts-1">Core Data Warehouse mit abhängigen Data Marts</h3>
-<div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>Vorteile:</p>
-<ul>
-<li class="fragment">Einmaliger und einheitlicher Transformationsprozess ohne redundante Transformationslogik</li>
-<li class="fragment">Geringere Anzahl an Extraktionsprozessen</li>
-<li class="fragment">Reduzierte Anzahl direkter Schnittstellen zwischen Marts und operativen Daten</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Nachteile:</p>
-<ul>
-<li class="fragment">Nach wie vor eher traditionelle BI-Sicht</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="dwh-architekturen-8" class="slide level2">
-<h2>DWH Architekturen</h2>
-<h3 id="architekturen-mix">Architekturen-Mix</h3>
-<div style="font-size: 0.70em">
-<div class="cell">
-<div class="cell-output-display">
-<div class="grViz html-widget html-fill-item" id="htmlwidget-ac3426cf0dc694877c2d" style="width:960px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-ac3426cf0dc694877c2d">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = BT]\n\n\nnode [shape = box3d, style = filled, fillcolor = Linen, fontsize = 8]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige]\nomp [label = \"Externe Daten\", shape = cylinder, fillcolor = Beige]\n\ncdwh [label = \"Core Data Warehouse\", shape = cylinder, width = 2]\n\ncontrolling [label =  \"Controlling\", width = 1]\nsales [label = \"Sales\", width = 1]\nprocurement [label= \"Procurement\", width = 1]\nda [label = \"Data & \n Analytics\", width = 1, height = 0.7]\n\n# edge definitions with the node IDs\n{sap mes pdm}  -> cdwh -> {controlling sales procurement}\n{sap omp} -> da\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>Architekturen-Mix. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="gluchowski_architekturkonzepte_2016">Hahne (<a href="#/quellen" role="doc-biblioref" onclick="">2016</a>)</span></p>
-</div>
-</div>
-</div>
-</section>
-<section id="business-case" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="das-wachstum-bei-tofispy-stagniert">Das Wachstum bei Tofispy stagniert</h3>
-<div>
-<p><img data-src="img/fotispy.png" class="absolute" style="bottom: 550px; right: 50px; width: 125px; height: 125px; "></p>
-<ul>
-<li class="fragment">Tofispy ist ein Musikstreaming Anbieter aus Deutschland</li>
-<li class="fragment">Das Unternehmen kämpft mit stagnierendem Wachstum</li>
-<li class="fragment">Wir – die Unternehmensberatung LeinbizConsult – wurden beauftragt, die Gründe für das stagnierende Wachstum zu identifizieren und Handlungsempfehlungen zu entwickeln</li>
-<li class="fragment">Die Geschäftsführung hat uns erste Daten zur Verfügung gestellt, um die aktuelle Situation zu evaluieren und Ursachenforschung zu betreiben</li>
-</ul>
-</div>
-</section>
-<section id="business-case-1" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="datensatz">Datensatz</h3>
-<ol type="1">
-<li><em>Überblick über den Streamingmarkt</em>:
-<ul>
-<li>Tabelle “market_share” im Dataset Market Research</li>
-<li>Anzahl der Nutzer pro Plattform in Mio</li>
-<li>Daten von 2016 bis 2024</li>
-<li>Die Daten für 2024 sind eine Hochrechnung für das laufende Jahr</li>
-</ul></li>
-</ol>
-</section>
-<section id="business-case-2" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="aufgabe">Aufgabe</h3>
-<div>
-<ul>
-<li class="fragment">Arbeit in 2er Teams mit mindestens einem Laptop oder Tablet pro Team, Laptop ideal</li>
-<li class="fragment">Trial &amp; Error in Superset mit Hilfe der Dokumentation:
-<ul>
-<li class="fragment">Dokumentation unter <a href="https://docs.preset.io/docs/creating-a-chart">preset.io</a></li>
-<li class="fragment">Startpunkt: Creating a Chart (in der preset Doku)</li>
-<li class="fragment">Table oder Preview im SQL Editor als Ausgangspunkt für explorative Analyse</li>
-</ul></li>
-<li class="fragment">Ziel:
-<ul>
-<li class="fragment">Gestapeltes Balkendiagramm für die relativen Marktanteile der Plattformen im Zeitverlauf</li>
-<li class="fragment">Liniendiagramm für die absolute Marktentwicklung</li>
-</ul></li>
-</ul>
-</div>
-</section>
-<section id="business-case-3" class="slide level2">
-<h2>Business Case</h2>
-<h3 id="fragen-ggf.-als-hausaufgabe">Fragen (ggf. als Hausaufgabe)</h3>
-<div>
-<ul>
-<li class="fragment">Wächst Tofispy schneller oder langsamer als der Gesamtmarkt?</li>
-<li class="fragment">Wie hoch ist der Marktanteil am Ende von 2024 voraussichtlich?</li>
-<li class="fragment">Welcher Konkurrent wächst am stärksten?</li>
-<li class="fragment">Ist der Datensatz operativ oder dispositiv?</li>
-<li class="fragment">Welcher Reifegrad von Analytics liegt vor?</li>
-</ul>
-</div>
-</section>
-<section id="quellen" class="slide level2 smaller scrollable">
-<h2>Quellen</h2>
+<section id="nearest-neighbor-klassifikation-3" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="bestimung-der-nachbarn-1">Bestimung der Nachbarn</h3>
+<!-- # ```{r} -->
+<!-- #  -->
+<!-- # training_multi %>%   -->
+<!-- # #  sample_n(100) %>%  -->
+<!-- #   filter(track.artist %in% c("2Pac", "Wolfgang Amadeus Mozart"))  %>%  -->
+<!-- #   ggplot(data = ., aes(x = energy, y = danceability, label = track.artist))+ geom_text() -->
+<!-- #   filter(energy > 0.1 & danceability < 0.5) %>%   -->
+<!-- #   sample_n(2)  -->
+<!-- #  -->
+<!-- # ``` -->
 
 <div class="footer footer-default">
 <p>Business Intelligence &amp; Data Science, SoSe 2024</p>
 </div>
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-baars_business_2021" class="csl-entry" role="listitem">
-Baars, Henning, und Hans-Georg Kemper. 2021. <em>Business Intelligence &amp; Analytics: Grundlagen und praktische Anwendungen: Ansätze der <span>IT</span>-basierten Entscheidungsunterstützung</em>. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.
-</div>
-<div id="ref-gluchowski_architekturkonzepte_2016" class="csl-entry" role="listitem">
-Hahne, Michael. 2016. <span>„Architekturkonzepte und Modellierungsverfahren für <span>BI</span>-Systeme“</span>. In <em>Analytische Informationssysteme</em>, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. <a href="https://doi.org/10.1007/978-3-662-47763-2_8">https://doi.org/10.1007/978-3-662-47763-2_8</a>.
-</div>
-<div id="ref-kemper_data_2023" class="csl-entry" role="listitem">
-Kemper, Hans-Georg, und Xuanpu Sun. 2023. <span>„Data Warehouse“</span>. In <em>Gabler Bankenlexikon</em>. <a href="https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924">https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924</a>.
-</div>
-</div>
-</section></section>
+</section>
     </div>
   </div>
 

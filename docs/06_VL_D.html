@@ -1576,111 +1576,72 @@ F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
 <!--   * FP: Die Person ist nicht krank, wird aber isoliert -->
 <!--   * FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben -->
 <!-- ::: -->
-</section>
-<section id="modellevaluation-15" class="slide level2">
-<h2>Modellevaluation</h2>
-<h3 id="tauziehen-zwischen-precision-und-recall">Tauziehen zwischen Precision und Recall</h3>
-<ul>
-<li class="fragment">Precision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt)</li>
-<li class="fragment">Dieses Tauziehen kann durch die Anpassung des Cut-Off Points <span class="math inline">\(C\)</span> beeinflusst werden</li>
-<li class="fragment">Zur Illustration noch einmal zurück zur interaktiven Visualisierung:
-<ul>
-<li class="fragment"><a href="https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/">https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/</a></li>
-</ul></li>
-<li class="fragment">Fragen:
-<ul>
-<li class="fragment">Was passiert mit Precision und Recall, wenn <span class="math inline">\(C\)</span> ansteigt (sinkt)?</li>
-<li class="fragment">Für welche Werte von <span class="math inline">\(C\)</span> erhalten wir maximale Precision und Recall?</li>
-</ul></li>
-</ul>
-</section>
-<section id="modellevaluation-16" class="slide level2">
-<h2>Modellevaluation</h2>
-<h3 id="tauziehen-zwischen-precision-und-recall-1">Tauziehen zwischen Precision und Recall</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/Relationship-of-thresholds-and-matching-performance-precision-recall-and-f1-Measure.png" style="width:67.0%"></p>
-<figcaption>Precision und Recall in Abhängigkeit von <span class="math inline">\(C\)</span>. Quelle: <span class="citation" data-cites="shen_actively_2009">Shi u.&nbsp;a. (<a href="#/quellen" role="doc-biblioref" onclick="">2009</a>)</span></figcaption>
-</figure>
-</div>
-</section>
-<section id="logistische-regression-15" class="slide level2">
-<h2>Logistische Regression</h2>
-<h3 id="mehrere-unabhängige-variablen">Mehrere unabhängige Variablen</h3>
-<div style="font-size: 0.78em">
-<ul>
-<li class="fragment">Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet</li>
-<li class="fragment">Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability</li>
-<li class="fragment">Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:</li>
-</ul>
-<div class="fragment fade-in">
-<p><span class="math display">\[
-P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}{1 + e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}
-\]</span></p>
-</div>
-<ul>
-<li class="fragment">Mit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:</li>
-</ul>
-<div class="fragment fade-in">
-<p><span class="math display">\[
-P(EDM = 1|\text{Energy, Danceability}) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}
-\]</span></p>
-</div>
-</div>
-</section>
-<section id="logistische-regression-16" class="slide level2">
-<h2>Logistische Regression</h2>
-<h3 id="mehrere-unabhängige-variablen-1">Mehrere unabhängige Variablen</h3>
-<div class="columns">
-<div class="column" style="width:55%;">
-<ul>
-<li class="fragment">Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.</li>
-<li class="fragment">Accuracy, Precision, Recall und F1-Score sind:</li>
-</ul>
-<div class="fragment fade-in">
-<div class="cell">
-<div class="cell-output-display">
-<table data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Metric</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">accuracy</td>
-<td style="text-align: right;">0.9933</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">recall</td>
-<td style="text-align: right;">0.9930</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">precision</td>
-<td style="text-align: right;">0.9930</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">f_meas</td>
-<td style="text-align: right;">0.9930</td>
-</tr>
-</tbody>
-</table>
-
-
-</div>
-</div>
-</div>
-</div><div class="column" style="width:45%;">
-<div class="fragment fade-in">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="06_VL_D_files/figure-revealjs/unnamed-chunk-18-1.png" width="384"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<!-- ## Modellevaluation -->
+<!-- ### Tauziehen zwischen Precision und Recall -->
+<!-- * Precision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt) -->
+<!-- * Dieses Tauziehen kann durch die Anpassung des Cut-Off Points $C$ beeinflusst werden -->
+<!-- * Zur Illustration noch einmal zurück zur interaktiven Visualisierung: -->
+<!--   * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/) -->
+<!-- * Fragen: -->
+<!--   * Was passiert mit Precision und Recall, wenn $C$ ansteigt (sinkt)? -->
+<!--   * Für welche Werte von $C$ erhalten wir maximale Precision und Recall? -->
+<!-- ## Modellevaluation -->
+<!-- ### Tauziehen zwischen Precision und Recall -->
+<!-- ![Precision und Recall in Abhängigkeit von $C$. Quelle: @shen_actively_2009 ](img/Relationship-of-thresholds-and-matching-performance-precision-recall-and-f1-Measure){width=67%} -->
+<!-- ## Logistische Regression -->
+<!-- ### Mehrere unabhängige Variablen -->
+<!-- ::: {style="font-size: 0.78em"} -->
+<!-- * Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet -->
+<!-- * Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability -->
+<!-- * Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form: -->
+<!-- ::: {.fragment .fade-in} -->
+<!-- $$ -->
+<!-- P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}}{1 + e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots + \beta_P \cdot X_P)}} -->
+<!-- $$ -->
+<!-- ::: -->
+<!-- * Mit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell: -->
+<!-- ::: {.fragment .fade-in} -->
+<!-- $$ -->
+<!-- P(EDM = 1|\text{Energy, Danceability}) = \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}} -->
+<!-- $$ -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ```{r} -->
+<!-- logistic <- logistic_reg() %>% -->
+<!--   set_engine("glm") %>% -->
+<!--   fit(edm_factor ~ energy + danceability, data = training) -->
+<!-- predictions <- augment(logistic, new_data = training, .predict = "response") -->
+<!-- accuracy <- yardstick::accuracy(predictions, truth = edm_factor, estimate = .pred_class) -->
+<!-- coefficients_logistic <- tidy(logistic) %>% -->
+<!--   select(term, estimate) -->
+<!-- ``` -->
+<!-- ## Logistische Regression -->
+<!-- ### Mehrere unabhängige Variablen -->
+<!-- :::: {.columns} -->
+<!-- ::: {.column width=55%} -->
+<!-- * Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite. -->
+<!-- * Accuracy, Precision, Recall und F1-Score sind: -->
+<!-- ::: {.fragment .fade-in} -->
+<!-- ```{r} -->
+<!-- multi_metric <- metric_set(yardstick::accuracy, recall, precision, f_meas) -->
+<!-- augment(logistic, new_data = training) %>% -->
+<!--   multi_metric(truth = edm_factor, estimate = .pred_class, event_level = "second") %>% -->
+<!--   select(.metric, .estimate) %>% -->
+<!--   rename(Metric = .metric, Value = .estimate) %>% -->
+<!--   knitr::kable(digits = 4)  -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- ::: {.column width=45%} -->
+<!-- ::: {.fragment .fade-in} -->
+<!-- ```{r, fig.height = 4, fig.width = 4} -->
+<!-- yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>% -->
+<!--   autoplot(type = "heatmap") + -->
+<!--   labs(x = "Wahrheit", y = "Vorhersage") -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ::: -->
+<!-- :::: -->
 <!-- ## Logistische Regression -->
 <!-- ### Mehrklassen-Klassifikation -->
 <!-- * Auch bei mehreren unabhängigen Variablen bleibt die logistische Regression ein binäres Modell -->
@@ -1716,9 +1677,6 @@ James, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. <em>A
 </div>
 <div id="ref-maleki_overview_2020" class="csl-entry" role="listitem">
 Maleki, Farhad, Katie Ovens, Keyhan Najafian, Behzad Forghani, Caroline Md, und Reza Forghani. 2020. <span>„Overview of Machine Learning Part 1“</span>. <em>Neuroimaging Clinics of North America</em> 30 (November): e17–32. <a href="https://doi.org/10.1016/j.nic.2020.08.007">https://doi.org/10.1016/j.nic.2020.08.007</a>.
-</div>
-<div id="ref-shen_actively_2009" class="csl-entry" role="listitem">
-Shi, Feng, Juanzi Li, Jie Tang, Guotong Xie, und Hanyu Li. 2009. <span>„Actively Learning Ontology Matching via User Interaction“</span>. In, 5823:585–600. <a href="https://doi.org/10.1007/978-3-642-04930-9_37">https://doi.org/10.1007/978-3-642-04930-9_37</a>.
 </div>
 <div id="ref-wilke_fundamentals_2019" class="csl-entry" role="listitem">
 Wilke, C. 2019. <em>Fundamentals of data visualization: a primer on making informative and compelling figures</em>. First edition. Sebastopol, CA: O’Reilly Media. <a href="https://clauswilke.com/dataviz/">https://clauswilke.com/dataviz/</a>.

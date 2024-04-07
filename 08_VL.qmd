@@ -1,0 +1,118 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung 8"
+format:
+  revealjs:
+    incremental: false  
+---
+  
+  
+```{r}
+library(kableExtra)
+library(tidyverse)
+library(patchwork)
+library(tidymodels)
+library(plotly)
+library(ggcorrplot)
+data <- read_csv("data/songs_with_features.csv") %>% 
+  filter(category %in% c("Klassik", "Dance/Electronic")) %>% 
+  select(track.name, track.artist, category, energy, danceability) %>% 
+  mutate(category = case_when(
+    category == "Klassik" ~ "Klassik",
+    category == "Dance/Electronic" ~ "EDM"
+  ))
+
+set.seed(1)
+
+split <- initial_split(data, prop = 3*0.029156, strata = category)
+training <- 
+  training(split) %>% 
+  select(category, energy, danceability, track.name, track.artist) %>% 
+  mutate(edm = case_when(
+    category == "EDM" ~ 1,
+    category == "Klassik" ~ 0
+  )) %>% 
+  mutate(edm_factor = as.factor(edm))
+
+explicit <- readRDS("data/category_songs_raw.rds") %>% 
+  distinct(track.id, track.explicit) 
+
+data_multi <- read_csv("data/songs_with_features.csv") %>% 
+  filter(category %in% c("Klassik", "Dance/Electronic", "Hip-Hop")) %>% 
+  mutate(category = case_when(
+    category == "Klassik" ~ "Klassik",
+    category == "Dance/Electronic" ~ "EDM",
+    category == "Hip-Hop" ~ "Hip-Hop"
+  )) %>% 
+  left_join(explicit, by = c("track.id" = "track.id")) %>%
+  select(track.name, track.artist, category, energy, danceability, speechiness, track.explicit) %>% 
+  mutate(track.explicit = as.factor(track.explicit)) %>% 
+  mutate(category = as.factor(category))
+
+
+split_multi <- initial_split(data_multi, prop = 0.7, strata = category)
+
+
+training_multi <- training(split_multi)
+testing_multi <- testing(split_multi)
+
+
+```
+
+
+
+
+## Der Plan für heute...
+### Vorlesung 
+
+* Modellgestützte Analysen
+  * Nearest Neighbor Klassifikation
+  * Entscheidungsbäume
+
+## Nearest Neighbor Klassifikation
+### Grundidee
+
+* Nearest Neighbor Klassifikation oder meist K-Nearest Neighbor (KNN) basiert auf der Idee, dass ähnliche Datenpunkte zu ähnlichen Klassen gehören
+* KNN macht keine Annahmen über die Verteilung der Daten und die For der Entscheidungsgrenze
+* KNN ist ein sogenanntes "lazy learning" Verfahren, da es keine explizite Modellbildung durchführt
+* Die Klassifikation erfolgt durch die Mehrheitsentscheidung der $K$ nächsten Nachbarn in den Testdaten
+
+
+## Nearest Neighbor Klassifikation
+### Grundidee
+
+* Auch bei KNN wird die Wahrscheinlichkeit ermittelt, mit der Element $x_0$ zur Klasse $j$ gehört
+
+$$
+P(Y=j|X= x_0) = \frac{1}{K} \sum_{i \in \aleph_0} I(y_i=j)
+$$
+
+* Dabei repräsentiert $\aleph_0$ die Menge der $K$ nächsten Nachbarn von $x_0$ und $I(y_i=j)$ ist eine Indikatorfunktion, die 1 zurückgibt, wenn $y_i=j$ und 0 sonst
+* Die Zuordnung erfolgt dann durch die Klasse mit der höchsten Wahrscheinlichkeit im Sinne einer Mehrheitsentscheidung
+
+## Nearest Neighbor Klassifikation
+### Bestimung der Nachbarn
+
+* Die Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße
+* Es gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden
+* Die einfachste Form ist die euklidische Distanz, in allgemeiner Form:
+
+$$
+d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2  + ... + (p_n-q_n)^2}
+$$
+
+
+## Nearest Neighbor Klassifikation
+### Bestimung der Nachbarn
+
+<!-- # ```{r} -->
+<!-- #  -->
+<!-- # training_multi %>%   -->
+<!-- # #  sample_n(100) %>%  -->
+<!-- #   filter(track.artist %in% c("2Pac", "Wolfgang Amadeus Mozart"))  %>%  -->
+<!-- #   ggplot(data = ., aes(x = energy, y = danceability, label = track.artist))+ geom_text() -->
+<!-- #   filter(energy > 0.1 & danceability < 0.5) %>%   -->
+<!-- #   sample_n(2)  -->
+<!-- #  -->
+<!-- # ``` -->
+

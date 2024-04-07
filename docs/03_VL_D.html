@@ -548,8 +548,8 @@ Dr.&nbsp;Sebastian Schrön
 <h3 id="teilschritte-der-transformation">Teilschritte der Transformation</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="htmlwidget-518353c5d9690e940e83" style="width:1000px;height:400px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-518353c5d9690e940e83">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b8489f90bc1b3a927e1b" style="width:1000px;height:400px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b8489f90bc1b3a927e1b">{"x":{"diagram":"digraph {\n\ngraph [layout = dot, rankdir = LR, newrank = true,  fontsize = 42]\n\n\nnode [shape = cylinder, style = filled, fillcolor = Linen, fontsize = 42]\n\n\nsap [label = \"SAP\", shape = cylinder, fillcolor = Beige, width = 1]\nmes [label = \"MES\", shape = cylinder, fillcolor = Beige, width = 1]\npdm [label = \"PDM\", shape = cylinder, fillcolor = Beige, width = 1]\n\n\nsubgraph cluster_EBD {\nlabel = \"Filterung\"\nlabelloc = \"b\"\nextract1 [label =  \"Extrakte\", fillcolor = grey95, width = 1]\nfextract1 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract2 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract2 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\nextract3 [label =  \"Extrakte\",fillcolor = grey95, width = 1]\nfextract3 [label =  \"Bereinigte Extrakte\",fillcolor = grey95, width = 1]\n\n}\n\nsubgraph cluster_Harm {\nlabel = \"Harmonisierung\"\nlabelloc = \"b\"\nrankdir = TB\nsyntactic [label =  \"Syntaktische Harmonisierung\",fillcolor = grey96, width =1]\nsemantic [label =  \"Semantische Harmonisierung\",fillcolor = grey96, width = 1]\n\n\n}\n\n\n\nsubgraph cluster_Agg {\nlabel = \"Aggregation\"\nlabelloc = \"b\"\naggregation [label =  \"Verdichtung und Hierarchisierung\",fillcolor = grey97, width =1]\n}\n\nsubgraph cluster_Anr {\nlabel = \"Anreicherung\"\nlabelloc = \"b\"\nanreicherung [label =  \"Kennzahlberechnung\",fillcolor = grey98, width =1]\n}\n# edge definitions with the node IDs\n{sap} -> {extract1}\nextract1 -> fextract1\n{mes}-> {extract2}\n{pdm} -> {extract3}\nextract2 -> fextract2\nextract3 -> fextract3\n{fextract1 fextract2 fextract3} -> syntactic -> semantic -> aggregation -> anreicherung\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Teilprozesse im ETL-Prozess. Eigene Darstellung in Anlehnung an <span class="citation" data-cites="baars_business_2021">Baars und Kemper (<a href="#/quellen" role="doc-biblioref" onclick="">2021</a>)</span></p>
 </div>
 </div>
@@ -680,7 +680,7 @@ Dr.&nbsp;Sebastian Schrön
 <td style="text-align: left;">DE</td>
 <td style="text-align: right;">2345</td>
 <td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">1999-04-17</td>
+<td style="text-align: left;">1999-04-22</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
@@ -689,7 +689,7 @@ Dr.&nbsp;Sebastian Schrön
 <td style="text-align: left;">DE</td>
 <td style="text-align: right;">67890</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">1994-04-19</td>
+<td style="text-align: left;">1994-04-24</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
@@ -698,7 +698,7 @@ Dr.&nbsp;Sebastian Schrön
 <td style="text-align: left;">DE</td>
 <td style="text-align: right;">98765</td>
 <td style="text-align: left;">TRUE</td>
-<td style="text-align: left;">1984-04-23</td>
+<td style="text-align: left;">1984-04-28</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
@@ -716,7 +716,7 @@ Dr.&nbsp;Sebastian Schrön
 <td style="text-align: left;">DEU</td>
 <td style="text-align: right;">21345</td>
 <td style="text-align: left;">FALSE</td>
-<td style="text-align: left;">2005-04-16</td>
+<td style="text-align: left;">2005-04-21</td>
 </tr>
 </tbody>
 </table>
