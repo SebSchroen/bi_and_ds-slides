@@ -91,7 +91,7 @@ $$
 * Die Zuordnung erfolgt dann durch die Klasse mit der höchsten Wahrscheinlichkeit im Sinne einer Mehrheitsentscheidung
 
 ## Nearest Neighbor Klassifikation
-### Bestimung der Nachbarn
+### Bestimmung der Nachbarn
 
 * Die Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße
 * Es gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden
@@ -103,16 +103,523 @@ $$
 
 
 ## Nearest Neighbor Klassifikation
-### Bestimung der Nachbarn
+### Bestimmung der Nachbarn
 
-<!-- # ```{r} -->
-<!-- #  -->
-<!-- # training_multi %>%   -->
-<!-- # #  sample_n(100) %>%  -->
-<!-- #   filter(track.artist %in% c("2Pac", "Wolfgang Amadeus Mozart"))  %>%  -->
-<!-- #   ggplot(data = ., aes(x = energy, y = danceability, label = track.artist))+ geom_text() -->
-<!-- #   filter(energy > 0.1 & danceability < 0.5) %>%   -->
-<!-- #   sample_n(2)  -->
-<!-- #  -->
-<!-- # ``` -->
+* In zwei Dimensionen vereinfacht sich diese Gleichung zu:
+
+::: {style="font-size: 0.75em"}
+
+$$
+d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
+$$
+
+:::
+
+```{r, fig.width = 8, fig.height=5, fig.align='center'}
+
+data_for_plot <- training_multi %>%
+  group_by(track.artist) %>% 
+  summarise(energy = round(mean(energy),1), danceability = round(mean(danceability),1)) %>% 
+  filter(track.artist %in% c("Demi Lovato", "Wolfgang Amadeus Mozart"))
+
+
+
+
+
+  ggplot(data = data_for_plot, aes(x = energy, y = danceability, label = track.artist))+ 
+  geom_text(nudge_y = 0.05, nudge_x = 0.03) +
+#  xlim(0,0.7) + ylim(-0.1,1) + 
+  geom_text(label = c("q", "p"), size = 5, nudge_y = 0.01, nudge_x = c(0.01, -0.01)) + 
+    geom_point() +
+    theme_minimal() +
+    scale_y_continuous(limits= c(0, 1), breaks = c(-0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+                       labels = c(-0.1, 0, 0.1, 0.2,  expression("p"["2"]), 0.4, 0.5, 0.6, 0.7, 0.8, expression("q"["2"]), 1)) +
+        scale_x_continuous(limits = c(0,0.7), breaks = c(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+                       labels = c(0,  expression("p"["1"]), 0.2, 0.3, 0.4,  expression("q"["1"]), 0.6, 0.7, 0.8, 0.9, 1)) 
+
+
+```
+
+
+
+
+## Nearest Neighbor Klassifikation
+### Bestimmung der Nachbarn
+
+* In zwei Dimensionen vereinfacht sich diese Gleichung zu:
+
+::: {style="font-size: 0.75em"}
+
+$$
+d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
+$$
+
+:::
+
+```{r, fig.width = 8, fig.height=5, fig.align='center'}
+
+data_for_plot <- training_multi %>%
+  group_by(track.artist) %>% 
+  summarise(energy = round(mean(energy),1), danceability = round(mean(danceability),1)) %>% 
+  filter(track.artist %in% c("Demi Lovato", "Wolfgang Amadeus Mozart"))
+
+
+
+
+
+  ggplot(data = data_for_plot, aes(x = energy, y = danceability, label = track.artist))+ 
+  geom_text(nudge_y = 0.05, nudge_x = 0.03) +
+
+  geom_text(label = c("q", "p"), size = 5, nudge_y = 0.01, nudge_x = c(0.01, -0.01)) + 
+    geom_point() +
+    theme_minimal() +
+    annotate("segment", x = data_for_plot$energy[1], xend = data_for_plot$energy[2], 
+             y = data_for_plot$danceability[1], yend = data_for_plot$danceability[2],
+             colour = "steelblue") +
+      annotate("segment", x = data_for_plot$energy[1], xend = data_for_plot$energy[1], 
+             y = data_for_plot$danceability[1], yend = data_for_plot$danceability[2],
+             colour = "steelblue", linetype = "dashed") +
+        annotate("segment", x = data_for_plot$energy[1], xend = data_for_plot$energy[2], 
+             y = data_for_plot$danceability[2], yend = data_for_plot$danceability[2],
+             colour = "steelblue", linetype = "dashed") +
+     annotate("text", x = 0.55, y = 0.6, label = expression("q"["2"]-"p"["2"])) +
+     annotate("text", x = 0.3, y = 0.25, label = expression("q"["1"]-"p"["1"])) +
+    annotate("text", x = 0.3, y = 0.70, label = "d(p,q)") + 
+    scale_y_continuous(limits= c(0, 1), breaks = c(-0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+                       labels = c(-0.1, 0, 0.1, 0.2,  expression("p"["2"]), 0.4, 0.5, 0.6, 0.7, 0.8, expression("q"["2"]), 1)) +
+        scale_x_continuous(limits = c(0,0.7), breaks = c(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+                       labels = c(0,  expression("p"["1"]), 0.2, 0.3, 0.4,  expression("q"["1"]), 0.6, 0.7, 0.8, 0.9, 1)) 
+  
+
+
+```
+
+
+
+
+## Nearest Neighbor Klassifikation
+### Schritte und Intuition
+
+1. Bestimme die Trainingsdaten durch einen Split, bspw. 70% Trainingsdaten, lege $K$ fest
+
+```{r, fig.width = 8, fig.height=5, fig.align='center'}
+set.seed(2)
+training_knn_visual <- training_multi %>%
+  group_by(track.artist, category) %>% 
+  summarise(energy = round(mean(energy),1), danceability = round(mean(danceability),1)) %>% 
+  ungroup() %>% 
+  mutate(length_name = nchar(track.artist)) %>% 
+  filter(length_name <= 8) %>% 
+  sample_n(10)
+
+
+
+ggplot(data = training_knn_visual, aes(x = energy, y = danceability, label = track.artist, color = category))+ 
+  geom_text(size = 4, nudge_y = rnorm(10, mean = 0, sd = 0.02), nudge_x = rnorm(10, mean = 0, sd = 0.02)) +
+  geom_point() +
+  labs(x = "Energy", y = "Danceability",color = "Genre") +
+  theme_minimal()
+
+```
+
+
+
+
+## Nearest Neighbor Klassifikation
+### Schritte und Intuition
+
+2. Für den neuen Datenpunkt `Doja Cat`, berechne die euklidische Distanz zu den anderen Punkten und bestimme die $K$ nächsten Nachbarn
+
+
+```{r, fig.width = 8, fig.height=5, fig.align='center'}
+set.seed(2)
+training_knn_visual <- training_multi %>%
+  group_by(track.artist, category) %>% 
+  summarise(energy = round(mean(energy),1), danceability = round(mean(danceability),1)) %>% 
+  ungroup() %>% 
+  mutate(length_name = nchar(track.artist)) %>% 
+  filter(length_name <= 8) %>% 
+  sample_n(10)
+
+testing_knn_visual  <- training_multi %>%
+  group_by(track.artist, category) %>% 
+  summarise(energy = round(mean(energy),1), danceability = round(mean(danceability),1)) %>% 
+  filter(track.artist == "Doja Cat")
+
+ggplot(data = training_knn_visual, aes(x = energy, y = danceability, label = track.artist, color = category))+ 
+  geom_text(size = 4, nudge_y = rnorm(10, mean = 0, sd = 0.02), nudge_x = rnorm(10, mean = 0, sd = 0.02)) +
+  geom_point() +
+  labs(x = "Energy", y = "Danceability",color = "Genre") +
+  theme_minimal() + 
+  geom_point(data = testing_knn_visual, aes(x = energy, y = danceability), color = "orange", size = 2) +
+  geom_text(data = testing_knn_visual, aes(x = energy, y = danceability, label = track.artist), color = "orange", nudge_y = 0.02) 
+
+```
+
+## Nearest Neighbor Klassifikation
+### Schritte und Intuition
+
+2. Für den neuen Datenpunkt `Doja Cat`, berechne die euklidische Distanz zu den anderen Punkten und bestimme die $K$ nächsten Nachbarn
+
+
+```{r, fig.width = 8, fig.height=5, fig.align='center'}
+set.seed(2)
+training_knn_visual <- training_multi %>%
+  group_by(track.artist, category) %>% 
+  summarise(energy = round(mean(energy),1), danceability = round(mean(danceability),1)) %>% 
+  ungroup() %>% 
+  mutate(length_name = nchar(track.artist)) %>% 
+  filter(length_name <= 8) %>% 
+  sample_n(10)
+
+testing_knn_visual  <- training_multi %>%
+  group_by(track.artist, category) %>% 
+  summarise(energy = round(mean(energy),1), danceability = round(mean(danceability),1)) %>% 
+  filter(track.artist == "Doja Cat")
+
+ggplot(data = training_knn_visual, aes(x = energy, y = danceability, label = track.artist, color = category))+ 
+  geom_text(size = 4, nudge_y = rnorm(10, mean = 0, sd = 0.02), nudge_x = rnorm(10, mean = 0, sd = 0.02)) +
+  geom_point() +
+  labs(x = "Energy", y = "Danceability",color = "Genre") +
+  theme_minimal() + 
+  geom_point(data = testing_knn_visual, aes(x = energy, y = danceability), color = "orange", size = 2) +
+  geom_text(data = testing_knn_visual, aes(x = energy, y = danceability, label = track.artist), color = "orange", nudge_y = 0.02) + 
+  annotate("segment", x = training_knn_visual$energy, xend = testing_knn_visual$energy, 
+           y = training_knn_visual$danceability, yend = testing_knn_visual$danceability,
+           colour = "steelblue", linetype = "dashed") 
+
+```
+
+
+## Nearest Neighbor Klassifikation
+### Schritte und Intuition
+
+3. Identifiziere die $K$ nächsten Nachbarn und ordne den neuen Punkt der Klasse zu, in der die Mehrheit der Nachbarn liegt
+
+
+
+::: {style="font-size: 0.45em"}
+
+```{r}
+# compute euclidean distance in two dimensions:
+euclidean_distance <- function(x1, x2){
+  sqrt(sum((x1 - x2)^2))
+}
+
+
+training_knn_visual %>% 
+  select(category, track.artist, energy, danceability) %>%
+  mutate(`Distance to Doja Cat` = map2_dbl(energy, danceability, ~euclidean_distance(c(.x, .y), c(testing_knn_visual$energy, testing_knn_visual$danceability)))) %>% 
+  arrange(`Distance to Doja Cat`) %>% 
+  mutate(Rang = 1:n()) %>% 
+  kable(digits = 2)
+
+
+```
+
+:::
+
+* Wie ist die Vorhersage bei und die zugehörige Wahrscheinlichkeit bei:
+
+  * $K = 1$
+  * $K = 5$
+  * $K = 10$
+
+
+
+## Nearest Neighbor Klassifikation
+### Schritte und Intuition
+
+* Für die ausgewählten $K$ erhalten wir das folgende Ergebnis:
+
+```{r}
+train <- training_knn_visual %>% ungroup() %>%  select(energy, danceability, category)
+test <- testing_knn_visual %>%  ungroup() %>% select(energy, danceability, category)
+
+library(class)
+results <- tibble(Vorhersage = character(), Wahrscheinlichkeit = numeric(), K = numeric())
+
+for (k in 1:10) {
+  knn <- knn(train=train[,-3], test=test[,-3], cl=train$category, k = k, prob = TRUE)
+  results <- results %>% add_row(Vorhersage = knn[1], Wahrscheinlichkeit = attr(knn, "prob")[1], K = k)
+}
+
+results %>% 
+  filter(K %in% c(1,5,10)) %>%
+  kable(digits = 2)
+
+
+```
+
+* Anschließend wird der Prozess für alle anderen neuen Beobachtungen wiederholt 
+
+## Nearest Neighbor Klassifikation
+### Modellevaluation
+
+:::: {.columns}
+
+::: {.column width=35%}
+
+* Die Modellevaluation erfolgt anschließend analog zur logistischen Regression mit den bisher dargestellten Metriken Accuracy, Precision, Recall und F1-Score
+* Die Wahl des $K$ ist ein wichtiger Hyperparameter, der sorgfältig gewählt werden sollte
+
+:::
+
+::: {.column width=65%}
+
+```{r, fig.height = 5, fig.width = 7}
+
+
+set.seed(1)
+
+multi_metric <- metric_set(yardstick::accuracy, recall, precision, f_meas)
+
+
+library(foreach)
+K <- c(1,  3, 5, 10,15,20, 25, 30, 40, 50, 60, 80, 100)
+
+
+metrics_multiple_k <- foreach(i = K, .combine = "rbind") %do% {
+  knn_multi <- 
+    nearest_neighbor(neighbors = i) %>% 
+    set_engine("kknn") %>% 
+    set_mode("classification") %>% 
+    fit(category ~ danceability + energy, data = training_multi)
+  
+  knn_multi %>% 
+    augment(testing_multi) %>% 
+    multi_metric(truth = category, estimate = .pred_class) %>% 
+    mutate(K = i)
+  
+}
+
+
+
+ggplot(data =metrics_multiple_k, aes(x= K, y = .estimate, color = .metric)) + geom_line() +
+   geom_point() +
+  theme_minimal() +
+  labs(x = "K", y = "Wert", color = "Metrik") +
+    scale_x_continuous(breaks = seq(0, 100, by = 10)) 
+
+```
+:::
+  
+::::
+
+
+
+## Nearest Neighbor Klassifikation
+### Modellevaluation
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+* Offenbar maximiert $K = 60$ sämtliche Metriken
+* Mit $K$ = 60 erhalten wir die Konfusionsmatrix rechts sowie die Metriken unten:
+
+::: {style="font-size: 0.75em"}
+
+```{r}
+knn_multi <- 
+  nearest_neighbor(neighbors = 60) %>% 
+  set_engine("kknn") %>% 
+  set_mode("classification") %>% 
+  fit(category ~ danceability + energy, data = training_multi)
+
+knn_multi %>%
+  augment(testing_multi) %>% 
+  multi_metric(truth = category, estimate = .pred_class) %>% 
+  kable(digits = 2)
+
+
+```
+
+:::
+
+:::
+
+::: {.column width=50%}
+
+
+
+```{r, fig.height = 5, fig.width = 5}
+knn_multi %>%
+  augment(testing_multi) %>% 
+  conf_mat(truth = category, estimate = .pred_class) %>% 
+  autoplot(type = "heatmap")
+
+```
+
+
+:::
+
+
+::::
+
+## Entscheidungsbäume
+### Grundidee
+
+* Entscheidungsbäume sind ein weiteres Verfahren des überwachten Lernens, das sich sowohl für Klassifikations- als auch für Regressionsprobleme eignet
+* Die Klassifikation mit Entscheidungsbäumen umfasst grob zwei Schritte:
+
+1. Aufteilung der erklärenden Variablen $X_1$, $X_2$, ..., $X_p$ in $K$ immer kleinere, nicht überlappende Regionen/Untergruppen (Blätter) $R_1$, $R_2$, ..., $R_J$ anhand von Entscheidungsregeln (Knoten)
+2. Klassifikation der Testdaten anhand der Entscheidungsregeln. Alle Beobachtungen, die in Region $R_k$ fallen, werden der Klasse $k$ zugeordnet
+
+
+## Entscheidungsbäume
+### Schritte und Intuition
+
+::: {style="font-size: 0.95em"}
+* Start ist der gesamte Datensatz, auch Root-Node oder Wurzelknoten
+* Gesucht wird die beste Variable und der beste Schwellenwert, um den Datensatz in zwei Gruppen zu teilen, auch Entscheidungsregel oder Split
+* Zur Ermittlung der besten Entscheidungsregel wird ein Maß für die Homogenität der Regionen verwendet, bspw. der Gini-Index 
+
+$$
+G = \sum_{k=1}^{K} \hat{p}_{mk}(1-\hat{p}_{mk})
+$$
+
+* wobei $\hat{p}_{mk}$ der Anteil der Beobachtungen der Klasse $k$ in Region $m$ ist. 
+* Wenn die Gruppe $m$ homogen ist, ist der Gini-Index 0, eine hälftige Aufteilung ergibt den Wert 0.5 
+
+
+:::
+
+## Entscheidungsbäume
+### Schritte und Intuition
+
+* Anschließend wird mit dem Gini-Index der Informationsgewinn berechnet, der sich aus der Differenz des Gini-Index vor und nach dem Split ergibt:
+
+$$
+\text{Information Gain} = G_{\text{init}} - G_{\text{split}}
+$$
+
+* wobei $G_{\text{init}}$ der Gini-Index vor dem Split und $G_{\text{split}}$ der Gini-Index nach dem Split ist
+
+## Entscheidungsbäume
+### Schritte und Intuition
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+
+* Wir starten mit dem gesamten Trainings-Datensatz für die drei Genres Klassik, EDM und Hip-Hop
+* Zunächst berechnen wir den Gini-Index für die Root-Node:
+
+::: {style="font-size: 0.8em"}
+
+```{r}
+gini_tmp <- training_multi %>% 
+  group_by(category) %>% 
+  summarise(p = n()/3780) %>% 
+  mutate(`1-p` = 1-p) %>%
+  mutate(Gini = p*(1-p)) 
+
+gini_tmp %>%
+  kable(digits = 4)
+
+```
+
+
+$$
+G_{\text{init}} = `r round(sum(gini_tmp$Gini[1]), 3)` + `r round(sum(gini_tmp$Gini[2]), 3)` + `r round(sum(gini_tmp$Gini[3]), 3)` = `r round(sum(gini_tmp$Gini), 3)`
+$$
+:::
+:::
+
+::: {.column width=50%}
+
+```{r, fig.width = 5, fig.height=5, fig.align='center'}
+
+Gini = function(x, group, thres) {
+  df = data.frame(x, group, right = ifelse(x >= thres, "right", "left"))
+  A = as.matrix(table(df$right, df$group))
+  B = prop.table(A,1) # row-wise proportions (splits)
+  a = colSums(A) # classes totals
+  b = rowSums(A) # split totals
+  n = sum(A) # total samples
+  gini.init = signif(sum(a/n * (1 - a/n)), 3) # initial Gini index
+  x = B[1,] # right split
+  y = B[2,] # left split
+  gini.x = sum(x * (1 - x)) # right split Gini index
+  gini.y = sum(y * (1 - y)) # left split Gini index
+  gini.split = signif(gini.x * b[1]/n + gini.y * b[2]/n, 3) # Gini index after split
+  gini.gain = signif(gini.init - gini.split, 3) # Gini index information gain
+  gini.gain.perc = signif(gini.gain / gini.init * 100, 3)
+  DF = data.frame(gini.init, gini.split, gini.gain, gini.gain.perc)
+  row.names(DF) = ""
+  return(DF)
+}
+
+
+training_multi %>% 
+  ggplot(aes(x = energy, y = danceability, color = category)) +
+  geom_point() +
+  labs(x = "Energy", y = "Danceability", color = "Genre") +
+  theme_minimal() +
+    theme(legend.position = "bottom") 
+
+
+results <- tibble(gini.init = numeric(), gini.split = numeric(), gini.gain = numeric(), gini.gain.perc = numeric())
+
+for (i in seq(0.1, 0.9, by = 0.01)) {
+  results <- results %>% add_row(Gini(training_multi$energy, training_multi$category, i))
+}
+
+results$threshold <- seq(0.1, 0.9, by = 0.01)
+
+
+
+
+```
+
+:::
+
+::::
+
+
+## Entscheidungsbäume
+### Stuff
+
+* Der Gini-Index und die Kreuzentropie sind Maße für die Homogenität der Regionen im Sinne ihrer Klassifikationsgüte
+* Bei der Schätzung eines Entscheidungsbaumes werden entweder Gini-Index oder Kreuzentropie verwendet, um die Qualität des aktuellen Splits zu messen
+* Dieser Vorgang wird rekursiv wiederholt, bis die Regionen nicht mehr weiter aufgeteilt werden können
+
+```{r}
+
+library(rpart)
+library(parttree)
+
+
+
+ti_tree =
+  decision_tree() |>
+  set_engine("rpart") |>
+  set_mode("classification") |>
+  fit(category ~ danceability + energy , data = training_multi )
+
+
+
+ggplot(training_multi, aes(x = energy, y = danceability)) +
+  geom_parttree(data = ti_tree, alpha = 0.1, aes(fill = category)) + # <-- key layer
+  geom_point(aes(col = category)) +
+  labs(
+    x = "Energy", y = "Danceability", color = "Genre", fill = "Genre"
+    ) +
+  theme_minimal()
+
+
+```
+
+
+```{r}
+
+
+
+library(rpart.plot)
+rpart.plot(ti_tree$fit)
+```
+
 

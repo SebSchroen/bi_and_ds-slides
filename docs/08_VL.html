@@ -383,7 +383,7 @@ P(Y=j|X= x_0) = \frac{1}{K} \sum_{i \in \aleph_0} I(y_i=j)
 </section>
 <section id="nearest-neighbor-klassifikation-2" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
-<h3 id="bestimung-der-nachbarn">Bestimung der Nachbarn</h3>
+<h3 id="bestimmung-der-nachbarn">Bestimmung der Nachbarn</h3>
 <ul>
 <li>Die Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße</li>
 <li>Es gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden</li>
@@ -395,17 +395,452 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2  + ... + (p_n-q_n)^2}
 </section>
 <section id="nearest-neighbor-klassifikation-3" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
-<h3 id="bestimung-der-nachbarn-1">Bestimung der Nachbarn</h3>
-<!-- # ```{r} -->
-<!-- #  -->
-<!-- # training_multi %>%   -->
-<!-- # #  sample_n(100) %>%  -->
-<!-- #   filter(track.artist %in% c("2Pac", "Wolfgang Amadeus Mozart"))  %>%  -->
-<!-- #   ggplot(data = ., aes(x = energy, y = danceability, label = track.artist))+ geom_text() -->
-<!-- #   filter(energy > 0.1 & danceability < 0.5) %>%   -->
-<!-- #   sample_n(2)  -->
-<!-- #  -->
-<!-- # ``` -->
+<h3 id="bestimmung-der-nachbarn-1">Bestimmung der Nachbarn</h3>
+<ul>
+<li>In zwei Dimensionen vereinfacht sich diese Gleichung zu:</li>
+</ul>
+<div style="font-size: 0.75em">
+<p><span class="math display">\[
+d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
+\]</span></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-2-1.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nearest-neighbor-klassifikation-4" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="bestimmung-der-nachbarn-2">Bestimmung der Nachbarn</h3>
+<ul>
+<li>In zwei Dimensionen vereinfacht sich diese Gleichung zu:</li>
+</ul>
+<div style="font-size: 0.75em">
+<p><span class="math display">\[
+d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
+\]</span></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-3-1.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nearest-neighbor-klassifikation-5" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="schritte-und-intuition">Schritte und Intuition</h3>
+<ol type="1">
+<li>Bestimme die Trainingsdaten durch einen Split, bspw. 70% Trainingsdaten, lege <span class="math inline">\(K\)</span> fest</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-4-1.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nearest-neighbor-klassifikation-6" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="schritte-und-intuition-1">Schritte und Intuition</h3>
+<ol start="2" type="1">
+<li>Für den neuen Datenpunkt <code>Doja Cat</code>, berechne die euklidische Distanz zu den anderen Punkten und bestimme die <span class="math inline">\(K\)</span> nächsten Nachbarn</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-5-1.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nearest-neighbor-klassifikation-7" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="schritte-und-intuition-2">Schritte und Intuition</h3>
+<ol start="2" type="1">
+<li>Für den neuen Datenpunkt <code>Doja Cat</code>, berechne die euklidische Distanz zu den anderen Punkten und bestimme die <span class="math inline">\(K\)</span> nächsten Nachbarn</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-6-1.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nearest-neighbor-klassifikation-8" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="schritte-und-intuition-3">Schritte und Intuition</h3>
+<ol start="3" type="1">
+<li>Identifiziere die <span class="math inline">\(K\)</span> nächsten Nachbarn und ordne den neuen Punkt der Klasse zu, in der die Mehrheit der Nachbarn liegt</li>
+</ol>
+<div style="font-size: 0.45em">
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">category</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">track.artist</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">energy</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">danceability</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Distance to Doja Cat</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Rang</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: left;">KAROL G</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: left;">Jamal</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EDM</td>
+<td style="text-align: left;">Deetron</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: left;">Fugees</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EDM</td>
+<td style="text-align: left;">Vendex</td>
+<td style="text-align: right;">0.8</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.28</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: left;">Sira</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">0.32</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EDM</td>
+<td style="text-align: left;">Kaori</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.36</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EDM</td>
+<td style="text-align: left;">Gusted</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.7</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EDM</td>
+<td style="text-align: left;">Kronos</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">0.45</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EDM</td>
+<td style="text-align: left;">Spectre</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.50</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<ul>
+<li><p>Wie ist die Vorhersage bei und die zugehörige Wahrscheinlichkeit bei:</p>
+<ul>
+<li><span class="math inline">\(K = 1\)</span></li>
+<li><span class="math inline">\(K = 5\)</span></li>
+<li><span class="math inline">\(K = 10\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="nearest-neighbor-klassifikation-9" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="schritte-und-intuition-4">Schritte und Intuition</h3>
+<ul>
+<li>Für die ausgewählten <span class="math inline">\(K\)</span> erhalten wir das folgende Ergebnis:</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Vorhersage</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Wahrscheinlichkeit</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">K</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">EDM</td>
+<td style="text-align: right;">0.6</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<ul>
+<li>Anschließend wird der Prozess für alle anderen neuen Beobachtungen wiederholt</li>
+</ul>
+</section>
+<section id="nearest-neighbor-klassifikation-10" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="modellevaluation">Modellevaluation</h3>
+<div class="columns">
+<div class="column" style="width:35%;">
+<ul>
+<li>Die Modellevaluation erfolgt anschließend analog zur logistischen Regression mit den bisher dargestellten Metriken Accuracy, Precision, Recall und F1-Score</li>
+<li>Die Wahl des <span class="math inline">\(K\)</span> ist ein wichtiger Hyperparameter, der sorgfältig gewählt werden sollte</li>
+</ul>
+</div><div class="column" style="width:65%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-9-1.png" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="nearest-neighbor-klassifikation-11" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="modellevaluation-1">Modellevaluation</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Offenbar maximiert <span class="math inline">\(K = 60\)</span> sämtliche Metriken</li>
+<li>Mit <span class="math inline">\(K\)</span> = 60 erhalten wir die Konfusionsmatrix rechts sowie die Metriken unten:</li>
+</ul>
+<div style="font-size: 0.75em">
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">.metric</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.estimator</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">accuracy</td>
+<td style="text-align: left;">multiclass</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">recall</td>
+<td style="text-align: left;">macro</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">precision</td>
+<td style="text-align: left;">macro</td>
+<td style="text-align: right;">0.86</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">f_meas</td>
+<td style="text-align: left;">macro</td>
+<td style="text-align: right;">0.85</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="entscheidungsbäume" class="slide level2">
+<h2>Entscheidungsbäume</h2>
+<h3 id="grundidee-2">Grundidee</h3>
+<ul>
+<li>Entscheidungsbäume sind ein weiteres Verfahren des überwachten Lernens, das sich sowohl für Klassifikations- als auch für Regressionsprobleme eignet</li>
+<li>Die Klassifikation mit Entscheidungsbäumen umfasst grob zwei Schritte:</li>
+</ul>
+<ol type="1">
+<li>Aufteilung der erklärenden Variablen <span class="math inline">\(X_1\)</span>, <span class="math inline">\(X_2\)</span>, …, <span class="math inline">\(X_p\)</span> in <span class="math inline">\(K\)</span> immer kleinere, nicht überlappende Regionen/Untergruppen (Blätter) <span class="math inline">\(R_1\)</span>, <span class="math inline">\(R_2\)</span>, …, <span class="math inline">\(R_J\)</span> anhand von Entscheidungsregeln (Knoten)</li>
+<li>Klassifikation der Testdaten anhand der Entscheidungsregeln. Alle Beobachtungen, die in Region <span class="math inline">\(R_k\)</span> fallen, werden der Klasse <span class="math inline">\(k\)</span> zugeordnet</li>
+</ol>
+</section>
+<section id="entscheidungsbäume-1" class="slide level2">
+<h2>Entscheidungsbäume</h2>
+<h3 id="schritte-und-intuition-5">Schritte und Intuition</h3>
+<div style="font-size: 0.95em">
+<ul>
+<li>Start ist der gesamte Datensatz, auch Root-Node oder Wurzelknoten</li>
+<li>Gesucht wird die beste Variable und der beste Schwellenwert, um den Datensatz in zwei Gruppen zu teilen, auch Entscheidungsregel oder Split</li>
+<li>Zur Ermittlung der besten Entscheidungsregel wird ein Maß für die Homogenität der Regionen verwendet, bspw. der Gini-Index</li>
+</ul>
+<p><span class="math display">\[
+G = \sum_{k=1}^{K} \hat{p}_{mk}(1-\hat{p}_{mk})
+\]</span></p>
+<ul>
+<li>wobei <span class="math inline">\(\hat{p}_{mk}\)</span> der Anteil der Beobachtungen der Klasse <span class="math inline">\(k\)</span> in Region <span class="math inline">\(m\)</span> ist.</li>
+<li>Wenn die Gruppe <span class="math inline">\(m\)</span> homogen ist, ist der Gini-Index 0, eine hälftige Aufteilung ergibt den Wert 0.5</li>
+</ul>
+</div>
+</section>
+<section id="entscheidungsbäume-2" class="slide level2">
+<h2>Entscheidungsbäume</h2>
+<h3 id="schritte-und-intuition-6">Schritte und Intuition</h3>
+<ul>
+<li>Anschließend wird mit dem Gini-Index der Informationsgewinn berechnet, der sich aus der Differenz des Gini-Index vor und nach dem Split ergibt:</li>
+</ul>
+<p><span class="math display">\[
+\text{Information Gain} = G_{\text{init}} - G_{\text{split}}
+\]</span></p>
+<ul>
+<li>wobei <span class="math inline">\(G_{\text{init}}\)</span> der Gini-Index vor dem Split und <span class="math inline">\(G_{\text{split}}\)</span> der Gini-Index nach dem Split ist</li>
+</ul>
+</section>
+<section id="entscheidungsbäume-3" class="slide level2">
+<h2>Entscheidungsbäume</h2>
+<h3 id="schritte-und-intuition-7">Schritte und Intuition</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Wir starten mit dem gesamten Trainings-Datensatz für die drei Genres Klassik, EDM und Hip-Hop</li>
+<li>Zunächst berechnen wir den Gini-Index für die Root-Node:</li>
+</ul>
+<div style="font-size: 0.8em">
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">category</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1-p</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Gini</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">EDM</td>
+<td style="text-align: right;">0.3021</td>
+<td style="text-align: right;">0.6979</td>
+<td style="text-align: right;">0.2108</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: right;">0.3635</td>
+<td style="text-align: right;">0.6365</td>
+<td style="text-align: right;">0.2314</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Klassik</td>
+<td style="text-align: right;">0.3344</td>
+<td style="text-align: right;">0.6656</td>
+<td style="text-align: right;">0.2226</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p><span class="math display">\[
+G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
+\]</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="entscheidungsbäume-4" class="slide level2">
+<h2>Entscheidungsbäume</h2>
+<h3 id="stuff">Stuff</h3>
+<ul>
+<li>Der Gini-Index und die Kreuzentropie sind Maße für die Homogenität der Regionen im Sinne ihrer Klassifikationsgüte</li>
+<li>Bei der Schätzung eines Entscheidungsbaumes werden entweder Gini-Index oder Kreuzentropie verwendet, um die Qualität des aktuellen Splits zu messen</li>
+<li>Dieser Vorgang wird rekursiv wiederholt, bis die Regionen nicht mehr weiter aufgeteilt werden können</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+</div>
+</div>
 
 <div class="footer footer-default">
 <p>Business Intelligence &amp; Data Science, SoSe 2024</p>

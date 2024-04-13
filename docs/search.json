@@ -123,7 +123,7 @@
     "href": "03_VL.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-22\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-24\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-28\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-21\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-28\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-30\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-05-04\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-27\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",
@@ -305,7 +305,7 @@
     "href": "03_VL_D.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-22\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-24\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-04-28\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-21\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-28\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-30\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-05-04\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL_D.html#harmonisierung",
@@ -788,14 +788,105 @@
     "href": "08_VL.html#nearest-neighbor-klassifikation-2",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nBestimung der Nachbarn\n\nDie Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße\nEs gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden\nDie einfachste Form ist die euklidische Distanz, in allgemeiner Form:\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2  + ... + (p_n-q_n)^2}\n\\]"
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nDie Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße\nEs gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden\nDie einfachste Form ist die euklidische Distanz, in allgemeiner Form:\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2  + ... + (p_n-q_n)^2}\n\\]"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-3",
     "href": "08_VL.html#nearest-neighbor-klassifikation-3",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nBestimung der Nachbarn\n\n\n\n\n\n\n\n\n\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nIn zwei Dimensionen vereinfacht sich diese Gleichung zu:\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}\n\\]"
+  },
+  {
+    "objectID": "08_VL.html#nearest-neighbor-klassifikation-4",
+    "href": "08_VL.html#nearest-neighbor-klassifikation-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nIn zwei Dimensionen vereinfacht sich diese Gleichung zu:\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}\n\\]"
+  },
+  {
+    "objectID": "08_VL.html#nearest-neighbor-klassifikation-5",
+    "href": "08_VL.html#nearest-neighbor-klassifikation-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nBestimme die Trainingsdaten durch einen Split, bspw. 70% Trainingsdaten, lege \\(K\\) fest"
+  },
+  {
+    "objectID": "08_VL.html#nearest-neighbor-klassifikation-6",
+    "href": "08_VL.html#nearest-neighbor-klassifikation-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nFür den neuen Datenpunkt Doja Cat, berechne die euklidische Distanz zu den anderen Punkten und bestimme die \\(K\\) nächsten Nachbarn"
+  },
+  {
+    "objectID": "08_VL.html#nearest-neighbor-klassifikation-7",
+    "href": "08_VL.html#nearest-neighbor-klassifikation-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nFür den neuen Datenpunkt Doja Cat, berechne die euklidische Distanz zu den anderen Punkten und bestimme die \\(K\\) nächsten Nachbarn"
+  },
+  {
+    "objectID": "08_VL.html#nearest-neighbor-klassifikation-8",
+    "href": "08_VL.html#nearest-neighbor-klassifikation-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nIdentifiziere die \\(K\\) nächsten Nachbarn und ordne den neuen Punkt der Klasse zu, in der die Mehrheit der Nachbarn liegt\n\n\n\n\n\n\n\ncategory\ntrack.artist\nenergy\ndanceability\nDistance to Doja Cat\nRang\n\n\n\n\nHip-Hop\nKAROL G\n0.7\n0.8\n0.10\n1\n\n\nHip-Hop\nJamal\n0.6\n0.7\n0.10\n2\n\n\nEDM\nDeetron\n0.7\n0.6\n0.22\n3\n\n\nHip-Hop\nFugees\n0.4\n0.6\n0.28\n4\n\n\nEDM\nVendex\n0.8\n0.6\n0.28\n5\n\n\nHip-Hop\nSira\n0.3\n0.9\n0.32\n6\n\n\nEDM\nKaori\n0.9\n0.6\n0.36\n7\n\n\nEDM\nGusted\n1.0\n0.7\n0.41\n8\n\n\nEDM\nKronos\n1.0\n0.6\n0.45\n9\n\n\nEDM\nSpectre\n1.0\n0.5\n0.50\n10\n\n\n\n\n\n\n\n\n\nWie ist die Vorhersage bei und die zugehörige Wahrscheinlichkeit bei:\n\n\\(K = 1\\)\n\\(K = 5\\)\n\\(K = 10\\)"
+  },
+  {
+    "objectID": "08_VL.html#nearest-neighbor-klassifikation-9",
+    "href": "08_VL.html#nearest-neighbor-klassifikation-9",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nFür die ausgewählten \\(K\\) erhalten wir das folgende Ergebnis:\n\n\n\n\n\n\nVorhersage\nWahrscheinlichkeit\nK\n\n\n\n\nHip-Hop\n1.0\n1\n\n\nHip-Hop\n0.6\n5\n\n\nEDM\n0.6\n10\n\n\n\n\n\n\n\n\nAnschließend wird der Prozess für alle anderen neuen Beobachtungen wiederholt"
+  },
+  {
+    "objectID": "08_VL.html#nearest-neighbor-klassifikation-10",
+    "href": "08_VL.html#nearest-neighbor-klassifikation-10",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nModellevaluation\n\n\n\nDie Modellevaluation erfolgt anschließend analog zur logistischen Regression mit den bisher dargestellten Metriken Accuracy, Precision, Recall und F1-Score\nDie Wahl des \\(K\\) ist ein wichtiger Hyperparameter, der sorgfältig gewählt werden sollte"
+  },
+  {
+    "objectID": "08_VL.html#nearest-neighbor-klassifikation-11",
+    "href": "08_VL.html#nearest-neighbor-klassifikation-11",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nModellevaluation\n\n\n\nOffenbar maximiert \\(K = 60\\) sämtliche Metriken\nMit \\(K\\) = 60 erhalten wir die Konfusionsmatrix rechts sowie die Metriken unten:\n\n\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\naccuracy\nmulticlass\n0.85\n\n\nrecall\nmacro\n0.85\n\n\nprecision\nmacro\n0.86\n\n\nf_meas\nmacro\n0.85"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume",
+    "href": "08_VL.html#entscheidungsbäume",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nGrundidee\n\nEntscheidungsbäume sind ein weiteres Verfahren des überwachten Lernens, das sich sowohl für Klassifikations- als auch für Regressionsprobleme eignet\nDie Klassifikation mit Entscheidungsbäumen umfasst grob zwei Schritte:\n\n\nAufteilung der erklärenden Variablen \\(X_1\\), \\(X_2\\), …, \\(X_p\\) in \\(K\\) immer kleinere, nicht überlappende Regionen/Untergruppen (Blätter) \\(R_1\\), \\(R_2\\), …, \\(R_J\\) anhand von Entscheidungsregeln (Knoten)\nKlassifikation der Testdaten anhand der Entscheidungsregeln. Alle Beobachtungen, die in Region \\(R_k\\) fallen, werden der Klasse \\(k\\) zugeordnet"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-1",
+    "href": "08_VL.html#entscheidungsbäume-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\nStart ist der gesamte Datensatz, auch Root-Node oder Wurzelknoten\nGesucht wird die beste Variable und der beste Schwellenwert, um den Datensatz in zwei Gruppen zu teilen, auch Entscheidungsregel oder Split\nZur Ermittlung der besten Entscheidungsregel wird ein Maß für die Homogenität der Regionen verwendet, bspw. der Gini-Index\n\n\\[\nG = \\sum_{k=1}^{K} \\hat{p}_{mk}(1-\\hat{p}_{mk})\n\\]\n\nwobei \\(\\hat{p}_{mk}\\) der Anteil der Beobachtungen der Klasse \\(k\\) in Region \\(m\\) ist.\nWenn die Gruppe \\(m\\) homogen ist, ist der Gini-Index 0, eine hälftige Aufteilung ergibt den Wert 0.5"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-2",
+    "href": "08_VL.html#entscheidungsbäume-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\nAnschließend wird mit dem Gini-Index der Informationsgewinn berechnet, der sich aus der Differenz des Gini-Index vor und nach dem Split ergibt:\n\n\\[\n\\text{Information Gain} = G_{\\text{init}} - G_{\\text{split}}\n\\]\n\nwobei \\(G_{\\text{init}}\\) der Gini-Index vor dem Split und \\(G_{\\text{split}}\\) der Gini-Index nach dem Split ist"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-3",
+    "href": "08_VL.html#entscheidungsbäume-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\nWir starten mit dem gesamten Trainings-Datensatz für die drei Genres Klassik, EDM und Hip-Hop\nZunächst berechnen wir den Gini-Index für die Root-Node:\n\n\n\n\n\n\n\ncategory\np\n1-p\nGini\n\n\n\n\nEDM\n0.3021\n0.6979\n0.2108\n\n\nHip-Hop\n0.3635\n0.6365\n0.2314\n\n\nKlassik\n0.3344\n0.6656\n0.2226\n\n\n\n\n\n\n\n\\[\nG_{\\text{init}} = 0.211 + 0.231 + 0.223 = 0.665\n\\]"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-4",
+    "href": "08_VL.html#entscheidungsbäume-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nStuff\n\nDer Gini-Index und die Kreuzentropie sind Maße für die Homogenität der Regionen im Sinne ihrer Klassifikationsgüte\nBei der Schätzung eines Entscheidungsbaumes werden entweder Gini-Index oder Kreuzentropie verwendet, um die Qualität des aktuellen Splits zu messen\nDieser Vorgang wird rekursiv wiederholt, bis die Regionen nicht mehr weiter aufgeteilt werden können\n\n\n\n\n\n\n\n\n\n\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
   },
   {
     "objectID": "01_VL_D.html#der-plan-für-heute",
