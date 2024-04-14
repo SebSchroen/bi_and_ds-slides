@@ -123,7 +123,7 @@
     "href": "03_VL.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-28\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-30\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-05-04\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-27\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-29\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-05-01\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-05-05\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-28\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, leere Werte nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU weicht ab von den anderen Zeilen\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein und nicht 1\nDas Geburtsdatum von Alice liegt in der Zukunft\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL.html#harmonisierung",
@@ -305,7 +305,7 @@
     "href": "03_VL_D.html#filterung-4",
     "title": "Business Intelligence & Data Science",
     "section": "Filterung",
-    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-28\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-04-30\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-05-04\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-27\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
+    "text": "Filterung\nFinde die Mängel\n\n\n\n\n\nID (Key)\nName\nAlter\nLand\nPLZ\nPremium\nGeburtsdatum\n\n\n\n\n1\nJo (h)N\n25\nDE\n2345\nTRUE\n1999-04-29\n\n\n2\nMary\n30\nDE\n67890\nFALSE\n1994-05-01\n\n\n3\nBob\n40\nDE\n98765\nTRUE\n1984-05-05\n\n\n4\nAlice\n18\nDE\n54321\n1\n2026-04-03\n\n\n\nTom\n19\nDEU\n21345\nFALSE\n2005-04-28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUserID ist ein Key, NA ist nicht zugelassen\nJo(h)n ist ein Tippfehler\nLand DEU ist nicht der ISO-Code für Deutschland\nPLZ 2345 ist nicht gültig, da nur 4 Stellen\nPremium ist ein boolscher Wert, sollte also TRUE oder FALSE sein\nDas Geburtsdatum von Alice liegt in der Zukunft"
   },
   {
     "objectID": "03_VL_D.html#harmonisierung",
@@ -781,77 +781,77 @@
     "href": "08_VL.html#nearest-neighbor-klassifikation-1",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nGrundidee\n\nAuch bei KNN wird die Wahrscheinlichkeit ermittelt, mit der Element \\(x_0\\) zur Klasse \\(j\\) gehört\n\n\\[\nP(Y=j|X= x_0) = \\frac{1}{K} \\sum_{i \\in \\aleph_0} I(y_i=j)\n\\]\n\nDabei repräsentiert \\(\\aleph_0\\) die Menge der \\(K\\) nächsten Nachbarn von \\(x_0\\) und \\(I(y_i=j)\\) ist eine Indikatorfunktion, die 1 zurückgibt, wenn \\(y_i=j\\) und 0 sonst\nDie Zuordnung erfolgt dann durch die Klasse mit der höchsten Wahrscheinlichkeit im Sinne einer Mehrheitsentscheidung"
+    "text": "Nearest Neighbor Klassifikation\nGrundidee\n\n\nAuch bei KNN wird die Wahrscheinlichkeit ermittelt, mit der Element \\(x_0\\) zur Klasse \\(j\\) gehört\n\n\n\\[\nP(Y=j|X= x_0) = \\frac{1}{K} \\sum_{i \\in \\aleph_0} I(y_i=j)\n\\]\n\n\nDabei repräsentiert \\(\\aleph_0\\) die Menge der \\(K\\) nächsten Nachbarn von \\(x_0\\) und \\(I(y_i=j)\\) ist eine Indikatorfunktion, die 1 zurückgibt, wenn \\(y_i=j\\) und 0 sonst\nDie Zuordnung erfolgt dann durch die Klasse mit der höchsten Wahrscheinlichkeit im Sinne einer Mehrheitsentscheidung\nBeispiel: Wenn \\(K = 3\\), wird die Klasse bestimmt, zu der die Mehrheit der drei nächsten Nachbarn gehört und die Wahrscheinlichkeit entspricht dem Anteil der Nachbarn in dieser Klasse"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-2",
     "href": "08_VL.html#nearest-neighbor-klassifikation-2",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nDie Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße\nEs gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden\nDie einfachste Form ist die euklidische Distanz, in allgemeiner Form:\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2  + ... + (p_n-q_n)^2}\n\\]"
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nDie Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße\nEs gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden\nDie einfachste Form ist die euklidische Distanz, in allgemeiner Form:\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2  + ... + (p_n-q_n)^2}\n\\]"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-3",
     "href": "08_VL.html#nearest-neighbor-klassifikation-3",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nIn zwei Dimensionen vereinfacht sich diese Gleichung zu:\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}\n\\]"
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nIn zwei Dimensionen vereinfacht sich diese Gleichung zu:\n\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}\n\\]"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-4",
     "href": "08_VL.html#nearest-neighbor-klassifikation-4",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nIn zwei Dimensionen vereinfacht sich diese Gleichung zu:\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}\n\\]"
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\n\nIn zwei Dimensionen vereinfacht sich diese Gleichung zu:\n\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}\n\\]"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-5",
     "href": "08_VL.html#nearest-neighbor-klassifikation-5",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nBestimme die Trainingsdaten durch einen Split, bspw. 70% Trainingsdaten, lege \\(K\\) fest"
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\n\nBestimme die Trainingsdaten durch einen Split, bspw. 70% Trainingsdaten, lege \\(K\\) fest"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-6",
     "href": "08_VL.html#nearest-neighbor-klassifikation-6",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nFür den neuen Datenpunkt Doja Cat, berechne die euklidische Distanz zu den anderen Punkten und bestimme die \\(K\\) nächsten Nachbarn"
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\n\nFür den neuen Datenpunkt Doja Cat, berechne die euklidische Distanz zu allen anderen Punkten im Trainingsdatensatz"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-7",
     "href": "08_VL.html#nearest-neighbor-klassifikation-7",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nFür den neuen Datenpunkt Doja Cat, berechne die euklidische Distanz zu den anderen Punkten und bestimme die \\(K\\) nächsten Nachbarn"
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\n\nFür den neuen Datenpunkt Doja Cat, berechne die euklidische Distanz zu allen anderen Punkten im Trainingsdatensatz"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-8",
     "href": "08_VL.html#nearest-neighbor-klassifikation-8",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nIdentifiziere die \\(K\\) nächsten Nachbarn und ordne den neuen Punkt der Klasse zu, in der die Mehrheit der Nachbarn liegt\n\n\n\n\n\n\n\ncategory\ntrack.artist\nenergy\ndanceability\nDistance to Doja Cat\nRang\n\n\n\n\nHip-Hop\nKAROL G\n0.7\n0.8\n0.10\n1\n\n\nHip-Hop\nJamal\n0.6\n0.7\n0.10\n2\n\n\nEDM\nDeetron\n0.7\n0.6\n0.22\n3\n\n\nHip-Hop\nFugees\n0.4\n0.6\n0.28\n4\n\n\nEDM\nVendex\n0.8\n0.6\n0.28\n5\n\n\nHip-Hop\nSira\n0.3\n0.9\n0.32\n6\n\n\nEDM\nKaori\n0.9\n0.6\n0.36\n7\n\n\nEDM\nGusted\n1.0\n0.7\n0.41\n8\n\n\nEDM\nKronos\n1.0\n0.6\n0.45\n9\n\n\nEDM\nSpectre\n1.0\n0.5\n0.50\n10\n\n\n\n\n\n\n\n\n\nWie ist die Vorhersage bei und die zugehörige Wahrscheinlichkeit bei:\n\n\\(K = 1\\)\n\\(K = 5\\)\n\\(K = 10\\)"
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\n\nIdentifiziere die \\(K\\) nächsten Nachbarn und ordne den neuen Punkt der Klasse zu, in der die Mehrheit der Nachbarn liegt\n\n\n\n\n\n\n\n\ncategory\ntrack.artist\nenergy\ndanceability\nDistanz zu Doja Cat\nRang\n\n\n\n\nHip-Hop\nKAROL G\n0.7\n0.8\n0.10\n1\n\n\nHip-Hop\nJamal\n0.6\n0.7\n0.10\n2\n\n\nEDM\nDeetron\n0.7\n0.6\n0.22\n3\n\n\nHip-Hop\nFugees\n0.4\n0.6\n0.28\n4\n\n\nEDM\nVendex\n0.8\n0.6\n0.28\n5\n\n\nHip-Hop\nSira\n0.3\n0.9\n0.32\n6\n\n\nEDM\nKaori\n0.9\n0.6\n0.36\n7\n\n\nEDM\nGusted\n1.0\n0.7\n0.41\n8\n\n\nEDM\nKronos\n1.0\n0.6\n0.45\n9\n\n\nEDM\nSpectre\n1.0\n0.5\n0.50\n10\n\n\n\n\n\n\n\n\n\nWie ist die Vorhersage bei und die zugehörige Wahrscheinlichkeit bei:\n\nK = 1\nK = 5\nK = 10"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-9",
     "href": "08_VL.html#nearest-neighbor-klassifikation-9",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nFür die ausgewählten \\(K\\) erhalten wir das folgende Ergebnis:\n\n\n\n\n\n\nVorhersage\nWahrscheinlichkeit\nK\n\n\n\n\nHip-Hop\n1.0\n1\n\n\nHip-Hop\n0.6\n5\n\n\nEDM\n0.6\n10\n\n\n\n\n\n\n\n\nAnschließend wird der Prozess für alle anderen neuen Beobachtungen wiederholt"
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nFür die ausgewählten \\(K\\) erhalten wir das folgende Ergebnis:\n\n\n\n\n\n\n\nVorhersage\nWahrscheinlichkeit\nK\n\n\n\n\nHip-Hop\n1.0\n1\n\n\nHip-Hop\n0.6\n5\n\n\nEDM\n0.6\n10\n\n\n\n\n\n\n\n\n\nAnschließend wird der Prozess für alle anderen neuen Beobachtungen wiederholt"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-10",
     "href": "08_VL.html#nearest-neighbor-klassifikation-10",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nModellevaluation\n\n\n\nDie Modellevaluation erfolgt anschließend analog zur logistischen Regression mit den bisher dargestellten Metriken Accuracy, Precision, Recall und F1-Score\nDie Wahl des \\(K\\) ist ein wichtiger Hyperparameter, der sorgfältig gewählt werden sollte"
+    "text": "Nearest Neighbor Klassifikation\nModellevaluation\n\n\n\nDie Modellevaluation erfolgt anschließend analog zur logistischen Regression mit den bisher dargestellten Metriken Accuracy, Precision, Recall und F1-Score\n\\(K\\) ist ein wichtiger Hyperparameter, der sorgfältig gewählt werden sollte"
   },
   {
     "objectID": "08_VL.html#nearest-neighbor-klassifikation-11",
     "href": "08_VL.html#nearest-neighbor-klassifikation-11",
     "title": "Business Intelligence & Data Science",
     "section": "Nearest Neighbor Klassifikation",
-    "text": "Nearest Neighbor Klassifikation\nModellevaluation\n\n\n\nOffenbar maximiert \\(K = 60\\) sämtliche Metriken\nMit \\(K\\) = 60 erhalten wir die Konfusionsmatrix rechts sowie die Metriken unten:\n\n\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\naccuracy\nmulticlass\n0.85\n\n\nrecall\nmacro\n0.85\n\n\nprecision\nmacro\n0.86\n\n\nf_meas\nmacro\n0.85"
+    "text": "Nearest Neighbor Klassifikation\nModellevaluation\n\n\n\nOffenbar maximiert \\(K = 60\\) sämtliche Metriken\nMit \\(K\\) = 60 erhalten wir die Konfusionsmatrix rechts sowie die Metriken unten:\n\n\n\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\naccuracy\nmulticlass\n0.85\n\n\nrecall\nmacro\n0.85\n\n\nprecision\nmacro\n0.86\n\n\nf_meas\nmacro\n0.85"
   },
   {
     "objectID": "08_VL.html#entscheidungsbäume",
@@ -865,28 +865,364 @@
     "href": "08_VL.html#entscheidungsbäume-1",
     "title": "Business Intelligence & Data Science",
     "section": "Entscheidungsbäume",
-    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\nStart ist der gesamte Datensatz, auch Root-Node oder Wurzelknoten\nGesucht wird die beste Variable und der beste Schwellenwert, um den Datensatz in zwei Gruppen zu teilen, auch Entscheidungsregel oder Split\nZur Ermittlung der besten Entscheidungsregel wird ein Maß für die Homogenität der Regionen verwendet, bspw. der Gini-Index\n\n\\[\nG = \\sum_{k=1}^{K} \\hat{p}_{mk}(1-\\hat{p}_{mk})\n\\]\n\nwobei \\(\\hat{p}_{mk}\\) der Anteil der Beobachtungen der Klasse \\(k\\) in Region \\(m\\) ist.\nWenn die Gruppe \\(m\\) homogen ist, ist der Gini-Index 0, eine hälftige Aufteilung ergibt den Wert 0.5"
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\nStart ist der gesamte Datensatz, auch Root-Node oder Wurzelknoten\nGesucht wird die beste Variable und der beste Schwellenwert, um den Datensatz in zwei Gruppen zu teilen, auch Entscheidungsregel oder Split\nZur Ermittlung der besten Entscheidungsregel wird ein Maß für die Homogenität der Regionen verwendet, bspw. der Gini-Index\n\n\n\\[\nG = \\sum_{k=1}^{K} \\hat{p}_{mk}(1-\\hat{p}_{mk})\n\\]\n\n\nwobei \\(\\hat{p}_{mk}\\) der Anteil der Beobachtungen der Klasse \\(k\\) in Region \\(m\\) ist.\nWenn die Region \\(m\\) homogen ist, ist der Gini-Index 0, eine hälftige Aufteilung ergibt bei zwei Klassen den Wert 0.5"
   },
   {
     "objectID": "08_VL.html#entscheidungsbäume-2",
     "href": "08_VL.html#entscheidungsbäume-2",
     "title": "Business Intelligence & Data Science",
     "section": "Entscheidungsbäume",
-    "text": "Entscheidungsbäume\nSchritte und Intuition\n\nAnschließend wird mit dem Gini-Index der Informationsgewinn berechnet, der sich aus der Differenz des Gini-Index vor und nach dem Split ergibt:\n\n\\[\n\\text{Information Gain} = G_{\\text{init}} - G_{\\text{split}}\n\\]\n\nwobei \\(G_{\\text{init}}\\) der Gini-Index vor dem Split und \\(G_{\\text{split}}\\) der Gini-Index nach dem Split ist"
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\nAnschließend wird mit dem Gini-Index der Informationsgewinn \\(IG\\) berechnet, der sich aus der Differenz des Gini-Index vor und nach dem Split ergibt:\n\n\n\\[\n\\text{IG} = G_{\\text{init}} - G_{\\text{split}}\n\\]\n\n\nwobei \\(G_{\\text{init}}\\) der Gini-Index vor dem Split und \\(G_{\\text{split}}\\) der Gini-Index nach dem Split ist\n\\(G_{\\text{split}}\\) ist die gewichtete Summe der Gini-Indizes der Regionen, die durch den Split entstehen"
   },
   {
     "objectID": "08_VL.html#entscheidungsbäume-3",
     "href": "08_VL.html#entscheidungsbäume-3",
     "title": "Business Intelligence & Data Science",
     "section": "Entscheidungsbäume",
-    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\nWir starten mit dem gesamten Trainings-Datensatz für die drei Genres Klassik, EDM und Hip-Hop\nZunächst berechnen wir den Gini-Index für die Root-Node:\n\n\n\n\n\n\n\ncategory\np\n1-p\nGini\n\n\n\n\nEDM\n0.3021\n0.6979\n0.2108\n\n\nHip-Hop\n0.3635\n0.6365\n0.2314\n\n\nKlassik\n0.3344\n0.6656\n0.2226\n\n\n\n\n\n\n\n\\[\nG_{\\text{init}} = 0.211 + 0.231 + 0.223 = 0.665\n\\]"
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\n\nWir starten mit dem gesamten Trainings-Datensatz für die drei Genres Klassik, EDM und Hip-Hop\nZunächst berechnen wir den Gini-Index für die Root-Node:\n\n\n\n\n\n\n\ncategory\np\n1-p\nGini\n\n\n\n\nEDM\n0.302\n0.698\n0.211\n\n\nHip-Hop\n0.363\n0.637\n0.231\n\n\nKlassik\n0.334\n0.666\n0.223\n\n\n\n\n\n\n\n\n\n\\[\nG_{\\text{init}} = 0.211 + 0.231 + 0.223 = 0.665\n\\]\n\n\nAnschließend wird der beste Split für die Root-Node ermittelt, indem der Informationsgewinn für alle möglichen Splits berechnet wird"
   },
   {
     "objectID": "08_VL.html#entscheidungsbäume-4",
     "href": "08_VL.html#entscheidungsbäume-4",
     "title": "Business Intelligence & Data Science",
     "section": "Entscheidungsbäume",
-    "text": "Entscheidungsbäume\nStuff\n\nDer Gini-Index und die Kreuzentropie sind Maße für die Homogenität der Regionen im Sinne ihrer Klassifikationsgüte\nBei der Schätzung eines Entscheidungsbaumes werden entweder Gini-Index oder Kreuzentropie verwendet, um die Qualität des aktuellen Splits zu messen\nDieser Vorgang wird rekursiv wiederholt, bis die Regionen nicht mehr weiter aufgeteilt werden können\n\n\n\n\n\n\n\n\n\n\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\n\nFür den Beispiel-Split rechts erhalten wir links von der gestrichelten Linie\n\n\n\n\n\n\n\ncategory\nn\nGini\n\n\n\n\nEDM\n24\n0.016\n\n\nHip-Hop\n196\n0.115\n\n\nKlassik\n1257\n0.127\n\n\nTotal\n1477\n0.258\n\n\n\n\n\n\n\n\n\nund rechts davon:\n\n\n\n\n\n\n\ncategory\nn\nGini\n\n\n\n\nEDM\n1118\n0.250\n\n\nHip-Hop\n1176\n0.250\n\n\nKlassik\n7\n0.003\n\n\nTotal\n2301\n0.503"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-5",
+    "href": "08_VL.html#entscheidungsbäume-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\n\nDer Information Gain beträgt für den Split bei 0.5:\n\n\n\\[\nIG = G_{\\text{init}} - G_{\\text{split}} = \\\\0.665 - \\left( \\frac{1477}{3780 } \\cdot 0.258 + \\frac{2301}{3780 } \\cdot 0.503 \\right) = \\\\0.258\n\\]\n\n\nFür alle Variablen und Splits wird nun der Split mit dem höchsten Informationsgewinn ermittelt"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-6",
+    "href": "08_VL.html#entscheidungsbäume-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\nDer Split bei 0.5 ist allerdings nicht ideal\nDie Grafik rechts illustriert den Informationsgewinn für alle möglichen Splits der Variablen Energy und Danceability\nDer maximale Informationsgewinn wird für den Split bei ca. 0.37 für die Variable Energy erzielt"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-7",
+    "href": "08_VL.html#entscheidungsbäume-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\n\nAnschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird\nDie Regionen werden dann als Blätter bezeichnet und die Klassifikation erfolgt anhand der Mehrheit der Beobachtungen in der Region\nDie Grafik rechts zeigt den finalen Entscheidungsbaum für die Genres Klassik, EDM und Hip-Hop mit den beiden Variablen Energy und Danceability\nDie Hintergrundfarbe repräsentiert die Klassifikation, die Farbe der Punkte die Klasse der Trainingsdaten"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-8",
+    "href": "08_VL.html#entscheidungsbäume-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\nEine noch intuitivere Darstellung des Entscheidungsbaums ist die Visualisierung der Entscheidungsregeln\nHierbei wird ein Pfad durch den Baum verfolgt und die Entscheidungsregeln für die Klassifikation dargestellt\nDie Grafik rechts zeigt die Entscheidungsregeln für die Genres Klassik, EDM und Hip-Hop illustriert denselben Sachverhalt wie die Partitionsgrafik"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-9",
+    "href": "08_VL.html#entscheidungsbäume-9",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\nRoot-Node\n\n\nDer Split umfasst die Anteile der Klassen in der Root-Node\nDer Datensat umfasst 30% EDM Songs, 36% Hip-Hop Songs und 33% Klassik Songs\nDa die Mehrheit der Songs aus dem Genre Hip-Hop stammen, ist die Root-Node Hip-Hop grau"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-10",
+    "href": "08_VL.html#entscheidungsbäume-10",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\n\nEntscheidungsregel 1:\n\nUnter den Nodes wird die Entscheidungsregel dargestellt\nIn unserem Fall wird der Datensatz anhand der Variable Energy \\(\\geq\\) 0.37 in zwei Regionen geteilt\nDer Pfad links entspricht der Region, in der die Bedingung erfüllt ist, rechts der Region, in der die Bedingung nicht erfüllt ist\nBeide Wege führen zu einer weiteren Entscheidungsregel"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-11",
+    "href": "08_VL.html#entscheidungsbäume-11",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\n\nEntscheidungsregel 2 (links):\n\nHier befinden sich 67% der Daten\nDiese setzen sich zusammen aus:\n\n45% EDM, 53% Hip-Hop und 2% Klassik\n\nDie Entscheidungsregel ist nun Energy \\(\\geq\\) 0.82\nWenn die Bedingung erfüllt ist, wird der Song dem Genre EDM zugeordnet\nWenn die Bedingung nicht erfüllt ist, wird der Song dem Genre Hip-Hop zugeordnet"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-12",
+    "href": "08_VL.html#entscheidungsbäume-12",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\n\nEntscheidungsregel 3 (rechts):\n\nHier befinden sich 33% der Daten\nDiese setzen sich zusammen aus:\n\n0% EDM, 2% Hip-Hop und 98% Klassik\n\nDie Entscheidungsregel ist nun Danceability \\(\\geq\\) 0.67\nWenn die Bedingung erfüllt ist, wird der Song dem Genre Hip-Hop zugeordnet\nWenn die Bedingung nicht erfüllt ist, wird der Song dem Genre Klassik zugeordnet"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-13",
+    "href": "08_VL.html#entscheidungsbäume-13",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\n\nDie untersten Nodes sind die sogenannten Blätter des Entscheidungsbaums\nJedes Blatt entspricht einer Region, in der die Klassifikation erfolgt\nDie Angabe unterhalb der Klassifikation ergibt die Wahrscheinlichkeit, dass ein Song in das jeweilige Genre fällt\nDie Wahrscheinlichkeit entspricht dabei dem Anteil der Songs in der Region, die den jeweiligen Genres zugeordnet sind\nDie Variable Danceability spielt für die Klassifikation offenbar keine Rolle"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-14",
+    "href": "08_VL.html#entscheidungsbäume-14",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nModellevaluation\n\n\n\nDie Modellevaluation erfolgt analog zur logistischen Regression und Nearest Neighbor Klassifikation\nDie Konfusionsmatrix rechts führt zu diesen Metriken auf Basis der Testdaten:\n\n\n\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\naccuracy\nmulticlass\n0.83\n\n\nrecall\nmacro\n0.83\n\n\nprecision\nmacro\n0.85\n\n\nf_meas\nmacro\n0.83"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-15",
+    "href": "08_VL.html#entscheidungsbäume-15",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nOverfitting\n\n\nZiel beim Machine Learning ist eine Generalisierung auf bisher unbekannte Daten\nDas bisherige Modell hat nach 2 Nodes aufgehört, aber warum?\nDies erfolgt aufgrund sogenannter Stopping Rules oder Hyperparameter\nKomplexitätskosten:\n\nEin zusätzlicher Split verbessert die Klassifikation auf den Trainingsdaten, führt aber zu erhöhter Komplexität des Entscheidungsbaums\nDie Komplexitätskosten begrenzen weitere Splits und sorgen dafür, dass nur dann weiter aufgeteilt wird, wenn ein Minimum an zusätzlicher Verbesserung des Modells gewährleistet wird\n\nMaximale Tiefe:\n\nBegrenzung der Verzweigung verhindert eine granulare Einteilung der Daten\n\n\nMinimum an Beobachtungen pro Blatt:\n\nVerhindert, dass nur wenige Beobachtungen in den finalen Blättern sind"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-16",
+    "href": "08_VL.html#entscheidungsbäume-16",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nOverfitting\n\n\n\n\nGenerell gilt: Je komplexer der Entscheidungsbaum, desto besser ist die Anpassung auf den Trainingsdaten\nAber: Je perfekter die Anpassung auf den Trainingsdaten, desto schlechter die Generalisierung auf unbekannte Daten\nDie Grafik rechts zeigt ein extremes Beispiel, bei dem der Entscheidungsbaum mit 5 Nodes ausgebaut wurde"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-17",
+    "href": "08_VL.html#entscheidungsbäume-17",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nOverfitting\n\n\n\n\nIm Rahmen des Hyperparameter-Tunings wird die Komplexität des Entscheidungsbaums optimiert\nDie Grafik rechts zeigt die Anpassung des Entscheidungsbaums an die Trainingsdaten und die Generalisierung auf die Testdaten für verschiedene Tiefen des Baums\nAls Metrik dient der F1-Score\nOffenbar steigt der F1-Score auf den Trainingsdaten mit der Tiefe des Baums, während es auf den Testdaten ein Optimum bei 6 Nodes gibt"
+  },
+  {
+    "objectID": "08_VL.html#entscheidungsbäume-18",
+    "href": "08_VL.html#entscheidungsbäume-18",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nErweiterungen\n\nEntscheidungsbäume sind sehr intuitiv und einfach zu interpretieren\nEntscheidungsbäume erfordern nur wenig Datenbereinigung und können mit numerischen und kategorialen Variablen umgehen\nAllerdings sind Entscheidungsbäume anfällig für Overfitting\nEntscheidungsbäume sind Grundlage für viele weitere Modelle:\n\nRandom Forests kombinieren mehrere Entscheidungsbäume, um die Vorhersagegenauigkeit zu verbessern und das Overfitting zu reduzieren\nBoosted Trees kombinieren sequentielle Entscheidungsbäume, die auf den Fehlern des vorherigen Baums aufbauen"
+  },
+  {
+    "objectID": "08_VL.html#modellvergleich",
+    "href": "08_VL.html#modellvergleich",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellvergleich",
+    "text": "Modellvergleich\n…and the Winner is?\n\nDie Modelle mit 2 erklärenden Variablen dienen primär der Illustration der Modellintuition und sind daher nicht unbedingt praxistauglich\nWelches Modell performt am besten auf den Testdaten?\n\n\n\n\n\n\n\n\n.metric\nLogistische Regression\n60-Nearest Neighbor\nEntscheidungsbaum 6 Nodes\n\n\n\n\naccuracy\n0.8478\n0.8521\n0.8472\n\n\nrecall\n0.8454\n0.8458\n0.8435\n\n\nprecision\n0.8479\n0.8575\n0.8488\n\n\nf_meas\n0.8464\n0.8481\n0.8453\n\n\n\n\n\n\n\n\n\n\nWenn auch knapp hat das Nearest Neighbor Modell mit \\(K = 60\\) die Nase vorn\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+  },
+  {
+    "objectID": "08_VL_D.html#der-plan-für-heute",
+    "href": "08_VL_D.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung\n\nModellgestützte Analysen\n\nNearest Neighbor Klassifikation\nEntscheidungsbäume"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nGrundidee\n\nNearest Neighbor Klassifikation oder meist K-Nearest Neighbor (KNN) basiert auf der Idee, dass ähnliche Datenpunkte zu ähnlichen Klassen gehören\nKNN macht keine Annahmen über die Verteilung der Daten und die For der Entscheidungsgrenze\nKNN ist ein sogenanntes “lazy learning” Verfahren, da es keine explizite Modellbildung durchführt\nDie Klassifikation erfolgt durch die Mehrheitsentscheidung der \\(K\\) nächsten Nachbarn in den Testdaten"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-1",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nGrundidee\n\n\nAuch bei KNN wird die Wahrscheinlichkeit ermittelt, mit der Element \\(x_0\\) zur Klasse \\(j\\) gehört\n\n\n\\[\nP(Y=j|X= x_0) = \\frac{1}{K} \\sum_{i \\in \\aleph_0} I(y_i=j)\n\\]\n\n\nDabei repräsentiert \\(\\aleph_0\\) die Menge der \\(K\\) nächsten Nachbarn von \\(x_0\\) und \\(I(y_i=j)\\) ist eine Indikatorfunktion, die 1 zurückgibt, wenn \\(y_i=j\\) und 0 sonst\nDie Zuordnung erfolgt dann durch die Klasse mit der höchsten Wahrscheinlichkeit im Sinne einer Mehrheitsentscheidung\nBeispiel: Wenn \\(K = 3\\), wird die Klasse bestimmt, zu der die Mehrheit der drei nächsten Nachbarn gehört und die Wahrscheinlichkeit entspricht dem Anteil der Nachbarn in dieser Klasse"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-2",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nDie Bestimmung der nächsten Nachbarn erfolgt durch sogenannte Ähnlichkeits- oder Distanzmaße\nEs gibt eine Vielzahl von Distanzmaßen, die sich in der Berechnung und Interpretation unterscheiden\nDie einfachste Form ist die euklidische Distanz, in allgemeiner Form:\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2  + ... + (p_n-q_n)^2}\n\\]"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-3",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\nIn zwei Dimensionen vereinfacht sich diese Gleichung zu:\n\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}\n\\]"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-4",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nBestimmung der Nachbarn\n\n\nIn zwei Dimensionen vereinfacht sich diese Gleichung zu:\n\n\n\n\\[\nd(p,q) = \\sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}\n\\]"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-5",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\n\nBestimme die Trainingsdaten durch einen Split, bspw. 70% Trainingsdaten, lege \\(K\\) fest"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-6",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\n\nFür den neuen Datenpunkt Doja Cat, berechne die euklidische Distanz zu allen anderen Punkten im Trainingsdatensatz"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-7",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\n\nFür den neuen Datenpunkt Doja Cat, berechne die euklidische Distanz zu allen anderen Punkten im Trainingsdatensatz"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-8",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\n\nIdentifiziere die \\(K\\) nächsten Nachbarn und ordne den neuen Punkt der Klasse zu, in der die Mehrheit der Nachbarn liegt\n\n\n\n\n\n\n\n\ncategory\ntrack.artist\nenergy\ndanceability\nDistanz zu Doja Cat\nRang\n\n\n\n\nHip-Hop\nKAROL G\n0.7\n0.8\n0.10\n1\n\n\nHip-Hop\nJamal\n0.6\n0.7\n0.10\n2\n\n\nEDM\nDeetron\n0.7\n0.6\n0.22\n3\n\n\nHip-Hop\nFugees\n0.4\n0.6\n0.28\n4\n\n\nEDM\nVendex\n0.8\n0.6\n0.28\n5\n\n\nHip-Hop\nSira\n0.3\n0.9\n0.32\n6\n\n\nEDM\nKaori\n0.9\n0.6\n0.36\n7\n\n\nEDM\nGusted\n1.0\n0.7\n0.41\n8\n\n\nEDM\nKronos\n1.0\n0.6\n0.45\n9\n\n\nEDM\nSpectre\n1.0\n0.5\n0.50\n10\n\n\n\n\n\n\n\n\n\nWie ist die Vorhersage bei und die zugehörige Wahrscheinlichkeit bei:\n\nK = 1\nK = 5\nK = 10"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-9",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-9",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nSchritte und Intuition\n\nFür die ausgewählten \\(K\\) erhalten wir das folgende Ergebnis:\n\n\n\n\n\n\n\nVorhersage\nWahrscheinlichkeit\nK\n\n\n\n\nHip-Hop\n1.0\n1\n\n\nHip-Hop\n0.6\n5\n\n\nEDM\n0.6\n10\n\n\n\n\n\n\n\n\n\nAnschließend wird der Prozess für alle anderen neuen Beobachtungen wiederholt"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-10",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-10",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nModellevaluation\n\n\n\nDie Modellevaluation erfolgt anschließend analog zur logistischen Regression mit den bisher dargestellten Metriken Accuracy, Precision, Recall und F1-Score\n\\(K\\) ist ein wichtiger Hyperparameter, der sorgfältig gewählt werden sollte"
+  },
+  {
+    "objectID": "08_VL_D.html#nearest-neighbor-klassifikation-11",
+    "href": "08_VL_D.html#nearest-neighbor-klassifikation-11",
+    "title": "Business Intelligence & Data Science",
+    "section": "Nearest Neighbor Klassifikation",
+    "text": "Nearest Neighbor Klassifikation\nModellevaluation\n\n\n\nOffenbar maximiert \\(K = 60\\) sämtliche Metriken\nMit \\(K\\) = 60 erhalten wir die Konfusionsmatrix rechts sowie die Metriken unten:\n\n\n\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\naccuracy\nmulticlass\n0.85\n\n\nrecall\nmacro\n0.85\n\n\nprecision\nmacro\n0.86\n\n\nf_meas\nmacro\n0.85"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume",
+    "href": "08_VL_D.html#entscheidungsbäume",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nGrundidee\n\nEntscheidungsbäume sind ein weiteres Verfahren des überwachten Lernens, das sich sowohl für Klassifikations- als auch für Regressionsprobleme eignet\nDie Klassifikation mit Entscheidungsbäumen umfasst grob zwei Schritte:\n\n\nAufteilung der erklärenden Variablen \\(X_1\\), \\(X_2\\), …, \\(X_p\\) in \\(K\\) immer kleinere, nicht überlappende Regionen/Untergruppen (Blätter) \\(R_1\\), \\(R_2\\), …, \\(R_J\\) anhand von Entscheidungsregeln (Knoten)\nKlassifikation der Testdaten anhand der Entscheidungsregeln. Alle Beobachtungen, die in Region \\(R_k\\) fallen, werden der Klasse \\(k\\) zugeordnet"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-1",
+    "href": "08_VL_D.html#entscheidungsbäume-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\nStart ist der gesamte Datensatz, auch Root-Node oder Wurzelknoten\nGesucht wird die beste Variable und der beste Schwellenwert, um den Datensatz in zwei Gruppen zu teilen, auch Entscheidungsregel oder Split\nZur Ermittlung der besten Entscheidungsregel wird ein Maß für die Homogenität der Regionen verwendet, bspw. der Gini-Index\n\n\n\\[\nG = \\sum_{k=1}^{K} \\hat{p}_{mk}(1-\\hat{p}_{mk})\n\\]\n\n\nwobei \\(\\hat{p}_{mk}\\) der Anteil der Beobachtungen der Klasse \\(k\\) in Region \\(m\\) ist.\nWenn die Region \\(m\\) homogen ist, ist der Gini-Index 0, eine hälftige Aufteilung ergibt bei zwei Klassen den Wert 0.5"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-2",
+    "href": "08_VL_D.html#entscheidungsbäume-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\nAnschließend wird mit dem Gini-Index der Informationsgewinn \\(IG\\) berechnet, der sich aus der Differenz des Gini-Index vor und nach dem Split ergibt:\n\n\n\\[\n\\text{IG} = G_{\\text{init}} - G_{\\text{split}}\n\\]\n\n\nwobei \\(G_{\\text{init}}\\) der Gini-Index vor dem Split und \\(G_{\\text{split}}\\) der Gini-Index nach dem Split ist\n\\(G_{\\text{split}}\\) ist die gewichtete Summe der Gini-Indizes der Regionen, die durch den Split entstehen"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-3",
+    "href": "08_VL_D.html#entscheidungsbäume-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\n\nWir starten mit dem gesamten Trainings-Datensatz für die drei Genres Klassik, EDM und Hip-Hop\nZunächst berechnen wir den Gini-Index für die Root-Node:\n\n\n\n\n\n\n\ncategory\np\n1-p\nGini\n\n\n\n\nEDM\n0.302\n0.698\n0.211\n\n\nHip-Hop\n0.363\n0.637\n0.231\n\n\nKlassik\n0.334\n0.666\n0.223\n\n\n\n\n\n\n\n\n\n\\[\nG_{\\text{init}} = 0.211 + 0.231 + 0.223 = 0.665\n\\]\n\n\nAnschließend wird der beste Split für die Root-Node ermittelt, indem der Informationsgewinn für alle möglichen Splits berechnet wird"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-4",
+    "href": "08_VL_D.html#entscheidungsbäume-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\n\nFür den Beispiel-Split rechts erhalten wir links von der gestrichelten Linie\n\n\n\n\n\n\n\ncategory\nn\nGini\n\n\n\n\nEDM\n24\n0.016\n\n\nHip-Hop\n196\n0.115\n\n\nKlassik\n1257\n0.127\n\n\nTotal\n1477\n0.258\n\n\n\n\n\n\n\n\n\nund rechts davon:\n\n\n\n\n\n\n\ncategory\nn\nGini\n\n\n\n\nEDM\n1118\n0.250\n\n\nHip-Hop\n1176\n0.250\n\n\nKlassik\n7\n0.003\n\n\nTotal\n2301\n0.503"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-5",
+    "href": "08_VL_D.html#entscheidungsbäume-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\n\nDer Information Gain beträgt für den Split bei 0.5:\n\n\n\\[\nIG = G_{\\text{init}} - G_{\\text{split}} = \\\\0.665 - \\left( \\frac{1477}{3780 } \\cdot 0.258 + \\frac{2301}{3780 } \\cdot 0.503 \\right) = \\\\0.258\n\\]\n\n\nFür alle Variablen und Splits wird nun der Split mit dem höchsten Informationsgewinn ermittelt"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-6",
+    "href": "08_VL_D.html#entscheidungsbäume-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\nDer Split bei 0.5 ist allerdings nicht ideal\nDie Grafik rechts illustriert den Informationsgewinn für alle möglichen Splits der Variablen Energy und Danceability\nDer maximale Informationsgewinn wird für den Split bei ca. 0.37 für die Variable Energy erzielt"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-7",
+    "href": "08_VL_D.html#entscheidungsbäume-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nSchritte und Intuition\n\n\n\n\nAnschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird\nDie Regionen werden dann als Blätter bezeichnet und die Klassifikation erfolgt anhand der Mehrheit der Beobachtungen in der Region\nDie Grafik rechts zeigt den finalen Entscheidungsbaum für die Genres Klassik, EDM und Hip-Hop mit den beiden Variablen Energy und Danceability\nDie Hintergrundfarbe repräsentiert die Klassifikation, die Farbe der Punkte die Klasse der Trainingsdaten"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-8",
+    "href": "08_VL_D.html#entscheidungsbäume-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\nEine noch intuitivere Darstellung des Entscheidungsbaums ist die Visualisierung der Entscheidungsregeln\nHierbei wird ein Pfad durch den Baum verfolgt und die Entscheidungsregeln für die Klassifikation dargestellt\nDie Grafik rechts zeigt die Entscheidungsregeln für die Genres Klassik, EDM und Hip-Hop illustriert denselben Sachverhalt wie die Partitionsgrafik"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-9",
+    "href": "08_VL_D.html#entscheidungsbäume-9",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\nRoot-Node\n\n\nDer Split umfasst die Anteile der Klassen in der Root-Node\nDer Datensat umfasst 30% EDM Songs, 36% Hip-Hop Songs und 33% Klassik Songs\nDa die Mehrheit der Songs aus dem Genre Hip-Hop stammen, ist die Root-Node Hip-Hop grau"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-10",
+    "href": "08_VL_D.html#entscheidungsbäume-10",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\n\nEntscheidungsregel 1:\n\nUnter den Nodes wird die Entscheidungsregel dargestellt\nIn unserem Fall wird der Datensatz anhand der Variable Energy \\(\\geq\\) 0.37 in zwei Regionen geteilt\nDer Pfad links entspricht der Region, in der die Bedingung erfüllt ist, rechts der Region, in der die Bedingung nicht erfüllt ist\nBeide Wege führen zu einer weiteren Entscheidungsregel"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-11",
+    "href": "08_VL_D.html#entscheidungsbäume-11",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\n\nEntscheidungsregel 2 (links):\n\nHier befinden sich 67% der Daten\nDiese setzen sich zusammen aus:\n\n45% EDM, 53% Hip-Hop und 2% Klassik\n\nDie Entscheidungsregel ist nun Energy \\(\\geq\\) 0.82\nWenn die Bedingung erfüllt ist, wird der Song dem Genre EDM zugeordnet\nWenn die Bedingung nicht erfüllt ist, wird der Song dem Genre Hip-Hop zugeordnet"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-12",
+    "href": "08_VL_D.html#entscheidungsbäume-12",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\n\nEntscheidungsregel 3 (rechts):\n\nHier befinden sich 33% der Daten\nDiese setzen sich zusammen aus:\n\n0% EDM, 2% Hip-Hop und 98% Klassik\n\nDie Entscheidungsregel ist nun Danceability \\(\\geq\\) 0.67\nWenn die Bedingung erfüllt ist, wird der Song dem Genre Hip-Hop zugeordnet\nWenn die Bedingung nicht erfüllt ist, wird der Song dem Genre Klassik zugeordnet"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-13",
+    "href": "08_VL_D.html#entscheidungsbäume-13",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nDarstellung der Entscheidungsregeln\n\n\n\n\nDie untersten Nodes sind die sogenannten Blätter des Entscheidungsbaums\nJedes Blatt entspricht einer Region, in der die Klassifikation erfolgt\nDie Angabe unterhalb der Klassifikation ergibt die Wahrscheinlichkeit, dass ein Song in das jeweilige Genre fällt\nDie Wahrscheinlichkeit entspricht dabei dem Anteil der Songs in der Region, die den jeweiligen Genres zugeordnet sind\nDie Variable Danceability spielt für die Klassifikation offenbar keine Rolle"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-14",
+    "href": "08_VL_D.html#entscheidungsbäume-14",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nModellevaluation\n\n\n\nDie Modellevaluation erfolgt analog zur logistischen Regression und Nearest Neighbor Klassifikation\nDie Konfusionsmatrix rechts führt zu diesen Metriken auf Basis der Testdaten:\n\n\n\n\n\n\n\n\n.metric\n.estimator\n.estimate\n\n\n\n\naccuracy\nmulticlass\n0.83\n\n\nrecall\nmacro\n0.83\n\n\nprecision\nmacro\n0.85\n\n\nf_meas\nmacro\n0.83"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-15",
+    "href": "08_VL_D.html#entscheidungsbäume-15",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nOverfitting\n\n\nZiel beim Machine Learning ist eine Generalisierung auf bisher unbekannte Daten\nDas bisherige Modell hat nach 2 Nodes aufgehört, aber warum?\nDies erfolgt aufgrund sogenannter Stopping Rules oder Hyperparameter\nKomplexitätskosten:\n\nEin zusätzlicher Split verbessert die Klassifikation auf den Trainingsdaten, führt aber zu erhöhter Komplexität des Entscheidungsbaums\nDie Komplexitätskosten begrenzen weitere Splits und sorgen dafür, dass nur dann weiter aufgeteilt wird, wenn ein Minimum an zusätzlicher Verbesserung des Modells gewährleistet wird\n\nMaximale Tiefe:\n\nBegrenzung der Verzweigung verhindert eine granulare Einteilung der Daten\n\n\nMinimum an Beobachtungen pro Blatt:\n\nVerhindert, dass nur wenige Beobachtungen in den finalen Blättern sind"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-16",
+    "href": "08_VL_D.html#entscheidungsbäume-16",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nOverfitting\n\n\n\n\nGenerell gilt: Je komplexer der Entscheidungsbaum, desto besser ist die Anpassung auf den Trainingsdaten\nAber: Je perfekter die Anpassung auf den Trainingsdaten, desto schlechter die Generalisierung auf unbekannte Daten\nDie Grafik rechts zeigt ein extremes Beispiel, bei dem der Entscheidungsbaum mit 5 Nodes ausgebaut wurde"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-17",
+    "href": "08_VL_D.html#entscheidungsbäume-17",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nOverfitting\n\n\n\n\nIm Rahmen des Hyperparameter-Tunings wird die Komplexität des Entscheidungsbaums optimiert\nDie Grafik rechts zeigt die Anpassung des Entscheidungsbaums an die Trainingsdaten und die Generalisierung auf die Testdaten für verschiedene Tiefen des Baums\nAls Metrik dient der F1-Score\nOffenbar steigt der F1-Score auf den Trainingsdaten mit der Tiefe des Baums, während es auf den Testdaten ein Optimum bei 6 Nodes gibt"
+  },
+  {
+    "objectID": "08_VL_D.html#entscheidungsbäume-18",
+    "href": "08_VL_D.html#entscheidungsbäume-18",
+    "title": "Business Intelligence & Data Science",
+    "section": "Entscheidungsbäume",
+    "text": "Entscheidungsbäume\nErweiterungen\n\nEntscheidungsbäume sind sehr intuitiv und einfach zu interpretieren\nEntscheidungsbäume erfordern nur wenig Datenbereinigung und können mit numerischen und kategorialen Variablen umgehen\nAllerdings sind Entscheidungsbäume anfällig für Overfitting\nEntscheidungsbäume sind Grundlage für viele weitere Modelle:\n\nRandom Forests kombinieren mehrere Entscheidungsbäume, um die Vorhersagegenauigkeit zu verbessern und das Overfitting zu reduzieren\nBoosted Trees kombinieren sequentielle Entscheidungsbäume, die auf den Fehlern des vorherigen Baums aufbauen"
+  },
+  {
+    "objectID": "08_VL_D.html#modellvergleich",
+    "href": "08_VL_D.html#modellvergleich",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellvergleich",
+    "text": "Modellvergleich\n…and the Winner is?\n\nDie Modelle mit 2 erklärenden Variablen dienen primär der Illustration der Modellintuition und sind daher nicht unbedingt praxistauglich\nWelches Modell performt am besten auf den Testdaten?\n\n\n\n\n\n\n\n\n.metric\nLogistische Regression\n60-Nearest Neighbor\nEntscheidungsbaum 6 Nodes\n\n\n\n\naccuracy\n0.8478\n0.8521\n0.8472\n\n\nrecall\n0.8454\n0.8458\n0.8435\n\n\nprecision\n0.8479\n0.8575\n0.8488\n\n\nf_meas\n0.8464\n0.8481\n0.8453\n\n\n\n\n\n\n\n\n\n\nWenn auch knapp hat das Nearest Neighbor Modell mit \\(K = 60\\) die Nase vorn\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
   },
   {
     "objectID": "01_VL_D.html#der-plan-für-heute",
@@ -921,7 +1257,7 @@
     "href": "01_VL_D.html#kursaufbau",
     "title": "Business Intelligence & Data Science",
     "section": "Kursaufbau",
-    "text": "Kursaufbau\nZeitplan Gruppe D\n\n\n\n\n\nBlock\nGruppe D\nThema\n\n\n\n\n1\n21.03.2024:09:00 – 10:30\nOrganisation, Einleitung\n\n\n2\n21.03.2024:10:45 – 12:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n28.03.2024:13:00 – 14:30\nDatentransformation\n\n\n4\n28.03.2024:14:45 – 16:15\nBig Data und Data Lake\n\n\n5\n02.04.2024:13:00 – 14:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n02.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n15.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n15.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n02.05.2024:13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n02.05.2024:14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
+    "text": "Kursaufbau\nZeitplan Gruppe D\n\n\n\n\n\nBlock\nGruppe D\nThema\n\n\n\n\n1\n21.03.2024:09:00 – 10:30\nOrganisation, Einleitung\n\n\n2\n21.03.2024:10:45 – 12:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n28.03.2024:13:00 – 14:30\nDatentransformation\n\n\n4\n28.03.2024:14:45 – 16:15\nBig Data und Data Lake\n\n\n5\n02.04.2024:13:00 – 14:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n02.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n15.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n15.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n02.05.2024:13:00 – 14:30\nRestinhalte Klassifikation; Assoziationsanalyse; Probeklausur (30 Minuten)\n\n\n10\n02.05.2024:14:45 – 16:15\nBesprechung Probeklausur; Evaluation; Fragen\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
   },
   {
     "objectID": "01_VL_D.html#kursmaterialen",
@@ -1033,7 +1369,7 @@
     "href": "01_VL_D.html#dispositive-und-operative-daten-3",
     "title": "Business Intelligence & Data Science",
     "section": "Dispositive und operative Daten",
-    "text": "Dispositive und operative Daten\nÜberführung von Daten in Information\n\n\n\nHauptziel dieser Vorlesung ist die Überführung von operationalen Daten in entscheidungsrelevante Informationen\nDies hat zwei Hauptaspekte:\n\nBlock 1-4: Technische Infrastruktur und Architektur\nBlock 5-9: Methodische Konzepte wie modellorientierte Analysen\n\n\n\n\n\n\n\n\nBlock\nThema\n\n\n\n\n1\nOrganisation, Einleitung\n\n\n2\nDatenbereitstellung: Data Warehousing\n\n\n3\nDatentransformation\n\n\n4\nBig Data und Data Lake\n\n\n5\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\nInformationsbereitstellung: Visualisierungstechniken"
+    "text": "Dispositive und operative Daten\nÜberführung von Daten in Information\n\n\n\nHauptziel dieser Vorlesung ist die Überführung von operationalen Daten in entscheidungsrelevante Informationen\nDies hat zwei Hauptaspekte:\n\nBlock 1-4: Technische Infrastruktur und Architektur\nBlock 5-9: Methodische Konzepte wie modellorientierte Analysen\n\n\n\n\n\n\n\n\nBlock\nThema\n\n\n\n\n1\nOrganisation, Einleitung\n\n\n2\nDatenbereitstellung: Data Warehousing\n\n\n3\nDatentransformation\n\n\n4\nBig Data und Data Lake\n\n\n5\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\nRestinhalte Klassifikation; Assoziationsanalyse; Probeklausur (30 Minuten)"
   },
   {
     "objectID": "01_VL_D.html#apache-superset",
@@ -1145,14 +1481,14 @@
     "href": "01_VL.html#kursaufbau",
     "title": "Business Intelligence & Data Science",
     "section": "Kursaufbau",
-    "text": "Kursaufbau\nZeitplan Gruppe C\n\n\n\n\n\nBlock\nGruppe C\nThema\n\n\n\n\n1\n13.03.2024:13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024:14:45 – 16:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n22.03.2024:09:00 – 10:30\nDatentransformation\n\n\n4\n22.03.2024:10:45 – 12:15\nBig Data und Data Lake\n\n\n5\n28.03.2024:09:00 – 10:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n28.03.2024:10:45 – 12:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n16.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n16.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n30.04.2024:13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n30.04.2024:14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
+    "text": "Kursaufbau\nZeitplan Gruppe C\n\n\n\n\n\nBlock\nGruppe C\nThema\n\n\n\n\n1\n13.03.2024:13:00 – 14:30\nOrganisation, Einleitung\n\n\n2\n13.03.2024:14:45 – 16:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n22.03.2024:09:00 – 10:30\nDatentransformation\n\n\n4\n22.03.2024:10:45 – 12:15\nBig Data und Data Lake\n\n\n5\n28.03.2024:09:00 – 10:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n28.03.2024:10:45 – 12:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n16.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n16.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n30.04.2024:13:00 – 14:30\nRestinhalte Klassifikation; Assoziationsanalyse; Probeklausur (30 Minuten)\n\n\n10\n30.04.2024:14:45 – 16:15\nBesprechung Probeklausur; Evaluation; Fragen\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
   },
   {
     "objectID": "01_VL.html#kursaufbau-1",
     "href": "01_VL.html#kursaufbau-1",
     "title": "Business Intelligence & Data Science",
     "section": "Kursaufbau",
-    "text": "Kursaufbau\nZeitplan Gruppe D\n\n\n\n\n\nBlock\nGruppe D\nThema\n\n\n\n\n1\n21.03.2024:09:00 – 10:30\nOrganisation, Einleitung\n\n\n2\n21.03.2024:10:45 – 12:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n28.03.2024:13:00 – 14:30\nDatentransformation\n\n\n4\n28.03.2024:14:45 – 16:15\nBig Data und Data Lake\n\n\n5\n02.04.2024:13:00 – 14:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n02.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n15.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n15.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n02.05.2024:13:00 – 14:30\nInformationsbereitstellung: Visualisierungstechniken\n\n\n10\n02.05.2024:14:45 – 16:15\nWild Card: Wunschthema oder Restinhalte und Q\\&A\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
+    "text": "Kursaufbau\nZeitplan Gruppe D\n\n\n\n\n\nBlock\nGruppe D\nThema\n\n\n\n\n1\n21.03.2024:09:00 – 10:30\nOrganisation, Einleitung\n\n\n2\n21.03.2024:10:45 – 12:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n28.03.2024:13:00 – 14:30\nDatentransformation\n\n\n4\n28.03.2024:14:45 – 16:15\nBig Data und Data Lake\n\n\n5\n02.04.2024:13:00 – 14:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n02.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n15.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n15.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n02.05.2024:13:00 – 14:30\nRestinhalte Klassifikation; Assoziationsanalyse; Probeklausur (30 Minuten)\n\n\n10\n02.05.2024:14:45 – 16:15\nBesprechung Probeklausur; Evaluation; Fragen\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
   },
   {
     "objectID": "01_VL.html#kursmaterialen",
@@ -1264,7 +1600,7 @@
     "href": "01_VL.html#dispositive-und-operative-daten-3",
     "title": "Business Intelligence & Data Science",
     "section": "Dispositive und operative Daten",
-    "text": "Dispositive und operative Daten\nÜberführung von Daten in Information\n\n\n\nHauptziel dieser Vorlesung ist die Überführung von operationalen Daten in entscheidungsrelevante Informationen\nDies hat zwei Hauptaspekte:\n\nBlock 1-4: Technische Infrastruktur und Architektur\nBlock 5-9: Methodische Konzepte wie modellorientierte Analysen\n\n\n\n\n\n\n\n\nBlock\nThema\n\n\n\n\n1\nOrganisation, Einleitung\n\n\n2\nDatenbereitstellung: Data Warehousing\n\n\n3\nDatentransformation\n\n\n4\nBig Data und Data Lake\n\n\n5\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\nInformationsbereitstellung: Visualisierungstechniken"
+    "text": "Dispositive und operative Daten\nÜberführung von Daten in Information\n\n\n\nHauptziel dieser Vorlesung ist die Überführung von operationalen Daten in entscheidungsrelevante Informationen\nDies hat zwei Hauptaspekte:\n\nBlock 1-4: Technische Infrastruktur und Architektur\nBlock 5-9: Methodische Konzepte wie modellorientierte Analysen\n\n\n\n\n\n\n\n\nBlock\nThema\n\n\n\n\n1\nOrganisation, Einleitung\n\n\n2\nDatenbereitstellung: Data Warehousing\n\n\n3\nDatentransformation\n\n\n4\nBig Data und Data Lake\n\n\n5\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\nRestinhalte Klassifikation; Assoziationsanalyse; Probeklausur (30 Minuten)"
   },
   {
     "objectID": "01_VL.html#quellen",
@@ -1860,6 +2196,258 @@
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
     "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nBaars, Henning, und Hans-Georg Kemper. 2021. Business Intelligence & Analytics: Grundlagen und praktische Anwendungen: Ansätze der IT-basierten Entscheidungsunterstützung. 4., überarbeitete und erweiterte Auflage. Lehrbuch. Wiesbaden [Heidelberg]: Springer Vieweg.\n\n\nHahne, Michael. 2016. „Architekturkonzepte und Modellierungsverfahren für BI-Systeme“. In Analytische Informationssysteme, herausgegeben von Peter Gluchowski und Peter Chamoni, 147–85. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-662-47763-2_8.\n\n\nKemper, Hans-Georg, und Xuanpu Sun. 2023. „Data Warehouse“. In Gabler Bankenlexikon. https://www.gabler-banklexikon.de/definition/data-warehouse-56847/version-377924."
+  },
+  {
+    "objectID": "07_VL_D.html#der-plan-für-heute",
+    "href": "07_VL_D.html#der-plan-für-heute",
+    "title": "Business Intelligence & Data Science",
+    "section": "Der Plan für heute…",
+    "text": "Der Plan für heute…\nVorlesung\n\nQuiz und kurzes Recap logistische Regression\nModellgestützte Analysen\n\nWeitere Modellevaluation\nMultiple Logistische Regression\nMultinominale Logistische Regression"
+  },
+  {
+    "objectID": "07_VL_D.html#ablauf",
+    "href": "07_VL_D.html#ablauf",
+    "title": "Business Intelligence & Data Science",
+    "section": "Ablauf",
+    "text": "Ablauf\nAktualisierter Ablaufplan\n\n\n\n\n\nBlock\nGruppe D\nThema\n\n\n\n\n1\n21.03.2024:09:00 – 10:30\nOrganisation, Einleitung\n\n\n2\n21.03.2024:10:45 – 12:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n28.03.2024:13:00 – 14:30\nDatentransformation\n\n\n4\n28.03.2024:14:45 – 16:15\nBig Data und Data Lake\n\n\n5\n02.04.2024:13:00 – 14:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n02.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n15.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n15.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n02.05.2024:13:00 – 14:30\nRestinhalte Klassifikation; Assoziationsanalyse; Probeklausur (30 Minuten)\n\n\n10\n02.05.2024:14:45 – 16:15\nBesprechung Probeklausur; Evaluation; Fragen\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation",
+    "href": "07_VL_D.html#modellevaluation",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nPrecision\n\n\nAndere Metriken beheben die Schwächen der Accuracy\nPrecision oder Präzision gibt an, wie viele der vom Klassifikator als positiv identifizierten Fälle tatsächlich positiv sind und entspricht dem Anteil der tatsächlich positiven Fälle an der Menge aller als positiv klassifizierten Fälle\n\n\n\\[\\text{Precision} = \\frac{\\text{TP}}{\\text{TP + FP}}\\]\n\n\nWelcher Anteil der positiven Identifikationen war tatsächlich korrekt? Oder: Wenn das Modell einen Datenpunkt positiv klassifiziert, wie wahrscheinlich ist es, dass diese Klassifikation richtig ist?\nEine hohe Precision bedeutet also, dass der Klassifikator nur wenige irrelevante Fälle als relevant einstuft und ein Klassifikator mit einer Precision von 1,0 liefert keine FP."
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-1",
+    "href": "07_VL_D.html#modellevaluation-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nRecall\n\n\nRecall hingegen gibt an, wie viele der tatsächlich positiven Fälle vom Klassifikator als positiv bzw. relevant erkannt wurden:\n\n\n\\[\\text{Recall} = \\frac{\\text{TP}}{\\text{TP + FN}}\\]\n\n\nEin hoher Recall-Wert bedeutet, dass der Klassifikator viele relevante Fälle erkennt und beantwortet die Frage, welcher Anteil der positiven Ergebnisse richtig identifiziert wurde.\nWie wahrscheinlich ist es, dass das Modell einen positiven Datenpunkt erkennt?\nAuch häufig als Sensitivität oder True Positive Rate bezeichnet\n\n\n\n\nKasten: Sample aller Beobachtungen\nLinker Kasten: Positive Beobachtungen\nRechte Kasten: Negative Beobachtungen\nKreis: Vorhersage des Modells, also ALLE als positiv vorhergesagte Datenpunkte\nKreis besteht aus zwei Hälften: TP und FN"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-2",
+    "href": "07_VL_D.html#modellevaluation-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nPrecision und Recall\n\n\n\nIllustration Precision, Recall, Accuracy, Quelle: Maleki u. a. (2020)\n\n\n\n\nKasten: Sample aller Beobachtungen\nLinker Kasten: Positive Beobachtungen\nRechte Kasten: Negative Beobachtungen\nKreis: Vorhersage des Modells, also ALLE als positiv vorhergesagte Datenpunkte\nKreis besteht aus zwei Hälften: TP und FN"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-3",
+    "href": "07_VL_D.html#modellevaluation-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nPrecision und Recall für den Spam-Filter\n\n\n\n\nUm Precision und Recall bei unausgewogenen Datensätzen zu illustrieren, betrachten wir erneut den Spam-Filter\nFür Precision erhalten wir\n\n\n\\[\\text{Precision} = \\frac{\\text{1}}{\\text{1 + 0}} = 1\\]\n\n\nFür Recall ergibt sich\n\n\n\\[\\text{Recall} = \\frac{\\text{1}}{\\text{1 + 99}} = 0,01.\\]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTatsächlich Positiv\nTatsächlich Negativ\nSumme Vorhersage\n\n\n\n\nVorhergesagt Positiv\n1\n0\n1\n\n\nVorhergesagt Negativ\n99\n900\n999\n\n\nSumme Tatsächlich\n100\n900\n1000\n\n\n\n\n\n\nWenn das Modell eine Mail als Spam klassifiziert, ist diese Prognose zu 100% korrekt\nDas Modell erkennt aber nur 1% der tatsächlichen Spam-Mails."
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-4",
+    "href": "07_VL_D.html#modellevaluation-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nPrecision und Recall für den Spam-Filter\n\nWelches Maß ist nun das Richtige?\n\n\nWenn ein balancierter Datensatz vorliegt, kann Accuracy bedenkenlos verwendet werden, um das Modell zu evaluieren\nWenn wir sicher sein wollen, dass eine positive Vorhersage korrekt ist, dann ist Precision die angemessene Evaluationsmetrik. Dies ist oft der Fall, wenn FP mit höheren Kosten verbunden sind, als FN.\nWenn es wichtig ist, so viele positive Fälle wie möglich zu identifizieren, sollte ein Modell mit hohem Recall verwendet werden. In diesem Fall sind die Kosten von FN besonders hoch, sodass es besser ist, einige Fälle fälschlicherweise negativ zu klassifizieren, als dass uns tatsächlich positive Fälle durch die Lappen gehen"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-5",
+    "href": "07_VL_D.html#modellevaluation-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nF1-Score\n\nOft sind Kosten und Nutzen von FP und FN Klassifikationen nicht eindeutig\nDer F1 Score kompensiert die Nachteile der Accuracy bei unbalancierten Datensätzen zu kompensieren und legt gleichzeitig einen ausgewogenen Fokus auf Precision und Recall:\n\n\n\\[\nF1 = 2 \\cdot \\frac{\\text{Precision} \\cdot \\text{Recall}}{\\text{Precision} + \\text{Recall}}\n\\]\n\n\nF1 ist das harmonische Mittel von Precision und Recall und liegt zwischen 0 und 1"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-6",
+    "href": "07_VL_D.html#modellevaluation-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nF1-Score\n\nIm Spam Beispiel:\n\n\n\\[\nF1 = 2 \\cdot \\frac{\\text{1} \\cdot \\text{0,01}}{\\text{1} + \\text{0,01}}= 0,0198\n\\]\n\n\nDieser Wert ist deutlich niedriger, als uns die 90,1% Accuracy zunächst suggerieren.\nTrotzdem ist das Beispielmodell nahezu nutzlos, wie anhand des niedrigen F1-Scores erkennbar wird."
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-7",
+    "href": "07_VL_D.html#modellevaluation-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nAbschließende Bemerkungen\n\nBei einem balancierten Datensatz und gleicher Gewichtung von FP und FN ist die Accuracy die einfachste und intuitivste Metrik\nBei unbalancierten Datensätzen sollten Precision, Recall und F1-Score verwendet werden\nWenn FP höhere Kosten haben, dann sollte Precision im Fokus stehen\nWenn FN höhere haben, dann sollte Recall im Fokus stehen\nDer F1-Score ist besonders nützlich, wenn Precision und Recall gleiche Gewichtung haben"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-8",
+    "href": "07_VL_D.html#modellevaluation-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nKosten von FP und FN\n\n\nDie meisten Klassifikationsmethoden basieren auf der Annahme, dass FP und FN gleich problematisch sind\nIn praktischen Szenarios ist dies jedoch selten der Fall, Beispiel:\nBetrugserkennung: Eine Haftpflichtversicherung prüft Schadensmeldungen mit ML. Das Modell soll den Schaden automatisch abwickelnd und entweder als “Zahlung” oder “Keine Zahlung” klassifizieren, je nachdem ob ein Betrugsversuch vorliegt\nFragen:\n\nWas ist die positive (interessante) Klasse aus Sicht der Versicherung?\nWelche Fälle sind dann FN und FP?\nWelche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?\n\n\n\n\n\nAntworten:\n\nDie interessante Klasse ist die Zahlung des Schadens\nFN: Die Forderung ist berechtigt, aber die Versicherung zahlt nicht\nFP: Die Forderung ist unberechtigt, aber die Versicherung zahlt\nFP ist teurer, da die Versicherung zahlen muss, deshalb sollte Precision im Vordergrund stehen"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-9",
+    "href": "07_VL_D.html#modellevaluation-9",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nKosten von FP und FN\n\nIdentifikation einer ansteckenden Krankheit: Ein medizinisches Modell identifiziert eine ansteckende Krankheit mit der Eingabe weniger Symptome. Anschließend wird die Person isoliert und umfänglich getestet\n\n\nFragen:\n\nWas ist die interessante Klasse aus Sicht einer Gesundheitsbehörde?\nWelche Fälle sind dann FN und FP?\nWelche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?\n\n\n\nAntworten:\n\nDie interessante Klasse ist die Identifikation der Krankheit\nFN: Die Person ist krank, wird aber nicht isoliert\nFP: Die Person ist nicht krank, wird aber isoliert\nFN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-10",
+    "href": "07_VL_D.html#modellevaluation-10",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nTauziehen zwischen Precision und Recall\n\nPrecision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt)\nDieses Tauziehen kann durch die Anpassung des Cut-Off Points \\(C\\) beeinflusst werden\nZur Illustration noch einmal zurück zur interaktiven Visualisierung:\n\nhttps://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/\n\nFragen:\n\nWas passiert mit Precision und Recall, wenn \\(C\\) ansteigt (sinkt)?\nFür welche Werte von \\(C\\) erhalten wir maximale Precision und Recall?"
+  },
+  {
+    "objectID": "07_VL_D.html#modellevaluation-11",
+    "href": "07_VL_D.html#modellevaluation-11",
+    "title": "Business Intelligence & Data Science",
+    "section": "Modellevaluation",
+    "text": "Modellevaluation\nTauziehen zwischen Precision und Recall\n\n\n\nPrecision und Recall in Abhängigkeit von \\(C\\). Quelle: Shi u. a. (2009)"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression",
+    "href": "07_VL_D.html#logistische-regression",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\n\nBisher haben wir nur eine unabhängige Variable, Energy, betrachtet\nDa die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability\nZur Identifikation geeigneter Variablen lassen sich erneut Box-Plots oder Violin-Plots verwenden\nZur Erinnerung: Auch Danceability scheint geeignet, um zwischen EDM und Klassik zu unterscheiden"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-1",
+    "href": "07_VL_D.html#logistische-regression-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\nBei der Hinzunahme mehrerer Variablen ist neben der Korrelation mit der abhängigen Variable auch die Korrelation zwischen den unabhängigen Variablen zu beachten\nBei hoher positiver Korrelation zwischen den Variablen ist es möglich, dass die Hinzunahme dieser Variablen zum Modell keinen zusätzlichen Informationsgewinn liefert\nAuch besteht das Risiko der Multikollinearität, die zu instabilen Koeffizienten und einer schlechten Modellperformance führen kann\nDie Korrelation zwischen Danceability und Energy beträgt 0,8, ist also hoch, aber noch nicht bedenklich"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-2",
+    "href": "07_VL_D.html#logistische-regression-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\n\nBei zwei unabhängigen Variablen lässt sich der Zusammenhang zwischen den Variablen und der abhängigen Variable nach wie vor grafisch darstellen, diesmal als Scatter Plot"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-3",
+    "href": "07_VL_D.html#logistische-regression-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\nAllgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:\n\n\n\\[\nP(y = 1|X) = \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot X_1 + \\beta_2 \\cdot X_2 + \\ldots + \\beta_P \\cdot X_P)}}\n\\]\n\n\nMit den beiden Variablen Energy und Danceability erhalten wir folgendes Modell:\n\n\n\\[\nP(EDM = 1|\\text{Energy, Danceability}) = \\\\ \\frac{ e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}{1 + e^{(\\beta_0 + \\beta_1 \\cdot \\text{Energy} + \\beta_2 \\cdot \\text{Danceability})}}\n\\]"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-4",
+    "href": "07_VL_D.html#logistische-regression-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\nDie Koeffizienten für die unabhängigen Variablen sind:\n\n\n\n\n\n\n\nterm\nestimate\n\n\n\n\n(Intercept)\n-38.1001\n\n\nenergy\n27.2445\n\n\ndanceability\n41.1560\n\n\n\n\n\n\n\n\n\nAuch wenn die Interpretation der Koeffizienten bei Klassifikation weniger wichtig ist, zwei Anmerkungen zur Interpretation:\n\nDa der Zusammenhang zwischen den unabhängigen Variablen und der abhängigen Variable nicht linear ist, können wir die Koeffizienten nicht direkt interpretieren wie bei der linearen Regression\nDie Vorzeichen der Koeffizienten geben jedoch an, ob die unabhängige Variable positive oder negative Auswirkungen auf die abhängige Variable hat"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-5",
+    "href": "07_VL_D.html#logistische-regression-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMultiple Logistische Regression\n\n\n\nFür das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.\nAccuracy, Precision, Recall und F1-Score sind:\n\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\naccuracy\n0.9933\n\n\nrecall\n0.9930\n\n\nprecision\n0.9930\n\n\nf_meas\n0.9930"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-6",
+    "href": "07_VL_D.html#logistische-regression-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMultiple Logistische Regression\n\n\n\n\nMit dem Scatter Plot lassen sich die Vorhersagen des Modells visualisieren und evaluieren\nDie gestrichelte Linie ist die Decision Boundary, also die Linie, auf der die Wahrscheinlichkeit für beide Klassen gleich 0,5 ist"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-7",
+    "href": "07_VL_D.html#logistische-regression-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMultiple Logistische Regression\n\n\n\nUm die Performance des Modells systematisch zu optimieren, können wir erneut den Cut-Off Point \\(C\\) anpassen\nStatt Trial & Error ist es sinnvoll, Precision und Recall für verschiedene Werte von \\(C\\) zu berechnen und zu visualisieren"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-8",
+    "href": "07_VL_D.html#logistische-regression-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nZusammenfassung binäre Klassifikation\n\nDie binäre Klassifikation erfordert zunächst die Umwandlung der abhängigen Variable in eine Dummy-Variable, kodiert mit 0 und 1\nZur Vereinfachung der Interpretation wird die interessante Klasse als 1 kodiert\nDas Modell berechnet für jeden Datenpunkt eine Wahrscheinlichkeit, dass die Beobachtung zur interessanten Klasse gehört\nAnhand eines Cut-Off Points \\(C\\) wird entschieden, ob die Beobachtung zur interessanten Klasse gehört\nDie Wahl der Evaluationsmetrik hängt von den Kosten von FP und FN und der Klassenungleichgewichtung ab\nKonfusionsmatrix, Accuracy, Precision, Recall und F1-Score sind gängige Metriken zur Modellbewertung"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression",
+    "href": "07_VL_D.html#multinominale-logistische-regression",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nErweiterung auf mehrere Klassen\n\nAuch bei mehreren unabhängigen Variablen bleibt die logistische Regression ein binäres Modell\nZur Erweiterung auf \\(K&gt;2\\) Klassen wird die multinomiale logistische Regression verwendet, bei der zunächst eine Referenz- oder Baseline-Klasse festgelegt wird\nZur Schätzung der Koeffizienten werden anschließend alle \\(K-1\\) Klassen paarweise separat gegen die Referenzklasse regressiert\nAnschließend lassen sich die Klassenzugehörigkeiten ähnlich wie im binären Modell vorhersagen"
+  },
+  {
+    "objectID": "07_VL_D.html#logistische-regression-9",
+    "href": "07_VL_D.html#logistische-regression-9",
+    "title": "Business Intelligence & Data Science",
+    "section": "Logistische Regression",
+    "text": "Logistische Regression\nMehrklassen-Klassifikation\n\n\nFür die Klassen \\(k = 1, ..., K-1\\) geschieht dies mit\n\n\n\\[\np(y_i = k|X = x) = \\frac{e^{\\beta_{k0} + \\beta_{k1}x_1 + ... + \\beta_{kp}x_p}}{1+\\sum_{l=1}^{K-1} e^{\\beta_{l0} + \\beta_{l1}x_1 + ... + \\beta_{lp}x_p} }\n\\]\n\nund für die Referenzklasse \\(K\\) mit\n\n\\[\np(y_i = k|X = x) = \\frac{1}{1+\\sum_{l=1}^{K-1} e^{\\beta_{l0} + \\beta_{l1}x_1 + ... + \\beta_{lp}x_p} }\n\\]\n\n\nDabei sind \\(\\beta_{k0}, ..., \\beta_{kp}\\) die Koeffizienten für die Klasse \\(k\\) und \\(x_1, ..., x_p\\) die unabhängigen Variablen"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-1",
+    "href": "07_VL_D.html#multinominale-logistische-regression-1",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nNeue Daten von Tofispy\n\nTofispy hat uns neue Daten zur Verfügung gestellt:\n\nNeben Klassik und EDM ist jetzt auch Hip-Hop enthalten\nNach wie vor haben wir die beiden Variablen Energy und Danceability zur Verfügung\n\nErneut teilen wir die Daten in Trainings- und Testdaten auf\nDiesmal verwenden wir 70% der Daten für das Training und 30% für das Testen\nDie Bewertung des Modells erfolgt dann anhand der Testdaten"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-2",
+    "href": "07_VL_D.html#multinominale-logistische-regression-2",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nErgebnisse\n\nFür das multinominale Modell erhalten wir jeweils Koeffizienten für \\(K-1\\) Klassen, bis auf die Referenzklasse \\(K\\)\nFür das Beispiel mit den drei Genres Klassik, EDM und Hip-Hop erhalten wir folgende Koeffizienten\n\n\n\n\n\n\n\n\nClass\nVariable\nCoefficient\n\n\n\n\nHip-Hop\n(Intercept)\n5.1263\n\n\nHip-Hop\nenergy\n-9.7410\n\n\nHip-Hop\ndanceability\n3.2574\n\n\nKlassik\n(Intercept)\n23.7448\n\n\nKlassik\nenergy\n-30.5953\n\n\nKlassik\ndanceability\n-15.4205"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-3",
+    "href": "07_VL_D.html#multinominale-logistische-regression-3",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nWahrscheinlichkeit und Klassenzugehörigkeit\n\nAuch das Modell der multinomialen logistischen Regression gibt für jede Klasse eine Wahrscheinlichkeit aus\nAnders als im binären Modell wird jedoch nicht nur die Wahrscheinlichkeit für eine Klasse ausgegeben, sondern für alle Klassen\nDie Klassenzugehörigkeit wird dann anhand der höchsten Wahrscheinlichkeit bestimmt, ein Cut-Off Point ist nicht notwendig"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-4",
+    "href": "07_VL_D.html#multinominale-logistische-regression-4",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nPrognose aus dem multinominalen Modell\n\nDie Prognose für die jeweilligen Klassen erfolgt erneut durch einsetzen der Koeffizienten in die logistische Funktion\nFür Hip-Hop erhalten wir beispielsweise\n\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop)|\\text{Energy, Dance}} = \\\\\n\\frac{e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}}}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]\n\n\n\nUnd für die Referenzklasse EDM:\n\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop)|\\text{Energy, Dance}} = \\\\\n\\frac{1}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-5",
+    "href": "07_VL_D.html#multinominale-logistische-regression-5",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nPrognose aus dem multinominalen Modell\n\nDa die händische Berechnung viel zu aufwendig ist, hier ein Beispiel für 10 ausgewählte Songs:\n\n\n\n\n\n\n\n\npred_class\ncategory\np_EDM\np_Hip-Hop\np_Klassik\ntrack.name\ntrack.artist\nenergy\ndanceability\n\n\n\n\nEDM\nEDM\n0.8015\n0.1985\n0.0000\nSamaria\nEuggy\n0.9080\n0.713\n\n\nEDM\nEDM\n0.8665\n0.1335\n0.0000\nMake It Work\nBklava\n0.9540\n0.705\n\n\nHip-Hop\nHip-Hop\n0.1855\n0.8145\n0.0000\nOKAY!\nOG Keemo\n0.6850\n0.929\n\n\nEDM\nEDM\n0.6489\n0.3511\n0.0000\nBlack Swan\nAxel N.\n0.8070\n0.651\n\n\nKlassik\nKlassik\n0.0000\n0.0000\n1.0000\nPréludes - Book 2, L.123: 11. Les tierces alternées\nClaude Debussy\n0.0633\n0.279\n\n\nHip-Hop\nHip-Hop\n0.1179\n0.8796\n0.0025\nTipsy\nDizzy\n0.5520\n0.694\n\n\nHip-Hop\nHip-Hop\n0.4729\n0.5271\n0.0000\nOvernight Celebrity\nTwista\n0.7920\n0.828\n\n\nHip-Hop\nHip-Hop\n0.2642\n0.7358\n0.0000\nThe Humpty Dance\nDigital Underground\n0.6930\n0.813\n\n\nKlassik\nKlassik\n0.0000\n0.0000\n1.0000\nPapa, Can You Hear Me?\nElliott Jack Sansom\n0.0128\n0.452\n\n\nKlassik\nKlassik\n0.0000\n0.0005\n0.9994\nPeaceful Here Now\nColin Stetson\n0.3170\n0.241"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-6",
+    "href": "07_VL_D.html#multinominale-logistische-regression-6",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\nDie Evaluationsmetriken für die multinominale logistische Regression sind analog zum binären Modell, Accuracy, Precision, Recall und F1-Score können auch hier verwendet werden\nAuch die Konfusionsmatrix ist ein geeignetes Mittel zur Modellbewertung, umfasst nun aber alle Klassen und nicht nur vier Felder\nAccuracy entspricht dann nach wie vor der Summe aller richtig klassifizierten Fälle geteilt durch die Gesamtanzahl der Fälle\nAndere Metriken können entweder für jede Klasse einzeln berechnet oder gemittelt werden, um ein Gesamtbild der Modellperformance zu erhalten"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-7",
+    "href": "07_VL_D.html#multinominale-logistische-regression-7",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\nBei der Aggregation wird häufig Macro-Averaging verwendet, bei dem der gleichgewichtete Durchschnitt über alle Klassen berechnet wird\nZum Beispiel für Precision ergibt sich bei Macro-Averaging:\n\n\n\n\\[\nPrecision_{\\text{macro}} = \\frac{1}{K} \\sum_{k=1}^{K} Precision_k\n\\]\n\n\n\nWobei \\(K\\) die Anzahl der Klassen ist\nAnalog für Recall möglich"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-8",
+    "href": "07_VL_D.html#multinominale-logistische-regression-8",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\n\n\nDie Konfusionsmatrix für das Modell mit drei Klassen ist auf der rechten Seite dargestellt\nIm Durchschnitt über alle Klassen erhalten wir die folgenden Metriken:\n\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\naccuracy\n0.8478\n\n\nrecall\n0.8454\n\n\nprecision\n0.8479\n\n\nf_meas\n0.8464"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-9",
+    "href": "07_VL_D.html#multinominale-logistische-regression-9",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\nDie Performance des Modells weicht zwischen den Klassen oft ab, häufig auch in einer Klassenungleichgewichtung begründet\nAus diesem Grund ist es manchmal sinnvoll, die Metriken für jede Klasse einzeln zu betrachten\nFür Precision:\n\n\n\n\\[\nPrecision_{\\text{k}} = \\frac{TP_{\\text{k}}}{TP_{\\text{k}} + FP_{\\text{k}}} = \\frac{TP_{\\text{k}}}{\\text{# vorhergesagte Klasse k}}\n\\]\n\n\n\nund für Recall:\n\n\n\n\\[\nRecall_{\\text{k}} = \\frac{TP_{\\text{k}}}{TP_{\\text{k}} + FN_{\\text{k}}} = \\frac{TP_{\\text{k}}}{\\text{# tatsächliche Klasse k}}\n\\]"
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-10",
+    "href": "07_VL_D.html#multinominale-logistische-regression-10",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nVergleich Aggregation vs. Einzelmetriken\n\n\n\nMacro-Averaging\n\nEinfach interpretierbar, Reduktion auf eine Zahl\nSinnvoll wenn alle Klassen gleich wichtig sind oder Datensatz ausgewogen\nKann schlechte Performance in kleinen Klassen verbergen\n\n\n\n\nBerechnung pro Klasse\n\nWenn nur bestimmte Klassen interessant sind kann man gezielt evaluieren\nAuch bei unbalancierten Datensätzen sinnvoll, um die Performance kleiner Klassen hervorzuheben\nKann zu unübersichtlichen Ergebnissen führen, wenn viele Klassen vorhanden sind\n\n\n\n\n\nDa wir vornehmlich balancierte Klassen betrachten, ist Macro-Averaging in unsere Zwecke ausreichend"
+  },
+  {
+    "objectID": "07_VL_D.html#quellen",
+    "href": "07_VL_D.html#quellen",
+    "title": "Business Intelligence & Data Science",
+    "section": "Quellen",
+    "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. An Introduction to Statistical Learning: with Applications in R. Second edition. Springer texts in statistics. New York NY: Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nMaleki, Farhad, Katie Ovens, Keyhan Najafian, Behzad Forghani, Caroline Md, und Reza Forghani. 2020. „Overview of Machine Learning Part 1“. Neuroimaging Clinics of North America 30 (November): e17–32. https://doi.org/10.1016/j.nic.2020.08.007.\n\n\nShi, Feng, Juanzi Li, Jie Tang, Guotong Xie, und Hanyu Li. 2009. „Actively Learning Ontology Matching via User Interaction“. In, 5823:585–600. https://doi.org/10.1007/978-3-642-04930-9_37."
   },
   {
     "objectID": "06_VL.html#der-plan-für-heute",
@@ -2534,6 +3122,13 @@
     "text": "Der Plan für heute…\nVorlesung\n\nQuiz und kurzes Recap logistische Regression\nModellgestützte Analysen\n\nWeitere Modellevaluation\nMultiple Logistische Regression\nMultinominale Logistische Regression"
   },
   {
+    "objectID": "07_VL.html#ablauf",
+    "href": "07_VL.html#ablauf",
+    "title": "Business Intelligence & Data Science",
+    "section": "Ablauf",
+    "text": "Ablauf\nAktualisierter Ablaufplan\n\n\n\n\n\nBlock\nGruppe D\nThema\n\n\n\n\n1\n21.03.2024:09:00 – 10:30\nOrganisation, Einleitung\n\n\n2\n21.03.2024:10:45 – 12:15\nDatenbereitstellung: Data Warehousing\n\n\n3\n28.03.2024:13:00 – 14:30\nDatentransformation\n\n\n4\n28.03.2024:14:45 – 16:15\nBig Data und Data Lake\n\n\n5\n02.04.2024:13:00 – 14:30\nInformationsgenerierung: Berichtsorientierte Analysen\n\n\n6\n02.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Grundlagen\n\n\n7\n15.04.2024:13:00 – 14:30\nAdvanced und Predictive Analytics: Klassifikation\n\n\n8\n15.04.2024:14:45 – 16:15\nAdvanced und Predictive Analytics: Klassifikation\n\n\n9\n02.05.2024:13:00 – 14:30\nRestinhalte Klassifikation; Assoziationsanalyse; Probeklausur (30 Minuten)\n\n\n10\n02.05.2024:14:45 – 16:15\nBesprechung Probeklausur; Evaluation; Fragen\n\n\n-\n13.05.2024:13:00 – 14:30\nKlausur (60 Minuten)"
+  },
+  {
     "objectID": "07_VL.html#modellevaluation",
     "href": "07_VL.html#modellevaluation",
     "title": "Business Intelligence & Data Science",
@@ -2650,7 +3245,7 @@
     "href": "07_VL.html#logistische-regression-4",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\nDie Koeffizienten für die unabhängigen Variablen sind:\n\n\n\n\n\n\nterm\nestimate\n\n\n\n\n(Intercept)\n-38.1001\n\n\nenergy\n27.2445\n\n\ndanceability\n41.1560\n\n\n\n\n\n\n\n\nAuch wenn die Interpretation der Koeffizienten bei Klassifikation weniger wichtig ist, zwei Anmerkungen zur Interpretation:\n\nDa der Zusammenhang zwischen den unabhängigen Variablen und der abhängigen Variable nicht linear ist, können wir die Koeffizienten nicht direkt interpretieren wie bei der linearen Regression\nDie Vorzeichen der Koeffizienten geben jedoch an, ob die unabhängige Variable positive oder negative Auswirkungen auf die abhängige Variable hat"
+    "text": "Logistische Regression\nMehrere unabhängige Variablen\n\n\nDie Koeffizienten für die unabhängigen Variablen sind:\n\n\n\n\n\n\n\nterm\nestimate\n\n\n\n\n(Intercept)\n-38.1001\n\n\nenergy\n27.2445\n\n\ndanceability\n41.1560\n\n\n\n\n\n\n\n\n\nAuch wenn die Interpretation der Koeffizienten bei Klassifikation weniger wichtig ist, zwei Anmerkungen zur Interpretation:\n\nDa der Zusammenhang zwischen den unabhängigen Variablen und der abhängigen Variable nicht linear ist, können wir die Koeffizienten nicht direkt interpretieren wie bei der linearen Regression\nDie Vorzeichen der Koeffizienten geben jedoch an, ob die unabhängige Variable positive oder negative Auswirkungen auf die abhängige Variable hat"
   },
   {
     "objectID": "07_VL.html#logistische-regression-5",
@@ -2692,7 +3287,7 @@
     "href": "07_VL.html#logistische-regression-9",
     "title": "Business Intelligence & Data Science",
     "section": "Logistische Regression",
-    "text": "Logistische Regression\nMehrklassen-Klassifikation\n\n\nFür die Klassen \\(k = 1, ..., K-1\\) geschieht dies mit\n\n\\[\np(y_i = k|X = x) = \\frac{e^{\\beta_{k0} + \\beta_{k1}x_1 + ... + \\beta_{kp}x_p}}{1+\\sum_{l=1}^{K-1} e^{\\beta_{l0} + \\beta_{l1}x_1 + ... + \\beta_{lp}x_p} }\n\\]\nund für die Referenzklasse \\(K\\) mit\n\\[\np(y_i = k|X = x) = \\frac{1}{1+\\sum_{l=1}^{K-1} e^{\\beta_{l0} + \\beta_{l1}x_1 + ... + \\beta_{lp}x_p} }\n\\]\n\nDabei sind \\(\\beta_{k0}, ..., \\beta_{kp}\\) die Koeffizienten für die Klasse \\(k\\) und \\(x_1, ..., x_p\\) die unabhängigen Variablen"
+    "text": "Logistische Regression\nMehrklassen-Klassifikation\n\n\nFür die Klassen \\(k = 1, ..., K-1\\) geschieht dies mit\n\n\n\\[\np(y_i = k|X = x) = \\frac{e^{\\beta_{k0} + \\beta_{k1}x_1 + ... + \\beta_{kp}x_p}}{1+\\sum_{l=1}^{K-1} e^{\\beta_{l0} + \\beta_{l1}x_1 + ... + \\beta_{lp}x_p} }\n\\]\n\nund für die Referenzklasse \\(K\\) mit\n\n\\[\np(y_i = k|X = x) = \\frac{1}{1+\\sum_{l=1}^{K-1} e^{\\beta_{l0} + \\beta_{l1}x_1 + ... + \\beta_{lp}x_p} }\n\\]\n\n\nDabei sind \\(\\beta_{k0}, ..., \\beta_{kp}\\) die Koeffizienten für die Klasse \\(k\\) und \\(x_1, ..., x_p\\) die unabhängigen Variablen"
   },
   {
     "objectID": "07_VL.html#multinominale-logistische-regression-1",
@@ -2706,7 +3301,7 @@
     "href": "07_VL.html#multinominale-logistische-regression-2",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nErgebnisse\n\nFür das multinominale Modell erhalten wir jeweils Koeffizienten für \\(K-1\\) Klassen, bis auf die Referenzklasse \\(K\\)\nFür das Beispiel mit den drei Genres Klassik, EDM und Hip-Hop erhalten wir folgende Koeffizienten\n\n\n\n\n\n\n\nClass\nVariable\nCoefficient\n\n\n\n\nHip-Hop\n(Intercept)\n5.1263\n\n\nHip-Hop\nenergy\n-9.7410\n\n\nHip-Hop\ndanceability\n3.2574\n\n\nKlassik\n(Intercept)\n23.7448\n\n\nKlassik\nenergy\n-30.5953\n\n\nKlassik\ndanceability\n-15.4205"
+    "text": "Multinominale Logistische Regression\nErgebnisse\n\nFür das multinominale Modell erhalten wir jeweils Koeffizienten für \\(K-1\\) Klassen, bis auf die Referenzklasse \\(K\\)\nFür das Beispiel mit den drei Genres Klassik, EDM und Hip-Hop erhalten wir folgende Koeffizienten\n\n\n\n\n\n\n\n\nClass\nVariable\nCoefficient\n\n\n\n\nHip-Hop\n(Intercept)\n5.1263\n\n\nHip-Hop\nenergy\n-9.7410\n\n\nHip-Hop\ndanceability\n3.2574\n\n\nKlassik\n(Intercept)\n23.7448\n\n\nKlassik\nenergy\n-30.5953\n\n\nKlassik\ndanceability\n-15.4205"
   },
   {
     "objectID": "07_VL.html#multinominale-logistische-regression-3",
@@ -2720,14 +3315,14 @@
     "href": "07_VL.html#multinominale-logistische-regression-4",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nPrognose aus dem multinominalen Modell\n\nDie Prognose für die jeweilligen Klassen erfolgt erneut durch einsetzen der Koeffizienten in die logistische Funktion\nFür Hip-Hop erhalten wir beispielsweise\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop)|\\text{Energy, Dance}} = \\\\\n\\frac{e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}}}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]\n\n\nUnd für die Referenzklasse EDM:\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop)|\\text{Energy, Dance}} = \\\\\n\\frac{1}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]"
+    "text": "Multinominale Logistische Regression\nPrognose aus dem multinominalen Modell\n\nDie Prognose für die jeweilligen Klassen erfolgt erneut durch einsetzen der Koeffizienten in die logistische Funktion\nFür Hip-Hop erhalten wir beispielsweise\n\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop)|\\text{Energy, Dance}} = \\\\\n\\frac{e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}}}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]\n\n\n\nUnd für die Referenzklasse EDM:\n\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop)|\\text{Energy, Dance}} = \\\\\n\\frac{1}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]"
   },
   {
     "objectID": "07_VL.html#multinominale-logistische-regression-5",
     "href": "07_VL.html#multinominale-logistische-regression-5",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nPrognose aus dem multinominalen Modell\n\nDa die händische Berechnung viel zu aufwendig ist, hier ein Beispiel für 10 ausgewählte Songs:\n\n\n\n\n\n\n\npred_class\ncategory\np_EDM\np_Hip-Hop\np_Klassik\ntrack.name\ntrack.artist\nenergy\ndanceability\n\n\n\n\nEDM\nEDM\n0.8015\n0.1985\n0.0000\nSamaria\nEuggy\n0.9080\n0.713\n\n\nEDM\nEDM\n0.8665\n0.1335\n0.0000\nMake It Work\nBklava\n0.9540\n0.705\n\n\nHip-Hop\nHip-Hop\n0.1855\n0.8145\n0.0000\nOKAY!\nOG Keemo\n0.6850\n0.929\n\n\nEDM\nEDM\n0.6489\n0.3511\n0.0000\nBlack Swan\nAxel N.\n0.8070\n0.651\n\n\nKlassik\nKlassik\n0.0000\n0.0000\n1.0000\nPréludes - Book 2, L.123: 11. Les tierces alternées\nClaude Debussy\n0.0633\n0.279\n\n\nHip-Hop\nHip-Hop\n0.1179\n0.8796\n0.0025\nTipsy\nDizzy\n0.5520\n0.694\n\n\nHip-Hop\nHip-Hop\n0.4729\n0.5271\n0.0000\nOvernight Celebrity\nTwista\n0.7920\n0.828\n\n\nHip-Hop\nHip-Hop\n0.2642\n0.7358\n0.0000\nThe Humpty Dance\nDigital Underground\n0.6930\n0.813\n\n\nKlassik\nKlassik\n0.0000\n0.0000\n1.0000\nPapa, Can You Hear Me?\nElliott Jack Sansom\n0.0128\n0.452\n\n\nKlassik\nKlassik\n0.0000\n0.0005\n0.9994\nPeaceful Here Now\nColin Stetson\n0.3170\n0.241"
+    "text": "Multinominale Logistische Regression\nPrognose aus dem multinominalen Modell\n\nDa die händische Berechnung viel zu aufwendig ist, hier ein Beispiel für 10 ausgewählte Songs:\n\n\n\n\n\n\n\n\npred_class\ncategory\np_EDM\np_Hip-Hop\np_Klassik\ntrack.name\ntrack.artist\nenergy\ndanceability\n\n\n\n\nEDM\nEDM\n0.8015\n0.1985\n0.0000\nSamaria\nEuggy\n0.9080\n0.713\n\n\nEDM\nEDM\n0.8665\n0.1335\n0.0000\nMake It Work\nBklava\n0.9540\n0.705\n\n\nHip-Hop\nHip-Hop\n0.1855\n0.8145\n0.0000\nOKAY!\nOG Keemo\n0.6850\n0.929\n\n\nEDM\nEDM\n0.6489\n0.3511\n0.0000\nBlack Swan\nAxel N.\n0.8070\n0.651\n\n\nKlassik\nKlassik\n0.0000\n0.0000\n1.0000\nPréludes - Book 2, L.123: 11. Les tierces alternées\nClaude Debussy\n0.0633\n0.279\n\n\nHip-Hop\nHip-Hop\n0.1179\n0.8796\n0.0025\nTipsy\nDizzy\n0.5520\n0.694\n\n\nHip-Hop\nHip-Hop\n0.4729\n0.5271\n0.0000\nOvernight Celebrity\nTwista\n0.7920\n0.828\n\n\nHip-Hop\nHip-Hop\n0.2642\n0.7358\n0.0000\nThe Humpty Dance\nDigital Underground\n0.6930\n0.813\n\n\nKlassik\nKlassik\n0.0000\n0.0000\n1.0000\nPapa, Can You Hear Me?\nElliott Jack Sansom\n0.0128\n0.452\n\n\nKlassik\nKlassik\n0.0000\n0.0005\n0.9994\nPeaceful Here Now\nColin Stetson\n0.3170\n0.241"
   },
   {
     "objectID": "07_VL.html#multinominale-logistische-regression-6",
@@ -2741,28 +3336,28 @@
     "href": "07_VL.html#multinominale-logistische-regression-7",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\nBei der Aggregation wird häufig Macro-Averaging verwendet, bei dem der gleichgewichtete Durchschnitt über alle Klassen berechnet wird\nZum Beispiel für Precision ergibt sich bei Macro-Averaging:\n\n\n\\[\nPrecision_{\\text{macro}} = \\frac{1}{K} \\sum_{k=1}^{K} Precision_k\n\\]\n\n\nWobei \\(K\\) die Anzahl der Klassen ist\nAnalog für Recall möglich"
+    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\nBei der Aggregation wird häufig Macro-Averaging verwendet, bei dem der gleichgewichtete Durchschnitt über alle Klassen berechnet wird\nZum Beispiel für Precision ergibt sich bei Macro-Averaging:\n\n\n\n\\[\nPrecision_{\\text{macro}} = \\frac{1}{K} \\sum_{k=1}^{K} Precision_k\n\\]\n\n\n\nWobei \\(K\\) die Anzahl der Klassen ist\nAnalog für Recall möglich"
   },
   {
     "objectID": "07_VL.html#multinominale-logistische-regression-8",
     "href": "07_VL.html#multinominale-logistische-regression-8",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\n\n\nDie Konfusionsmatrix für das Modell mit drei Klassen ist auf der rechten Seite dargestellt\nIm Durchschnitt über alle Klassen erhalten wir die folgenden Metriken:\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\naccuracy\n0.8478\n\n\nrecall\n0.8454\n\n\nprecision\n0.8479\n\n\nf_meas\n0.8464"
+    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\n\n\nDie Konfusionsmatrix für das Modell mit drei Klassen ist auf der rechten Seite dargestellt\nIm Durchschnitt über alle Klassen erhalten wir die folgenden Metriken:\n\n\n\n\n\n\n\nMetric\nValue\n\n\n\n\naccuracy\n0.8478\n\n\nrecall\n0.8454\n\n\nprecision\n0.8479\n\n\nf_meas\n0.8464"
   },
   {
     "objectID": "07_VL.html#multinominale-logistische-regression-9",
     "href": "07_VL.html#multinominale-logistische-regression-9",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\nDie Performance des Modells weicht zwischen den Klassen oft ab, häufig auch in einer Klassenungleichgewichtung begründet\nAus diesem Grund ist es manchmal sinnvoll, die Metriken für jede Klasse einzeln zu betrachten\nFür Precision:\n\n\n\\[\nPrecision_{\\text{k}} = \\frac{TP_{\\text{k}}}{TP_{\\text{k}} + FP_{\\text{k}}} = \\frac{TP_{\\text{k}}}{\\text{# vorhergesagte Klasse k}}\n\\]\n\n\nund für Recall:\n\n\n\\[\nRecall_{\\text{k}} = \\frac{TP_{\\text{k}}}{TP_{\\text{k}} + FN_{\\text{k}}} = \\frac{TP_{\\text{k}}}{\\text{# tatsächliche Klasse k}}\n\\]"
+    "text": "Multinominale Logistische Regression\nEvaluationsmetriken\n\nDie Performance des Modells weicht zwischen den Klassen oft ab, häufig auch in einer Klassenungleichgewichtung begründet\nAus diesem Grund ist es manchmal sinnvoll, die Metriken für jede Klasse einzeln zu betrachten\nFür Precision:\n\n\n\n\\[\nPrecision_{\\text{k}} = \\frac{TP_{\\text{k}}}{TP_{\\text{k}} + FP_{\\text{k}}} = \\frac{TP_{\\text{k}}}{\\text{# vorhergesagte Klasse k}}\n\\]\n\n\n\nund für Recall:\n\n\n\n\\[\nRecall_{\\text{k}} = \\frac{TP_{\\text{k}}}{TP_{\\text{k}} + FN_{\\text{k}}} = \\frac{TP_{\\text{k}}}{\\text{# tatsächliche Klasse k}}\n\\]"
   },
   {
     "objectID": "07_VL.html#multinominale-logistische-regression-10",
     "href": "07_VL.html#multinominale-logistische-regression-10",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nVergleich Aggregation vs. Einzelmetriken\n\n\n\nMacro-Averaging\n\nEinfach interpretierbar, Reduktion auf eine Zahl\nSinnvoll wenn alle Klassen gleich wichtig sind oder Datensatz ausgewogen\nKann schlechte Performance in kleinen Klassen verbergen\n\n\n\n\nBerechnung pro Klasse\n\nWenn nur bestimmte Klassen interessant sind kann man gezielt evaluieren\nAuch bei unbalancierten Datensätzen sinnvoll, um die Performance kleiner Klassen hervorzuheben\nKann zu unübersichtlichen Ergebnissen führen, wenn viele Klassen vorhanden sind"
+    "text": "Multinominale Logistische Regression\nVergleich Aggregation vs. Einzelmetriken\n\n\n\nMacro-Averaging\n\nEinfach interpretierbar, Reduktion auf eine Zahl\nSinnvoll wenn alle Klassen gleich wichtig sind oder Datensatz ausgewogen\nKann schlechte Performance in kleinen Klassen verbergen\n\n\n\n\nBerechnung pro Klasse\n\nWenn nur bestimmte Klassen interessant sind kann man gezielt evaluieren\nAuch bei unbalancierten Datensätzen sinnvoll, um die Performance kleiner Klassen hervorzuheben\nKann zu unübersichtlichen Ergebnissen führen, wenn viele Klassen vorhanden sind\n\n\n\n\n\nDa wir vornehmlich balancierte Klassen betrachten, ist Macro-Averaging in unsere Zwecke ausreichend"
   },
   {
     "objectID": "07_VL.html#quellen",

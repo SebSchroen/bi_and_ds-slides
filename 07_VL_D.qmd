@@ -76,12 +76,14 @@ testing_multi <- testing(split_multi)
 ## Ablauf
 ### Aktualisierter Ablaufplan
 
+
+
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
 read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
   select(-`Slides C`, -`Slides D`) %>% 
   select(-`Gruppe C`) %>% 
   kable( escape = FALSE)  %>% 
-  kable_styling(font_size = 24)
+  kable_styling(font_size = 20)
 ```
 
 
