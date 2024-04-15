@@ -2419,7 +2419,7 @@
     "href": "07_VL_D.html#multinominale-logistische-regression-3",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nPrognose aus dem multinominalen Modell\n\nDie Prognose für die jeweilligen Klassen erfolgt erneut durch einsetzen der Koeffizienten in die logistische Funktion\nFür Hip-Hop erhalten wir beispielsweise\n\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop)|\\text{Energy, Dance}} = \\\\\n\\frac{e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}}}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]\n\n\n\nUnd für die Referenzklasse EDM:\n\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop)|\\text{Energy, Dance}} = \\\\\n\\frac{1}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]"
+    "text": "Multinominale Logistische Regression\nPrognose aus dem multinominalen Modell\n\nDie Prognose für die jeweilligen Klassen erfolgt erneut durch einsetzen der Koeffizienten in die logistische Funktion\nFür Hip-Hop erhalten wir beispielsweise\n\n\n\n\\[\n\\operatorname{\\widehat{P}(Hip-Hop|\\text{Energy, Dance})} = \\\\\n\\frac{e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}}}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]\n\n\n\nUnd für die Referenzklasse EDM:\n\n\n\n\\[\n\\operatorname{\\widehat{P}(EDM|\\text{Energy, Dance)}} = \\\\\n\\frac{1}{1 + e^{5.13  -9.74 \\cdot \\text{Energy} + 3.26 \\cdot \\text{Dance}} +\ne^{23.74  -30.6 \\cdot \\text{Energy}  -15.42 \\cdot \\text{Dance}}}  \n\\]"
   },
   {
     "objectID": "07_VL_D.html#multinominale-logistische-regression-4",
@@ -2475,7 +2475,7 @@
     "href": "07_VL_D.html#multinominale-logistische-regression-11",
     "title": "Business Intelligence & Data Science",
     "section": "Multinominale Logistische Regression",
-    "text": "Multinominale Logistische Regression\nVergleich Aggregation vs. Einzelmetriken\n\n\n\n\nMacro-Averaging\n\nEinfach interpretierbar, Reduktion auf eine Zahl\nSinnvoll wenn alle Klassen gleich wichtig sind oder Datensatz ausgewogen\nKann schlechte Performance in kleinen Klassen verbergen\n\n\n\n\nBerechnung pro Klasse\n\nWenn nur bestimmte Klassen interessant sind kann man gezielt evaluieren\nAuch bei unbalancierten Datensätzen sinnvoll, um die Performance kleiner Klassen hervorzuheben\nKann zu unübersichtlichen Ergebnissen führen, wenn viele Klassen vorhanden sind\n\n\n\n\n\nDa wir vornehmlich balancierte Klassen betrachten, ist Macro-Averaging für unsere Zwecke ausreichend"
+    "text": "Multinominale Logistische Regression\nLösung Evaluationsmetriken pro Klasse\n\nPrecsion:\n\nEDM = 363/(363+109+0) = 76.91%\nHip-Hop = 479/614 = 78.01%\nKlassik = 534/537 = 99.44%\n\nRecall:\n\nEDM 363/(363+126+1) = 74.08%\nHip-Hop = 479/590 = 81.19%\nKlassik = 534/543 = 98.34%"
   },
   {
     "objectID": "07_VL_D.html#quellen",
@@ -3400,5 +3400,12 @@
     "title": "Business Intelligence & Data Science",
     "section": "Quellen",
     "text": "Quellen\n\n\nBusiness Intelligence & Data Science, SoSe 2024\n\n\n\nJames, Gareth, Daniela Witten, Trevor Hastie, und Robert Tibshirani. 2021. An Introduction to Statistical Learning: with Applications in R. Second edition. Springer texts in statistics. New York NY: Springer. https://doi.org/10.1007/978-1-0716-1418-1.\n\n\nMaleki, Farhad, Katie Ovens, Keyhan Najafian, Behzad Forghani, Caroline Md, und Reza Forghani. 2020. „Overview of Machine Learning Part 1“. Neuroimaging Clinics of North America 30 (November): e17–32. https://doi.org/10.1016/j.nic.2020.08.007.\n\n\nShi, Feng, Juanzi Li, Jie Tang, Guotong Xie, und Hanyu Li. 2009. „Actively Learning Ontology Matching via User Interaction“. In, 5823:585–600. https://doi.org/10.1007/978-3-642-04930-9_37."
+  },
+  {
+    "objectID": "07_VL_D.html#multinominale-logistische-regression-12",
+    "href": "07_VL_D.html#multinominale-logistische-regression-12",
+    "title": "Business Intelligence & Data Science",
+    "section": "Multinominale Logistische Regression",
+    "text": "Multinominale Logistische Regression\nVergleich Aggregation vs. Einzelmetriken\n\n\n\n\nMacro-Averaging\n\nEinfach interpretierbar, Reduktion auf eine Zahl\nSinnvoll wenn alle Klassen gleich wichtig sind oder Datensatz ausgewogen\nKann schlechte Performance in kleinen Klassen verbergen\n\n\n\n\nBerechnung pro Klasse\n\nWenn nur bestimmte Klassen interessant sind kann man gezielt evaluieren\nAuch bei unbalancierten Datensätzen sinnvoll, um die Performance kleiner Klassen hervorzuheben\nKann zu unübersichtlichen Ergebnissen führen, wenn viele Klassen vorhanden sind\n\n\n\n\n\nDa wir vornehmlich balancierte Klassen betrachten, ist Macro-Averaging für unsere Zwecke ausreichend"
   }
 ]

@@ -1166,7 +1166,7 @@ p(y_i = k|X = x) = \frac{1}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + .
 <div style="font-size: 0.7em">
 <div class="fragment fade-in">
 <p><span class="math display">\[
-\operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
+\operatorname{\widehat{P}(Hip-Hop|\text{Energy, Dance})} = \\
 \frac{e^{5.13  -9.74 \cdot \text{Energy} + 3.26 \cdot \text{Dance}}}{1 + e^{5.13  -9.74 \cdot \text{Energy} + 3.26 \cdot \text{Dance}} +
 e^{23.74  -30.6 \cdot \text{Energy}  -15.42 \cdot \text{Dance}}}  
 \]</span></p>
@@ -1178,7 +1178,7 @@ e^{23.74  -30.6 \cdot \text{Energy}  -15.42 \cdot \text{Dance}}}
 <div style="font-size: 0.7em">
 <div class="fragment fade-in">
 <p><span class="math display">\[
-\operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
+\operatorname{\widehat{P}(EDM|\text{Energy, Dance)}} = \\
 \frac{1}{1 + e^{5.13  -9.74 \cdot \text{Energy} + 3.26 \cdot \text{Dance}} +
 e^{23.74  -30.6 \cdot \text{Energy}  -15.42 \cdot \text{Dance}}}  
 \]</span></p>
@@ -1603,6 +1603,24 @@ Recall_{\text{k}} = \frac{TP_{\text{k}}}{TP_{\text{k}} + FN_{\text{k}}} = \frac{
       }</style></aside>
 </section>
 <section id="multinominale-logistische-regression-11" class="slide level2">
+<h2>Multinominale Logistische Regression</h2>
+<h3 id="lösung-evaluationsmetriken-pro-klasse">Lösung Evaluationsmetriken pro Klasse</h3>
+<ul>
+<li class="fragment">Precsion:
+<ul>
+<li class="fragment">EDM = 363/(363+109+0) = 76.91%</li>
+<li class="fragment">Hip-Hop = 479/614 = 78.01%</li>
+<li class="fragment">Klassik = 534/537 = 99.44%</li>
+</ul></li>
+<li class="fragment">Recall:
+<ul>
+<li class="fragment">EDM 363/(363+126+1) = 74.08%</li>
+<li class="fragment">Hip-Hop = 479/590 = 81.19%</li>
+<li class="fragment">Klassik = 534/543 = 98.34%</li>
+</ul></li>
+</ul>
+</section>
+<section id="multinominale-logistische-regression-12" class="slide level2">
 <h2>Multinominale Logistische Regression</h2>
 <h3 id="vergleich-aggregation-vs.-einzelmetriken">Vergleich Aggregation vs.&nbsp;Einzelmetriken</h3>
 <div style="font-size: 0.75em">

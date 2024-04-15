@@ -887,7 +887,7 @@ beta_klassik_dance <- coefs_multi %>%
 ::: {.fragment .fade-in}
 
 $$
-\operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
+\operatorname{\widehat{P}(Hip-Hop|\text{Energy, Dance})} = \\
 \frac{e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}}}{1 + e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}} +
 e^{`r round(intercept_klassik,2)`  `r round(beta_klassik_energy,2)` \cdot \text{Energy}  `r round(beta_klassik_dance,2)` \cdot \text{Dance}}}  
 $$
@@ -902,7 +902,7 @@ $$
 ::: {.fragment .fade-in}
 
 $$
-\operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
+\operatorname{\widehat{P}(EDM|\text{Energy, Dance)}} = \\
 \frac{1}{1 + e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}} +
 e^{`r round(intercept_klassik,2)`  `r round(beta_klassik_energy,2)` \cdot \text{Energy}  `r round(beta_klassik_dance,2)` \cdot \text{Dance}}}  
 $$
@@ -1189,6 +1189,19 @@ Klassik = 534/543 = 98.34%
 
 :::
 
+
+## Multinominale Logistische Regression
+### Lösung Evaluationsmetriken pro Klasse
+
+
+* Precsion:
+  * EDM = 363/(363+109+0) = 76.91%
+  * Hip-Hop =  479/614 = 78.01%
+  * Klassik = 534/537 = 99.44%
+* Recall:
+  * EDM 363/(363+126+1) = 74.08%
+  * Hip-Hop = 479/590 = 81.19%
+  * Klassik = 534/543 = 98.34%
 
 ## Multinominale Logistische Regression
 ### Vergleich Aggregation vs. Einzelmetriken
