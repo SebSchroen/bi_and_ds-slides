@@ -450,11 +450,16 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 </section>
 <section id="nearest-neighbor-klassifikation-5" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
-<h3 id="schritte-und-intuition">Schritte und Intuition</h3>
+<h3 id="bestimmung-der-nachbarn-3">Bestimmung der Nachbarn</h3>
 <div>
-<ol type="1">
-<li>Bestimme die Trainingsdaten durch einen Split, bspw. 70% Trainingsdaten, lege <span class="math inline">\(K\)</span> fest</li>
-</ol>
+<ul>
+<li>In zwei Dimensionen vereinfacht sich diese Gleichung zu:</li>
+</ul>
+</div>
+<div style="font-size: 0.75em">
+<p><span class="math display">\[
+d(p,q) = \sqrt{(0.1-0.5)^2 + (0.3-0.9)^2} = 0.7211
+\]</span></p>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -468,10 +473,10 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 </section>
 <section id="nearest-neighbor-klassifikation-6" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
-<h3 id="schritte-und-intuition-1">Schritte und Intuition</h3>
+<h3 id="schritte-und-intuition">Schritte und Intuition</h3>
 <div>
-<ol start="2" type="1">
-<li>Für den neuen Datenpunkt <code>Doja Cat</code>, berechne die euklidische Distanz zu allen anderen Punkten im Trainingsdatensatz</li>
+<ol type="1">
+<li>Bestimme die Trainingsdaten durch einen Split, bspw. 70% Trainingsdaten, lege <span class="math inline">\(K\)</span> fest</li>
 </ol>
 </div>
 <div class="cell" data-layout-align="center">
@@ -486,7 +491,7 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 </section>
 <section id="nearest-neighbor-klassifikation-7" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
-<h3 id="schritte-und-intuition-2">Schritte und Intuition</h3>
+<h3 id="schritte-und-intuition-1">Schritte und Intuition</h3>
 <div>
 <ol start="2" type="1">
 <li>Für den neuen Datenpunkt <code>Doja Cat</code>, berechne die euklidische Distanz zu allen anderen Punkten im Trainingsdatensatz</li>
@@ -503,6 +508,24 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 </div>
 </section>
 <section id="nearest-neighbor-klassifikation-8" class="slide level2">
+<h2>Nearest Neighbor Klassifikation</h2>
+<h3 id="schritte-und-intuition-2">Schritte und Intuition</h3>
+<div>
+<ol start="2" type="1">
+<li>Für den neuen Datenpunkt <code>Doja Cat</code>, berechne die euklidische Distanz zu allen anderen Punkten im Trainingsdatensatz</li>
+</ol>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-7-1.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="nearest-neighbor-klassifikation-9" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
 <h3 id="schritte-und-intuition-3">Schritte und Intuition</h3>
 <div>
@@ -621,7 +644,7 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 </ul></li>
 </ul>
 </section>
-<section id="nearest-neighbor-klassifikation-9" class="slide level2">
+<section id="nearest-neighbor-klassifikation-10" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
 <h3 id="schritte-und-intuition-4">Schritte und Intuition</h3>
 <ul>
@@ -665,7 +688,7 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 <li class="fragment">Anschließend wird der Prozess für alle anderen neuen Beobachtungen wiederholt</li>
 </ul>
 </section>
-<section id="nearest-neighbor-klassifikation-10" class="slide level2">
+<section id="nearest-neighbor-klassifikation-11" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
 <h3 id="modellevaluation">Modellevaluation</h3>
 <div class="columns">
@@ -678,14 +701,14 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-9-1.png" width="672"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-10-1.png" width="672"></p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="nearest-neighbor-klassifikation-11" class="slide level2">
+<section id="nearest-neighbor-klassifikation-12" class="slide level2">
 <h2>Nearest Neighbor Klassifikation</h2>
 <h3 id="modellevaluation-1">Modellevaluation</h3>
 <div class="columns">
@@ -739,7 +762,7 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-11-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-12-1.png" width="480"></p>
 </div>
 </div>
 </div>
@@ -856,7 +879,7 @@ G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-13-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-14-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -869,7 +892,7 @@ G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
 <h3 id="schritte-und-intuition-8">Schritte und Intuition</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div style="font-size: 0.8em">
+<div style="font-size: 0.78em">
 <ul>
 <li class="fragment">Für den Beispiel-Split rechts erhalten wir links von der gestrichelten Linie</li>
 </ul>
@@ -960,7 +983,7 @@ G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-16-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-17-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -991,7 +1014,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-18-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-19-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1014,7 +1037,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-19-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-20-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1027,7 +1050,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <h3 id="schritte-und-intuition-11">Schritte und Intuition</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div style="font-size: 0.85em">
+<div style="font-size: 0.80em">
 <ul>
 <li class="fragment">Anschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird</li>
 <li class="fragment">Die Regionen werden dann als Blätter bezeichnet und die Klassifikation erfolgt anhand der Mehrheit der Beobachtungen in der Region</li>
@@ -1040,7 +1063,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-20-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-21-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1063,7 +1086,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-21-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-22-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1089,7 +1112,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-22-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-23-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1118,7 +1141,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-23-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-24-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1151,7 +1174,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-24-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-25-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1184,7 +1207,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-25-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-26-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1211,7 +1234,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-26-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-27-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1275,7 +1298,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-28-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-29-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1313,21 +1336,21 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <h2>Entscheidungsbäume</h2>
 <h3 id="overfitting-1">Overfitting</h3>
 <div class="columns">
-<div class="column" style="width:35%;">
-<div style="font-size: 0.80em">
+<div class="column" style="width:30%;">
+<div style="font-size: 0.75em">
 <ul>
 <li class="fragment">Generell gilt: Je komplexer der Entscheidungsbaum, desto besser ist die Anpassung auf den Trainingsdaten</li>
 <li class="fragment">Aber: Je perfekter die Anpassung auf den Trainingsdaten, desto schlechter die Generalisierung auf unbekannte Daten</li>
-<li class="fragment">Die Grafik rechts zeigt ein extremes Beispiel, bei dem der Entscheidungsbaum mit 5 Nodes ausgebaut wurde</li>
+<li class="fragment">Die Grafik rechts zeigt ein extremes Beispiel mit 5 Nodes</li>
 </ul>
 </div>
-</div><div class="column" style="width:65%;">
+</div><div class="column" style="width:70%;">
 <div class="fragment fade-in">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-29-1.png" width="672"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-30-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1354,7 +1377,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-30-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-31-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1431,6 +1454,23 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 <ul>
 <li class="fragment">Wenn auch knapp hat das Nearest Neighbor Modell mit <span class="math inline">\(K = 60\)</span> die Nase vorn</li>
+</ul>
+</section>
+<section id="organisatorisches" class="slide level2">
+<h2>Organisatorisches</h2>
+<h3 id="ausblick-auf-die-letze-vorlesung">Ausblick auf die letze Vorlesung</h3>
+<ul>
+<li class="fragment">Inhalte:
+<ul>
+<li class="fragment">Assoziationsanalyse</li>
+<li class="fragment">Grundregeln der Visualisierung</li>
+</ul></li>
+<li class="fragment">Gruppenarbeit an der Probeklausur (30 Minuten)</li>
+<li class="fragment">Evaluation und offenes Feedback (15 Minuten)</li>
+<li class="fragment">Besprechung der Probeklausur (45-60 Minuten)</li>
+<li class="fragment">Fragen zur Vorlesung</li>
+<li class="fragment">Probeklausur wird vorab hochgeladen</li>
+<li class="fragment">Fragen für die letzte Vorlesung bis zum 28. April per Mail</li>
 </ul>
 
 <div class="footer footer-default">

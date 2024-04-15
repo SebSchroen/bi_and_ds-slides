@@ -63,11 +63,13 @@ testing_multi <- testing(split_multi)
 
 
 ## Der Plan für heute...
-### Vorlesung 
+### Vorlesung 8
 
 * Modellgestützte Analysen
   * Nearest Neighbor Klassifikation
   * Entscheidungsbäume
+* Klassifikation mit Entscheidungsbäumen von "echten" Daten
+
 
 ## Nearest Neighbor Klassifikation
 ### Grundidee

@@ -158,6 +158,64 @@ data_for_plot <- training_multi %>%
 
 :::
 
+## Nearest Neighbor Klassifikation
+### Bestimmung der Nachbarn
+
+::: {.nonincremental}
+
+
+* In zwei Dimensionen vereinfacht sich diese Gleichung zu:
+
+:::
+
+::: {style="font-size: 0.75em"}
+
+
+$$
+d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
+$$
+:::
+
+```{r, fig.width = 8, fig.height=4, fig.align='center'}
+
+data_for_plot <- training_multi %>%
+  group_by(track.artist) %>% 
+  summarise(energy = round(mean(energy),1), danceability = round(mean(danceability),1)) %>% 
+  filter(track.artist %in% c("Demi Lovato", "Wolfgang Amadeus Mozart"))
+
+
+
+
+
+  ggplot(data = data_for_plot, aes(x = energy, y = danceability, label = track.artist))+ 
+  geom_text(nudge_y = 0.05, nudge_x = 0.03) +
+
+  geom_text(label = c("q", "p"), size = 5, nudge_y = 0.01, nudge_x = c(0.01, -0.01)) + 
+    geom_point() +
+        labs(x = "Energy", y = "Danceability") +
+    theme_minimal() +
+    annotate("segment", x = data_for_plot$energy[1], xend = data_for_plot$energy[2], 
+             y = data_for_plot$danceability[1], yend = data_for_plot$danceability[2],
+             colour = "steelblue") +
+      annotate("segment", x = data_for_plot$energy[1], xend = data_for_plot$energy[1], 
+             y = data_for_plot$danceability[1], yend = data_for_plot$danceability[2],
+             colour = "steelblue", linetype = "dashed") +
+        annotate("segment", x = data_for_plot$energy[1], xend = data_for_plot$energy[2], 
+             y = data_for_plot$danceability[2], yend = data_for_plot$danceability[2],
+             colour = "steelblue", linetype = "dashed") +
+     annotate("text", x = 0.55, y = 0.6, label = expression("q"["2"]-"p"["2"])) +
+     annotate("text", x = 0.3, y = 0.25, label = expression("q"["1"]-"p"["1"])) +
+    annotate("text", x = 0.3, y = 0.70, label = "d(p,q)") + 
+    scale_y_continuous(limits= c(0, 1), breaks = c(-0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+                       labels = c(-0.1, 0, 0.1, 0.2,  expression("p"["2"]), 0.4, 0.5, 0.6, 0.7, 0.8, expression("q"["2"]), 1)) +
+        scale_x_continuous(limits = c(0,0.7), breaks = c(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+                       labels = c(0,  expression("p"["1"]), 0.2, 0.3, 0.4,  expression("q"["1"]), 0.6, 0.7, 0.8, 0.9, 1)) 
+  
+
+
+```
+
+
 
 ## Nearest Neighbor Klassifikation
 ### Bestimmung der Nachbarn
@@ -172,7 +230,7 @@ data_for_plot <- training_multi %>%
 ::: {style="font-size: 0.75em"}
 
 $$
-d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
+d(p,q) = \sqrt{(0.1-0.5)^2 + (0.3-0.9)^2} = 0.7211
 $$
 
 :::
@@ -383,6 +441,7 @@ for (k in 1:10) {
 
 results %>% 
   filter(K %in% c(1,5,10)) %>%
+#  mutate(Wahrscheinlichkeit = "", Vorhersage = "") %>% 
   kable(digits = 2)
 
 
@@ -645,7 +704,7 @@ training_multi %>%
 
 ::: {.column width=50%}
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.78em"}
 
 * Für den Beispiel-Split rechts erhalten wir links von der gestrichelten Linie
 
@@ -849,7 +908,7 @@ ggplot(data = results, aes(x = threshold, y = gini.gain, color = variable)) +
 
 ::: {.column width=50%}
 
-::: {style="font-size: 0.85em"}
+::: {style="font-size: 0.80em"}
 * Anschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird
 * Die Regionen werden dann als Blätter bezeichnet und die Klassifikation erfolgt anhand der Mehrheit der Beobachtungen in der Region
 * Die Grafik rechts zeigt den finalen Entscheidungsbaum für die Genres Klassik, EDM und Hip-Hop mit den beiden Variablen Energy und Danceability
@@ -1161,23 +1220,23 @@ ti_tree %>%
 
 :::: {.columns}
 
-::: {.column width=35%}
+::: {.column width=30%}
 
-::: {style="font-size: 0.80em"}
+::: {style="font-size: 0.75em"}
 
 * Generell gilt: Je komplexer der Entscheidungsbaum, desto besser ist die Anpassung auf den Trainingsdaten
 * Aber: Je perfekter die Anpassung auf den Trainingsdaten, desto schlechter die Generalisierung auf unbekannte Daten
-* Die Grafik rechts zeigt ein extremes Beispiel, bei dem der Entscheidungsbaum mit 5 Nodes ausgebaut wurde
+* Die Grafik rechts zeigt ein extremes Beispiel mit 5 Nodes
 
 :::
 
 :::
 
-::: {.column width=65%}
+::: {.column width=70%}
 
 ::: {.fragment .fade-in}
 
-```{r, fig.width = 7, fig.height=6.5, fig.align='center'}
+```{r, fig.width = 7, fig.height=6, fig.align='center'}
 
 library(rpart)
 
@@ -1352,4 +1411,15 @@ rbind(logistic_eval, knn_eval, tree_eval) %>%
 
 * Wenn auch knapp hat das Nearest Neighbor Modell mit $K = 60$ die Nase vorn 
 
+## Organisatorisches
+### Ausblick auf die letze Vorlesung
 
+* Inhalte:
+  * Assoziationsanalyse
+  * Grundregeln der Visualisierung
+* Gruppenarbeit an der Probeklausur (30 Minuten)
+* Evaluation und offenes Feedback (15 Minuten)
+* Besprechung der Probeklausur (45-60 Minuten)
+* Fragen zur Vorlesung
+* Probeklausur wird vorab hochgeladen
+* Fragen für die letzte Vorlesung bis zum 28. April per Mail

@@ -370,7 +370,7 @@ Dr.&nbsp;Sebastian Schrön
 </section>
 <section id="der-plan-für-heute" class="slide level2">
 <h2>Der Plan für heute…</h2>
-<h3 id="vorlesung">Vorlesung</h3>
+<h3 id="vorlesung-7">Vorlesung 7</h3>
 <ul>
 <li class="fragment">Quiz und kurzes Recap logistische Regression</li>
 <li class="fragment">Modellgestützte Analysen
@@ -454,6 +454,51 @@ Dr.&nbsp;Sebastian Schrön
 </table>
 
 
+</div>
+</div>
+</section>
+<section id="logistische-regression" class="slide level2">
+<h2>Logistische Regression</h2>
+<h3 id="kurz-recap">Kurz-Recap</h3>
+<ul>
+<li class="fragment">Die logistische Regression ist ein Modell zur binären Klassifikation und erfordert die Umwandlung der abhängigen Variable in eine Dummy-Variable (0 und 1) wobei 1 die interessante Klasse darstellt</li>
+<li class="fragment">Das Modell berechnet für jeden Datenpunkt eine Wahrscheinlichkeit, dass die Beobachtung zur interessanten Klasse gehört</li>
+<li class="fragment">Anhand eines Cut-Off Points <span class="math inline">\(C\)</span> wird entschieden, ob die Beobachtung zur interessanten Klasse gehört</li>
+<li class="fragment">Anschließend wird das Modell mit Konfusionsmatrix und Accuracy evaluiert, die einfachste und intuitivste Metrik ist, die aber Nachteile hat</li>
+<li class="fragment">Precision, Recall und F1-Score beheben die Schwächen von Accuracy und werden insbesondere bei unbalancierten Datensätzen verwendet oder wenn FP und FN stark unterschiedliche Kosten haben</li>
+</ul>
+</section>
+<section id="logistische-regression-1" class="slide level2">
+<h2>Logistische Regression</h2>
+<h3 id="kurz-recap-1">Kurz-Recap</h3>
+<ul>
+<li class="fragment">Die beiden folgenden Grafiken sind im Kontext der binären Klassifikation mit der logistischen Regression besonders wichtig:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment fade-in">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-3-1.png" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment fade-in">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-4-1.png" width="384"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -699,42 +744,22 @@ F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+<!-- ## Modellevaluation -->
+<!-- ### Kosten von FP und FN -->
+<!-- 2. Identifikation einer ansteckenden Krankheit: Ein medizinisches Modell identifiziert eine ansteckende Krankheit mit der Eingabe weniger Symptome. Anschließend wird die Person isoliert und umfänglich getestet -->
+<!-- * Fragen: -->
+<!--   * Was ist die interessante Klasse aus Sicht einer Gesundheitsbehörde? -->
+<!--   * Welche Fälle sind dann FN und FP? -->
+<!--   * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden? -->
+<!-- ::: {.notes} -->
+<!-- Antworten: -->
+<!--   * Die interessante Klasse ist die Identifikation der Krankheit -->
+<!--   * FN: Die Person ist krank, wird aber nicht isoliert -->
+<!--   * FP: Die Person ist nicht krank, wird aber isoliert -->
+<!--   * FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben -->
+<!-- ::: -->
 </section>
 <section id="modellevaluation-9" class="slide level2">
-<h2>Modellevaluation</h2>
-<h3 id="kosten-von-fp-und-fn-1">Kosten von FP und FN</h3>
-<ol start="2" type="1">
-<li class="fragment">Identifikation einer ansteckenden Krankheit: Ein medizinisches Modell identifiziert eine ansteckende Krankheit mit der Eingabe weniger Symptome. Anschließend wird die Person isoliert und umfänglich getestet</li>
-</ol>
-<ul>
-<li class="fragment">Fragen:
-<ul>
-<li class="fragment">Was ist die interessante Klasse aus Sicht einer Gesundheitsbehörde?</li>
-<li class="fragment">Welche Fälle sind dann FN und FP?</li>
-<li class="fragment">Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?</li>
-</ul></li>
-</ul>
-<aside class="notes">
-<p>Antworten:</p>
-<ul>
-<li>Die interessante Klasse ist die Identifikation der Krankheit</li>
-<li>FN: Die Person ist krank, wird aber nicht isoliert</li>
-<li>FP: Die Person ist nicht krank, wird aber isoliert</li>
-<li>FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="modellevaluation-10" class="slide level2">
 <h2>Modellevaluation</h2>
 <h3 id="tauziehen-zwischen-precision-und-recall">Tauziehen zwischen Precision und Recall</h3>
 <ul>
@@ -751,7 +776,7 @@ F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
 </ul></li>
 </ul>
 </section>
-<section id="modellevaluation-11" class="slide level2">
+<section id="modellevaluation-10" class="slide level2">
 <h2>Modellevaluation</h2>
 <h3 id="tauziehen-zwischen-precision-und-recall-1">Tauziehen zwischen Precision und Recall</h3>
 <div class="quarto-figure quarto-figure-center">
@@ -761,29 +786,31 @@ F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
 </figure>
 </div>
 </section>
-<section id="logistische-regression" class="slide level2">
+<section id="logistische-regression-2" class="slide level2">
 <h2>Logistische Regression</h2>
-<h3 id="mehrere-unabhängige-variablen">Mehrere unabhängige Variablen</h3>
+<h3 id="multiple-logistische-regression">Multiple Logistische Regression</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div style="font-size: 0.9em">
 <ul>
 <li class="fragment">Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet</li>
 <li class="fragment">Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability</li>
 <li class="fragment">Zur Identifikation geeigneter Variablen lassen sich erneut Box-Plots oder Violin-Plots verwenden</li>
 <li class="fragment">Zur Erinnerung: Auch Danceability scheint geeignet, um zwischen EDM und Klassik zu unterscheiden</li>
 </ul>
+</div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-3-1.png" width="480"></p>
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-5-1.png" width="480"></p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="logistische-regression-1" class="slide level2">
+<section id="logistische-regression-3" class="slide level2">
 <h2>Logistische Regression</h2>
-<h3 id="mehrere-unabhängige-variablen-1">Mehrere unabhängige Variablen</h3>
+<h3 id="multiple-logistische-regression-1">Multiple Logistische Regression</h3>
 <ul>
 <li class="fragment">Bei der Hinzunahme mehrerer Variablen ist neben der Korrelation mit der abhängigen Variable auch die Korrelation zwischen den unabhängigen Variablen zu beachten</li>
 <li class="fragment">Bei hoher positiver Korrelation zwischen den Variablen ist es möglich, dass die Hinzunahme dieser Variablen zum Modell keinen zusätzlichen Informationsgewinn liefert</li>
@@ -791,9 +818,9 @@ F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
 <li class="fragment">Die Korrelation zwischen Danceability und Energy beträgt 0,8, ist also hoch, aber noch nicht bedenklich</li>
 </ul>
 </section>
-<section id="logistische-regression-2" class="slide level2">
+<section id="logistische-regression-4" class="slide level2">
 <h2>Logistische Regression</h2>
-<h3 id="mehrere-unabhängige-variablen-2">Mehrere unabhängige Variablen</h3>
+<h3 id="multiple-logistische-regression-2">Multiple Logistische Regression</h3>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
@@ -802,15 +829,16 @@ F1 = 2 \cdot \frac{\text{1} \cdot \text{0,01}}{\text{1} + \text{0,01}}= 0,0198
 </div><div class="column" style="width:60%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-4-1.png" width="672"></p>
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-6-1.png" width="672"></p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="logistische-regression-3" class="slide level2">
+<section id="logistische-regression-5" class="slide level2">
 <h2>Logistische Regression</h2>
-<h3 id="mehrere-unabhängige-variablen-3">Mehrere unabhängige Variablen</h3>
+<h3 id="multiple-logistische-regression-3">Multiple Logistische Regression</h3>
+<div style="font-size: 0.9em">
 <ul>
 <li class="fragment">Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:</li>
 </ul>
@@ -827,11 +855,12 @@ P(y = 1|X) = \frac{ e^{(\beta_0 + \beta_1 \cdot X_1 + \beta_2 \cdot X_2 + \ldots
 P(EDM = 1|\text{Energy, Danceability}) = \\ \frac{ e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}{1 + e^{(\beta_0 + \beta_1 \cdot \text{Energy} + \beta_2 \cdot \text{Danceability})}}
 \]</span></p>
 </div>
+</div>
 </section>
-<section id="logistische-regression-4" class="slide level2">
+<section id="logistische-regression-6" class="slide level2">
 <h2>Logistische Regression</h2>
-<h3 id="mehrere-unabhängige-variablen-4">Mehrere unabhängige Variablen</h3>
-<div style="font-size: 0.9em">
+<h3 id="multiple-logistische-regression-4">Multiple Logistische Regression</h3>
+<div style="font-size: 0.88em">
 <ul>
 <li class="fragment">Die Koeffizienten für die unabhängigen Variablen sind:</li>
 </ul>
@@ -873,14 +902,73 @@ P(EDM = 1|\text{Energy, Danceability}) = \\ \frac{ e^{(\beta_0 + \beta_1 \cdot \
 </ol></li>
 </ul>
 </div>
+<aside class="notes">
+<p>Hier zur Erinnerung die lineare Regression:</p>
+<p>Beispiel:</p>
+<p>Miete = 500 + 25<em>Wohnfläche + 50</em>Zimmeranzahl</p>
+<p>Interpretation:</p>
+<ul>
+<li>Jede zusätzliche Quadratmeter Wohnfläche erhöht die Miete um 25€</li>
+<li>Jedes zusätzliche Zimmer erhöht die Miete um 50€</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="logistische-regression-5" class="slide level2">
+<section id="logistische-regressoin" class="slide level2">
+<h2>Logistische Regressoin</h2>
+<h3 id="multiple-logistische-regression-5">Multiple Logistische Regression</h3>
+<ul>
+<li class="fragment">Grafisch:</li>
+</ul>
+<div class="fragment fade-in">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-9-1.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="logistische-regression-7" class="slide level2">
 <h2>Logistische Regression</h2>
-<h3 id="multiple-logistische-regression">Multiple Logistische Regression</h3>
+<h3 id="multiple-logistische-regression-6">Multiple Logistische Regression</h3>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div style="font-size: 0.88em">
+<ul>
+<li class="fragment">Mit dem Scatter Plot lassen sich die Vorhersagen des Modells visualisieren und evaluieren</li>
+<li class="fragment">Auch für das Modell mit mehreren unabhängigen Variablen benötigen wir einen Cut-Off Point <span class="math inline">\(C\)</span>, um die Vorhersagen in Klassen zu unterteilen</li>
+<li class="fragment">Die gestrichelte Linie ist die Decision Boundary für C = 0.5, also die Linie, auf der die Wahrscheinlichkeit für beide Klassen gleich 0,5 ist</li>
+</ul>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-10-1.png" width="672"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="logistische-regression-8" class="slide level2">
+<h2>Logistische Regression</h2>
+<h3 id="multiple-logistische-regression-7">Multiple Logistische Regression</h3>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li class="fragment">Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.</li>
+<li class="fragment">Für das Modell mit zwei Variablen und den Wert <span class="math inline">\(C\)</span> = 0.5 erhalten wir die Konfusionsmatrix auf der rechten Seite.</li>
 <li class="fragment">Accuracy, Precision, Recall und F1-Score sind:</li>
 </ul>
 <div class="fragment fade-in">
@@ -921,36 +1009,16 @@ P(EDM = 1|\text{Energy, Danceability}) = \\ \frac{ e^{(\beta_0 + \beta_1 \cdot \
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-8-1.png" width="384"></p>
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-12-1.png" width="384"></p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="logistische-regression-6" class="slide level2">
+<section id="logistische-regression-9" class="slide level2">
 <h2>Logistische Regression</h2>
-<h3 id="multiple-logistische-regression-1">Multiple Logistische Regression</h3>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div style="font-size: 0.93em">
-<ul>
-<li class="fragment">Mit dem Scatter Plot lassen sich die Vorhersagen des Modells visualisieren und evaluieren</li>
-<li class="fragment">Die gestrichelte Linie ist die Decision Boundary, also die Linie, auf der die Wahrscheinlichkeit für beide Klassen gleich 0,5 ist</li>
-</ul>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-9-1.png" width="672"></p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="logistische-regression-7" class="slide level2">
-<h2>Logistische Regression</h2>
-<h3 id="multiple-logistische-regression-2">Multiple Logistische Regression</h3>
+<h3 id="multiple-logistische-regression-8">Multiple Logistische Regression</h3>
 <div class="columns">
 <div class="column" style="width:35%;">
 <ul>
@@ -961,14 +1029,14 @@ P(EDM = 1|\text{Energy, Danceability}) = \\ \frac{ e^{(\beta_0 + \beta_1 \cdot \
 <div class="fragment fade-in">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-10-1.png" width="672"></p>
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-13-1.png" width="672"></p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="logistische-regression-8" class="slide level2">
+<section id="logistische-regression-10" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="zusammenfassung-binäre-klassifikation">Zusammenfassung binäre Klassifikation</h3>
 <ul>
@@ -990,7 +1058,7 @@ P(EDM = 1|\text{Energy, Danceability}) = \\ \frac{ e^{(\beta_0 + \beta_1 \cdot \
 <li class="fragment">Anschließend lassen sich die Klassenzugehörigkeiten ähnlich wie im binären Modell vorhersagen</li>
 </ul>
 </section>
-<section id="logistische-regression-9" class="slide level2">
+<section id="logistische-regression-11" class="slide level2">
 <h2>Logistische Regression</h2>
 <h3 id="mehrklassen-klassifikation">Mehrklassen-Klassifikation</h3>
 <div style="font-size: 0.9em">
@@ -1002,7 +1070,9 @@ P(EDM = 1|\text{Energy, Danceability}) = \\ \frac{ e^{(\beta_0 + \beta_1 \cdot \
 p(y_i = k|X = x) = \frac{e^{\beta_{k0} + \beta_{k1}x_1 + ... + \beta_{kp}x_p}}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + ... + \beta_{lp}x_p} }
 \]</span></p>
 </div>
-<p>und für die Referenzklasse <span class="math inline">\(K\)</span> mit</p>
+<ul>
+<li class="fragment">und für die Referenzklasse <span class="math inline">\(K\)</span> mit</li>
+</ul>
 <div class="fragment fade-in">
 <p><span class="math display">\[
 p(y_i = k|X = x) = \frac{1}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + ... + \beta_{lp}x_p} }
@@ -1088,21 +1158,12 @@ p(y_i = k|X = x) = \frac{1}{1+\sum_{l=1}^{K-1} e^{\beta_{l0} + \beta_{l1}x_1 + .
 </section>
 <section id="multinominale-logistische-regression-3" class="slide level2">
 <h2>Multinominale Logistische Regression</h2>
-<h3 id="wahrscheinlichkeit-und-klassenzugehörigkeit">Wahrscheinlichkeit und Klassenzugehörigkeit</h3>
-<ul>
-<li class="fragment">Auch das Modell der multinomialen logistischen Regression gibt für jede Klasse eine Wahrscheinlichkeit aus</li>
-<li class="fragment">Anders als im binären Modell wird jedoch nicht nur die Wahrscheinlichkeit für eine Klasse ausgegeben, sondern für alle Klassen</li>
-<li class="fragment">Die Klassenzugehörigkeit wird dann anhand der höchsten Wahrscheinlichkeit bestimmt, ein Cut-Off Point ist nicht notwendig</li>
-</ul>
-</section>
-<section id="multinominale-logistische-regression-4" class="slide level2">
-<h2>Multinominale Logistische Regression</h2>
 <h3 id="prognose-aus-dem-multinominalen-modell">Prognose aus dem multinominalen Modell</h3>
 <ul>
 <li class="fragment">Die Prognose für die jeweilligen Klassen erfolgt erneut durch einsetzen der Koeffizienten in die logistische Funktion</li>
 <li class="fragment">Für Hip-Hop erhalten wir beispielsweise</li>
 </ul>
-<div style="font-size: 0.8em">
+<div style="font-size: 0.7em">
 <div class="fragment fade-in">
 <p><span class="math display">\[
 \operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
@@ -1114,13 +1175,131 @@ e^{23.74  -30.6 \cdot \text{Energy}  -15.42 \cdot \text{Dance}}}
 <ul>
 <li class="fragment">Und für die Referenzklasse EDM:</li>
 </ul>
-<div style="font-size: 0.8em">
+<div style="font-size: 0.7em">
 <div class="fragment fade-in">
 <p><span class="math display">\[
 \operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
 \frac{1}{1 + e^{5.13  -9.74 \cdot \text{Energy} + 3.26 \cdot \text{Dance}} +
 e^{23.74  -30.6 \cdot \text{Energy}  -15.42 \cdot \text{Dance}}}  
 \]</span></p>
+</div>
+</div>
+</section>
+<section id="multinominale-logistische-regression-4" class="slide level2">
+<h2>Multinominale Logistische Regression</h2>
+<h3 id="wahrscheinlichkeit-und-klassenzugehörigkeit">Wahrscheinlichkeit und Klassenzugehörigkeit</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Auch das Modell der multinomialen logistischen Regression gibt für jede Klasse eine Wahrscheinlichkeit aus</li>
+<li class="fragment">Anders als im binären Modell wird nicht nur die Wahrscheinlichkeit für eine Klasse ausgegeben, sondern für alle Klassen</li>
+<li class="fragment">Die Klassenzugehörigkeit wird dann anhand der höchsten Wahrscheinlichkeit bestimmt, ein Cut-Off Point ist nicht notwendig</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div style="font-size: 0.5em">
+<div class="fragment fade-in">
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">track.artist</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">track.name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">category</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p_EDM</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p_Hip-Hop</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p_Klassik</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Euggy</td>
+<td style="text-align: left;">Samaria</td>
+<td style="text-align: left;">EDM</td>
+<td style="text-align: right;">0.8015</td>
+<td style="text-align: right;">0.1985</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bklava</td>
+<td style="text-align: left;">Make It Work</td>
+<td style="text-align: left;">EDM</td>
+<td style="text-align: right;">0.8665</td>
+<td style="text-align: right;">0.1335</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OG Keemo</td>
+<td style="text-align: left;">OKAY!</td>
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: right;">0.1855</td>
+<td style="text-align: right;">0.8145</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Axel N.</td>
+<td style="text-align: left;">Black Swan</td>
+<td style="text-align: left;">EDM</td>
+<td style="text-align: right;">0.6489</td>
+<td style="text-align: right;">0.3511</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Claude Debussy</td>
+<td style="text-align: left;">Préludes - Book 2, L.123: 11. Les tierces alternées</td>
+<td style="text-align: left;">Klassik</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">1.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Dizzy</td>
+<td style="text-align: left;">Tipsy</td>
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: right;">0.1179</td>
+<td style="text-align: right;">0.8796</td>
+<td style="text-align: right;">0.0025</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Twista</td>
+<td style="text-align: left;">Overnight Celebrity</td>
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: right;">0.4729</td>
+<td style="text-align: right;">0.5271</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Digital Underground</td>
+<td style="text-align: left;">The Humpty Dance</td>
+<td style="text-align: left;">Hip-Hop</td>
+<td style="text-align: right;">0.2642</td>
+<td style="text-align: right;">0.7358</td>
+<td style="text-align: right;">0.0000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Elliott Jack Sansom</td>
+<td style="text-align: left;">Papa, Can You Hear Me?</td>
+<td style="text-align: left;">Klassik</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">1.0000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colin Stetson</td>
+<td style="text-align: left;">Peaceful Here Now</td>
+<td style="text-align: left;">Klassik</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">0.0005</td>
+<td style="text-align: right;">0.9994</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -1343,7 +1522,7 @@ Precision_{\text{macro}} = \frac{1}{K} \sum_{k=1}^{K} Precision_k
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="cell-output-display">
-<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-14-1.png" width="480"></p>
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-18-1.png" width="480"></p>
 </div>
 </div>
 </div>
@@ -1357,7 +1536,7 @@ Precision_{\text{macro}} = \frac{1}{K} \sum_{k=1}^{K} Precision_k
 <li class="fragment">Aus diesem Grund ist es manchmal sinnvoll, die Metriken für jede Klasse einzeln zu betrachten</li>
 <li class="fragment">Für Precision:</li>
 </ul>
-<div style="font-size: 0.8em">
+<div style="font-size: 0.75em">
 <div class="fragment fade-in">
 <p><span class="math display">\[
 Precision_{\text{k}} = \frac{TP_{\text{k}}}{TP_{\text{k}} + FP_{\text{k}}} = \frac{TP_{\text{k}}}{\text{# vorhergesagte Klasse k}}
@@ -1367,7 +1546,7 @@ Precision_{\text{k}} = \frac{TP_{\text{k}}}{TP_{\text{k}} + FP_{\text{k}}} = \fr
 <ul>
 <li class="fragment">und für Recall:</li>
 </ul>
-<div style="font-size: 0.8em">
+<div style="font-size: 0.75em">
 <div class="fragment fade-in">
 <p><span class="math display">\[
 Recall_{\text{k}} = \frac{TP_{\text{k}}}{TP_{\text{k}} + FN_{\text{k}}} = \frac{TP_{\text{k}}}{\text{# tatsächliche Klasse k}}
@@ -1387,7 +1566,46 @@ Recall_{\text{k}} = \frac{TP_{\text{k}}}{TP_{\text{k}} + FN_{\text{k}}} = \frac{
 </section>
 <section id="multinominale-logistische-regression-10" class="slide level2">
 <h2>Multinominale Logistische Regression</h2>
+<h3 id="aufgabe-evaluationsmetriken-pro-klasse">Aufgabe Evaluationsmetriken pro Klasse</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Gegeben ist die Konfusionsmatrix auf der rechten Seite</li>
+<li class="fragment">Fragen:
+<ul>
+<li class="fragment">Welche Klasse hat die höchste Precision?</li>
+<li class="fragment">Wie hoch ist der Recall für das Genre Hip-Hop?</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="07_VL_D_files/figure-revealjs/unnamed-chunk-20-1.png" width="480"></p>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>Precsion:</p>
+<p>EDM = 363/472 = 76.91% Hip-Hop = 479/614 = 78.01% Klassik = 534/537 = 99.44%</p>
+<p>Recall:</p>
+<p>EDM 363/490 = 74.08% Hip-Hop = 479/590 = 81.19% Klassik = 534/543 = 98.34%</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="multinominale-logistische-regression-11" class="slide level2">
+<h2>Multinominale Logistische Regression</h2>
 <h3 id="vergleich-aggregation-vs.-einzelmetriken">Vergleich Aggregation vs.&nbsp;Einzelmetriken</h3>
+<div style="font-size: 0.75em">
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -1410,8 +1628,9 @@ Recall_{\text{k}} = \frac{TP_{\text{k}}}{TP_{\text{k}} + FN_{\text{k}}} = \frac{
 </div>
 </div>
 <ul>
-<li class="fragment">Da wir vornehmlich balancierte Klassen betrachten, ist Macro-Averaging in unsere Zwecke ausreichend</li>
+<li class="fragment">Da wir vornehmlich balancierte Klassen betrachten, ist Macro-Averaging für unsere Zwecke ausreichend</li>
 </ul>
+</div>
 </section>
 
 <section id="quellen" class="slide level2 smaller scrollable">
