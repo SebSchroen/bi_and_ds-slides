@@ -63,7 +63,7 @@ testing_multi <- testing(split_multi)
 
 
 ## Der Plan für heute...
-### Vorlesung 
+### Vorlesung 8
 
 * Modellgestützte Analysen
   * Nearest Neighbor Klassifikation
@@ -158,6 +158,7 @@ data_for_plot <- training_multi %>%
 
 :::
 
+
 ## Nearest Neighbor Klassifikation
 ### Bestimmung der Nachbarn
 
@@ -169,11 +170,11 @@ data_for_plot <- training_multi %>%
 :::
 
 ::: {style="font-size: 0.75em"}
-
 
 $$
 d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 $$
+
 :::
 
 ```{r, fig.width = 8, fig.height=4, fig.align='center'}
@@ -214,7 +215,6 @@ data_for_plot <- training_multi %>%
 
 
 ```
-
 
 
 ## Nearest Neighbor Klassifikation
@@ -230,7 +230,7 @@ data_for_plot <- training_multi %>%
 ::: {style="font-size: 0.75em"}
 
 $$
-d(p,q) = \sqrt{(0.1-0.5)^2 + (0.3-0.9)^2} = 0.7211
+d(p,q) = \sqrt{(0,5-0,1)^2 + (0,3-0,9)^2} = 0,7221
 $$
 
 :::
@@ -273,7 +273,6 @@ data_for_plot <- training_multi %>%
 
 
 ```
-
 
 
 
@@ -441,7 +440,8 @@ for (k in 1:10) {
 
 results %>% 
   filter(K %in% c(1,5,10)) %>%
-#  mutate(Wahrscheinlichkeit = "", Vorhersage = "") %>% 
+  mutate(Wahrscheinlichkeit = "", 
+         Vorhersage = "") %>% 
   kable(digits = 2)
 
 
@@ -704,7 +704,7 @@ training_multi %>%
 
 ::: {.column width=50%}
 
-::: {style="font-size: 0.78em"}
+::: {style="font-size: 0.8em"}
 
 * Für den Beispiel-Split rechts erhalten wir links von der gestrichelten Linie
 
@@ -719,11 +719,11 @@ left_split <- training_multi %>%
          p = n/N) %>% 
   mutate(`1-p` = 1-p) %>%
   mutate(Gini = round(p*(1-p),3))  %>% 
-  select(category, n, Gini)  %>% 
-  rbind(tibble(category = "Total", n = sum(.$n), Gini = sum(.$Gini))) 
+  select(category, n, p, `1-p`, Gini)  %>% 
+  rbind(tibble(category = "Total",p =1, `1-p` = 1, n = sum(.$n), Gini = sum(.$Gini))) 
 
 left_split %>% 
-  kable()
+  kable(digits = 3)
   
 ```
 
@@ -742,11 +742,11 @@ right_split <- training_multi %>%
          p = n/N) %>% 
   mutate(`1-p` = 1-p) %>%
   mutate(Gini = round(p*(1-p),3))  %>% 
-  select(category, n, Gini)  %>% 
-  rbind(tibble(category = "Total", n = sum(.$n), Gini = sum(.$Gini)))  
+  select(category, n, p, `1-p`, Gini)  %>% 
+  rbind(tibble(category = "Total",p =1, `1-p` = 1, n = sum(.$n), Gini = sum(.$Gini))) 
 
 right_split %>% 
-  kable()
+  kable(digits = 3)
   
 ```
 
@@ -908,11 +908,118 @@ ggplot(data = results, aes(x = threshold, y = gini.gain, color = variable)) +
 
 ::: {.column width=50%}
 
-::: {style="font-size: 0.80em"}
+::: {style="font-size: 0.85em"}
 * Anschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird
+
+:::
+:::
+
+::: {.column width=50%}
+
+```{r, fig.width = 5, fig.height=5, fig.align='center'}
+
+library(rpart)
+library(parttree)
+
+
+
+ti_tree =
+  decision_tree(cost_complexity = 0.005, tree_depth =  1) |>
+  set_engine("rpart") |>
+  set_mode("classification") |>
+  fit(category ~ danceability + energy , data = training_multi )
+
+
+
+ggplot(training_multi, aes(x = energy, y = danceability)) +
+  geom_parttree(data = ti_tree, alpha = 0.1, aes(fill = category)) + # <-- key layer
+  geom_point(aes(col = category)) +
+  labs(
+    x = "Energy", y = "Danceability", color = "Genre", fill = "Genre"
+    ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+```
+
+:::
+
+::::
+
+
+
+## Entscheidungsbäume
+### Schritte und Intuition
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+::: {style="font-size: 0.85em"}
+
+::: {.nonincremental}
+* Anschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird
+
+:::
+
+:::
+:::
+
+::: {.column width=50%}
+
+```{r, fig.width = 5, fig.height=5, fig.align='center'}
+
+library(rpart)
+library(parttree)
+
+
+
+ti_tree =
+  decision_tree(cost_complexity = 0.01, tree_depth =  2) |>
+  set_engine("rpart") |>
+  set_mode("classification") |>
+  fit(category ~ danceability + energy , data = training_multi )
+
+
+
+ggplot(training_multi, aes(x = energy, y = danceability)) +
+  geom_parttree(data = ti_tree, alpha = 0.1, aes(fill = category)) + # <-- key layer
+  geom_point(aes(col = category)) +
+  labs(
+    x = "Energy", y = "Danceability", color = "Genre", fill = "Genre"
+    ) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+```
+
+:::
+
+::::
+
+
+
+
+## Entscheidungsbäume
+### Schritte und Intuition
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+::: {style="font-size: 0.85em"}
+
+::: {.nonincremental}
+
+* Anschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird
+
+:::
+
 * Die Regionen werden dann als Blätter bezeichnet und die Klassifikation erfolgt anhand der Mehrheit der Beobachtungen in der Region
-* Die Grafik rechts zeigt den finalen Entscheidungsbaum für die Genres Klassik, EDM und Hip-Hop mit den beiden Variablen Energy und Danceability
+* Die Grafik rechts zeigt den finalen Entscheidungsbaum für die Genres Klassik, EDM und Hip-Hop mit den Variablen Energy und Danceability
 * Die Hintergrundfarbe repräsentiert die Klassifikation, die Farbe der Punkte die Klasse der Trainingsdaten
+
+
 
 :::
 :::
@@ -948,6 +1055,8 @@ ggplot(training_multi, aes(x = energy, y = danceability)) +
 :::
 
 ::::
+
+
 
 
 
@@ -1220,19 +1329,19 @@ ti_tree %>%
 
 :::: {.columns}
 
-::: {.column width=30%}
+::: {.column width=35%}
 
-::: {style="font-size: 0.75em"}
+::: {style="font-size: 0.80em"}
 
 * Generell gilt: Je komplexer der Entscheidungsbaum, desto besser ist die Anpassung auf den Trainingsdaten
 * Aber: Je perfekter die Anpassung auf den Trainingsdaten, desto schlechter die Generalisierung auf unbekannte Daten
-* Die Grafik rechts zeigt ein extremes Beispiel mit 5 Nodes
+* Die Grafik rechts zeigt ein extremes Beispiel, bei dem der Entscheidungsbaum mit 5 Nodes ausgebaut wurde
 
 :::
 
 :::
 
-::: {.column width=70%}
+::: {.column width=65%}
 
 ::: {.fragment .fade-in}
 
@@ -1411,15 +1520,4 @@ rbind(logistic_eval, knn_eval, tree_eval) %>%
 
 * Wenn auch knapp hat das Nearest Neighbor Modell mit $K = 60$ die Nase vorn 
 
-## Organisatorisches
-### Ausblick auf die letze Vorlesung
 
-* Inhalte:
-  * Assoziationsanalyse
-  * Grundregeln der Visualisierung
-* Gruppenarbeit an der Probeklausur (30 Minuten)
-* Evaluation und offenes Feedback (15 Minuten)
-* Besprechung der Probeklausur (45-60 Minuten)
-* Fragen zur Vorlesung
-* Probeklausur wird vorab hochgeladen
-* Fragen für die letzte Vorlesung bis zum 28. April per Mail

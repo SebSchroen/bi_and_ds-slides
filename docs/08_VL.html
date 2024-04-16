@@ -348,7 +348,7 @@ Dr.&nbsp;Sebastian Schrön
 </section>
 <section id="der-plan-für-heute" class="slide level2">
 <h2>Der Plan für heute…</h2>
-<h3 id="vorlesung">Vorlesung</h3>
+<h3 id="vorlesung-8">Vorlesung 8</h3>
 <ul>
 <li class="fragment">Modellgestützte Analysen
 <ul>
@@ -458,7 +458,7 @@ d(p,q) = \sqrt{(p_1-q_1)^2 + (p_2-q_2)^2}
 </div>
 <div style="font-size: 0.75em">
 <p><span class="math display">\[
-d(p,q) = \sqrt{(0.1-0.5)^2 + (0.3-0.9)^2} = 0.7211
+d(p,q) = \sqrt{(0,5-0,1)^2 + (0,3-0,9)^2} = 0,7221
 \]</span></p>
 </div>
 <div class="cell" data-layout-align="center">
@@ -657,24 +657,24 @@ d(p,q) = \sqrt{(0.1-0.5)^2 + (0.3-0.9)^2} = 0.7211
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Vorhersage</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Wahrscheinlichkeit</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Wahrscheinlichkeit</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">K</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Hip-Hop</td>
-<td style="text-align: right;">1.0</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Hip-Hop</td>
-<td style="text-align: right;">0.6</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 <td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">EDM</td>
-<td style="text-align: right;">0.6</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 <td style="text-align: right;">10</td>
 </tr>
 </tbody>
@@ -892,7 +892,7 @@ G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
 <h3 id="schritte-und-intuition-8">Schritte und Intuition</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div style="font-size: 0.78em">
+<div style="font-size: 0.8em">
 <ul>
 <li class="fragment">Für den Beispiel-Split rechts erhalten wir links von der gestrichelten Linie</li>
 </ul>
@@ -904,6 +904,8 @@ G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">category</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1-p</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Gini</th>
 </tr>
 </thead>
@@ -912,20 +914,28 @@ G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
 <td style="text-align: left;">EDM</td>
 <td style="text-align: right;">24</td>
 <td style="text-align: right;">0.016</td>
+<td style="text-align: right;">0.984</td>
+<td style="text-align: right;">0.016</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Hip-Hop</td>
 <td style="text-align: right;">196</td>
+<td style="text-align: right;">0.133</td>
+<td style="text-align: right;">0.867</td>
 <td style="text-align: right;">0.115</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Klassik</td>
 <td style="text-align: right;">1257</td>
+<td style="text-align: right;">0.851</td>
+<td style="text-align: right;">0.149</td>
 <td style="text-align: right;">0.127</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Total</td>
 <td style="text-align: right;">1477</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">1.000</td>
 <td style="text-align: right;">0.258</td>
 </tr>
 </tbody>
@@ -946,6 +956,8 @@ G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">category</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">1-p</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">Gini</th>
 </tr>
 </thead>
@@ -953,21 +965,29 @@ G_{\text{init}} = 0.211 + 0.231 + 0.223 = 0.665
 <tr class="odd">
 <td style="text-align: left;">EDM</td>
 <td style="text-align: right;">1118</td>
+<td style="text-align: right;">0.486</td>
+<td style="text-align: right;">0.514</td>
 <td style="text-align: right;">0.250</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Hip-Hop</td>
 <td style="text-align: right;">1176</td>
+<td style="text-align: right;">0.511</td>
+<td style="text-align: right;">0.489</td>
 <td style="text-align: right;">0.250</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Klassik</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">0.003</td>
+<td style="text-align: right;">0.997</td>
+<td style="text-align: right;">0.003</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Total</td>
 <td style="text-align: right;">2301</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">1.000</td>
 <td style="text-align: right;">0.503</td>
 </tr>
 </tbody>
@@ -1050,12 +1070,9 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <h3 id="schritte-und-intuition-11">Schritte und Intuition</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div style="font-size: 0.80em">
+<div style="font-size: 0.85em">
 <ul>
 <li class="fragment">Anschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird</li>
-<li class="fragment">Die Regionen werden dann als Blätter bezeichnet und die Klassifikation erfolgt anhand der Mehrheit der Beobachtungen in der Region</li>
-<li class="fragment">Die Grafik rechts zeigt den finalen Entscheidungsbaum für die Genres Klassik, EDM und Hip-Hop mit den beiden Variablen Energy und Danceability</li>
-<li class="fragment">Die Hintergrundfarbe repräsentiert die Klassifikation, die Farbe der Punkte die Klasse der Trainingsdaten</li>
 </ul>
 </div>
 </div><div class="column" style="width:50%;">
@@ -1073,14 +1090,16 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </section>
 <section id="entscheidungsbäume-8" class="slide level2">
 <h2>Entscheidungsbäume</h2>
-<h3 id="darstellung-der-entscheidungsregeln">Darstellung der Entscheidungsregeln</h3>
+<h3 id="schritte-und-intuition-12">Schritte und Intuition</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
+<div style="font-size: 0.85em">
+<div>
 <ul>
-<li class="fragment">Eine noch intuitivere Darstellung des Entscheidungsbaums ist die Visualisierung der Entscheidungsregeln</li>
-<li class="fragment">Hierbei wird ein Pfad durch den Baum verfolgt und die Entscheidungsregeln für die Klassifikation dargestellt</li>
-<li class="fragment">Die Grafik rechts zeigt die Entscheidungsregeln für die Genres Klassik, EDM und Hip-Hop illustriert denselben Sachverhalt wie die Partitionsgrafik</li>
+<li>Anschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird</li>
 </ul>
+</div>
+</div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1095,6 +1114,59 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </section>
 <section id="entscheidungsbäume-9" class="slide level2">
+<h2>Entscheidungsbäume</h2>
+<h3 id="schritte-und-intuition-13">Schritte und Intuition</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 0.85em">
+<div>
+<ul>
+<li>Anschließend wird dieser Vorgang für die neu entstandenen Regionen wiederholt, bis kein zusätzlicher Informationsgewinn mehr erzielt wird</li>
+</ul>
+</div>
+<ul>
+<li class="fragment">Die Regionen werden dann als Blätter bezeichnet und die Klassifikation erfolgt anhand der Mehrheit der Beobachtungen in der Region</li>
+<li class="fragment">Die Grafik rechts zeigt den finalen Entscheidungsbaum für die Genres Klassik, EDM und Hip-Hop mit den Variablen Energy und Danceability</li>
+<li class="fragment">Die Hintergrundfarbe repräsentiert die Klassifikation, die Farbe der Punkte die Klasse der Trainingsdaten</li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-23-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="entscheidungsbäume-10" class="slide level2">
+<h2>Entscheidungsbäume</h2>
+<h3 id="darstellung-der-entscheidungsregeln">Darstellung der Entscheidungsregeln</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Eine noch intuitivere Darstellung des Entscheidungsbaums ist die Visualisierung der Entscheidungsregeln</li>
+<li class="fragment">Hierbei wird ein Pfad durch den Baum verfolgt und die Entscheidungsregeln für die Klassifikation dargestellt</li>
+<li class="fragment">Die Grafik rechts zeigt die Entscheidungsregeln für die Genres Klassik, EDM und Hip-Hop illustriert denselben Sachverhalt wie die Partitionsgrafik</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-24-1.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="entscheidungsbäume-11" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="darstellung-der-entscheidungsregeln-1">Darstellung der Entscheidungsregeln</h3>
 <div class="columns">
@@ -1112,7 +1184,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-23-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-25-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1120,7 +1192,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </div>
 </section>
-<section id="entscheidungsbäume-10" class="slide level2">
+<section id="entscheidungsbäume-12" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="darstellung-der-entscheidungsregeln-2">Darstellung der Entscheidungsregeln</h3>
 <div class="columns">
@@ -1141,7 +1213,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-24-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-26-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1149,7 +1221,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </div>
 </section>
-<section id="entscheidungsbäume-11" class="slide level2">
+<section id="entscheidungsbäume-13" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="darstellung-der-entscheidungsregeln-3">Darstellung der Entscheidungsregeln</h3>
 <div class="columns">
@@ -1174,7 +1246,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-25-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-27-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1182,7 +1254,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </div>
 </section>
-<section id="entscheidungsbäume-12" class="slide level2">
+<section id="entscheidungsbäume-14" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="darstellung-der-entscheidungsregeln-4">Darstellung der Entscheidungsregeln</h3>
 <div class="columns">
@@ -1207,7 +1279,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-26-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-28-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1215,7 +1287,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </div>
 </section>
-<section id="entscheidungsbäume-13" class="slide level2">
+<section id="entscheidungsbäume-15" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="darstellung-der-entscheidungsregeln-5">Darstellung der Entscheidungsregeln</h3>
 <div class="columns">
@@ -1234,7 +1306,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-27-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-29-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1242,7 +1314,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </div>
 </section>
-<section id="entscheidungsbäume-14" class="slide level2">
+<section id="entscheidungsbäume-16" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="modellevaluation-2">Modellevaluation</h3>
 <div class="columns">
@@ -1298,7 +1370,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-29-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-31-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1307,7 +1379,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </div>
 </section>
-<section id="entscheidungsbäume-15" class="slide level2">
+<section id="entscheidungsbäume-17" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="overfitting">Overfitting</h3>
 <div style="font-size: 0.85em">
@@ -1332,25 +1404,25 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </ul>
 </div>
 </section>
-<section id="entscheidungsbäume-16" class="slide level2">
+<section id="entscheidungsbäume-18" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="overfitting-1">Overfitting</h3>
 <div class="columns">
-<div class="column" style="width:30%;">
-<div style="font-size: 0.75em">
+<div class="column" style="width:35%;">
+<div style="font-size: 0.80em">
 <ul>
 <li class="fragment">Generell gilt: Je komplexer der Entscheidungsbaum, desto besser ist die Anpassung auf den Trainingsdaten</li>
 <li class="fragment">Aber: Je perfekter die Anpassung auf den Trainingsdaten, desto schlechter die Generalisierung auf unbekannte Daten</li>
-<li class="fragment">Die Grafik rechts zeigt ein extremes Beispiel mit 5 Nodes</li>
+<li class="fragment">Die Grafik rechts zeigt ein extremes Beispiel, bei dem der Entscheidungsbaum mit 5 Nodes ausgebaut wurde</li>
 </ul>
 </div>
-</div><div class="column" style="width:70%;">
+</div><div class="column" style="width:65%;">
 <div class="fragment fade-in">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-30-1.png" width="672"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-32-1.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1359,7 +1431,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </div>
 </section>
-<section id="entscheidungsbäume-17" class="slide level2">
+<section id="entscheidungsbäume-19" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="overfitting-2">Overfitting</h3>
 <div class="columns">
@@ -1377,7 +1449,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-31-1.png" width="480"></p>
+<p><img data-src="08_VL_files/figure-revealjs/unnamed-chunk-33-1.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1385,7 +1457,7 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 </div>
 </section>
-<section id="entscheidungsbäume-18" class="slide level2">
+<section id="entscheidungsbäume-20" class="slide level2">
 <h2>Entscheidungsbäume</h2>
 <h3 id="erweiterungen">Erweiterungen</h3>
 <ul>
@@ -1454,23 +1526,6 @@ IG = G_{\text{init}} - G_{\text{split}} = \\0.665 - \left( \frac{1477}{3780 } \c
 </div>
 <ul>
 <li class="fragment">Wenn auch knapp hat das Nearest Neighbor Modell mit <span class="math inline">\(K = 60\)</span> die Nase vorn</li>
-</ul>
-</section>
-<section id="organisatorisches" class="slide level2">
-<h2>Organisatorisches</h2>
-<h3 id="ausblick-auf-die-letze-vorlesung">Ausblick auf die letze Vorlesung</h3>
-<ul>
-<li class="fragment">Inhalte:
-<ul>
-<li class="fragment">Assoziationsanalyse</li>
-<li class="fragment">Grundregeln der Visualisierung</li>
-</ul></li>
-<li class="fragment">Gruppenarbeit an der Probeklausur (30 Minuten)</li>
-<li class="fragment">Evaluation und offenes Feedback (15 Minuten)</li>
-<li class="fragment">Besprechung der Probeklausur (45-60 Minuten)</li>
-<li class="fragment">Fragen zur Vorlesung</li>
-<li class="fragment">Probeklausur wird vorab hochgeladen</li>
-<li class="fragment">Fragen für die letzte Vorlesung bis zum 28. April per Mail</li>
 </ul>
 
 <div class="footer footer-default">

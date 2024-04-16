@@ -63,7 +63,7 @@ testing_multi <- testing(split_multi)
 
 
 ## Der Plan für heute...
-### Vorlesung 
+### Vorlesung 7
 
 
 * Quiz und kurzes Recap logistische Regression
@@ -76,13 +76,80 @@ testing_multi <- testing(split_multi)
 ## Ablauf
 ### Aktualisierter Ablaufplan
 
+
+
 ```{r, message= FALSE, echo = FALSE, warning = FALSE}
 read_csv("/home/seb/LeibnizFH/bi_and_ds-lecture_notes/data/ablauf.csv") %>% 
   select(-`Slides C`, -`Slides D`) %>% 
-  select(-`Gruppe C`) %>% 
+  select(-`Gruppe D`) %>% 
   kable( escape = FALSE)  %>% 
-  kable_styling(font_size = 24)
+  kable_styling(font_size = 20)
 ```
+
+## Logistische Regression
+### Kurz-Recap
+
+* Die logistische Regression ist ein Modell zur binären Klassifikation und erfordert die Umwandlung der abhängigen Variable in eine Dummy-Variable (0 und 1) wobei 1 die interessante Klasse darstellt
+* Das Modell berechnet für jeden Datenpunkt eine Wahrscheinlichkeit, dass die Beobachtung zur interessanten Klasse gehört
+* Anhand eines Cut-Off Points $C$ wird entschieden, ob die Beobachtung zur interessanten Klasse gehört
+* Anschließend wird das Modell mit Konfusionsmatrix und Accuracy evaluiert, die einfachste und intuitivste Metrik ist, die aber Nachteile hat
+* Am Beispiel des Spam-Filters haben wir gesehen, dass Accuracy bei unbalancierten Datensätzen nicht ausreicht
+
+## Logistische Regression
+### Kurz-Recap
+
+* Die beiden folgenden Grafiken sind im Kontext der binären Klassifikation mit der logistischen Regression besonders wichtig:
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+::: {.fragment .fade-in}
+
+```{r,  message = FALSE, fig.height = 4, fig.width = 4, fig.align = "center"}
+
+binomial_smooth <- function(...) {
+  geom_smooth(method = "glm", method.args = list(family = "binomial"), ...)
+}
+
+ggplot(data= training, aes(x=energy, y = edm)) + 
+ geom_point() +
+  binomial_smooth(se= FALSE, color = "steelblue") + 
+  theme_minimal() + 
+  labs(x = "Energy", y = "EDM")
+
+```
+
+:::
+
+:::
+
+::: {.column width=50%}
+
+
+::: {.fragment .fade-in}
+
+```{r,  message = FALSE, fig.height = 4, fig.width = 4, fig.align = "center"}
+
+logistic <- logistic_reg() %>% 
+  set_engine("glm") %>% 
+  fit(edm_factor ~ energy, data = training)
+
+predictions <- augment(logistic, new_data = training, .predict = "response")
+
+yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>% 
+  autoplot(type = "heatmap") +
+  labs(x = "Wahrheit", y = "Vorhersage")
+
+```
+
+:::
+
+:::
+
+::::
+
+
 
 
 ## Modellevaluation
@@ -294,58 +361,63 @@ $$
 
 :::
 
-## Modellevaluation
-### Kosten von FP und FN
+<!-- ## Modellevaluation -->
+<!-- ### Kosten von FP und FN -->
 
-2. Identifikation einer ansteckenden Krankheit: Ein medizinisches Modell identifiziert eine ansteckende Krankheit mit der Eingabe weniger Symptome. Anschließend wird die Person isoliert und umfänglich getestet
+<!-- 2. Identifikation einer ansteckenden Krankheit: Ein medizinisches Modell identifiziert eine ansteckende Krankheit mit der Eingabe weniger Symptome. Anschließend wird die Person isoliert und umfänglich getestet -->
 
-* Fragen:
-  * Was ist die interessante Klasse aus Sicht einer Gesundheitsbehörde?
-  * Welche Fälle sind dann FN und FP?
-  * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden?
-
-
-::: {.notes}
-
-Antworten:
-
-  * Die interessante Klasse ist die Identifikation der Krankheit
-  * FN: Die Person ist krank, wird aber nicht isoliert
-  * FP: Die Person ist nicht krank, wird aber isoliert
-  * FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben
-:::
+<!-- * Fragen: -->
+<!--   * Was ist die interessante Klasse aus Sicht einer Gesundheitsbehörde? -->
+<!--   * Welche Fälle sind dann FN und FP? -->
+<!--   * Welche Fehlklassifikation ist teurer? Welches Maß sollte für das Modell maximiert werden? -->
 
 
-## Modellevaluation
-### Tauziehen zwischen Precision und Recall
+<!-- ::: {.notes} -->
 
-* Precision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt)
-* Dieses Tauziehen kann durch die Anpassung des Cut-Off Points $C$ beeinflusst werden
-* Zur Illustration noch einmal zurück zur interaktiven Visualisierung:
-  * [https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/](https://bi-and-ds-logistic-regression-qkwupfgvpq-ey.a.run.app/)
+<!-- Antworten: -->
 
-* Fragen:
-  * Was passiert mit Precision und Recall, wenn $C$ ansteigt (sinkt)?
-  * Für welche Werte von $C$ erhalten wir maximale Precision und Recall?
+<!--   * Die interessante Klasse ist die Identifikation der Krankheit -->
+<!--   * FN: Die Person ist krank, wird aber nicht isoliert -->
+<!--   * FP: Die Person ist nicht krank, wird aber isoliert -->
+<!--   * FN ist teurer, da die Krankheit weiterverbreitet wird, deshalb sollte das Modell einen hohen Recall haben -->
+<!-- ::: -->
 
 
 ## Modellevaluation
 ### Tauziehen zwischen Precision und Recall
-
-![Precision und Recall in Abhängigkeit von $C$. Quelle: @shen_actively_2009 ](img/Relationship-of-thresholds-and-matching-performance-precision-recall-and-f1-Measure){width=67%}
-
-
-## Logistische Regression
-### Mehrere unabhängige Variablen
 
 :::: {.columns}
 
 ::: {.column width=50%}
+
+* Precision und Recall sind in binären Klassifikationsmodellen oft invers proportional, eine Erhöhung von Precision führt zu einer Verringerung von Recall (und umgekehrt)
+* Dieses Tauziehen kann durch die Anpassung des Cut-Off Points $C$ beeinflusst werden
+
+:::
+
+::: {.column width=50%}
+
+![Precision und Recall in Abhängigkeit von $C$. Quelle: @shen_actively_2009 ](img/Relationship-of-thresholds-and-matching-performance-precision-recall-and-f1-Measure){width=80%}
+
+:::
+
+::::
+
+## Logistische Regression
+### Multiple Logistische Regression 
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+::: {style="font-size: 0.9em"}
+
 * Bisher haben wir nur eine unabhängige Variable, Energy, betrachtet
 * Da die Aufteilung jedoch nicht perfekt war, ist es sinnvoll, weitere Features zu verwenden, bspw. Danceability
 * Zur Identifikation geeigneter Variablen lassen sich erneut Box-Plots oder Violin-Plots verwenden
 * Zur Erinnerung: Auch Danceability scheint geeignet, um zwischen EDM und Klassik zu unterscheiden
 
+::: 
 
 :::
 
@@ -367,7 +439,7 @@ data %>%
 
 
 ## Logistische Regression
-### Mehrere unabhängige Variablen
+### Multiple Logistische Regression 
 
 * Bei der Hinzunahme mehrerer Variablen ist neben der Korrelation mit der abhängigen Variable auch die Korrelation zwischen den unabhängigen Variablen zu beachten
 * Bei hoher positiver Korrelation zwischen den Variablen ist es möglich, dass die Hinzunahme dieser Variablen zum Modell keinen zusätzlichen Informationsgewinn liefert
@@ -375,7 +447,7 @@ data %>%
 * Die Korrelation zwischen Danceability und Energy beträgt 0,8, ist also hoch, aber noch nicht bedenklich
 
 ## Logistische Regression
-### Mehrere unabhängige Variablen
+### Multiple Logistische Regression 
 
 
 :::: {.columns}
@@ -406,7 +478,7 @@ training %>%
 
 
 ## Logistische Regression
-### Mehrere unabhängige Variablen
+### Multiple Logistische Regression 
 
 
 ```{r}
@@ -425,7 +497,7 @@ coefficients_logistic <- tidy(logistic) %>%
 
 ```
 
-
+::: {style="font-size: 0.9em"}
 
 
 * Allgemein hat das logistische Modell mit mehreren unabhängigen Variablen die Form:
@@ -443,10 +515,12 @@ P(EDM = 1|\text{Energy, Danceability}) = \\ \frac{ e^{(\beta_0 + \beta_1 \cdot \
 $$
 :::
 
-## Logistische Regression
-### Mehrere unabhängige Variablen
+:::
 
-::: {style="font-size: 0.9em"}
+## Logistische Regression
+### Multiple Logistische Regression 
+
+::: {style="font-size: 0.88em"}
 
 * Die Koeffizienten für die unabhängigen Variablen sind:
 
@@ -466,6 +540,100 @@ coefficients_logistic %>% knitr::kable(digits = 4)
 
 :::
 
+::: {.notes}
+
+Hier zur Erinnerung die lineare Regression:
+
+Beispiel: 
+
+Miete = 500 + 25*Wohnfläche + 50*Zimmeranzahl
+
+Interpretation:
+
+* Jede zusätzliche Quadratmeter Wohnfläche erhöht die Miete um 25€
+* Jedes zusätzliche Zimmer erhöht die Miete um 50€
+
+
+:::
+
+
+## Logistische Regressoin
+### Multiple Logistische Regression
+
+
+
+::: {.fragment .fade-in}
+
+
+```{r, eval = TRUE, fig.height = 6, fig.width =6, fig.align = "center"}
+plot_probs <- function(model, var1, var2, n = 50, ...) {
+  nm1 <- deparse(substitute(var1))
+  nm2 <- deparse(substitute(var2))
+  df <- model.frame(model)
+  var1 <- df[[nm1]]
+  var2 <- df[[nm2]]
+  df <- df[-match(c(nm1, nm2), names(df))]
+  preds <- list(x = seq(min(var1), max(var1), length = n),
+                y = seq(min(var2), max(var2), length = n))
+  predlist <- setNames(c(preds, lapply(df, mean)), c(nm1, nm2, names(df)))
+  pred_df <- do.call("expand.grid", predlist)
+  Probability <- matrix(predict(model, newdata = pred_df, type = "response"),
+                        nrow = n)
+  persp(x = preds$x, y = preds$y, z = Probability, xlab = nm1, ylab = nm2,
+        ticktype = "detailed", zlim = c(0, 1), ...)
+}
+
+mmodel <- glm(edm_factor ~ energy + danceability, data = training, family = "binomial")
+
+
+plot_probs(mmodel, energy, danceability, theta = 45, phi = 30, col = "gold")
+```
+
+
+:::
+
+## Logistische Regression
+### Multiple Logistische Regression
+
+:::: {.columns}
+
+::: {.column width=40%}
+
+::: {style="font-size: 0.88em"}
+
+* Mit dem Scatter Plot lassen sich die Vorhersagen des Modells visualisieren und evaluieren
+* Auch für das Modell mit mehreren unabhängigen Variablen benötigen wir einen Cut-Off Point $C$, um die Vorhersagen in Klassen zu unterteilen
+* Die gestrichelte Linie ist die Decision Boundary für C = 0.5, also die Linie, auf der die Wahrscheinlichkeit für beide Klassen gleich 0,5 ist
+
+:::
+:::
+
+::: {.column width=60%}
+
+
+```{r, fig.height = 5, fig.width = 7}
+
+coefs <- coefficients_logistic %>% pull(estimate)
+slope <- coefs[2]/(-coefs[3])
+intercept <- coefs[1]/(-coefs[3]) 
+
+predictions %>% 
+  ggplot(aes(x = energy, y = danceability, shape = .pred_class, color = edm_factor)) +
+  geom_point(size = 3) +
+  labs(x = "Energy", y = "Danceability", shape = "Vorhersage", color = "Genre") +
+  xlim(0,1) + ylim(0,1) +
+  geom_abline(slope = slope, intercept = intercept, linetype = "dashed") +
+  ggtitle("Vorhersage aus dem multiplen Modell mit C = 0,5") + 
+  theme_minimal()
+
+
+```
+
+:::
+
+::::
+
+
 ## Logistische Regression
 ### Multiple Logistische Regression
 
@@ -474,7 +642,7 @@ coefficients_logistic %>% knitr::kable(digits = 4)
 
 ::: {.column width=55%}
 
-* Für das Modell mit zwei Variablen erhalten wir die Konfusionsmatrix auf der rechten Seite.
+* Für das Modell mit zwei Variablen und den Wert $C$ = 0.5 erhalten wir die Konfusionsmatrix auf der rechten Seite.
 * Accuracy, Precision, Recall und F1-Score sind:
 
 ::: {.fragment .fade-in}
@@ -535,46 +703,7 @@ yardstick::conf_mat(predictions, truth = edm_factor, estimate = .pred_class) %>%
 ::::
 
 
-## Logistische Regression
-### Multiple Logistische Regression
 
-:::: {.columns}
-
-::: {.column width=40%}
-
-::: {style="font-size: 0.93em"}
-
-* Mit dem Scatter Plot lassen sich die Vorhersagen des Modells visualisieren und evaluieren
-* Die gestrichelte Linie ist die Decision Boundary, also die Linie, auf der die Wahrscheinlichkeit für beide Klassen gleich 0,5 ist
-
-:::
-:::
-
-::: {.column width=60%}
-
-
-```{r, fig.height = 5, fig.width = 7}
-
-coefs <- coefficients_logistic %>% pull(estimate)
-slope <- coefs[2]/(-coefs[3])
-intercept <- coefs[1]/(-coefs[3]) 
-
-predictions %>% 
-  ggplot(aes(x = energy, y = danceability, shape = .pred_class, color = edm_factor)) +
-  geom_point(size = 3) +
-  labs(x = "Energy", y = "Danceability", shape = "Vorhersage", color = "Genre") +
-  xlim(0,1) + ylim(0,1) +
-  geom_abline(slope = slope, intercept = intercept, linetype = "dashed") +
-  ggtitle("Vorhersage aus dem multiplen Modell mit = 0,5") + 
-  theme_minimal()
-
-
-
-```
-
-:::
-
-::::
 
 
 ## Logistische Regression
@@ -651,7 +780,7 @@ p(y_i = k|X = x) = \frac{e^{\beta_{k0} + \beta_{k1}x_1 + ... + \beta_{kp}x_p}}{1
 $$
 :::
 
-und für die Referenzklasse $K$ mit
+* und für die Referenzklasse $K$ mit
 
 ::: {.fragment .fade-in}
 
@@ -748,25 +877,17 @@ beta_klassik_dance <- coefs_multi %>%
 
 
 ## Multinominale Logistische Regression
-### Wahrscheinlichkeit und Klassenzugehörigkeit
-
-* Auch das Modell der multinomialen logistischen Regression gibt für jede Klasse eine Wahrscheinlichkeit aus
-* Anders als im binären Modell wird jedoch nicht nur die Wahrscheinlichkeit für eine Klasse ausgegeben, sondern für alle Klassen
-* Die Klassenzugehörigkeit wird dann anhand der höchsten Wahrscheinlichkeit bestimmt, ein Cut-Off Point ist nicht notwendig
-
-
-## Multinominale Logistische Regression
 ### Prognose aus dem multinominalen Modell
 
 * Die Prognose für die jeweilligen Klassen erfolgt erneut durch einsetzen der Koeffizienten in die logistische Funktion
 * Für Hip-Hop erhalten wir beispielsweise
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.7em"}
 
 ::: {.fragment .fade-in}
 
 $$
-\operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
+\operatorname{\widehat{P}(Hip-Hop|\text{Energy, Dance})} = \\
 \frac{e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}}}{1 + e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}} +
 e^{`r round(intercept_klassik,2)`  `r round(beta_klassik_energy,2)` \cdot \text{Energy}  `r round(beta_klassik_dance,2)` \cdot \text{Dance}}}  
 $$
@@ -776,18 +897,68 @@ $$
 
 * Und für die Referenzklasse EDM:
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.7em"}
 
 ::: {.fragment .fade-in}
 
 $$
-\operatorname{\widehat{P}(Hip-Hop)|\text{Energy, Dance}} = \\
+\operatorname{\widehat{P}(EDM|\text{Energy, Dance)}} = \\
 \frac{1}{1 + e^{`r round(intercept_hip,2)`  `r round(beta_hip_energy,2)` \cdot \text{Energy} + `r round(beta_hip_dance,2)` \cdot \text{Dance}} +
 e^{`r round(intercept_klassik,2)`  `r round(beta_klassik_energy,2)` \cdot \text{Energy}  `r round(beta_klassik_dance,2)` \cdot \text{Dance}}}  
 $$
 :::
 
 :::
+
+
+
+## Multinominale Logistische Regression
+### Wahrscheinlichkeit und Klassenzugehörigkeit
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+
+* Auch das Modell der multinomialen logistischen Regression gibt für jede Klasse eine Wahrscheinlichkeit aus
+* Anders als im binären Modell wird nicht nur die Wahrscheinlichkeit für eine Klasse ausgegeben, sondern für alle Klassen
+* Die Klassenzugehörigkeit wird dann anhand der höchsten Wahrscheinlichkeit bestimmt, ein Cut-Off Point ist nicht notwendig
+
+:::
+
+::: {.column width=50%}
+
+::: {style="font-size: 0.5em"}
+
+::: {.fragment .fade-in}
+
+
+```{r}
+set.seed(1)
+predictions_multi %>% 
+  select(-speechiness, -track.explicit) %>% 
+  relocate(category, .after = .pred_class) %>% 
+  rename(pred_class = .pred_class,
+         p_EDM = .pred_EDM,
+        `p_Hip-Hop` =  `.pred_Hip-Hop` ,
+        p_Klassik =  .pred_Klassik ) %>% 
+  sample_n(10) %>% 
+  select(track.artist, track.name, category, p_EDM, `p_Hip-Hop`, p_Klassik) %>%
+  kable(digits = 4)
+
+
+```
+
+:::
+
+:::
+
+:::
+
+::::
+
+
+
 
 ## Multinominale Logistische Regression
 ### Prognose aus dem multinominalen Modell
@@ -898,7 +1069,7 @@ predictions_multi %>%
 * Aus diesem Grund ist es manchmal sinnvoll, die Metriken für jede Klasse einzeln zu betrachten
 * Für Precision:
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.75em"}
 
 ::: {.fragment .fade-in}
 
@@ -915,7 +1086,7 @@ $$
 
 * und für Recall:
 
-::: {style="font-size: 0.8em"}
+::: {style="font-size: 0.75em"}
 
 ::: {.fragment .fade-in}
 
@@ -967,8 +1138,75 @@ plot_probs(mmodel, energy, danceability, theta = 45, phi = 30, col = "gold")
 ```
 
 
+
+## Multinominale Logistische Regression
+### Aufgabe Evaluationsmetriken pro Klasse
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+* Gegeben ist die Konfusionsmatrix auf der rechten Seite
+* Fragen:
+  * Wie hoch ist Precision für Klassik?
+  * Wie hoch ist der Recall für das Genre Hip-Hop?
+
+:::
+
+::: {.column width=50%}
+
+
+
+```{r, fig.height = 5, fig.width = 5}
+
+predictions_multi %>%  
+  conf_mat(truth = category, estimate = .pred_class)  %>% 
+  autoplot(type = "heatmap") 
+
+```
+
+:::
+
+::::
+
+::: {.notes}
+
+Precision:
+
+EDM = 363/472 = 76.91%
+Hip-Hop =  479/614 = 78.01%
+Klassik = 534/537 = 99.44%
+
+
+Recall:
+
+EDM 363/490 = 74.08%
+Hip-Hop = 479/590 = 81.19%
+Klassik = 534/543 = 98.34%
+
+
+
+:::
+
+
+<!-- ## Multinominale Logistische Regression -->
+<!-- ### Lösung Evaluationsmetriken pro Klasse -->
+
+
+<!-- * Precision: -->
+<!--   * EDM = 363/(363+109+0) = 76.91% -->
+<!--   * Hip-Hop =  479/614 = 78.01% -->
+<!--   * Klassik = 534/537 = 99.44% -->
+<!-- * Recall: -->
+<!--   * EDM 363/(363+126+1) = 74.08% -->
+<!--   * Hip-Hop = 479/590 = 81.19% -->
+<!--   * Klassik = 534/543 = 98.34% -->
+
 ## Multinominale Logistische Regression
 ### Vergleich Aggregation vs. Einzelmetriken
+
+::: {style="font-size: 0.75em"}
 
 :::: {.columns}
 
@@ -992,7 +1230,9 @@ plot_probs(mmodel, energy, danceability, theta = 45, phi = 30, col = "gold")
 
 ::::
 
-* Da wir vornehmlich balancierte Klassen betrachten, ist Macro-Averaging in unsere Zwecke ausreichend
+* Da wir vornehmlich balancierte Klassen betrachten, ist Macro-Averaging für unsere Zwecke ausreichend
+
+:::
 
 ## Slide Title {visibility="hidden"}
 @james_introduction_2021
