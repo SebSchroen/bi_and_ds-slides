@@ -1012,7 +1012,14 @@
     "href": "08_VL.html#modellvergleich",
     "title": "Business Intelligence & Data Science",
     "section": "Modellvergleich",
-    "text": "Modellvergleich\n…and the Winner is?\n\nDie Modelle mit 2 erklärenden Variablen dienen primär der Illustration der Modellintuition und sind daher nicht unbedingt praxistauglich\nWelches Modell performt am besten auf den Testdaten?\n\n\n\n\n\n\n\n\n.metric\nLogistische Regression\n60-Nearest Neighbor\nEntscheidungsbaum 6 Nodes\n\n\n\n\naccuracy\n0.8478\n0.8521\n0.8472\n\n\nrecall\n0.8454\n0.8458\n0.8435\n\n\nprecision\n0.8479\n0.8575\n0.8488\n\n\nf_meas\n0.8464\n0.8481\n0.8453\n\n\n\n\n\n\n\n\n\n\nWenn auch knapp hat das Nearest Neighbor Modell mit \\(K = 60\\) die Nase vorn\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
+    "text": "Modellvergleich\n…and the Winner is?\n\nDie Modelle mit 2 erklärenden Variablen dienen primär der Illustration der Modellintuition und sind daher nicht unbedingt praxistauglich\nWelches Modell performt am besten auf den Testdaten?\n\n\n\n\n\n\n\n\n.metric\nLogistische Regression\n60-Nearest Neighbor\nEntscheidungsbaum 6 Nodes\n\n\n\n\naccuracy\n0.8478\n0.8521\n0.8472\n\n\nrecall\n0.8454\n0.8458\n0.8435\n\n\nprecision\n0.8479\n0.8575\n0.8488\n\n\nf_meas\n0.8464\n0.8481\n0.8453\n\n\n\n\n\n\n\n\n\n\nWenn auch knapp hat das Nearest Neighbor Modell mit \\(K = 60\\) die Nase vorn"
+  },
+  {
+    "objectID": "08_VL.html#organisatorisches",
+    "href": "08_VL.html#organisatorisches",
+    "title": "Business Intelligence & Data Science",
+    "section": "Orga*nisatorisches",
+    "text": "Orga*nisatorisches\nAusblick auf den letzten Doppelblock\n\nInhalte:\n\nAssoziationsanalyse\nGrundregeln der Visualisierung\n\nGruppenarbeit an der Probeklausur (30 Minuten)\nEvaluation und offenes Feedback (15 Minuten)\nBesprechung der Probeklausur (45-60 Minuten)\nFragen zur Vorlesung\nProbeklausur wird vorab hochgeladen\nFragen zur letzten Vorlesung bis zum 28. April per Mail\n\n\n\nBusiness Intelligence & Data Science, SoSe 2024"
   },
   {
     "objectID": "08_VL_D.html#der-plan-für-heute",

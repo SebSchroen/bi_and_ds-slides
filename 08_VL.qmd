@@ -1521,3 +1521,17 @@ rbind(logistic_eval, knn_eval, tree_eval) %>%
 * Wenn auch knapp hat das Nearest Neighbor Modell mit $K = 60$ die Nase vorn 
 
 
+
+## Orga*nisatorisches
+### Ausblick auf den letzten Doppelblock
+
+* Inhalte: 
+  * Assoziationsanalyse
+  * Grundregeln der Visualisierung
+* Gruppenarbeit an der Probeklausur (30 Minuten) 
+* Evaluation und offenes Feedback (15 Minuten)
+* Besprechung der Probeklausur (45-60 Minuten)
+* Fragen zur Vorlesung
+* Probeklausur wird vorab hochgeladen
+* Fragen zur letzten Vorlesung bis zum 28. April per Mail
+
