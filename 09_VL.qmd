@@ -1,0 +1,358 @@
+---
+title: "Business Intelligence & Data Science"
+subtitle: "Vorlesung 9"
+format:
+  revealjs:
+    incremental: true  
+---
+
+
+
+```{r}
+library(kableExtra)
+library(readr)
+library(magrittr)
+library(dplyr)
+library(ggplot2)
+```
+
+
+## Der Plan für heute...
+### Vorlesung 9 & 10
+
+* Probeklausur-Quiz
+* Modellgestützte Analysen
+  * Assoziationsanalyse
+* Informationsdistribution
+  * Grundlegeln der Visualisierung (optional, je nach Zeit)
+* Arbeit an der Probeklausur (45 Minuten)
+* Besprechung der Probeklausur (45 Minuten)
+* Evaluation
+* Fragen
+
+
+  
+  
+## Orientierung
+### Orientierung im BIA-Gesamtansatz
+
+  
+![BIA Gesamtansatz. Eigene Darstellung in Anlehnung an @baars_business_2021.](img/bia_ordnungsrahmen.drawio_final.png){width="65%"}
+
+
+## Modellgestützte Analysen
+### Assoziationsanalyse
+
+
+* Wird genutzt um Beziehungen zwischen Objekten aufzudecken, im Sinne von "Wenn-Dann-Regeln"
+* Oft in der Warenkorbanalyse eingesetzt
+* Basiert auf der Annahme, dass wenn ein Mensch Produkt kauft, auch andere Produkte kauft, die mit dem ersten Produkt assoziiert sind
+* Berühmte Beispiele: 
+  * Personen die Bier kaufen, kaufen auch oft Windeln
+  * Personen, die Ketchup kaufen, kaufen auch oft Senf
+  * Personen die Songs von Taylor Swift hören, hören auch oft Songs von Ed Sheeran
+  
+
+## Assoziationsanalyse
+### Playlist Generierung für Tofispy
+
+
+```{r, include = FALSE}
+
+user_sessions <- readRDS(url("https://github.com/SebSchroen/bi_and_ds-spotify/raw/main/cleandata/example_data_association_rule.RDS", "rb")) %>% 
+  rename(session.id = playlist.id)
+
+```
+
+::: {style="font-size: 0.85em"}
+
+
+* Zur Generierung von Playlists mit Empfehlungen für Tofispy, soll eine Assoziationsanalyse durchgeführt werden
+* Hierzu hat uns Tofispy neue Daten zur Verfügung gestellt:
+  1. `session.id`: Die ID der Session, in der die Songs abgespielt wurden.
+  2. `track.name`: Der Name des Songs.
+  3. `track.id`: Unique Identifier des Songs.
+  4. `track.artist`: Der Name des Künstlers, der Künstlerin oder der Band.
+  5. `track.artist.id`: Unique Identifier des Künstlers, der Künstlerin oder der Band.
+  6. `track.album.release.date`: Das Veröffentlichungsdatum des Albums, auf dem der Song erschienen ist.
+
+:::
+
+## Assoziationsanalyse
+### Playlist Generierung für Tofispy
+
+* Der Datensatz umfasst insgesamt 67.934 Beobachtungen 
+* `r n_distinct(user_sessions$session.id)` unterschiedliche Sessions mit
+`r n_distinct(user_sessions$track.id)` verschiedenen Songs von `r n_distinct(user_sessions$track.artist.id)` Künstlerinnen und Künstlern.
+* Die Songs bzw. Alben sind zwischen `r min(user_sessions$track.album.release_date)` und `r max(user_sessions$track.album.release_date)` erschienen.
+
+## Assoziationsanalyse
+### Terminologie
+
+
+
+
+* **Item**: Ein Element, das in einer Transaktion vorkommt. In unserem Fall ein Künstler oder eine Künstlerin, oder ein Song, bspw:
+
+::: {style="font-size: 0.5em"}
+
+::: {.fragment .fade-in}
+
+```{r}
+set.seed(6)
+user_sessions %>% 
+  sample_n(3) %>% 
+  select(track.artist) %>% 
+  kable() 
+
+
+```
+
+:::
+
+:::
+
+* **Item Set**: Eine Menge von Items wie zum Beispiel ein Warenkorb, eine Playlist oder in unserem Fall eine User-Session.
+
+::: {style="font-size: 0.5em"}
+
+::: {.fragment .fade-in}
+
+```{r}
+
+user_sessions %>% 
+  filter(session.id == "01vRjn0FEvnk4e6andtpZi") %>% 
+  select(session.id, track.artist, track.name) %>% 
+  kable()
+
+```
+
+:::
+
+:::
+
+## Assoziationsanalyse
+### Terminologie
+
+
+* **Support (S)**: Die Wahrscheinlichkeit, dass ein Item oder ein Item Set  X in einer Transaktion vorkommt:
+
+::: {.fragment .fade-in}
+
+$$
+S(X) = \frac{\# \text{Auftreten von } X}{\# \text{Transaktionen}}
+$$
+
+:::
+
+* Zum Beispiel tritt Eminem in `r user_sessions %>% filter(track.artist == "Eminem") %>%  distinct(session.id) %>%  nrow()` von `r n_distinct(user_sessions$session.id)` Sessions auf, also:
+
+::: {.fragment .fade-in}
+
+$$
+S(X) = \frac{`r user_sessions %>% filter(track.artist == "Eminem") %>%  distinct(session.id) %>%  nrow()` }{`r n_distinct(user_sessions$session.id)`} = `r user_sessions %>% filter(track.artist == "Eminem") %>%  distinct(session.id) %>%  nrow()/n_distinct(user_sessions$session.id)`
+$$
+
+:::
+
+## Assoziationsanalyse
+### Terminologie
+
+
+
+* **Confidence**: Auch Treffsicherheit genannt, ist die Wahrscheinlichkeit, dass Item oder Item Set Y auftritt, wenn auch X auftritt: 
+
+::: {style="font-size: 0.6em"}
+
+::: {.fragment .fade-in}
+
+$$
+C(X \Rightarrow Y) = \frac{S(X \cap Y)}{S(X)}
+$$
+:::
+
+:::
+
+* In unserem Fall ist Confidence die Wahrscheinlichkeit, dass ein Song von Künstler(in)  Y abgespielt wird, wenn ein Song von Künstler(in) X abgespielt wird, zum Beispiel:
+
+::: {style="font-size: 0.6em"}
+
+::: {.fragment .fade-in}
+
+$$
+C(\text{Foo Fighters} \Rightarrow \text{Nirvana}) = \frac{S( \text{Foo Fighters} \cap \text{Nirvana})}{S( \text{Nirvana})}
+$$
+:::
+
+:::
+
+* Wie oft treten Nirvana und Foo Fighters gemeinsam auf, geteilt durch die Wahrscheinlichkeit, dass nur Foo Fighters auftritt.
+
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE, include = FALSE }
+
+library(arules)
+library(arulesViz)
+session_artists <- user_sessions %>% 
+  distinct(session.id, track.artist)
+
+trans <- transactions(session_artists, cols = c("session.id", "track.artist"), format = "long")
+
+
+frequency <- itemFrequency(trans)
+
+frequency[attr(frequency, "name") == "Coolio"]
+
+
+
+rules <- apriori(trans, 
+               parameter = list(supp=0.01, conf=0.5, maxlen = 2,
+                                target= "rules"))
+
+
+inspect(rules)
+
+
+
+```
+
+## Assoziationsanalyse
+### Terminologie
+
+* **Lift**: Gibt an, wie viel wahrscheinlicher es ist, dass Y auftritt, wenn X auftritt, im Vergleich zu der Wahrscheinlichkeit, dass Y auftritt, unabhängig davon, ob X auftritt oder nicht:
+
+::: {.fragment .fade-in}
+
+$$
+L(X \Rightarrow Y) = \frac{C(X \Rightarrow Y)}{S(Y)} = \frac{S(X \cap Y)}{S(X) \cdot S(Y)}
+$$
+
+:::
+
+* L > 1 bedeutet, dass das Auftreten von X die Wahrscheinlichkeit erhöht, dass Y auftritt
+* L < 1 bedeutet, dass das Auftreten von X die Wahrscheinlichkeit verringert, dass Y auftritt
+
+
+
+
+## Assoziationsanalyse
+### A-Priori Algorithmus
+
+* In der Realität ist die Menge an möglichen Items und Item-Sets sehr groß, ebenso wie die Anzahl der Transaktionen
+* Der A-Priori Algorithmus ist ein effizienter Algorithmus, um Assoziationsregeln zu finden
+* Der A-Priori Algorithmus besteht aus zwei Schritten:
+
+1. **Generierung von Kandidaten-Item-Sets**: Der Algorithmus generiert alle möglichen Kandidaten-Item-Sets, die aus einem einzelnen Item bestehen, die den Mindest-Support  $S_{min}$ überschreiten.
+2. **Generierung von Assoziationsregeln**: Der Algorithmus generiert alle Assoziationsregeln, die den Mindest-Support und die Mindest-Confidence $C_{min}$ überschreiten
+
+## Assoziationsanalyse
+### A-Priori Algorithmus
+
+
+![Generierung von Item-Sets mit A-Priori Algorithmus. Visualisierung nach @ng_data_2018.](img/a-priori.png){width="80%"}
+
+
+
+
+## Assoziationsanalyse
+### Inspektion von Assoziationsregeln
+
+::: {style="font-size: 0.5em"}
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE, include = TRUE}
+
+inspectDT(head(rules, n = 10, by = "lift"))
+
+
+```
+
+:::
+
+## Assoziationsanalyse
+### Visualisierung als Matrix
+
+```{r message = FALSE, warning = FALSE, echo = FALSE, include = TRUE}
+
+plot(rules, method = "grouped", limit = 20)  + theme(axis.text.x = element_text(angle = 45))
+
+```
+
+
+
+## Assoziationsanalyse
+### Visualisierung als Netzwerk
+
+```{r fig.height = 5, fig.width = 10, message = FALSE, warning = FALSE, echo = FALSE, include = TRUE}
+
+library(htmlwidgets)
+library(visNetwork)
+plot(rules, method = "graph", engine = "htmlwidget")
+
+
+```
+
+
+
+* Bessere Ansicht siehe [hier](https://sebschroen.github.io/bi_and_ds-lecture_notes/d90cdc8d7878e4a3c323e2982bd6be988cb4dd33/predictive_analytics.html#assoziationsanalyse)
+
+
+## Slide Title {visibility="hidden"}
+ [siehe @muller_business_2013, S. 93].
+
+## Informationsbereitstellung
+### Letzter Schritt im BI-Prozess
+
+* Nachdem die Rohdaten in unser DWH geladen wurden, haben wir mit verschiedenen Methoden Informationen generiert, bspw. mit Grafiken, Tabellen aber auch mit modellbasierten Ansätzen
+* Die Informationsbereitstellung ist der letzte Schritt im BI-Prozess, in dem die Informationen den Nutzerinnen und Nutzern zur Verfügung gestellt werden.
+* Eine Möglichkeit zur Informationsbereitstellung sind Self-Service BI-Tools wie bspw. Superset.
+* Visualisierung ist dabei ein wichtiger Bestandteil und wir haben bereits die wichtigsten Visualisierungstypen betrachtet
+
+
+## Visualisierung
+### Grundregeln der Visualisierung
+
+Ein bekannter Regelsatz sind die SUCCESS Regeln nach Rolf Hichert: 
+
+1. **S**ay: Vermittle eine klare Botschaft mit jeder Grafik, jedem Report und jedem Dashboard.
+2. **U**nify: Vereinheitliche die Visualisierungssprache über alle Berichte und Dashboards hinweg.
+3. **C**ondense: Erhöhe die Informationsdichte und fokussiere auf das Wesentliche.
+4. **C**heck: Überprüfe die Visualisierung auf ihre Richtigkeit und Vollständigkeit.
+
+## Visualisierung
+### Grundregeln der Visualisierung
+
+5. **E**xpress:  Verwende die richtigen Visualisierungstypen, um schnell die gewünschte  Botschaft zu vermitteln.
+6. **S**implify: Vereinfache die Visualisierung, sodass sie intuitiv verstanden wird. Eliminiere Redundanzen und Rauschen.
+7. **S**tructure: Eine klare und einheitliche Ordnung der dargestellten Inhalte wird angestrebt, die Orientierung erfolgt an den Bedürfnissen und Interessen der Rezipierenden.
+
+
+## Visualisierung
+### Grundregeln der Visualisierung
+
+Hieraus lassen sich mehrere konkrete Empfehlungen ableiten: 
+
+* Eine einheitliche Semantik (Farben, Formen) zur Unterscheidung von Kategorien und Gruppen oder bspw. Ist- und Sollwerten.
+* Der Einsatz von einfachen und bekannten Visualisierungstypen, bspw. Balken- und Liniendiagramme oder Scatter Plots ist empfehlenswert,da diese nicht überfordern und die Botschaften mit einfachen Mitteln übertragen. 
+* Eine hohe Informationsdichte hilft, die Botschaften mit wenigen Grafiken zu übermitteln.
+* Die Vermeidung von 3D-Effekten, Schatten und anderen Effekten, die die Wahrnehmung der Daten beeinträchtigen.
+
+## Visualisierung
+### Grundregeln der Visualisierung
+
+
+* Vermeidung von inhaltsarmen aber platzraubenden Visualisierungen.
+* Vermeidung nicht zwingend notwendiger Verzierungen.
+* Vermeidung von redundanten und trivialen Visualisierungselementen, beispielsweise die Wiederholung identischer Legenden.
+* Klare Diagrammtitel und Achsenbeschriftungen sowie Report-Titel und die Beschriftung relevanter Datenpunkte.
+
+## Visualisierung
+### Grundregeln der Visualisierung
+
+* Bündelung von Visualisierungen, die eine gemeinsame Botschaft vermitteln.
+* Sparsamer und gezielter Einsatz von Farben.
+* Eine logische Ordnung von zeitbezogenen Daten von links nach rechts wobei ältere Datenpunkte links angesiedelt sein sollten.
+* Die Optische Hervorhebung botschaftsrelevanter Inhalte (Pfeile, farbliche Hervorhebung)
+
+
+## Quellen
+  
