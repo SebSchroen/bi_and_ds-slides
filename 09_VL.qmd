@@ -279,6 +279,7 @@ plot(rules, method = "grouped", limit = 20)  + theme(axis.text.x = element_text(
 
 
 
+
 ## Assoziationsanalyse
 ### Visualisierung als Netzwerk
 
